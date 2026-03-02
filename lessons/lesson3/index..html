@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>الفقه الميسر — المحاضرة الثالثة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0f1c3f;--gold:#c9973a;--gold-light:#e2b96f;--gold-pale:#f5e6c8;--cream:#faf7f0;--green:#1a6b4a;--red:#9b1c1c}
+body{font-family:'Tajawal',sans-serif;background:var(--cream);direction:rtl;min-height:100vh}
+.hdr{background:var(--navy);color:#fff;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hdr-logo{width:42px;height:42px;border-radius:50%;border:2px solid var(--gold);background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:1.2rem;color:var(--navy);font-weight:700;flex-shrink:0}
+.hdr-mid{text-align:center;flex:1;padding:0 6px}
+.hdr-title{font-family:'Amiri',serif;font-size:.95rem;color:var(--gold-light);font-weight:700}
+.hdr-sub{font-size:.68rem;color:#aab;margin-top:1px}
+.hdr-badge{background:var(--gold);color:var(--navy);font-size:.62rem;font-weight:700;padding:2px 6px;border-radius:8px;margin-top:2px;display:inline-block}
+.hdr-stu{font-size:.7rem;color:#ccc;text-align:left;min-width:80px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:var(--navy);display:flex;border-top:2px solid var(--gold);z-index:100}
+.nb{flex:1;padding:9px 0 7px;text-align:center;color:#777;font-size:.62rem;cursor:pointer;border:none;background:none;font-family:'Tajawal',sans-serif;transition:.2s}
+.nb.act{color:var(--gold);border-top:2px solid var(--gold);margin-top:-2px}
+.nb.lk{opacity:.4;cursor:not-allowed}
+.nb-ic{display:block;font-size:1.1rem;margin-bottom:1px}
+.main{padding:12px 13px 80px;max-width:680px;margin:0 auto}
+.wlc{min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.wlc-ic{width:80px;height:80px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:2rem;color:var(--gold);margin-bottom:16px}
+.wlc-t{font-family:'Amiri',serif;font-size:1.5rem;color:var(--navy);margin-bottom:4px}
+.wlc-s{font-size:.85rem;color:#888;margin-bottom:20px}
+.inp{width:100%;border:1.5px solid #ddd;border-radius:10px;padding:11px 13px;font-size:.92rem;font-family:'Tajawal',sans-serif;margin-bottom:10px;background:#fff;direction:rtl}
+.inp:focus{outline:none;border-color:var(--gold)}
+.btn{background:var(--navy);color:#fff;border:none;border-radius:12px;padding:12px 28px;font-size:.95rem;font-family:'Tajawal',sans-serif;cursor:pointer;width:100%;font-weight:700;transition:.2s}
+.btn:hover{background:#1a2d5a}
+.btn:disabled{background:#bbb;cursor:not-allowed}
+.btn-g{background:var(--green)}
+.btn-g:hover{background:#145a3a}
+.card{border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 7px rgba(0,0,0,.07)}
+.card h2{font-family:'Amiri',serif;font-size:1.1rem;color:var(--navy);margin-bottom:10px}
+.db{border-right:4px solid #0c4a6e;border-radius:8px;padding:9px 13px;margin:7px 0;font-size:.87rem;line-height:1.7;background:#f0f9ff}
+.db.g{background:#f0fdf4;border-right-color:var(--green)}
+.db.r{background:#fff1f2;border-right-color:var(--red)}
+.db.o{background:var(--gold-pale);border-right-color:var(--gold)}
+.tb{color:#0c4a6e;font-weight:700}
+.tg{color:var(--green);font-weight:700}
+.tr{color:var(--red);font-weight:700}
+.vb{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #d97706;border-radius:10px;padding:11px 14px;margin:9px 0;font-family:'Amiri',serif;font-size:.97rem;line-height:1.8;color:#78350f;text-align:center}
+.vb-ref{font-size:.73rem;margin-top:3px;color:#92400e}
+.li{padding:5px 0;font-size:.86rem;line-height:1.7;border-bottom:1px solid #eee}
+.li:last-child{border:none}
+.hl{background:var(--gold-pale);border:1px solid var(--gold);border-radius:8px;padding:9px 13px;font-size:.86rem;line-height:1.7;margin:8px 0}
+.wl{background:#fff1f2;border:1px solid #fca5a5;border-radius:8px;padding:9px 13px;font-size:.86rem;line-height:1.7;margin:8px 0}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:9px 0}
+.ib{background:#fff;border-radius:10px;padding:11px;border-top:3px solid;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.ib h4{font-size:.8rem;font-weight:700;margin-bottom:5px}
+.ib p{font-size:.78rem;line-height:1.6}
+.dv{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px 0}
+.prog{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.dot{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;border:2px solid #ddd;color:#999;transition:.3s}
+.dot.dn{background:var(--green);border-color:var(--green);color:#fff}
+.dot.cu{background:var(--navy);border-color:var(--navy);color:#fff}
+.aq{background:#fff;border:1.5px solid #e5e7eb;border-radius:11px;padding:12px;margin:9px 0;font-size:.88rem;line-height:1.6;color:var(--navy);font-weight:600}
+.ao{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}
+.aopt{background:#f9fafb;border:1.5px solid #e5e7eb;border-radius:9px;padding:8px 11px;font-size:.82rem;cursor:pointer;transition:.2s;text-align:center;font-family:'Tajawal',sans-serif;color:#374151}
+.aopt:hover{border-color:var(--gold);background:var(--gold-pale)}
+.aopt.cor{background:#dcfce7;border-color:var(--green);color:var(--green);font-weight:700}
+.aopt.wrg{background:#fee2e2;border-color:var(--red);color:var(--red)}
+.aopt.sa{background:#dcfce7;border-color:var(--green);color:var(--green);font-weight:700}
+.btn-rt{background:transparent;color:var(--gold);border:1.5px solid var(--gold);border-radius:9px;padding:7px 18px;font-size:.83rem;cursor:pointer;margin-top:7px;font-family:'Tajawal',sans-serif}
+.unlock{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:2px solid var(--green);border-radius:13px;padding:14px;text-align:center;margin:10px 0;animation:fi .5s}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.lock-box{background:#fffbeb;border:2px solid var(--gold);border-radius:13px;padding:20px;text-align:center;margin:20px 0}
+.lock-box p{color:#78350f;font-size:.88rem;line-height:1.7}
+.timer{background:var(--navy);color:var(--gold-light);border-radius:9px;padding:6px 13px;font-size:.8rem;font-weight:700;display:inline-block;margin-bottom:10px}
+.mm-title{font-family:'Amiri',serif;font-size:.97rem;color:var(--navy);background:var(--gold-pale);border:2px solid var(--gold);border-radius:9px;padding:7px 14px;text-align:center;margin-bottom:7px;font-weight:700}
+.mm-c{background:var(--navy);color:#fff;border-radius:10px;padding:9px 14px;text-align:center;font-weight:700;font-size:.88rem;margin:7px 0}
+.mm-gr{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mm-br{background:#fff;border:1.5px solid var(--gold);border-radius:9px;padding:9px}
+.mm-br h4{color:var(--navy);font-size:.79rem;font-weight:700;margin-bottom:5px;border-bottom:1px solid var(--gold-pale);padding-bottom:3px}
+.mm-br p{font-size:.76rem;color:#555;line-height:1.5}
+.sec-t{font-family:'Amiri',serif;font-size:.97rem;color:var(--navy);margin:13px 0 9px;border-right:4px solid var(--gold);padding-right:9px}
+.fc-cat{font-weight:700;font-size:.8rem;padding:5px 11px;border-radius:18px;margin:12px 0 7px;display:inline-block}
+.fc-gr{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.fc-cd{height:105px;perspective:600px;cursor:pointer}
+.fc-in{width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;position:relative}
+.fc-cd.fl .fc-in{transform:rotateY(180deg)}
+.fc-fr,.fc-bk{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:9px;text-align:center;font-size:.8rem}
+.fc-fr{color:#fff;font-weight:700}
+.fc-bk{transform:rotateY(180deg);font-size:.76rem;line-height:1.5;color:#333}
+.es-it{background:#fff;border-radius:11px;padding:13px;margin-bottom:9px;cursor:pointer;border:1.5px solid #e5e7eb;transition:.2s}
+.es-it:hover{border-color:var(--gold)}
+.es-q{font-weight:700;font-size:.86rem;color:var(--navy)}
+.es-a{font-size:.8rem;color:#555;line-height:1.6;margin-top:7px;border-top:1px solid #eee;padding-top:7px}
+.nw-cd{background:#fff;border-radius:13px;padding:15px;margin-bottom:13px;box-shadow:0 2px 6px rgba(0,0,0,.06);border-right:4px solid var(--gold)}
+.nw-tp{font-size:.7rem;font-weight:700;background:var(--navy);color:var(--gold-light);padding:2px 9px;border-radius:9px;display:inline-block;margin-bottom:7px}
+.nw-q{font-size:.86rem;color:#333;line-height:1.7;margin-bottom:9px}
+.nw-s{font-weight:700;color:var(--navy);font-size:.86rem;margin-bottom:9px}
+.nw-in{width:100%;border:1.5px solid #ddd;border-radius:9px;padding:8px;font-size:.83rem;font-family:'Tajawal',sans-serif;resize:none;direction:rtl;min-height:65px}
+.nw-in:focus{outline:none;border-color:var(--gold)}
+.btn-ev{background:var(--green);color:#fff;border:none;border-radius:9px;padding:7px 16px;font-size:.83rem;font-family:'Tajawal',sans-serif;cursor:pointer;margin-top:5px}
+.btn-ev:disabled{background:#aaa;cursor:not-allowed}
+.nw-rs{background:#f0fdf4;border:1px solid var(--green);border-radius:7px;padding:9px;margin-top:7px;font-size:.81rem;color:#333;line-height:1.7}
+.api-note{background:#fff7ed;border:1px solid #fed7aa;border-radius:7px;padding:9px;font-size:.79rem;color:#78350f;margin-bottom:11px}
+.qp-bar{background:#e5e7eb;border-radius:9px;height:5px;margin-bottom:14px;overflow:hidden}
+.qp-fill{background:var(--gold);height:100%;border-radius:9px;transition:.4s}
+.qz-q{font-size:.93rem;color:var(--navy);font-weight:700;margin-bottom:13px;line-height:1.6}
+.qz-op{background:#fff;border:1.5px solid #e5e7eb;border-radius:11px;padding:10px 14px;margin-bottom:7px;cursor:pointer;font-size:.86rem;transition:.2s;font-family:'Tajawal',sans-serif}
+.qz-op:hover{border-color:var(--gold);background:var(--gold-pale)}
+.qz-op.cor{background:#dcfce7;border-color:var(--green);font-weight:700}
+.qz-op.wrg{background:#fee2e2;border-color:var(--red)}
+.qz-dn{text-align:center;padding:28px 18px}
+.qz-sc{font-size:3rem;font-weight:700;color:var(--navy);font-family:'Amiri',serif}
+.dash-ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:14px}
+.dash-bx{background:#fff;border-radius:15px;padding:18px;width:100%;max-width:520px;max-height:85vh;overflow-y:auto}
+.dash-t{font-family:'Amiri',serif;font-size:1.05rem;color:var(--navy);margin-bottom:12px;text-align:center}
+.dash-in{width:100%;border:1.5px solid #ddd;border-radius:8px;padding:8px;font-size:.83rem;font-family:'Tajawal',sans-serif;margin-bottom:7px;direction:rtl}
+.dtb{width:100%;border-collapse:collapse;font-size:.78rem;margin-top:9px}
+.dtb th{background:var(--navy);color:#fff;padding:7px 9px;text-align:center}
+.dtb td{padding:6px 9px;border-bottom:1px solid #eee;text-align:center}
+.gear{background:transparent;border:1.5px solid var(--gold-light);border-radius:7px;color:var(--gold-light);padding:4px 9px;font-size:.73rem;cursor:pointer;font-family:'Tajawal',sans-serif}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useEffect}=React;
+
+const DB='fiqh_lec3_v2';
+
+const fmtDur=(ms)=>{
+  if(!ms||ms<=0)return'—';
+  const t=Math.floor(ms/1000);
+  const h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
+  if(h>0)return h+'س '+m+'د '+s+'ث';
+  if(m>0)return m+'د '+s+'ث';
+  return s+'ث';
+};
+
+const getConf=(k)=>{try{return localStorage.getItem(DB+'_c_'+k)||''}catch{return''}};
+const setConf=(k,v)=>{try{localStorage.setItem(DB+'_c_'+k,v)}catch{}};
+const getRecs=()=>{try{return JSON.parse(localStorage.getItem(DB+'_r')||'[]')}catch{return[]}};
+const saveRec=(r)=>{try{const a=getRecs();a.push(r);localStorage.setItem(DB+'_r',JSON.stringify(a))}catch{}};
+const clearRecs=()=>{try{localStorage.removeItem(DB+'_r')}catch{}};
+
+// ──────────────────────────────────────────────
+// TOPIC CONTENT RENDERERS
+// ──────────────────────────────────────────────
+function TopicContent1(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db'},
+      React.createElement('span',{className:'tb'},'لغةً: '),
+      'الثبوت والدوام، يقال: رهنَ الشيءُ أي ثبتَ ودامَ.'
+    ),
+    React.createElement('div',{className:'db g'},
+      React.createElement('span',{className:'tg'},'شرعاً: '),
+      'جعلُ عينٍ ماليةٍ وثيقةً بدينٍ؛ ليُستَوفى منها أو من ثمنها إذا تعذَّر الوفاء.'
+    ),
+    React.createElement('div',{className:'vb'},
+      'فَرِهَانٌ مَّقْبُوضَةٌ',
+      React.createElement('div',{className:'vb-ref'},'البقرة: 283')
+    ),
+    React.createElement('div',{className:'hl'},
+      React.createElement('span',{className:'tb'},'الحكمة: '),
+      'التقييد بالسفر في الآية خرج مخرج الغالب، فالرهن جائز في الحضر أيضاً؛ لأن النبي صلى الله عليه وسلم رهن درعه عند يهودي وهو في المدينة.'
+    )
+  );
+}
+
+function TopicContent2(){
+  return React.createElement('div',null,
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:8,fontSize:'.88rem'}},'أهم أحكام الرهن:'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tr'},'لا يصح: '),'رهن ما لا يجوز بيعه كالوقف والكلب؛ لأنه لا يمكن إيفاء الدين منه.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'يُشترط: '),'معرفة قدر الرهن وجنسه وصفته.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'للراهن: '),'التصرف في الرهن بإذن المرتهن. وليس للمرتهن التصرف بغير رضى الراهن.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tb'},'أمانة: '),'المرهون في يد المرتهن أمانة لا يضمنه إلا بتعدٍّ. وإذا حل الدين وجب على المدين سداده.'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('div',{className:'ig'},
+      React.createElement('div',{className:'ib',style:{borderTopColor:'var(--green)'}},
+        React.createElement('h4',{style:{color:'var(--green)'}},'المركوب والمحلوب'),
+        React.createElement('p',null,'يجوز للمرتهن ركوبه وحلبه إذا أنفق عليه.')
+      ),
+      React.createElement('div',{className:'ib',style:{borderTopColor:'var(--red)'}},
+        React.createElement('h4',{style:{color:'var(--red)'}},'امتناع المدين'),
+        React.createElement('p',null,'إذا امتنع أجبره الحاكم أو حبسه وعزّره حتى يُوفي.')
+      )
+    )
+  );
+}
+
+function TopicContent3(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db'},React.createElement('span',{className:'tb'},'تعريفه: '),'السَّلَم والسَّلَف بمعنى واحد: بيعُ سلعةٍ آجلةٍ موصوفةٍ في الذمة بثمنٍ مُقَدَّم.'),
+    React.createElement('div',{className:'hl'},React.createElement('span',{className:'tb'},'الحكمة: '),'أجازته الشريعة توسيعاً؛ فالمزارع قد لا يملك نقداً لإصلاح أرضه فأُبيح له السَّلَم.'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:7,fontSize:'.88rem'}},'شروط صحة السلم:'),
+    React.createElement('div',{className:'li'},'1 - أن يكون المُسلَم فيه مما يمكن ضبط صفاته بكيلٍ أو وزنٍ أو ذرعٍ.'),
+    React.createElement('div',{className:'li'},'2 - معرفة قدر المُسلَم فيه بمعياره الشرعي.'),
+    React.createElement('div',{className:'li'},'3 - ذكر جنس المُسلَم فيه ونوعه وصفاته المميزة.'),
+    React.createElement('div',{className:'li'},'4 - أن يكون ديناً في الذمة مؤجلاً والأجل معلوم من الطرفين.'),
+    React.createElement('div',{className:'li'},'5 - أن يُقبض الثمن كاملاً معلوماً في مجلس العقد قبل تفرقهما.'),
+    React.createElement('div',{className:'wl'},React.createElement('span',{className:'tr'},'تنبيه: '),'لا يصح السلم في شيء يَغلب عدم وجوده عند حلول الأجل؛ كالرطب في الشتاء، لأنه غرر.')
+  );
+}
+
+function TopicContent4(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db g'},React.createElement('span',{className:'tg'},'الحوالة: '),'نقلُ الدين من ذمة المُحيل إلى ذمة المُحَال عليه.'),
+    React.createElement('div',{className:'vb'},
+      'إذا أُتبِعَ أحدُكم على مَلِيءٍ فَلْيَتَّبِعْ',
+      React.createElement('div',{className:'vb-ref'},'حديث متفق عليه — دليل مشروعية الحوالة')
+    ),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:6,fontSize:'.88rem'}},'شروط صحة الحوالة:'),
+    React.createElement('div',{className:'li'},'1 - رضا المُحيل؛ لأنه مُخَيَّر في جهات قضاء الدين.'),
+    React.createElement('div',{className:'li'},'2 - كون المالين متفقَيْن قدراً وجنساً وصفةً.'),
+    React.createElement('div',{className:'li'},'3 - أن يكون المُحال به ديناً مستقراً في ذمة المُحَال عليه.'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('div',{className:'ig'},
+      React.createElement('div',{className:'ib',style:{borderTopColor:'var(--green)'}},
+        React.createElement('h4',{style:{color:'var(--green)'}},'الحوالة المصرفية'),
+        React.createElement('p',null,'وسيلة لسداد مبالغ نقدية مقابل تسديد مقابلها في جهة أخرى.')
+      ),
+      React.createElement('div',{className:'ib',style:{borderTopColor:'#1e3a5f'}},
+        React.createElement('h4',{style:{color:'#1e3a5f'}},'السُّفْتَجة'),
+        React.createElement('p',null,'رقعة يكتبها المستقرض لنائبه في بلد آخر؛ جائزة لمصلحة الطرفين.')
+      )
+    ),
+    React.createElement('div',{className:'hl'},React.createElement('span',{className:'tb'},'مهم: '),'إذا أحال المدين دائنه على مفلس رجع بحقه؛ لأن الإفلاس عيب ولم يرضَ به.')
+  );
+}
+
+function TopicContent5(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db'},React.createElement('span',{className:'tb'},'الوكالة: '),'تفويضُ شخصٍ غيرَه؛ ليقوم مقامه فيما تدخله النيابة.'),
+    React.createElement('div',{className:'vb'},
+      'فَابْعَثُوا أَحَدَكُم بِوَرِقِكُمْ هَذِهِ إِلَى الْمَدِينَةِ',
+      React.createElement('div',{className:'vb-ref'},'الكهف: 19 — دليل مشروعية الوكالة')
+    ),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:6,fontSize:'.88rem'}},'أهم أحكام الوكالة:'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'شرط الطرفين: '),'أن يكون كل منهما جائز التصرف، بالغاً عاقلاً رشيداً.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'ما تصح فيه: '),'البيع والشراء وسائر العقود، والفسوخ كالطلاق، والعبادات كالزكاة والحج.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tr'},'ما لا تصح فيه: '),'ما لا تدخله النيابة من حقوق الله كالطهارة والصلاة.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tb'},'الوكيل أمين: '),'لا يضمن فيما وكّل فيه إلا إذا فرَّط أو تعدَّى.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tr'},'تبطل بـ: '),'موت أحد الطرفين أو جنونه أو فسخه أو عزل الموكِّل للوكيل.')
+  );
+}
+
+function TopicContent6(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db'},React.createElement('span',{className:'tb'},'الكفالة: '),'التزامُ إحضار مَنْ عليه حقٌّ ماليٌّ لربِّه إلى مجلس الحكم.'),
+    React.createElement('div',{className:'db g'},React.createElement('span',{className:'tg'},'الضمان: '),'التزامُ ما وجب على غيره، وهو جائز؛ لقوله صلى الله عليه وسلم: الزعيم غارم.'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:6,fontSize:'.88rem'}},'أركان الكفالة الخمسة:'),
+    React.createElement('div',{className:'hl'},'الصيغة + الكفيل + المكفول له + المكفول عنه + المكفول به'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:6,fontSize:'.88rem'}},'من أحكام الكفالة والضمان:'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'تصح الكفالة: '),'ببدن كل إنسان عليه حق مالي.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tr'},'لا تصح: '),'الكفالة ببدن من عليه حد أو قصاص.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tb'},'الضمان: '),'لا يجوز أخذ عوض عليه، ويصح بالمجهول إذا آل إلى العلم.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tb'},'إبراء الضامن: '),'لا تبرأ ذمته إلا بإبراء المضمون عنه من الدين أو قضاء.')
+  );
+}
+
+function TopicContent7(){
+  return React.createElement('div',null,
+    React.createElement('div',{className:'db'},React.createElement('span',{className:'tb'},'لغةً: '),'المنع.'),
+    React.createElement('div',{className:'db g'},React.createElement('span',{className:'tg'},'شرعاً: '),'منعُ إنسانٍ من التصرف في ماله.'),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('div',{className:'ig'},
+      React.createElement('div',{className:'ib',style:{borderTopColor:'var(--green)'}},
+        React.createElement('h4',{style:{color:'var(--green)'}},'النوع الأول'),
+        React.createElement('p',null,'لمصلحة المحجور: كالصبي والمجنون والسفيه.')
+      ),
+      React.createElement('div',{className:'ib',style:{borderTopColor:'#1e3a5f'}},
+        React.createElement('h4',{style:{color:'#1e3a5f'}},'النوع الثاني'),
+        React.createElement('p',null,'لمصلحة غيره: كالمفلس والمريض مرض الموت والعبد.')
+      )
+    ),
+    React.createElement('div',{className:'dv'}),
+    React.createElement('h4',{style:{color:'var(--navy)',marginBottom:6,fontSize:'.88rem'}},'يزول الحجر عن الصغير بـ:'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tb'},'البلوغ: '),'بعلاماته المعروفة.'),
+    React.createElement('div',{className:'li'},React.createElement('span',{className:'tg'},'الرشد: '),'الصلاح في المال — لا يبذّر ولا ينفق في حرام.'),
+    React.createElement('div',{className:'wl'},React.createElement('span',{className:'tr'},'تنبيه: '),'لا يُمَكَّن المدين المُفلَس من التبرع في ماله لضرره بأصحاب الديون. وللحاكم بيع ماله وتقسيمه.')
+  );
+}
+
+const TOPIC_CONTENTS=[TopicContent1,TopicContent2,TopicContent3,TopicContent4,TopicContent5,TopicContent6,TopicContent7];
+
+const TOPICS=[
+  {id:1,title:'الرهن — التعريف والمشروعية',bg:'#f0fdf4',icon:'🔒',
+   acts:[
+    {q:'ما تعريف الرهن شرعاً؟',opts:['تمليك عين بعوض','جعل عين مالية وثيقة بدين','نقل الدين من ذمة لذمة','إلزام شخص بأداء حق'],ans:1},
+    {q:'ما الدليل على مشروعية الرهن من القرآن؟',opts:['آية الكرسي','فرهانٌ مقبوضة البقرة 283','أوفوا بالعقود','وأحل الله البيع'],ans:1}
+  ]},
+  {id:2,title:'الرهن — الأحكام المتعلقة به',bg:'#eff6ff',icon:'⚖️',
+   acts:[
+    {q:'هل يصح رهن الوقف؟',opts:['نعم مطلقاً','نعم بإذن القاضي','لا يصح','يصح بشروط'],ans:2},
+    {q:'ما حكم تصرف المرتهن في الرهن بغير رضى الراهن؟',opts:['جائز مطلقاً','جائز إن كان حيواناً','لا يجوز','جائز بإذن القاضي'],ans:2}
+  ]},
+  {id:3,title:'السلم — التعريف والشروط',bg:'#fff7ed',icon:'📦',
+   acts:[
+    {q:'ما تعريف السلم؟',opts:['قرض مؤجل','بيع سلعة آجلة بثمن مقدم','رهن بضاعة','كفالة بيع'],ans:1},
+    {q:'متى يُقبض ثمن السلم؟',opts:['خلال أسبوع','عند تسليم السلعة','كاملاً في مجلس العقد','يجوز تأجيله'],ans:2}
+  ]},
+  {id:4,title:'الحوالة — التعريف والشروط',bg:'#fdf4ff',icon:'🔄',
+   acts:[
+    {q:'ما تعريف الحوالة؟',opts:['توكيل شخص بقبض دين','إعطاء وثيقة مالية','نقل الدين من ذمة المحيل لذمة المحال عليه','إبراء المدين'],ans:2},
+    {q:'ما الشرط الأول لصحة الحوالة؟',opts:['رضا المحال عليه','رضا المحيل','رضا القاضي','رضا الدائن'],ans:1}
+  ]},
+  {id:5,title:'الوكالة — التعريف والأحكام',bg:'#ecfdf5',icon:'🤝',
+   acts:[
+    {q:'ما تعريف الوكالة؟',opts:['التزام دين الغير','تفويض شخص غيره ليقوم مقامه','نقل الملكية','منع التصرف'],ans:1},
+    {q:'ما الذي لا تصح فيه الوكالة؟',opts:['الحج والزكاة','البيع والشراء','الطهارة والصلاة','الطلاق'],ans:2}
+  ]},
+  {id:6,title:'الكفالة والضمان',bg:'#fefce8',icon:'🛡️',
+   acts:[
+    {q:'ما تعريف الكفالة؟',opts:['التزام ما وجب على الغير','نقل الدين','التزام إحضار من عليه حق مالي','توكيل بقضاء دين'],ans:2},
+    {q:'كم عدد أركان الكفالة؟',opts:['ثلاثة','أربعة','خمسة','ستة'],ans:2}
+  ]},
+  {id:7,title:'الحجر — المعنى والأنواع',bg:'#f0fdf4',icon:'🚫',
+   acts:[
+    {q:'ما تعريف الحجر شرعاً؟',opts:['منع الإنسان من التصرف في ماله','حبس المدين','إلزامه بالسداد','مصادرة أمواله'],ans:0},
+    {q:'بماذا يزول الحجر عن الصغير؟',opts:['بالبلوغ وحده','بالرشد وحده','بالبلوغ والرشد معاً','بقرار القاضي وحده'],ans:2}
+  ]}
+];
+
+const MINDMAPS=[
+  {title:'الرهن والسلم',center:'عقود التوثيق والبيع الآجل',
+   branches:[
+    {title:'الرهن',text:'تعريفه — دليله — شروطه — أحكامه'},
+    {title:'السلم',text:'تعريفه — دليله — شروطه الثمانية'},
+    {title:'الفرق',text:'الرهن توثيق للدين، والسلم بيع موصوف بثمن معجل'},
+    {title:'الحكمة التشريعية',text:'تيسير المعاملات، دفع الحرج، توثيق الحقوق'}
+  ]},
+  {title:'الحوالة والوكالة',center:'عقود النيابة والتحويل',
+   branches:[
+    {title:'الحوالة',text:'نقل الدين — شروطها الثلاثة — صورها المعاصرة'},
+    {title:'الوكالة',text:'التفويض — شروطها — ما تصح فيه وما لا'},
+    {title:'الوكيل أمين',text:'لا يضمن إلا بتعدٍّ أو تفريط'},
+    {title:'الانتهاء',text:'تبطل بالموت والجنون والفسخ'}
+  ]},
+  {title:'الكفالة والضمان',center:'عقود الالتزام',
+   branches:[
+    {title:'الكفالة',text:'التزام الإحضار — أركانها الخمسة'},
+    {title:'الضمان',text:'التزام دين الغير — لا عوض عليه'},
+    {title:'الفرق',text:'الكفالة: إحضار الشخص. الضمان: التزام الدين'},
+    {title:'الإبراء',text:'لا تبرأ الذمة إلا بإبراء المضمون عنه أو القضاء'}
+  ]},
+  {title:'الحجر',center:'الحجر على التصرف',
+   branches:[
+    {title:'النوع الأول',text:'لمصلحة المحجور: صبي، مجنون، سفيه'},
+    {title:'النوع الثاني',text:'لمصلحة غيره: مفلس، مريض الموت، عبد'},
+    {title:'رفع الحجر',text:'عن الصغير: البلوغ + الرشد'},
+    {title:'المفلس',text:'يُمنع من التبرع والتصرف الضار بالغرماء'}
+  ]}
+];
+
+const FLASHCARDS=[
+  {cat:'الرهن',color:'#1a6b4a',light:'#dcfce7',border:'#14532d',f:'تعريف الرهن شرعاً',b:'جعل عين مالية وثيقة بدين؛ ليُستَوفى منها إذا تعذَّر الوفاء'},
+  {cat:'الرهن',color:'#1a6b4a',light:'#dcfce7',border:'#14532d',f:'دليل مشروعية الرهن',b:'فرهانٌ مقبوضة (البقرة:283) + رهن النبي صلى الله عليه وسلم درعه عند يهودي'},
+  {cat:'الرهن',color:'#1a6b4a',light:'#dcfce7',border:'#14532d',f:'هل المرهون أمانة أم مضمون؟',b:'أمانة في يد المرتهن؛ لا يضمنه إلا بالتعدي أو التفريط'},
+  {cat:'السلم',color:'#0c4a6e',light:'#dbeafe',border:'#1e3a5f',f:'تعريف السلم',b:'بيع سلعة آجلة موصوفة في الذمة بثمن مُقَدَّم معجَّل'},
+  {cat:'السلم',color:'#0c4a6e',light:'#dbeafe',border:'#1e3a5f',f:'متى يُقبض الثمن في السلم؟',b:'كاملاً معلوماً في مجلس العقد قبل تفرق الطرفين'},
+  {cat:'السلم',color:'#0c4a6e',light:'#dbeafe',border:'#1e3a5f',f:'لماذا لا يصح سلَم الرطب شتاءً؟',b:'غرر؛ يجب أن يغلب وجود المسلَم فيه عند حلول الأجل'},
+  {cat:'الحوالة والوكالة',color:'#134e4a',light:'#ccfbf1',border:'#164e63',f:'تعريف الحوالة',b:'نقل الدين من ذمة المُحيل إلى ذمة المُحَال عليه'},
+  {cat:'الحوالة والوكالة',color:'#134e4a',light:'#ccfbf1',border:'#164e63',f:'شروط الحوالة الثلاثة',b:'رضا المحيل + اتفاق المالين + استقرار الدين في ذمة المحال عليه'},
+  {cat:'الحوالة والوكالة',color:'#134e4a',light:'#ccfbf1',border:'#164e63',f:'تعريف الوكالة',b:'تفويض شخص غيره ليقوم مقامه فيما تدخله النيابة'},
+  {cat:'الحوالة والوكالة',color:'#134e4a',light:'#ccfbf1',border:'#164e63',f:'ما لا تصح فيه الوكالة',b:'ما لا تدخله النيابة من حقوق الله كالطهارة والصلاة'},
+  {cat:'الكفالة والضمان',color:'#7f1d1d',light:'#fee2e2',border:'#9a3412',f:'تعريف الكفالة',b:'التزام إحضار مَنْ عليه حق مالي لربِّه إلى مجلس الحكم'},
+  {cat:'الكفالة والضمان',color:'#7f1d1d',light:'#fee2e2',border:'#9a3412',f:'أركان الكفالة',b:'الصيغة + الكفيل + المكفول له + المكفول عنه + المكفول به'},
+  {cat:'الكفالة والضمان',color:'#7f1d1d',light:'#fee2e2',border:'#9a3412',f:'تعريف الضمان',b:'التزام ما وجب على الغير؛ والزعيم غارم'},
+  {cat:'الحجر',color:'#0f1c3f',light:'#e0e7ff',border:'#1e1b4b',f:'تعريف الحجر شرعاً',b:'منع إنسان من التصرف في ماله'},
+  {cat:'الحجر',color:'#0f1c3f',light:'#e0e7ff',border:'#1e1b4b',f:'نوعا الحجر',b:'1 - لمصلحة المحجور (صبي، مجنون، سفيه) | 2 - لمصلحة غيره (مفلس، مريض الموت، عبد)'},
+  {cat:'الحجر',color:'#0f1c3f',light:'#e0e7ff',border:'#1e1b4b',f:'كيف يزول الحجر عن الصغير؟',b:'بالبلوغ (العلامات الشرعية) + الرشد (الصلاح في المال)'}
+];
+
+const NAWAZIL=[
+  {topic:'الرهن',q:'اشترى زيد سيارة بالتقسيط وأراد البنك أن يحتفظ بوثيقتها حتى سداد كامل الثمن.',s:'ما حكم احتفاظ البنك بالوثيقة رهناً حتى سداد الدين؟'},
+  {topic:'الرهن',q:'رهن أحمد بيته لدى دائنه، ثم طالب الدائن باستخدام البيت والسكن فيه بدون إذن الراهن.',s:'ما حكم سكن المرتهن في المرهون بغير إذن الراهن؟'},
+  {topic:'السلم',q:'اتفق مزارع مع تاجر على بيع محصول قمح بمواصفات محددة تُسلَّم بعد ستة أشهر، ودفع التاجر الثمن فوراً.',s:'هل هذا عقد سلم صحيح؟ وما شروطه؟'},
+  {topic:'السلم',q:'طلب محمد من مورّده تسليم كميات من التمر في رمضان القادم بثمن دفعه الآن، دون تحديد نوع التمر.',s:'ما حكم هذا العقد لعدم تحديد نوع التمر؟'},
+  {topic:'الحوالة',q:'طلب خالد من صاحبه أن يُحيله على مدينه سالم لاستيفاء دينه، وسالم معسر.',s:'ما الحكم إذا أحاله على مفلس ولم يعلم بإفلاسه؟'},
+  {topic:'الوكالة',q:'وكَّل رجل ابنه البالغ ببيع سيارته، فباعها الابن بأقل من السعر المحدد دون إذن أبيه.',s:'ما حكم البيع؟ وهل يضمن الوكيل الفرق؟'},
+  {topic:'الكفالة',q:'كفل رامي صديقه في شراء معدات بقيمة كبيرة، وأفلس الصديق ولم يُسدِّد.',s:'هل يلزم الكفيل رامي بسداد الدين؟ وما الشروط؟'},
+  {topic:'الضمان',q:'ضمن موظف استيراد سلعة لشركة أجنبية بمبلغ مجهول، وقبِل بضمانه مهما كان.',s:'هل يصح ضمان المجهول؟ وما شروط الضمان؟'},
+  {topic:'الحجر',q:'مدين عليه ديون تفوق أمواله، وأراد أن يهب سيارته لابنه قبل صدور حكم الإفلاس.',s:'ما حكم هذه الهبة؟ وما أثر الحجر على المفلس؟'},
+  {topic:'الحجر',q:'يتيم بلغ الثامنة عشرة من عمره وطالب وليّه بتسليمه أمواله فوراً.',s:'ما الشرط الإضافي لرفع الحجر بعد البلوغ؟'}
+];
+
+const ESSAYS=[
+  {q:'عرِّف الرهن وبيِّن دليل مشروعيته.',a:'الرهن: جعل عين مالية وثيقة بدين ليُستَوفى منها إذا تعذَّر الوفاء. دليله: فرهانٌ مقبوضة (البقرة:283)، وحديث رهن النبي صلى الله عليه وسلم درعه.'},
+  {q:'ما شروط صحة السلم؟ (اذكر أربعة)',a:'1- ضبط المسلَم فيه بكيل أو وزن. 2- معرفة قدره. 3- ذكر جنسه ونوعه وصفاته. 4- كونه ديناً في الذمة مؤجلاً. 5- قبض الثمن كاملاً في المجلس.'},
+  {q:'عرِّف الحوالة وما شروطها؟',a:'الحوالة: نقل الدين من ذمة المُحيل إلى ذمة المُحَال عليه. شروطها: رضا المُحيل، اتفاق المالين قدراً وجنساً وصفةً، استقرار الدين في ذمة المحال عليه.'},
+  {q:'ما أهم أحكام الوكالة؟',a:'تصح في البيع والشراء وسائر العقود والعبادات. لا تصح في الطهارة والصلاة. الوكيل أمين لا يضمن إلا بتعدٍّ. تبطل بموت أحد الطرفين أو جنونه.'},
+  {q:'ما الفرق بين الكفالة والضمان؟',a:'الكفالة: التزام إحضار الشخص إلى مجلس الحكم. الضمان: التزام ما وجب على الغير من المال. الكفالة في الأشخاص والضمان في الأموال.'},
+  {q:'ما أنواع الحجر مع مثال لكل نوع؟',a:'النوع الأول: لمصلحة المحجور — كالصبي والمجنون والسفيه. النوع الثاني: لمصلحة غيره — كالمفلس لحماية الغرماء، والمريض مرض الموت لحماية الورثة.'},
+  {q:'بماذا يزول الحجر عن الصغير؟',a:'يزول بأمرين: البلوغ (بعلاماته المعروفة) + الرشد (الصلاح في المال بعدم التبذير والإنفاق في حرام).'},
+  {q:'ما حكم رهن ما لا يجوز بيعه؟',a:'لا يصح رهنه؛ لأن الرهن وثيقة بالدين يُستَوفى منها، وما لا يمكن بيعه كالوقف والكلب لا يمكن الوفاء منه.'},
+  {q:'ما الصور المعاصرة للحوالة؟',a:'الحوالة المصرفية: دفع مبلغ لبنك ليُسدَّد في بنك آخر. السُّفتجة: رقعة يكتبها المستقرض لنائبه في بلد آخر؛ وهي جائزة.'},
+  {q:'ما حكم تبرعات المفلس المحجور عليه؟',a:'لا تجوز لضررها بالغرماء. وللحاكم أن يبيع ماله ويقسم ثمنه. ولا يُمَكَّن من السفر إلا بكفيل أو رهن.'}
+];
+
+const QUIZ=[
+  {q:'ما معنى الرهن لغةً؟',o:['العطاء','الثبوت والدوام','التحويل','الإلزام'],a:1},
+  {q:'ما الدليل القرآني على مشروعية الرهن؟',o:['وأحل الله البيع','أوفوا بالعقود','فرهانٌ مقبوضة','لا تأكلوا أموالكم بالباطل'],a:2},
+  {q:'هل يصح رهن الوقف؟',o:['نعم مطلقاً','نعم بشروط','لا يصح','يصح بإذن القاضي'],a:2},
+  {q:'السلم هو:',o:['قرض بفائدة','بيع سلعة آجلة بثمن مقدم','رهن بضاعة','كفالة بيع'],a:1},
+  {q:'متى يُقبض ثمن السلم؟',o:['خلال أسبوع','عند تسليم السلعة','كاملاً في مجلس العقد','يجوز تأجيله'],a:2},
+  {q:'لماذا لا يصح سلَم الرطب في الشتاء؟',o:['لأنه غالٍ','لأنه غرر لعدم وجوده','لأن ثمنه مجهول','لأنه لا يُكال'],a:1},
+  {q:'تعريف الحوالة هو:',o:['تفويض شخص','التزام إحضار مدين','نقل الدين من ذمة لأخرى','جعل عين وثيقة بدين'],a:2},
+  {q:'ما الشرط الأول لصحة الحوالة؟',o:['رضا المحال عليه','رضا المحال','رضا المحيل','رضا القاضي'],a:2},
+  {q:'الوكالة هي:',o:['نقل الملكية','التزام الدين','تفويض شخص غيره ليقوم مقامه','حجر على التصرف'],a:2},
+  {q:'ما الذي لا تصح فيه الوكالة؟',o:['الزكاة','الطلاق','الطهارة والصلاة','الشراء'],a:2},
+  {q:'ما حكم الوكيل فيما وكل فيه؟',o:['يضمن دائماً','أمين لا يضمن إلا بتعدٍّ','يضمن بشهود','لا يضمن أبداً'],a:1},
+  {q:'كم عدد أركان الكفالة؟',o:['ثلاثة','أربعة','خمسة','ستة'],a:2},
+  {q:'هل تصح الكفالة ببدن من عليه حد؟',o:['نعم','لا','نعم بإذن القاضي','خلاف مشهور'],a:1},
+  {q:'تعريف الضمان هو:',o:['نقل الدين','التزام ما وجب على الغير','إحضار المدين','رهن الشخص'],a:1},
+  {q:'ما معنى الحجر لغةً؟',o:['الالتزام','المنع','الدين','الوثيقة'],a:1},
+  {q:'الحجر على السفيه من أي نوع؟',o:['لمصلحة غيره','لمصلحة نفسه','لا حجر عليه','حجر قضائي فقط'],a:1},
+  {q:'بماذا يزول الحجر عن الصغير؟',o:['بالبلوغ وحده','بالرشد وحده','بالبلوغ والرشد معاً','بقرار المحكمة'],a:2},
+  {q:'ما حكم تبرعات المفلس المحجور عليه؟',o:['جائزة مطلقاً','لا تجوز لضررها بالغرماء','جائزة بإذن القاضي','لها حد معين'],a:1},
+  {q:'ما المقصود بالسُّفتجة؟',o:['شيك مصرفي','رقعة يكتبها المستقرض لنائبه في بلد آخر','بطاقة ائتمان','ضمان بنكي'],a:1},
+  {q:'لا تبرأ ذمة الضامن إلا بـ:',o:['وفاة المضمون عنه','إبراء المضمون عنه من الدين أو قضائه','رضا الضامن','إذن القاضي'],a:1}
+];
+
+const NAWAZIL_EVAL_SYS=`أنت مصحح فقهي. صحِّح إجابة الطالب من هذا المحتوى فقط (3-4 جمل):
+الرهن: جعل عين وثيقة بدين لا يضمنه المرتهن إلا بتعدٍّ.
+السلم: بيع موصوف في الذمة بثمن معجل، شروطه: ضبط المسلَم، قبض الثمن في المجلس، وجوده عند الأجل.
+الحوالة: نقل الدين، شروطها رضا المحيل واتفاق المالين.
+الوكالة: تفويض في النيابة، لا تصح في الطهارة والصلاة، الوكيل أمين.
+الكفالة: التزام الإحضار، أركانها خمسة. الضمان: التزام دين الغير، لا عوض عليه.
+الحجر: منع التصرف؛ لمصلحة المحجور أو غيره. رفعه عن الصغير بالبلوغ والرشد.`;
+
+// ──────────────────────────────────────────────
+// COMPONENTS
+// ──────────────────────────────────────────────
+
+function TopicSlide({topic,idx,onComplete}){
+  const [actIdx,setActIdx]=useState(0);
+  const [sel,setSel]=useState(null);
+  const [showRetry,setShowRetry]=useState(false);
+  const Ct=TOPIC_CONTENTS[idx];
+  const curAct=topic.acts[actIdx];
+
+  function handleOpt(i){
+    if(sel!==null)return;
+    setSel(i);
+    const ok=i===curAct.ans;
+    if(ok){
+      setShowRetry(false);
+      setTimeout(()=>{
+        const next=actIdx+1;
+        if(next<topic.acts.length){setActIdx(next);setSel(null);}
+        else{setTimeout(()=>onComplete(),300);}
+      },900);
+    }else{setShowRetry(true);}
+  }
+
+  return(
+    <div>
+      <div className="card" style={{background:topic.bg}}>
+        <h2>{topic.icon} {topic.title}</h2>
+        {React.createElement(Ct)}
+      </div>
+      {curAct&&(
+        <div>
+          <div className="aq">{'? '+curAct.q}</div>
+          <div className="ao">
+            {curAct.opts.map((o,i)=>{
+              let c='aopt';
+              if(sel!==null){
+                if(i===curAct.ans)c+=' sa';
+                else if(i===sel&&sel!==curAct.ans)c+=' wrg';
+              }
+              return <div key={i} className={c} onClick={()=>handleOpt(i)}>{o}</div>;
+            })}
+          </div>
+          {showRetry&&<button className="btn-rt" onClick={()=>{setSel(null);setShowRetry(false);}}>حاول مرة أخرى</button>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Lesson({onFinish}){
+  const [ti,setTi]=useState(0);
+  const [allDone,setAllDone]=useState(false);
+
+  if(allDone){
+    return(
+      <div className="unlock">
+        <div style={{fontSize:'2rem',marginBottom:6}}>{'🎉'}</div>
+        <p style={{fontWeight:700,color:'var(--green)',marginBottom:10}}>أحسنت! أكملت جميع شرائح الدرس</p>
+        <button className="btn btn-g" onClick={onFinish}>انتقل إلى الخرائط الذهنية</button>
+      </div>
+    );
+  }
+
+  return(
+    <div>
+      <div className="prog">
+        {TOPICS.map((t,i)=>(
+          <div key={i} className={'dot'+(i<ti?' dn':i===ti?' cu':'')}>{i+1}</div>
+        ))}
+      </div>
+      <TopicSlide key={ti} topic={TOPICS[ti]} idx={ti} onComplete={()=>{
+        if(ti+1<TOPICS.length)setTi(ti+1);
+        else setAllDone(true);
+      }}/>
+    </div>
+  );
+}
+
+function MindMaps({mmStart,onReady}){
+  const [elapsed,setElapsed]=useState(0);
+  const REQ=120;
+  useEffect(()=>{
+    const iv=setInterval(()=>{
+      const e=Math.floor((Date.now()-mmStart)/1000);
+      setElapsed(e);
+      if(e>=REQ)clearInterval(iv);
+    },1000);
+    return()=>clearInterval(iv);
+  },[mmStart]);
+  const rem=Math.max(0,REQ-elapsed);
+  const unlocked=elapsed>=REQ;
+
+  return(
+    <div>
+      {!unlocked
+        ? <div className="timer">{'⏱ تبقى '+rem+' ثانية قبل فتح المراجعة'}</div>
+        : <div className="unlock">
+            <p style={{fontWeight:700,color:'var(--green)',marginBottom:8}}>راجعت الخرائط الذهنية!</p>
+            <button className="btn btn-g" onClick={onReady}>انتقل إلى المراجعة الذكية</button>
+          </div>
+      }
+      {MINDMAPS.map((mm,mi)=>(
+        <div key={mi} style={{marginBottom:14}}>
+          <div className="mm-title">{mm.title}</div>
+          <div className="mm-c">{mm.center}</div>
+          <div className="mm-gr">
+            {mm.branches.map((b,bi)=>(
+              <div key={bi} className="mm-br">
+                <h4>{b.title}</h4>
+                <p>{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Review({revStart,onReady}){
+  const [flipped,setFlipped]=useState({});
+  const [openE,setOpenE]=useState(null);
+  const [elapsed,setElapsed]=useState(0);
+  const REQ=300;
+  useEffect(()=>{
+    const iv=setInterval(()=>{
+      const e=Math.floor((Date.now()-revStart)/1000);
+      setElapsed(e);
+      if(e>=REQ)clearInterval(iv);
+    },1000);
+    return()=>clearInterval(iv);
+  },[revStart]);
+  const rem=Math.max(0,REQ-elapsed);
+  const unlocked=elapsed>=REQ;
+  const cats=[...new Set(FLASHCARDS.map(c=>c.cat))];
+
+  return(
+    <div>
+      {!unlocked
+        ? <div className="timer">{'⏱ تبقى '+Math.floor(rem/60)+'د '+rem%60+'ث للمراجعة'}</div>
+        : <div className="unlock">
+            <p style={{fontWeight:700,color:'var(--green)',marginBottom:8}}>أتممت المراجعة الذكية!</p>
+            <button className="btn btn-g" onClick={onReady}>انتقل إلى الاختبار النهائي</button>
+          </div>
+      }
+      <div className="sec-t">بطاقات المفاهيم</div>
+      {cats.map(cat=>{
+        const cards=FLASHCARDS.filter(c=>c.cat===cat);
+        const s=cards[0];
+        return(
+          <div key={cat}>
+            <div className="fc-cat" style={{background:s.color,color:'#fff'}}>{cat}</div>
+            <div className="fc-gr">
+              {cards.map((c,ci)=>{
+                const k=cat+'-'+ci;
+                return(
+                  <div key={k} className={'fc-cd'+(flipped[k]?' fl':'')} onClick={()=>setFlipped(p=>({...p,[k]:!p[k]}))}>
+                    <div className="fc-in">
+                      <div className="fc-fr" style={{background:c.color}}>{c.f}</div>
+                      <div className="fc-bk" style={{background:c.light,border:'1.5px solid '+c.border}}>{c.b}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+      <div className="sec-t">الأسئلة المقالية</div>
+      {ESSAYS.map((e,i)=>(
+        <div key={i} className="es-it" onClick={()=>setOpenE(openE===i?null:i)}>
+          <div className="es-q">{(i+1)+'. '+e.q}</div>
+          {openE===i&&<div className="es-a">{e.a}</div>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Nawazil(){
+  const [ans,setAns]=useState({});
+  const [res,setRes]=useState({});
+  const [ld,setLd]=useState({});
+  const apiKey=getConf('apiKey');
+
+  async function evaluate(i){
+    const a=ans[i]||'';
+    if(!a.trim())return;
+    if(!apiKey){setRes(p=>({...p,[i]:'أدخل مفتاح API في لوحة التحكم (رمز: 1234)'}));return;}
+    setLd(p=>({...p,[i]:true}));
+    try{
+      const nw=NAWAZIL[i];
+      const r=await fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+        body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:300,system:NAWAZIL_EVAL_SYS,messages:[{role:'user',content:'النازلة: '+nw.q+'\nالسؤال: '+nw.s+'\nإجابة الطالب: '+a}]})
+      });
+      const d=await r.json();
+      setRes(p=>({...p,[i]:d.content?.[0]?.text||'لا استجابة'}));
+    }catch{setRes(p=>({...p,[i]:'خطأ في الاتصال. تحقق من مفتاح API.'}));}
+    setLd(p=>({...p,[i]:false}));
+  }
+
+  return(
+    <div>
+      {!apiKey&&<div className="api-note">للحصول على تصحيح فوري، أدخل مفتاح Claude API في لوحة التحكم (رمز: 1234)</div>}
+      {NAWAZIL.map((nw,i)=>(
+        <div key={i} className="nw-cd">
+          <div className="nw-tp">{nw.topic}</div>
+          <div className="nw-q">{nw.q}</div>
+          <div className="nw-s">{'السؤال: '+nw.s}</div>
+          <textarea className="nw-in" placeholder="اكتب إجابتك هنا..." value={ans[i]||''} onChange={e=>setAns(p=>({...p,[i]:e.target.value}))} rows={3}/>
+          <button className="btn-ev" disabled={ld[i]||!(ans[i]||'').trim()} onClick={()=>evaluate(i)}>
+            {ld[i]?'جارٍ التصحيح...':'صحِّح إجابتي'}
+          </button>
+          {res[i]&&<div className="nw-rs">{res[i]}</div>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Quiz({stu,loginTime}){
+  const [qi,setQi]=useState(0);
+  const [sc,setSc]=useState(0);
+  const [done,setDone]=useState(false);
+  const [sel,setSel]=useState(null);
+  const [dur,setDur]=useState('');
+
+  function handleAns(i){
+    if(sel!==null)return;
+    setSel(i);
+    const correct=i===QUIZ[qi].a;
+    const newSc=correct?sc+1:sc;
+    if(correct)setSc(newSc);
+    setTimeout(()=>{
+      if(qi+1<QUIZ.length){setQi(qi+1);setSel(null);}
+      else{
+        const el=loginTime?Date.now()-loginTime:0;
+        const ds=fmtDur(el);
+        setDur(ds);
+        setDone(true);
+        saveRec({name:stu.n,sec:stu.s,score:newSc,dur:ds,date:new Date().toLocaleDateString('ar-SA'),ts:Date.now()});
+        const u=getConf('gsURL');
+        if(u){try{fetch(u+'?name='+encodeURIComponent(stu.n)+'&section='+encodeURIComponent(stu.s)+'&score='+newSc+'/20&duration='+encodeURIComponent(ds),{mode:'no-cors'});}catch(e){}}
+      }
+    },850);
+  }
+
+  if(done){
+    const pct=Math.round((sc/QUIZ.length)*100);
+    return(
+      <div className="qz-dn">
+        <div style={{fontSize:'2.5rem',marginBottom:8}}>{'🎓'}</div>
+        <div className="qz-sc">{sc+'/'+QUIZ.length}</div>
+        <p style={{color:'#666',marginTop:8,fontSize:'.88rem'}}>{pct>=85?'ممتاز! أداء رائع':pct>=70?'جيد جداً':pct>=60?'جيد، واصل المراجعة':'تحتاج مراجعة أكثر'}</p>
+        <p style={{fontSize:'.76rem',color:'#aaa',marginTop:8}}>{stu.n+' | الشعبة: '+stu.s}</p>
+        {dur&&<p style={{fontSize:'.76rem',color:'#888',marginTop:5}}>{'مدة الدراسة: '+dur}</p>}
+      </div>
+    );
+  }
+
+  const q=QUIZ[qi];
+  return(
+    <div>
+      <div style={{display:'flex',justifyContent:'space-between',marginBottom:9}}>
+        <span style={{fontSize:'.78rem',color:'#888'}}>{'السؤال '+(qi+1)+' من '+QUIZ.length}</span>
+        <span style={{fontWeight:700,color:'var(--navy)',fontSize:'.82rem'}}>{'النقاط: '+sc}</span>
+      </div>
+      <div className="qp-bar"><div className="qp-fill" style={{width:(((qi+1)/QUIZ.length)*100)+'%'}}/></div>
+      <div className="qz-q">{q.q}</div>
+      {q.o.map((o,i)=>{
+        let c='qz-op';
+        if(sel!==null){if(i===q.a)c+=' cor';else if(i===sel)c+=' wrg';}
+        return <div key={i} className={c} onClick={()=>handleAns(i)}>{o}</div>;
+      })}
+    </div>
+  );
+}
+
+function Dashboard({onClose}){
+  const [pin,setPin]=useState('');
+  const [auth,setAuth]=useState(false);
+  const [key,setKey]=useState(getConf('apiKey'));
+  const [gs,setGs]=useState(getConf('gsURL'));
+  const recs=getRecs();
+
+  if(!auth){
+    return(
+      <div className="dash-ov" onClick={onClose}>
+        <div className="dash-bx" onClick={e=>e.stopPropagation()}>
+          <div className="dash-t">لوحة التحكم</div>
+          <input className="dash-in" placeholder="رمز الدخول" type="password" value={pin} onChange={e=>setPin(e.target.value)}/>
+          <button className="btn" onClick={()=>{if(pin==='1234')setAuth(true);else alert('رمز خاطئ');}}>دخول</button>
+        </div>
+      </div>
+    );
+  }
+  return(
+    <div className="dash-ov" onClick={onClose}>
+      <div className="dash-bx" onClick={e=>e.stopPropagation()}>
+        <div className="dash-t">لوحة التحكم</div>
+        <label style={{fontSize:'.78rem',color:'#666'}}>مفتاح Claude API</label>
+        <input className="dash-in" placeholder="sk-ant-..." value={key} onChange={e=>{setKey(e.target.value);setConf('apiKey',e.target.value);}}/>
+        <label style={{fontSize:'.78rem',color:'#666'}}>رابط Google Sheets</label>
+        <input className="dash-in" placeholder="https://script.google.com/..." value={gs} onChange={e=>{setGs(e.target.value);setConf('gsURL',e.target.value);}}/>
+        <button style={{background:'#dc2626',color:'#fff',border:'none',borderRadius:8,padding:'6px 14px',fontSize:'.78rem',cursor:'pointer',marginBottom:10}} onClick={()=>{if(window.confirm('حذف جميع السجلات؟'))clearRecs();}}>حذف السجلات</button>
+        {recs.length>0&&(
+          <table className="dtb">
+            <thead><tr><th>الاسم</th><th>الشعبة</th><th>الدرجة</th><th>المدة</th><th>التاريخ</th></tr></thead>
+            <tbody>{recs.map((r,i)=>(
+              <tr key={i}>
+                <td>{r.name}</td><td>{r.sec}</td>
+                <td style={{fontWeight:700,color:r.score>=12?'#86efac':'#fca5a5'}}>{r.score+'/20'}</td>
+                <td style={{color:'var(--gold-light)',fontWeight:600}}>{r.dur||'—'}</td>
+                <td style={{fontSize:'.67rem',opacity:.7}}>{r.date}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        )}
+        {recs.length===0&&<p style={{textAlign:'center',color:'#aaa',fontSize:'.83rem'}}>لا توجد سجلات</p>}
+        <button className="btn" style={{marginTop:10}} onClick={onClose}>إغلاق</button>
+      </div>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────
+// APP
+// ──────────────────────────────────────────────
+function App(){
+  const [scr,setScr]=useState('welcome');
+  const [stu,setStu]=useState({n:'',s:''});
+  const [tab,setTab]=useState('lesson');
+  const [dash,setDash]=useState(false);
+  const [loginTime,setLoginTime]=useState(null);
+  const [lessonDone,setLessonDone]=useState(false);
+  const [mmStart,setMmStart]=useState(null);
+  const [mmDone,setMmDone]=useState(false);
+  const [revStart,setRevStart]=useState(null);
+  const [revDone,setRevDone]=useState(false);
+
+  function start(){
+    if(stu.n&&stu.s){setLoginTime(Date.now());setScr('learn');}
+    else alert('الرجاء إدخال الاسم والشعبة.');
+  }
+
+  function canAccess(k){
+    if(k==='lesson'||k==='nawazil')return true;
+    if(k==='mindmap')return lessonDone;
+    if(k==='review')return mmDone;
+    if(k==='quiz')return revDone;
+    return false;
+  }
+
+  const NAV=[
+    {k:'lesson',lbl:'الدرس',ic:'📖'},
+    {k:'mindmap',lbl:'الخرائط',ic:'🗺️'},
+    {k:'review',lbl:'المراجعة',ic:'📇'},
+    {k:'nawazil',lbl:'النوازل',ic:'⚖️'},
+    {k:'quiz',lbl:'الاختبار',ic:'📝'}
+  ];
+
+  if(scr==='welcome'){
+    return(
+      <div className="wlc">
+        <div className="wlc-ic">ف</div>
+        <div className="wlc-t">الفقه الميسر</div>
+        <div style={{fontFamily:"'Amiri',serif",color:'var(--gold)',fontSize:'1rem',marginBottom:4}}>المحاضرة الثالثة</div>
+        <div className="wlc-s">الرهن · السلم · الحوالة · الوكالة · الكفالة · الحجر</div>
+        <div style={{fontSize:'.78rem',color:'#999',marginBottom:18}}>د. باسم القرافي — جامعة طيبة</div>
+        <input className="inp" placeholder="الاسم الكامل" value={stu.n} onChange={e=>setStu({...stu,n:e.target.value})}/>
+        <input className="inp" placeholder="رقم الشعبة" value={stu.s} onChange={e=>setStu({...stu,s:e.target.value})}/>
+        <button className="btn" onClick={start}>ابدأ التعلم</button>
+        <button style={{background:'transparent',border:'none',color:'#aaa',fontSize:'.78rem',marginTop:10,cursor:'pointer'}} onClick={()=>setDash(true)}>لوحة التحكم</button>
+        {dash&&<Dashboard onClose={()=>setDash(false)}/>}
+      </div>
+    );
+  }
+
+  return(
+    <div>
+      <div className="hdr">
+        <div style={{display:'flex',alignItems:'center',gap:7}}>
+          <div className="hdr-logo">ف</div>
+          <button className="gear" onClick={()=>setDash(true)}>⚙</button>
+        </div>
+        <div className="hdr-mid">
+          <div className="hdr-title">الفقه الميسر</div>
+          <div className="hdr-sub">د. باسم القرافي — جامعة طيبة</div>
+          <div className="hdr-badge">المحاضرة الثالثة</div>
+        </div>
+        <div className="hdr-stu">{stu.n}<br/><span style={{color:'var(--gold-light)'}}>{'ش: '+stu.s}</span></div>
+      </div>
+
+      <div className="main">
+        {tab==='lesson'&&<Lesson onFinish={()=>{setLessonDone(true);setMmStart(Date.now());setTab('mindmap');}}/>}
+        {tab==='mindmap'&&(lessonDone
+          ? <MindMaps mmStart={mmStart} onReady={()=>{setMmDone(true);setRevStart(Date.now());setTab('review');}}/>
+          : <div className="lock-box"><div style={{fontSize:'2rem'}}>{'🔒'}</div><p>أكمل شرائح الدرس أولاً للوصول إلى الخرائط الذهنية</p></div>
+        )}
+        {tab==='review'&&(mmDone
+          ? <Review revStart={revStart} onReady={()=>{setRevDone(true);setTab('quiz');}}/>
+          : <div className="lock-box"><div style={{fontSize:'2rem'}}>{'🔒'}</div><p>أكمل الخرائط الذهنية أولاً للوصول إلى المراجعة</p></div>
+        )}
+        {tab==='nawazil'&&<Nawazil/>}
+        {tab==='quiz'&&(revDone
+          ? <Quiz stu={stu} loginTime={loginTime}/>
+          : <div className="lock-box"><div style={{fontSize:'2rem'}}>{'🔒'}</div><p>أكمل المراجعة الذكية أولاً ثم انتقل للاختبار</p></div>
+        )}
+      </div>
+
+      <div className="nav">
+        {NAV.map(n=>(
+          <button key={n.k}
+            className={'nb'+(tab===n.k?' act':'')+(canAccess(n.k)?'':' lk')}
+            onClick={()=>canAccess(n.k)&&setTab(n.k)}>
+            <span className="nb-ic">{n.ic}</span>{n.lbl}
+          </button>
+        ))}
+      </div>
+      {dash&&<Dashboard onClose={()=>setDash(false)}/>}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
