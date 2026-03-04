@@ -298,7 +298,7 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <div class="game-box">
       <div class="game-title">🧩 تمرين الفهم: أحكام الرهن</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
       <div class="game-grid" id="game-1"></div>
     </div>
 
@@ -333,7 +333,7 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <div class="game-box">
       <div class="game-title">🧩 تمرين الفهم: أحكام السلم</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
       <div class="game-grid" id="game-2"></div>
     </div>
 
@@ -363,15 +363,20 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروط صحتها وما يترتب عليها</h3>
     <div class="cells-grid">
-      <!-- تطبيق طلبك بأن تكون كل نقطة في مربع مستقل -->
       <div class="smart-cell" onclick="openCard(3,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة الحوالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(3,1)"><span class="cell-icon">➡️</span><div class="cell-title">الأثر المترتب</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(3,2)"><span class="cell-icon">📱</span><div class="cell-title">الصورة المعاصرة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الحوالة</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-3"></div>
+    </div>
+
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(2)">◁ باب السلم</button>
-      <button class="nav-btn btn-navy" onclick="goSlide(4)">التالي: باب الوكالة ➜</button>
+      <button class="nav-btn btn-navy" id="next-3" disabled onclick="goSlide(4)">التالي: باب الوكالة ➜</button>
     </div>
   </div>
 
@@ -394,16 +399,21 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروطها والأحكام المتعلقة بها</h3>
     <div class="cells-grid">
-      <!-- تطبيق طلبك وتقسيم الأقسام المترابطة -->
       <div class="smart-cell" onclick="openCard(4,0)"><span class="cell-icon">✔️</span><div class="cell-title">شروطها وما تصح فيه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(4,1)"><span class="cell-icon">👤</span><div class="cell-title">توكيل الوكيل لغيره</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(4,2)"><span class="cell-icon">🛡️</span><div class="cell-title">ضمان الوكيل</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(4,3)"><span class="cell-icon">❌</span><div class="cell-title">مبطلات الوكالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الوكالة</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-4"></div>
+    </div>
+
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(3)">◁ باب الحوالة</button>
-      <button class="nav-btn btn-navy" onclick="goSlide(5)">التالي: الكفالة والضمان ➜</button>
+      <button class="nav-btn btn-navy" id="next-4" disabled onclick="goSlide(5)">التالي: الكفالة والضمان ➜</button>
     </div>
   </div>
 
@@ -426,16 +436,21 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <h3 style="margin:20px 0 10px; color:var(--navy);">أركانها وأحكامها، وأحكام الضمان</h3>
     <div class="cells-grid">
-      <!-- التفصيل الكامل المطلوب -->
       <div class="smart-cell" onclick="openCard(5,0)"><span class="cell-icon">📌</span><div class="cell-title">أركان الكفالة وشروطها</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(5,1)"><span class="cell-icon">📜</span><div class="cell-title">بعض أحكام الكفالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(5,2)"><span class="cell-icon">💰</span><div class="cell-title">الضمان وأحكامه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
       <div class="smart-cell" onclick="openCard(5,3)"><span class="cell-icon">⚖️</span><div class="cell-title">متى تبرأ ذمة الضامن؟</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: الكفالة والضمان</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-5"></div>
+    </div>
+
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(4)">◁ باب الوكالة</button>
-      <button class="nav-btn btn-navy" onclick="goSlide(6)">التالي: باب الحجر ➜</button>
+      <button class="nav-btn btn-navy" id="next-5" disabled onclick="goSlide(6)">التالي: باب الحجر ➜</button>
     </div>
   </div>
 
@@ -458,15 +473,20 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 
     <h3 style="margin:20px 0 10px; color:var(--navy);">أحكام نوعي الحجر</h3>
     <div class="cells-grid">
-      <!-- تطبيق طلبك لفصل أنواع الحجر والأحكام -->
       <div class="smart-cell" onclick="openCard(6,0)"><span class="cell-icon">🛡️</span><div class="cell-title">الحجر لمصلحة المحجور عليه</div><div class="cell-hint">الصغير، المجنون، السفيه</div></div>
       <div class="smart-cell" onclick="openCard(6,1)"><span class="cell-icon">👨‍👧</span><div class="cell-title">أحكام ولي المحجور عليه</div><div class="cell-hint">مَن يتولى أمرهم وحكم تعديه</div></div>
       <div class="smart-cell" onclick="openCard(6,2)"><span class="cell-icon">📉</span><div class="cell-title">الحجر لمصلحة الغير</div><div class="cell-hint">المفلس وأحكامه</div></div>
     </div>
 
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الحجر</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لإنهاء الدرس</div>
+      <div class="game-grid" id="game-6"></div>
+    </div>
+
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(5)">◁ الكفالة والضمان</button>
-      <button class="nav-btn btn-gold" onclick="finishLesson()">✓ إنهاء الدرس</button>
+      <button class="nav-btn btn-gold" id="next-6" disabled onclick="finishLesson()">✓ إنهاء الدرس</button>
     </div>
   </div>
 
@@ -680,7 +700,7 @@ const GAMES = {
 
 const FLASHCARDS = [
   {q:"ما الرهن شرعاً؟",a:"جعل عين مالية وثيقة بدين، ليستوفى منها أو من ثمنها إذا تعذر الوفاء."},
-  {q:"ما حكم انتفاع المرتهن بالرهن؟",a:"لا يجوز، إلا إن كان مركوباً أو محلوباً فيجوز بقدر נفقته عليه."},
+  {q:"ما حكم انتفاع المرتهن بالرهن؟",a:"لا يجوز، إلا إن كان مركوباً أو محلوباً فيجوز بقدر نفقته عليه."},
   {q:"ما أهم شرط لثمن عقد السلم؟",a:"أن يُقبض الثمن كاملاً معلوماً في مجلس العقد قبل التفرق."},
   {q:"ما الحوالة؟ ومن الذي يشترط رضاه لصحتها؟",a:"نقل الدين من ذمة إلى أخرى. ويشترط (رضا المحيل)."},
   {q:"اذكر أمرين لا تصح فيهما الوكالة.",a:"حقوق الله التي لا تدخلها النيابة كالصلاة والطهارة."},
@@ -693,15 +713,15 @@ const FLASHCARDS = [
 
 const ESSAYS = [
   {q:"عرف الرهن، واذكر دليلاً على مشروعيته في الحضر.",a:"الرهن: جعل عين مالية وثيقة بدين. الدليل: أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد (وهذا في المدينة وليس في سفر)."},
-  {q:"عرف السلم، واذكر ثلاثة من شروطه الثمانية.",a:"السلم: بيع سلعة آجلة بثمن مقدم. من شروطه: ١. قبض الثمن كاملاً في المجلس. ٢. أن يكون المسلم فيه ينضبط بالوصف. ٣. أن يكون الأجل معلوماً."},
-  {q:"ما هي شروط الحوالة الثلاثة؟",a:"١. رضا المُحيل. ٢. التطابق بين المالين جنساً وقدراً. ٣. أن يكون المحال به ديناً مستقراً في ذمة المحال عليه."},
-  {q:"متى يحق للوكيل أن يوكل غيره؟",a:"الأصل أنه لا يصح، ويجوز في ٣ حالات: ١. إذا أجاز له الموكل. ٢. إذا عجز عن العمل. ٣. إذا كان العمل مما لا يحسنه."},
+  {q:"هل يحق للراهن أو المرتهن التصرف في العين المرهونة بغير رضا الآخر؟",a:"لا، ليس للراهن التصرف فيه بغير رضى المرتهن، ولا يملك المرتهن ذلك بغير رضى الراهن."},
+  {q:"عرف السلم، واذكر الحكمة من مشروعيته.",a:"السلم: بيع سلعة آجلة موصوفة في الذمة بثمن مقدم. حكمته: إجازته الشريعة توسيعاً على الأفراد كالمزارع الذي لا يملك نقداً فينفق على زراعته."},
+  {q:"اذكر ثلاثة من شروط صحة السلم.",a:"١. قبض الثمن كاملاً في المجلس. ٢. أن يكون المسلم فيه مما يمكن انضباط صفاته. ٣. أن يكون الأجل معلوماً."},
+  {q:"ما الحوالة؟ وما الشرط الأساسي المتعلق بالرضا؟",a:"الحوالة: نقل دين من ذمة المُحيل إلى المُحال عليه. ويشترط (رضا المحيل) لأنه لا يتعين عليه جهة السداد قهراً."},
+  {q:"عرف الوكالة، واذكر أموراً تصح فيها وأموراً لا تصح فيها.",a:"الوكالة: تفويض شخص غيره ليقوم مقامه. تصح في (البيع، الشراء، الحج). ولا تصح في (الصلاة، الطهارة)."},
   {q:"ما هي الكفالة؟ ومن هو الشخص الذي لا تصح كفالة بدنه؟",a:"الكفالة التزام إحضار من عليه حق لمجلس الحكم. ولا تصح فيمن عليه (حد أو قصاص)."},
-  {q:"ما الضمان؟ وهل يجوز أخذ أجرة عليه؟",a:"الضمان: التزام ما وجب على غيره من المال. ولا يجوز أخذ العوض عليه لأنه من الإرفاق."},
-  {q:"عرف الحجر، واذكر نوعيه.",a:"الحجر: منع إنسان من التصرف في ماله. أنواعه: ١. لمصلحة نفسه (كالصبي والمجنون). ٢. لمصلحة غيره (كالمفلس لحماية الغرماء)."},
-  {q:"من يتولى أمر المحجور عليه لحظ نفسه؟ وما واجبه؟",a:"يتولى أمره الأب العدل الرشيد، ثم وصيه. ويجب عليه أن يتصرف بما فيه الأحظ والأنفع، وإن تعدى ضمن."},
-  {q:"متى يحجر على المدين؟ وماذا يفعل الحاكم بماله؟",a:"يُحجر عليه إذا كان ماله أقل من دينه الحال. ويقوم الحاكم ببيع ماله وتقسيم ثمنه بقدر ديون غرمائه."},
-  {q:"ما هي علامة (الرشد) للصغير وكيف يختبر؟",a:"الرشد هو الصلاح في المال، ويعرف بالاختبار، فيمنح شيئاً ليتصرف فيه، فإن لم يغبن غبناً فاحشاً ولم ينفق في حرام دلّ على رشده."}
+  {q:"ما الضمان؟ ومتى تبرأ ذمة الضامن؟",a:"الضمان: التزام ما وجب على غيره من المال. تبرأ ذمته إذا برئت ذمة المضمون عنه (المدين الأصلي) بإبراء أو قضاء."},
+  {q:"عرف الحجر، واذكر نوعيه الأساسيين مع الأمثلة.",a:"الحجر: منع إنسان من التصرف في ماله. أنواعه: ١. لمصلحة نفسه (كالصبي والمجنون). ٢. لمصلحة غيره (كالمفلس لحماية الغرماء)."},
+  {q:"من يتولى مال المحجور عليه (الصغير)؟ وما حكم تعديه؟",a:"يتولى أمره الأب العدل الرشيد، ثم وصيه، ويتصرفون بالأحظ والأنفع. فإن تعدى الولي أو فرط ضَمِن وتحمل الغرامة."}
 ];
 
 const QUIZ = [
@@ -787,7 +807,6 @@ function goSlide(i){
   $(`#s-${i}`).classList.add('on');
   curSlide=i;
   
-  // إيقاف الفيديو عند تغيير الشريحة
   const vid = $('video');
   if(vid && i !== 0) vid.pause();
 
