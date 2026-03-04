@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>فقه ٢ — المحاضرة الثالثة</title>
 
-<!-- خطوط الصفحة (Amiri + Tajawal) + Noto Naskh -->
+<!-- خطوط الصفحة -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
@@ -75,18 +75,8 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 .welcome-start-btn:hover{background:var(--login-gold);color:var(--login-navy);transform:scale(1.05);}
 
 /* === VIDEO WRAPPER === */
-.video-wrapper {
-  margin: 20px 0;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--sh);
-  border: 3px solid var(--gold);
-  background: #000;
-}
-.video-wrapper video {
-  width: 100%;
-  display: block;
-}
+.video-wrapper{margin:20px 0;border-radius:20px;overflow:hidden;box-shadow:var(--sh);border:3px solid var(--gold);background:#0a1628;display:flex;justify-content:center;align-items:center;position:relative;}
+.video-wrapper video{width:100%;max-height:500px;display:block;object-fit:cover;}
 
 /* === TYPOGRAPHY & BLOCKS === */
 .page-header{text-align:center;margin-bottom:30px;padding:20px;background:linear-gradient(135deg,rgba(201,151,58,.08),rgba(201,151,58,.02));border-radius:24px}
@@ -114,7 +104,7 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 .smart-cell{background:linear-gradient(145deg,#fff,#fdfcfa);border:2px solid rgba(201,151,58,.2);border-radius:20px;padding:24px 20px;text-align:center;cursor:pointer;transition:.4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
 .smart-cell:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(201,151,58,.15);border-color:var(--gold)}
 .cell-icon{font-size:2.5rem;display:block;margin-bottom:12px}
-.cell-title{font-weight:900;font-size:1rem;color:var(--navy);margin-bottom:6px}
+.cell-title{font-weight:900;font-size:1rem;color:var(--navy);margin-bottom:6px;line-height:1.4;}
 .cell-hint{font-size:.75rem;color:var(--muted)}
 
 /* === EXPANDED CARD OVERLAY === */
@@ -131,23 +121,10 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 .exp-body ol,.exp-body ul{padding-right:24px;margin:10px 0}
 .exp-body li{margin-bottom:8px}
 
-/* === LISTS & MINDMAP === */
+/* === LISTS === */
 .num-list{list-style:none;padding:0;margin:16px 0;counter-reset:item}
 .num-list li{counter-increment:item;padding:14px 50px 14px 14px;margin-bottom:10px;background:linear-gradient(90deg,#f8f6f1,#fff);border-radius:14px;border:1px solid rgba(0,0,0,.05);position:relative;line-height:1.8;}
 .num-list li::before{content:counter(item);position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.85rem;}
-
-.mindmap{margin:30px 0;padding:30px;border-radius:28px;background:linear-gradient(160deg,#f0f7ff 0%,#fef9f0 50%,#f0fdf4 100%);border:1px solid rgba(201,151,58,.2);position:relative;overflow:hidden;}
-.mind-title{text-align:center;font-family:var(--font-q);font-size:1.2rem;color:var(--navy);margin-bottom:20px;position:relative}
-.mind-center{width:160px;height:100px;margin:0 auto 24px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));border:3px solid var(--gold);display:grid;place-items:center;font-weight:900;font-size:1rem;color:var(--navy);position:relative;z-index:2;box-shadow:0 15px 30px rgba(201,151,58,.25);text-align:center;}
-.mind-branches{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
-.mind-branch{padding:16px;border-radius:16px;position:relative;line-height:1.7;font-size:.88rem;border:2px solid;transition:.3s}
-.mind-branch:hover{transform:scale(1.02)}
-.mind-branch h5{font-family:var(--font-q);font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.mind-branch h5::before{content:"◆";font-size:.6rem}
-.mb-1{background:rgba(5,150,105,.1);border-color:rgba(5,150,105,.3);color:#065f46}
-.mb-2{background:rgba(37,99,235,.1);border-color:rgba(37,99,235,.3);color:#1e40af}
-.mb-3{background:rgba(234,88,12,.1);border-color:rgba(234,88,12,.3);color:#9a3412}
-.mb-4{background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.3);color:#5b21b6}
 
 /* === MATCHING GAME === */
 .game-box{background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:24px;padding:24px;margin:24px 0;border:2px solid rgba(10,22,40,.08);}
@@ -260,34 +237,26 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
 
-    <!-- ==========================================
-         مكان مخصص لمقطع الفيديو (summary.mp4)
-         تأكد من وجود الملف بنفس المجلد
-         ========================================== -->
+    <!-- كود الفيديو المعدل لدعم التشغيل بشكل أفضل -->
     <div class="video-wrapper">
-      <video controls poster="https://www.transparenttextures.com/patterns/arabesque.png">
-        <!-- ضع اسم ملف الفيديو هنا بدلاً من summary.mp4 -->
+      <video controls playsinline preload="metadata" poster="https://www.transparenttextures.com/patterns/arabesque.png">
         <source src="summary.mp4" type="video/mp4">
-        عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو.
+        عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو. الرجاء استخدام متصفح حديث.
       </video>
     </div>
-    <!-- ========================================== -->
 
     <div class="content-section">
       <div class="section-title">نظرة عامة على أبواب المحاضرة</div>
       <div class="content-text">
-        جاءت الشريعة الإسلامية بتنظيم دقيق للمعاملات المالية لضمان حفظ الحقوق وتيسير قضاء المصالح بين الناس. في هذه المحاضرة سنتناول بالتفصيل ستة أبواب فقهية مترابطة.
-      </div>
-    </div>
-
-    <div class="mindmap">
-      <div class="mind-title">🧠 الخريطة المفاهيمية للمحاضرة</div>
-      <div class="mind-center">المعاملات<br>والتوثيقات</div>
-      <div class="mind-branches">
-        <div class="mind-branch mb-1"><h5>توثيق الديون</h5><p>الرهن (بالعين) • الكفالة (بالبدن) • الضمان (بالذمة)</p></div>
-        <div class="mind-branch mb-2"><h5>تيسير ونقل</h5><p>السلم (بيع آجل بعاجل) • الحوالة (نقل الدين)</p></div>
-        <div class="mind-branch mb-3"><h5>إنابة وتفويض</h5><p>الوكالة (تفويض شخص غيره ليقوم مقامه)</p></div>
-        <div class="mind-branch mb-4"><h5>حماية الأموال</h5><p>الحجر (لحظ النفس أو لحظ الغير)</p></div>
+        جاءت الشريعة الإسلامية بتنظيم دقيق للمعاملات المالية لضمان حفظ الحقوق وتيسير قضاء المصالح بين الناس. سنتناول في هذه المحاضرة:
+        <ul class="num-list" style="margin-top:16px">
+          <li><span class="gold-text">باب الرهن:</span> لتوثيق الديون بالأعيان المالية.</li>
+          <li><span class="gold-text">باب السلم:</span> لتيسير بيع السلع الآجلة.</li>
+          <li><span class="gold-text">باب الحوالة:</span> لنقل الديون وتسهيل سدادها.</li>
+          <li><span class="gold-text">باب الوكالة:</span> للإنابة والتفويض في التصرفات.</li>
+          <li><span class="gold-text">باب الكفالة والضمان:</span> لتوثيق إحضار البدن أو أداء المال.</li>
+          <li><span class="gold-text">باب الحجر:</span> لحماية أموال القصر وحقوق الدائنين.</li>
+        </ul>
       </div>
     </div>
 
@@ -301,8 +270,8 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-1" class="scr">
     <div class="page-header">
       <div class="page-icon">🔒</div>
-      <div class="page-title">باب الرهن</div>
-      <div class="page-sub">توثيق الديون بالأعيان المالية</div>
+      <div class="page-title">الباب الرابع: في الرهن</div>
+      <div class="page-sub">وفيه مسألتان: معناه ومشروعيته، وأحكامه</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
 
@@ -312,15 +281,19 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
     </div>
 
     <div class="content-section">
-      <div class="section-title">معناه وأدلة مشروعيته</div>
+      <div class="section-title">المسألة الأولى: معناه وأدلة مشروعيته</div>
       <div class="content-text">
-        <span class="term">الرهن شرعاً:</span> <span class="hukm">جعل عين مالية، وثيقة بدين؛ ليستوفى منها أو من ثمنها، إذا تعذر الوفاء.</span><br><br>
-        <span class="term">دليل السنة:</span> عن عائشة رضي الله عنها: (أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد). وهذا يدل على مشروعيته في الحضر أيضاً وليس مقتصراً على السفر كما في الآية.
+        <span class="term">الرهن:</span> <span class="hukm">جَعْلُ عينٍ مالية، وثيقة بدين؛ لِيُسْتوفى منها أو من ثمنها، إذا تعذَّر الوفاء.</span><br><br>
+        <span class="term">مشروعيته:</span> الأصل في مشروعيته القرآن الكريم، والتقييد بالسفر في الآية خرج مخرج الغالب فلا مفهوم له؛ لدلالة السنة على مشروعيته في الحضر، فعن عائشة رضي الله عنها: (أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد).
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: الأحكام المتعلقة به</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(1,0)"><span class="cell-icon">📋</span><div class="cell-title">أحكام وشروط الرهن</div><div class="cell-hint">اضغط لعرض جميع الشروط والأحكام</div></div>
+      <div class="smart-cell" onclick="openCard(1,0)"><span class="cell-icon">📌</span><div class="cell-title">شروط صحة الرهن</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,1)"><span class="cell-icon">🚫</span><div class="cell-title">أحكام التصرف والانتفاع</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,2)"><span class="cell-icon">🛡️</span><div class="cell-title">أمانة الرهن</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,3)"><span class="cell-icon">⚖️</span><div class="cell-title">امتناع المدين عن السداد</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
     <div class="game-box">
@@ -339,22 +312,23 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-2" class="scr">
     <div class="page-header">
       <div class="page-icon">🌾</div>
-      <div class="page-title">باب السَّلَم</div>
-      <div class="page-sub">بيع سلعة آجلة بثمن مُعجَّل</div>
+      <div class="page-title">الباب الخامس: في السلم</div>
+      <div class="page-sub">وفيه مسألتان: معناه ومشروعيته، وشروطه</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
 
     <div class="content-section">
-      <div class="section-title">معناه والحكمة من مشروعيته</div>
+      <div class="section-title">المسألة الأولى: معناه ومشروعيته والحكمة منه</div>
       <div class="content-text">
-        <span class="term">تعريفه:</span> السَّلَم والسَّلَف بمعنى واحد، وهو: <span class="hukm">بيع سلعة آجلة موصوفة في الذمة بثمن مُقدَّم.</span><br><br>
-        <span class="term">دليله:</span> قول ابن عباس رضي الله عنهما: قدم رسول الله ﷺ المدينة، وهم يسلفون في الثمار السنة والسنتين، فقال: (من أسلف، فليسلف في كيل معلوم ووزن معلوم إلى أجل معلوم).<br><br>
-        <span class="term">الحكمة منه:</span> أجازته الشريعة الإسلامية <span class="purple-text">توسيعاً على أفرادها</span>، فالمزارع مثلاً قد لا يملك نقداً ينفقه في إصلاح أرضه، فأبيح له السلم حتى لا تفوته مصلحة استثمار أرضه.
+        <span class="term">تعريفه:</span> السَّلَم والسَّلَف بمعنى واحد، وهو: <span class="hukm">بيعُ سلعةٍ آجلة موصوفة في الذمة بثمن مُقَدَّم.</span><br><br>
+        <span class="term">دليل مشروعيته:</span> عن ابن عباس رضي الله عنهما قال: قدم رسول الله ﷺ المدينة، وهم يسلفون في الثمار السنة والسنتين، فقال: (من أسلف، فليسلف في كيل معلوم ووزن معلوم إلى أجل معلوم).
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">الحكمة والشروط</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(2,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة السلم</div><div class="cell-hint">اضغط لعرض الشروط الثمانية</div></div>
+      <div class="smart-cell" onclick="openCard(2,0)"><span class="cell-icon">💡</span><div class="cell-title">الحكمة من السلم</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(2,1)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة السلم (كاملة)</div><div class="cell-hint">جميع الشروط الثمانية المطلوبة</div></div>
     </div>
 
     <div class="game-box">
@@ -373,33 +347,31 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-3" class="scr">
     <div class="page-header">
       <div class="page-icon">🔄</div>
-      <div class="page-title">باب الحوالة</div>
-      <div class="page-sub">نقل الديون وتسهيل المعاملات</div>
+      <div class="page-title">الباب السادس: في الحوالة</div>
+      <div class="page-sub">وفيه مسألتان: معناها ومشروعيتها، وشروطها</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
 
     <div class="content-section">
-      <div class="section-title">معناها وأدلة مشروعيتها</div>
+      <div class="section-title">المسألة الأولى: معناها وأدلة مشروعيتها</div>
       <div class="content-text">
-        <span class="term">الحوالة شرعاً:</span> <span class="hukm">نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه.</span><br><br>
-        وهي مشروعة لما فيها من الإرفاق، وتبادل المصالح بين أفراد الأمة، وتسهيل المعاملات.<br><br>
-        <span class="term">دليلها:</span> عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: <span class="purple-text">(إذا أُتْبِعَ أحدكم على مليءٍ فليتبع)</span>. ومعناه: إذا أُحيل بالدين الذي له على موسر فليحتل، وليقبل الحوالة.
+        <span class="term">الحوالة:</span> <span class="hukm">نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه.</span><br><br>
+        وهي مشروعة لما فيها من الإرفاق، وتبادل المصالح بين أفراد الأمة، والتسامح وتسهيل المعاملات. عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: <span class="purple-text">(إذا أُتْبِعَ أحدكم على مليءٍ فليتبع)</span>.<br>
+        ومعناه: إذا أحيل بالدين الذي له، على موسر فليحتل، وليقبل الحوالة. فإذا أحال المدين دائنه على مفلس رجع بحقه على مَنْ أحاله؛ لأنَّ الفَلَس عيب ولم يرض به، فله حق الرجوع.
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروط صحتها وما يترتب عليها</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(3,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط وأحكام الحوالة</div><div class="cell-hint">اضغط لعرض الشروط والصور المعاصرة</div></div>
-    </div>
-
-    <div class="game-box">
-      <div class="game-title">🧩 تمرين الفهم: أحكام الحوالة</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
-      <div class="game-grid" id="game-3"></div>
+      <!-- تطبيق طلبك بأن تكون كل نقطة في مربع مستقل -->
+      <div class="smart-cell" onclick="openCard(3,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة الحوالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(3,1)"><span class="cell-icon">➡️</span><div class="cell-title">الأثر المترتب</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(3,2)"><span class="cell-icon">📱</span><div class="cell-title">الصورة المعاصرة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(2)">◁ باب السلم</button>
-      <button class="nav-btn btn-navy" id="next-3" disabled onclick="goSlide(4)">التالي: باب الوكالة ➜</button>
+      <button class="nav-btn btn-navy" onclick="goSlide(4)">التالي: باب الوكالة ➜</button>
     </div>
   </div>
 
@@ -407,37 +379,31 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-4" class="scr">
     <div class="page-header">
       <div class="page-icon">🤝</div>
-      <div class="page-title">باب الوكالة</div>
-      <div class="page-sub">الإنابة والتفويض في التصرفات</div>
+      <div class="page-title">الباب السابع: في الوكالة</div>
+      <div class="page-sub">وفيه مسألتان: تعريفها وحكمها، وشروطها وأحكامها</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
 
-    <div class="verse-block">
-      <div class="verse-text">﴿فَابْعَثُوا أَحَدَكُم بِوَرِقِكُمْ هَٰذِهِ إِلَى الْمَدِينَةِ﴾</div>
-      <div class="verse-ref">سورة الكهف: ١٩</div>
-    </div>
-
     <div class="content-section">
-      <div class="section-title">تعريفها وحكمها</div>
+      <div class="section-title">المسألة الأولى: تعريفها وحكمها</div>
       <div class="content-text">
         <span class="term">الوكالة:</span> <span class="hukm">تفويض شخص غيره؛ ليقوم مقامه فيما تدخله النيابة.</span><br><br>
-        <span class="term">حكمها:</span> مشروعة بالكتاب والسنة والإجماع للحاجة الداعية إليها؛ لأن الإنسان قد لا يتمكن من فعل كل ما يحتاج إليه بنفسه.
+        <span class="term">حكمها:</span> مشروعة بالكتاب والسنة والإجماع. قال تعالى: ﴿فَابْعَثُوا أَحَدَكُم بِوَرِقِكُمْ هَٰذِهِ إِلَى الْمَدِينَةِ﴾. ولأن الحاجة داعية إليها، فإنه لما كان لا يمكن لكل واحد فِعْلُ كل ما يحتاج إليه بنفسه، دعت الحاجة إلى مشروعيتها.
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروطها والأحكام المتعلقة بها</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(4,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط وأحكام الوكالة</div><div class="cell-hint">اضغط لعرض الشروط والمبطلات كاملة</div></div>
-    </div>
-
-    <div class="game-box">
-      <div class="game-title">🧩 تمرين الفهم: أحكام الوكالة</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
-      <div class="game-grid" id="game-4"></div>
+      <!-- تطبيق طلبك وتقسيم الأقسام المترابطة -->
+      <div class="smart-cell" onclick="openCard(4,0)"><span class="cell-icon">✔️</span><div class="cell-title">شروطها وما تصح فيه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,1)"><span class="cell-icon">👤</span><div class="cell-title">توكيل الوكيل لغيره</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,2)"><span class="cell-icon">🛡️</span><div class="cell-title">ضمان الوكيل</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,3)"><span class="cell-icon">❌</span><div class="cell-title">مبطلات الوكالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(3)">◁ باب الحوالة</button>
-      <button class="nav-btn btn-navy" id="next-4" disabled onclick="goSlide(5)">التالي: الكفالة والضمان ➜</button>
+      <button class="nav-btn btn-navy" onclick="goSlide(5)">التالي: الكفالة والضمان ➜</button>
     </div>
   </div>
 
@@ -445,37 +411,31 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-5" class="scr">
     <div class="page-header">
       <div class="page-icon">🛡️</div>
-      <div class="page-title">باب الكفالة والضمان</div>
-      <div class="page-sub">توثيق حضور البدن أو أداء المال</div>
+      <div class="page-title">الباب الثامن: في الكفالة والضمان</div>
+      <div class="page-sub">التزام إحضار البدن والتزام أداء المال</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
 
-    <div class="verse-block">
-      <div class="verse-text">﴿وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ﴾</div>
-      <div class="verse-ref">سورة يوسف: ٧٢ (الزعيم أي الكفيل/الضامن)</div>
-    </div>
-
     <div class="content-section">
-      <div class="section-title">معنى الكفالة والضمان</div>
+      <div class="section-title">الكفالة: معناها وأدلة مشروعيتها</div>
       <div class="content-text">
-        <span class="term">الكفالة:</span> <span class="purple-text">هي التزام إحضار مَنْ عليه حق مالي لربه، إلى مجلس الحكم.</span> (وتسمى كفالة البدن).<br><br>
-        <span class="term">الضمان:</span> <span class="hukm">هو التزام ما وجب على غيره.</span> (وهو كفالة المال). وكلاهما مشروع لحاجة الناس ودفع الضرر.
+        <span class="term">تعريف الكفالة:</span> <span class="purple-text">هي التزام إحضار مَنْ عليه حق مالي لربه، إلى مجلس الحكم.</span><br><br>
+        أدلة مشروعيتها: من الكتاب قوله تعالى: ﴿وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ﴾ أي كفيل ضامن. ومن السنة: (العارية مؤداة، والزعيم غارم). وقد أجمع العلماء على جواز الكفالة لحاجة الناس إليها ودفع الضرر عن المدين.
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">أركانها وأحكامها، وأحكام الضمان</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(5,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط وأحكام الكفالة والضمان</div><div class="cell-hint">اضغط للتعرف على الفروق والشروط المتكاملة</div></div>
-    </div>
-
-    <div class="game-box">
-      <div class="game-title">🧩 تمرين الفهم: الكفالة والضمان</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
-      <div class="game-grid" id="game-5"></div>
+      <!-- التفصيل الكامل المطلوب -->
+      <div class="smart-cell" onclick="openCard(5,0)"><span class="cell-icon">📌</span><div class="cell-title">أركان الكفالة وشروطها</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,1)"><span class="cell-icon">📜</span><div class="cell-title">بعض أحكام الكفالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,2)"><span class="cell-icon">💰</span><div class="cell-title">الضمان وأحكامه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,3)"><span class="cell-icon">⚖️</span><div class="cell-title">متى تبرأ ذمة الضامن؟</div><div class="cell-hint">اضغط للتفاصيل</div></div>
     </div>
 
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(4)">◁ باب الوكالة</button>
-      <button class="nav-btn btn-navy" id="next-5" disabled onclick="goSlide(6)">التالي: باب الحجر ➜</button>
+      <button class="nav-btn btn-navy" onclick="goSlide(6)">التالي: باب الحجر ➜</button>
     </div>
   </div>
 
@@ -483,38 +443,30 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
   <div id="s-6" class="scr">
     <div class="page-header">
       <div class="page-icon">🚫</div>
-      <div class="page-title">باب الحَجْر</div>
-      <div class="page-sub">حماية أموال القصر وحقوق الدائنين</div>
+      <div class="page-title">الباب التاسع: في الحَجْر</div>
+      <div class="page-sub">منع التصرف المالي للمصلحة</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 
-    <div class="verse-block">
-      <div class="verse-text">﴿وَلَا تُؤْتُوا السُّفَهَاءَ أَمْوَالَكُمُ﴾</div>
-      <div class="verse-ref">سورة النساء: ٥</div>
-    </div>
-
     <div class="content-section">
-      <div class="section-title">تعريف الحجر وأنواعه</div>
+      <div class="section-title">المسألة الأولى: معناه وأنواعه</div>
       <div class="content-text">
-        <span class="term">الحجر لغةً:</span> المنع.<br>
-        <span class="term">وفي الشرع:</span> <span class="hukm">منع إنسان من تصرفه في ماله.</span><br><br>
-        وهو ينقسم إلى نوعين رئيسيين: حجر لمصلحة المحجور عليه (كالصبي والمجنون والسفيه)، وحجر لمصلحة غيره (كالمفلس لحماية الغرماء).
+        <span class="term">الحجر لغة:</span> المنع. <span class="term">وفي الشرع:</span> <span class="hukm">منع إنسان من تصرفه في ماله.</span><br><br>
+        <span class="term">أدلة مشروعيته:</span> ﴿وَلَا تُؤْتُوا السُّفَهَاءَ أَمْوَالَكُمُ﴾. فدلت الآيات على جواز الحجر على السفيه واليتيم ومن في معناهما كالمجنون والصغير، لئلا تتعرض للضياع والفساد.<br>
       </div>
     </div>
 
+    <h3 style="margin:20px 0 10px; color:var(--navy);">أحكام نوعي الحجر</h3>
     <div class="cells-grid">
-      <div class="smart-cell" onclick="openCard(6,0)"><span class="cell-icon">📋</span><div class="cell-title">أحكام نوعي الحجر كاملة</div><div class="cell-hint">اضغط لمعرفة من يتولاه وكيف يُرفع</div></div>
-    </div>
-
-    <div class="game-box">
-      <div class="game-title">🧩 تمرين الفهم: أحكام الحجر</div>
-      <div class="game-hint">صل المفهوم بما يناسبه</div>
-      <div class="game-grid" id="game-6"></div>
+      <!-- تطبيق طلبك لفصل أنواع الحجر والأحكام -->
+      <div class="smart-cell" onclick="openCard(6,0)"><span class="cell-icon">🛡️</span><div class="cell-title">الحجر لمصلحة المحجور عليه</div><div class="cell-hint">الصغير، المجنون، السفيه</div></div>
+      <div class="smart-cell" onclick="openCard(6,1)"><span class="cell-icon">👨‍👧</span><div class="cell-title">أحكام ولي المحجور عليه</div><div class="cell-hint">مَن يتولى أمرهم وحكم تعديه</div></div>
+      <div class="smart-cell" onclick="openCard(6,2)"><span class="cell-icon">📉</span><div class="cell-title">الحجر لمصلحة الغير</div><div class="cell-hint">المفلس وأحكامه</div></div>
     </div>
 
     <div class="nav-row">
       <button class="nav-btn btn-outline" onclick="goSlide(5)">◁ الكفالة والضمان</button>
-      <button class="nav-btn btn-gold" id="next-6" disabled onclick="finishLesson()">✓ إنهاء الدرس</button>
+      <button class="nav-btn btn-gold" onclick="finishLesson()">✓ إنهاء الدرس</button>
     </div>
   </div>
 
@@ -527,7 +479,6 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
     </div>
 
     <div class="essay-list">
-      
       <div class="essay" onclick="this.classList.toggle('open')">
         <div class="essay-h essay-navy">
           <span class="essay-icon">❓</span>
@@ -617,14 +568,12 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
         </div>
         <div class="essay-body">ج: يرى بعض الفقهاء المعاصرين أنه لا يجوز للبنك تحميل هذه الأجرة للعميل إذا كان الفحص قد تم لمصلحة البنك المحض (للتأكد من سلامة السلعة التي سيمتلكها)، أما إذا كان الفحص بناءً على طلب العميل ولمصلحته فيجوز أخذ الأجرة مقابل هذه الخدمة الفنية.</div>
       </div>
-
     </div>
 
     <!-- مصدر النوازل الفقهية -->
     <div style="margin-top: 30px; padding: 16px; background: rgba(201,151,58,.08); border-right: 4px solid var(--gold); border-radius: 12px; font-size: 0.9rem; color: var(--navy); line-height: 1.8;">
       <strong>المصدر:</strong> الموسوعة الميسرة في فقه القضايا المعاصرة.
     </div>
-
   </div>
 
   <!-- === REVIEW === -->
@@ -687,81 +636,95 @@ html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:va
 <script>
 const CARDS_DATA = {
   1: [
-    {icon:"📋",title:"أحكام وشروط الرهن",body:`<h4>شروط صحة الرهن وأحكامه المترتبة:</h4><ol><li><span class="warn">عدم صحة رهن ما لا يجوز بيعه:</span> كالوقف والكلب؛ لأنه لا يمكن إيفاء الدين منه إذا تعذر السداد. ولا رهن مالا يملك.</li><li><span class="hukm">معرفة قدر الرهن:</span> وجنسه وصفته.</li><li><span class="hukm">أهلية الراهن:</span> أن يكون جائز التصرف، مالكاً للمرهون أو مأذوناً له فيه.</li><li><span class="warn">المنع من التصرف:</span> ليس للراهن التصرف في الرهن بغير رضى المرتهن، ولا يملك المرتهن ذلك بغير رضى الراهن.</li><li><span class="warn">منع الانتفاع:</span> لا يجوز للمرتهن الانتفاع بالرهن، إلا أن يكون مركوباً أو محلوباً فيجوز له ذلك (بقدر ما ينفق عليه).</li><li><span class="purple-text">المرهون أمانة:</span> هو أمانة في يد المرتهن، لا يضمنه إلا بالتعدي.</li><li><span class="gold-text">عند حلول الأجل:</span> إذا حل الدين وجب سداده، فإن امتنع المدين أجبره الحاكم، فإن أصر حبسه وعزره حتى يوفي، أو <span class="hukm">يُباع الرهن ويسدد من قيمته.</span></li></ol>`}
+    {icon:"📋",title:"شروط صحة الرهن",body:`<h4>من الأحكام المتعلقة بالرهن:</h4><ol><li><span class="warn">لا يصح رهن ما لا يجوز بيعه</span> كالوقف والكلب؛ لأنه لا يمكن إيفاء الدين منه، ولا رهن مالا يملك.</li><li>يُشترط <span class="hukm">معرفة قدر الرهن</span> وجنسه وصفته.</li><li>أن يكون الراهن <span class="hukm">جائز التصرف</span>، مالكاً للمرهون أو مأذوناً له فيه.</li></ol>`},
+    {icon:"🚫",title:"أحكام التصرف والانتفاع",body:`<h4>قواعد التصرف في الرهن:</h4><ul><li><span class="warn">ليس للراهن التصرف في الرهن بغير رضى المرتهن</span>، ولا يملك المرتهن ذلك بغير رضى الراهن.</li><li><span class="warn">لا يجوز للمرتهن الانتفاع بالرهن</span>، إلا أن يكون مركوباً أو محلوباً فيجوز له أن يركب أو يحلب (إذا أنفق عليه).</li></ul>`},
+    {icon:"🛡️",title:"أمانة الرهن",body:`<h4>ضمان العين المرهونة:</h4><p>المرهون <span class="purple-text">أمانة في يد المرتهن</span>، لا يضمنه إلا بالتعدي.</p>`},
+    {icon:"⚖️",title:"امتناع المدين عن السداد",body:`<h4>إذا حلّ الدين:</h4><p>فإذا حلَّ الدين الذي به رهن، وجب على المدين سداده.</p><ol><li>فإن امتنع <span class="warn">أجبره الحاكم</span>.</li><li>فإن امتنع حبسه وعزّره، حتى يوفي ما عليه من الدين.</li><li>أو <span class="hukm">يبيع الرهن، ويسدد من قيمته.</span></li></ol>`}
   ],
   2: [
-    {icon:"📋",title:"شروط صحة السلم",body:`<h4>السلم نوع من أنواع البيع، ويشترط لصحته ٨ شروط (إضافة لشروط البيع):</h4><ol><li>أن يكون المُسْلَم فيه <span class="hukm">مما يمكن انضباط صفاته</span> (بكيل أو وزن أو ذرع) حتى لا يؤدي للتنازع.</li><li><span class="hukm">معرفة قدر المُسْلَم فيه بمعياره الشرعي:</span> فلا يصح في مكيل وزناً ولا في موزون كيلاً.</li><li>أن يذكر جنسه ونوعه بصفاته المميزة له.</li><li>أن يكون <span class="purple-text">ديناً في الذمة</span>.</li><li>أن يكون <span class="purple-text">مؤجلاً</span>.</li><li>أن يكون الأجل <span class="hukm">معلوماً ومحدداً</span> من الطرفين.</li><li><span class="warn">أن يُقبض الثمن كاملاً معلوماً في مجلس العقد قبل تفرقهما.</span></li><li>كون المُسْلَم فيه <span class="hukm">مما يغلب وجوده عند حلول الأجل</span> (حتى يُسلّمه في وقته، فلا يصح كطب في الشتاء لأنه غرر).</li></ol>`}
+    {icon:"💡",title:"الحكمة من السلم",body:`<h4>توسيع الشريعة:</h4><p>أجازته الشريعة الإسلامية <span class="purple-text">توسيعاً على أفرادها</span>، فالمزارع مثلاً قد لا يملك نقداً ينفقه في إصلاح أرضه وزراعته، ولا يجد من يقرضه، فأبيح له السَّلَم حتى لا تفوته مصلحة استثمار أرضه.</p>`},
+    {icon:"📋",title:"شروط صحة السلم (كاملة)",body:`<h4>السلم نوع من البيع ويشترط لصحته الآتي:</h4><ol><li>أن يكون المُسْلَم فيه <span class="hukm">مما يمكن انضباط صفاته</span> بكيل أو وزن أو ذرع، حتى لا يؤدي إلى التنازع.</li><li><span class="hukm">معرفة قدر المُسْلَم فيه</span> بمعياره الشرعي، فلا يصح في مكيل وزناً، ولا في موزون كيلاً.</li><li>أن يذكر <span class="purple-text">جنس المسلم فيه، ونوعه</span>، بصفاته المميزة له.</li><li>أن يكون <span class="hukm">ديناً في الذمة</span>.</li><li>أن يكون <span class="hukm">مؤجلاً</span>.</li><li>أن يكون الأجل <span class="purple-text">معلوماً ومحدداً</span> من الطرفين.</li><li><span class="warn">أن يقبض الثمن كاملاً معلوماً في مجلس العقد قبل تفرقهما.</span></li><li>كون المسلم فيه <span class="gold-text">مما يغلب وجوده عند حلول الأجل</span>، حتى يُسَلِّمه في وقته، فإن لم يكن موجوداً -كالرطب في الشتاء- لم يصح؛ لأنه غرر.</li></ol>`}
   ],
   3: [
-    {icon:"📋",title:"شروط وأحكام الحوالة",body:`<h4>يشترط لصحة الحوالة الآتي:</h4><ol><li><span class="hukm">رضا المُحيل؛</span> لأنه مُخيَّر في جهات قضاء الدين، فلا تتعين عليه جهة قهراً. (ملاحظة: لا يشترط رضا المحال عليه ولا المحتال إذا أُحيل على مليء).</li><li><span class="hukm">التطابق:</span> كون المالين (المحال به والمحال عليه) متفقين قدراً وجنساً وصفة.</li><li>أن يكون المحال به <span class="purple-text">ديناً مستقراً</span> في ذمة المحال عليه.</li></ol><h4>الأثر المترتب:</h4><p>يترتب على انعقادها الصحيح <span class="gold-text">انتقال الحق من ذمة المُحيل إلى ذمة المُحال عليه</span> (وبراءة ذمة المحيل).</p><h4>الصورة المعاصرة:</h4><p>الحوالة المصرفية (البنكية)، وهي دفع مبلغ لجهة لتسديده في جهة أخرى (مثل البنوك) مقابل عمولة.</p>`}
+    {icon:"📋",title:"شروط صحة الحوالة",body:`<h4>يشترط لصحة الحوالة الآتي:</h4><ol><li><span class="hukm">رضا المُحيل؛</span> لأنه مُخَيَّر في جهات قضاء الدين، فلا تتعين عليه جهة قهراً. (ملاحظة: لا يشترط رضا المحال عليه، ولا المحتال إذا أُحيل على مليء).</li><li><span class="hukm">التطابق:</span> كون المالين (المحال به والمحال عليه) متفقين قدراً وجنساً وصفة.</li><li>أن يكون المحال به <span class="purple-text">ديناً مستقراً</span> في ذمة المحال عليه.</li></ol>`},
+    {icon:"➡️",title:"الأثر المترتب",body:`<h4>ما يترتب على الحوالة:</h4><p>يترتب على انعقاد الحوالة الصحيحة حسب ما ذُكر <span class="gold-text">انتقال الحق من ذمة المُحيل إلى ذمة المُحال عليه</span>. (ويبرأ المحيل).</p>`},
+    {icon:"📱",title:"الصورة المعاصرة",body:`<h4>الحوالة المصرفية:</h4><p>وهي وسيلة لسداد مبالغ نقدية مقابل تسديد مقابلها في جهة أخرى. <br>وصورتها: أن يقوم الشخص بدفع مبلغ نقدي إلى بنك من البنوك، طالباً منه سداد قيمة هذا المبلغ لشخص آخر في بلد آخر نظير عمولة يتقاضاها البنك.</p><p><span class="muted">تُعرف قديماً بالسُّفْتَجَة.</span></p>`}
   ],
   4: [
-    {icon:"📋",title:"شروط وأحكام الوكالة",body:`<h4>شروط الوكالة وما تصح فيه:</h4><ol><li>يشترط في كل من الوكيل والموكل أن يكون <span class="hukm">جائز التصرف (بالغاً، عاقلاً، رشيداً).</span></li><li>تصح في كل ما تدخله النيابة (كالبيع، الشراء، العقود، الفسوخ كالطلاق والخلع، والعبادات كإخراج الزكاة والحج).</li><li><span class="warn">لا تصح فيما لا تدخله النيابة من حقوق الله تعالى (كطهارة وصلاة).</span></li><li>يملك الوكيل التصرف بما يقتضيه إذن الموكل أو العرف، بشرط ألا يترتب عليه ضرر بالموكل.</li><li><span class="warn">لا يصح للوكيل أن يوكل غيره</span>، إلا إذا أجاز له الموكل، أو عجز عن العمل، أو كان لا يحسنه.</li><li>الوكيل <span class="purple-text">أمين</span> (يقوم مقام الموكل)، لا يضمن إلا إذا فرّط أو تعدى.</li></ol><h4>مبطلات الوكالة (عقد جائز):</h4><p>تبطل بموت أحد الطرفين، أو جنونه، أو فسخه لها، أو عزله مِنْ قِبَل الموكل، أو الحجر عليه لسفهه.</p>`}
+    {icon:"✔️",title:"شروطها وما تصح فيه",body:`<h4>الشروط ومجال الوكالة:</h4><ol><li>يشترط في كل من الوكيل والموكل أن يكون <span class="hukm">جائز التصرف (بالغاً، عاقلاً، رشيداً).</span></li><li>تصح الوكالة في كل ما تدخله النيابة، كالبيع والشراء وسائر العقود والفسوخ كالطلاق والخلع، وكذلك تصح في كل ما تدخله النيابة من العبادات كإخراج الزكاة والكفارة والنذر والحج.</li><li><span class="warn">لا تصح الوكالة فيما لا تدخله النيابة من حقوق الله تعالى، كطهارة وصلاة.</span></li><li>يملك الوكيل من التصرف ما يقتضيه إذن الموكل، أو ما تعارف عليه الناس، بشرط ألا يترتب على هذا الإذن ضرر بالموكل.</li></ol>`},
+    {icon:"👤",title:"توكيل الوكيل لغيره",body:`<h4>متى يحق للوكيل أن يوكل غيره؟</h4><p><span class="warn">لا يصح للوكيل أن يوكل غيره</span>، إلا في الحالات التالية:</p><ul><li>إذا أجاز له الموكِّل ذلك.</li><li>أو عجز الوكيل عن العمل.</li><li>أو كان العمل مما لا يحسنه الوكيل.</li></ul><p>فيوكل أميناً يقوم مقامه فيما وكل فيه.</p>`},
+    {icon:"🛡️",title:"ضمان الوكيل",body:`<h4>حكم يد الوكيل:</h4><p>الوكيل <span class="purple-text">أمين فيما وُكّل فيه</span>، لا يضمن، إلا إذا فرّط أو تعدى.</p>`},
+    {icon:"❌",title:"مبطلات الوكالة",body:`<h4>الوكالة عقد جائز، وتبطل بـ:</h4><ol><li><span class="warn">موت أحد الطرفين.</span></li><li>جنون أحد الطرفين.</li><li>فسخه لها (من قبل الوكيل).</li><li>عزله مِنْ قِبَل الموكل.</li><li>أو الحجر عليه لسفهه.</li></ol>`}
   ],
   5: [
-    {icon:"📋",title:"أحكام الكفالة والضمان",body:`<h4>أولاً: الكفالة (كفالة البدن):</h4><ul><li>أركانها ٥: الصيغة، الكفيل، المكفول له، المكفول عنه، والمكفول به.</li><li>تتم <span class="hukm">بإيجاب الكفيل وحده</span>، ولا تتوقف على قبول المكفول له.</li><li>شرط الكفيل: أهليته للتبرع (بالغ عاقل رشيد).</li><li>لا تصح الكفالة ببدن من عليه <span class="warn">حد أو قصاص</span>.</li><li><span class="purple-text">يبرأ الكفيل بموت المكفول</span> المتعذر إحضاره.</li><li>الكفيل <span class="warn">غارم (ضامن) إذا ماطل الأصيل</span> ولم يسدد أو أفلس.</li></ul><h4>ثانياً: الضمان (كفالة المال):</h4><ul><li><span class="warn">لا يجوز أخذ العوض عليه.</span></li><li>يجوز تعدد الضامنين.</li><li>لا يُشترط لمعرفته المضمون عنه.</li><li>يصح ضمان المعلوم والمجهول إذا كان يؤول للعلم.</li><li><span class="hukm">لا تبرأ ذمة الضامن إلا براءة ذمة المضمون عنه.</span></li><li>يُشترط لصحته <span class="gold-text">رضا الضامن</span> (فإن أُكره لم يصح)، ولا يشترط رضا المضمون عنه ولا له.</li></ul>`}
+    {icon:"📌",title:"أركان الكفالة وشروطها",body:`<h4>الأركان والشروط:</h4><ul><li><span class="term">أركان الكفالة خمسة:</span> الصيغة، والكفيل، والمكفول له، والمكفول عنه، والمكفول به.</li><li>وصيغتها تتم <span class="hukm">بإيجاب الكفيل وحده</span>، ولا تتوقف على قبول المكفول له.</li><li><span class="warn">شرط الكفيل:</span> فيشترط فيه أن يكون أهلاً للتبرع سواء كان رجلاً أو امرأة؛ لأن الكفالة من التبرعات. وعلى ذلك <span class="warn">لا تصح الكفالة من المجنون أو المعتوه أو الصبي، وكذلك المحجور عليه لسفه.</span></li><li>وأما المكفول عنه: <span class="purple-text">فلا يشترط رضاه لصحة الكفالة</span>، بخلاف الكفيل فإن رضاه شرط لصحتها.</li></ul>`},
+    {icon:"📜",title:"بعض أحكام الكفالة",body:`<h4>من أحكام الكفالة (إحضار البدن):</h4><ol><li>تصح الكفالة ببدن كل إنسان عليه حق مالي.</li><li><span class="warn">لا تصح الكفالة ببدن من عليه حد أو من عليه قصاص.</span></li><li>يبرأ الكفيل بموت المكفول المتعذر إحضاره.</li><li><span class="hukm">الكفيل الغارم ضامن إذا ماطل الأصيل</span>، ولم يسدد، أو أفلس. (أما الكفيل الحضوري فلا يضمن بل يحضر المكفول).</li><li>تصح الكفالة بالنفس، وهي التزام الكفيل بإحضار المكفول إلى المكفول له، أو إلى مجلس الحكم، أو نحو ذلك.</li></ol>`},
+    {icon:"💰",title:"الضمان وأحكامه",body:`<h4>أحكام الضمان (التزام المال):</h4><ol><li>الضمان هو التزام ما وجب على غيره، وهو جائز. (والزعيم غارم).</li><li><span class="warn">لا يجوز أخذ العوض عليه.</span></li><li>يجوز تعدد الضامنين، فيجوز أن يضمن الحق اثنان فأكثر.</li><li>لا يشترط في صحته معرفة الضامن للمضمون عنه.</li><li>يصح ضمان المعلوم والمجهول إذا كان يؤول إلى العلم، وكذلك عهدة المبيع.</li><li>يصح بكل لفظ يؤدي معناه (ضامن، ضمين، زعيم).</li></ol>`},
+    {icon:"⚖️",title:"متى تبرأ ذمة الضامن؟",body:`<h4>البراءة والشروط:</h4><ol><li><span class="hukm">لا تبرأ ذمة الضامن</span>، إلا إذا برئت ذمة المضمون عنه من الدين، بإبراء أو قضاء.</li><li><span class="purple-text">يشترط لصحته: رضا الضامن</span>، فإن أُكره على الضمان لم يصح. ولا يشترط رضا المضمون عنه، ولا رضا المضمون له.</li><li>كما يشترط لصحته أن يكون الضامن <span class="gold-text">جائز التصرف</span>، بأن يكون بالغاً عاقلاً رشيداً.</li></ol>`}
   ],
   6: [
-    {icon:"📋",title:"أحكام نوعي الحجر",body:`<h4>١. الحجر لمصلحة المحجور عليه (الصغير/المجنون/السفيه):</h4><ul><li><span class="purple-text">يُرفع عن الصغير بأمرين:</span> البلوغ (بالعلامات المعروفة)، والرشد (الصلاح في المال واختباره بعدم الغبن وتضييع المال في الحرام).</li><li><span class="purple-text">يُرفع عن المجنون بأمرين:</span> زوال الجنون، والرشد.</li><li><span class="purple-text">يُرفع عن السفيه:</span> بزوال السفه والاتصاف بالصلاح.</li><li><span class="hukm">الولي:</span> يتولى أمرهم (الأب العدل الرشيد، ثم وصيه)، ويتصرف بالأحظ والأنفع لهم.</li><li><span class="warn">إذا تعدى الولي أو فرّط:</span> ضَمِن وتحمل ما يترتب عليه من غرامة.</li></ul><h4>٢. الحجر لمصلحة الغير (المفلس):</h4><ul><li>لا يُحجر على المدين بدين لم يحل أجله، ولكن يُمنع من السفر الطويل إلا بكفيل.</li><li>إذا كان ماله <span class="warn">أقل من الدين الحالّ (مفلس)</span>، يُحجر عليه منعاً للإضرار بالغرماء، ولا يُمكَّن من التبرع به.</li><li>إذا بيع ماله بعد الحجر، <span class="warn">لا يحق له المطالبة به.</span></li><li>للحاكم بيع ماله وتقسيم ثمنه بقدر ديون غرمائه، وهذا هو <span class="hukm">المقصود من الحجر عليه</span>.</li></ul>`}
+    {icon:"🛡️",title:"الحجر لمصلحة المحجور عليه",body:`<h4>النوع الأول (للصبي والمجنون والسفيه):</h4><ul><li><span class="term">يزول الحجر عن الصغير بأمرين:</span><br>١- البلوغ (إنزال المني، إنبات الشعر، أو بلوغ ١٥ سنة، أو الحيض).<br>٢- الرشد (الصلاح في المال، ويُعرف بامتحانه ومنحه مالاً ليتصرف فيه، فإن لم يغبن ولم ينفق في حرام كان دليلاً على رشده).</li><li><span class="term">يزول الحجر عن المجنون بأمرين:</span> زوال الجنون ورجوع عقله، والرشد.</li><li><span class="term">يزول الحجر عن السفيه:</span> بزوال السفه والطيش واتصافه بالصلاح المالي.</li></ul>`},
+    {icon:"👨‍👧",title:"أحكام ولي المحجور عليه",body:`<h4>الولاية على المحجور عليه لمصلحته:</h4><ol><li>يتولى أمر المحجور عليهم <span class="hukm">الأب إذا كان عدلاً رشيداً، ثم وصيه.</span></li><li>يجب على من يتولى أمرهم أن يتصرف بما فيه <span class="purple-text">الأحَظّ والأنفع لهم</span> لقوله تعالى: ﴿وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ﴾. ويقاس عليه غيره ممن هو في معناه.</li><li>على ولي اليتيم أن يحافظ على ماله ولا يأكله ظلماً.</li><li><span class="warn">إذا تعدّى المحجور عليه لِصِغَرِه ونحوه على نفس أو مال بجناية: فإنه يضمن ويتحمل ما يترتب على ذلك من غرامة؛ لأن المتعدي عليه لم يفرط.</span></li><li>أما إذا دفع شخص ماله إلى صغير أو سفيه أو مجنون، فأتلفه، <span class="warn">لم يضمنه</span>؛ لأنه سلّطه عليه برضاه فهو مفرط.</li></ol>`},
+    {icon:"📉",title:"الحجر لمصلحة الغير",body:`<h4>النوع الثاني (المفلس):</h4><ol><li>لا يُحجر على المدين بدين لم يحل أجله، لأنه لا يلزمه الأداء قبل حلوله، لكن يمنع من السفر الطويل إلا بكفيل مليء.</li><li><span class="warn">إذا كان مال المحجور عليه أكثر من الدين</span>: فهذا لا يحجر عليه في ماله ولكن يُؤمر بالوفاء عند المطالبة، فإن امتنع حُبس وعُزر. فإن أصر تَدخّل الحاكم في ماله بوفاء ديونه.</li><li><span class="warn">إذا كان ماله أقل مما عليه من الدين الحَالّ (مُفلس):</span> فهذا يُحجر عليه التصرف في ماله عند المطالبة؛ لئلا يضر بالغرماء. ولا يُمَكّن من التبرع به أو غيره.</li><li>من باع المحجور عليه أو أقرضه شيئاً بعد الحجر، فلا يحق له المطالبة إلا بعد فك الحجر.</li><li><span class="hukm">للحاكم أن يبيع ماله ويقسم ثمنه بقدر ديون غرمائه الحَالّة؛ لأن هذا هو المقصود من الحجر عليه.</span> ويترك له ما يحتاج إليه كالنفقة والسكن.</li></ol>`}
   ]
 };
 
 const GAMES = {
-  1: {pairs:[{l:"جعل عين وثيقة بدين",r:"الرهن"},{l:"رهن الكلب أو الوقف",r:"لا يصح بيعه فلا يُرهن"},{l:"تصرف الراهن في الرهن",r:"لا يصح بلا رضى المرتهن"},{l:"المرهون في يد المرتهن",r:"أمانة لا يضمنه إلا بالتعدي"}]},
-  2: {pairs:[{l:"بيع سلعة آجلة بثمن مقدم",r:"السلم"},{l:"من حِكَم السلم",r:"التوسيع على الناس (كالمزارع)"},{l:"الشرط السابع للسلم",r:"قبض الثمن كاملاً بمجلس العقد"},{l:"السلم في شيء لا ينضبط وصفه",r:"لا يصح لأنه يؤدي للتنازع"}]},
-  3: {pairs:[{l:"نقل الدين من ذمة لأخرى",r:"الحوالة"},{l:"من شروط الحوالة",r:"رضا المُحيل"},{l:"تطابق المالين",r:"شرط لصحة الحوالة"},{l:"أثر الحوالة الصحيحة",r:"انتقال الحق من ذمة المحيل للمحال عليه"}]},
-  4: {pairs:[{l:"تفويض شخص ليقوم مقامه",r:"الوكالة"},{l:"تصح الوكالة في",r:"البيع والفسوخ والحج"},{l:"لا تصح الوكالة في",r:"حقوق الله كالصلاة والطهارة"},{l:"إذا مات الوكيل أو الموكل",r:"تبطل الوكالة"}]},
-  5: {pairs:[{l:"التزام إحضار البدن",r:"الكفالة"},{l:"التزام كفالة المال",r:"الضمان"},{l:"كفالة من عليه حد أو قصاص",r:"لا تصح"},{l:"أخذ العوض على الضمان",r:"لا يجوز شرعاً"}]},
-  6: {pairs:[{l:"المنع من التصرف في المال",r:"الحجر"},{l:"الحجر على الصغير والسفيه",r:"لمصلحة المحجور عليه"},{l:"الحجر على المفلس",r:"لمصلحة غيره (الدائنين)"},{l:"علامة الرشد المالي",r:"الصلاح في المال (عدم الغبن)"}]}
+  1: {pairs:[{l:"جعل عين وثيقة بدين",r:"الرهن"},{l:"رهن ما لا يجوز بيعه",r:"لا يصح"},{l:"الانتفاع بالرهن للمرتهن",r:"لا يجوز (إلا للركوب والحلب بنفقته)"},{l:"المرهون في يد المرتهن",r:"أمانة لا يضمنه إلا بالتعدي"}]},
+  2: {pairs:[{l:"بيع سلعة آجلة بثمن مقدم",r:"السلم"},{l:"الحكمة من السلم",r:"التوسيع على الأفراد كالمزارع"},{l:"شرط الثمن في السلم",r:"أن يقبض كاملاً في مجلس العقد"},{l:"السلم في شيء لا ينضبط",r:"لا يصح لأنه يؤدي للتنازع"}]},
+  3: {pairs:[{l:"نقل الدين من ذمة لأخرى",r:"الحوالة"},{l:"شرط صحة الحوالة",r:"رضا المُحيل وتطابق المالين"},{l:"الأثر المترتب للحوالة",r:"انتقال الحق من ذمة المحيل للمحال عليه"},{l:"الصورة المعاصرة للحوالة",r:"الحوالة المصرفية لتسديد المبالغ"}]},
+  4: {pairs:[{l:"تفويض شخص ليقوم مقامه",r:"الوكالة"},{l:"تصح الوكالة في",r:"البيع والفسوخ وإخراج الزكاة"},{l:"لا تصح الوكالة في",r:"الصلاة والطهارة (حقوق الله)"},{l:"مبطلات الوكالة",r:"موت أحد الطرفين أو جنونه"}]},
+  5: {pairs:[{l:"التزام إحضار البدن",r:"الكفالة"},{l:"التزام أداء المال الواجب على الغير",r:"الضمان"},{l:"أخذ العوض على الضمان",r:"لا يجوز"},{l:"براءة ذمة الضامن",r:"لا تبرأ إلا ببراءة ذمة المضمون عنه"}]},
+  6: {pairs:[{l:"منع إنسان من التصرف في ماله",r:"الحجر"},{l:"حجر لمصلحة المحجور عليه",r:"على الصغير والمجنون والسفيه"},{l:"حجر لمصلحة الغير",r:"على المفلس (لحفظ حقوق الدائنين)"},{l:"علامة الرشد المالي للصغير",r:"الصلاح في التصرف وعدم الغبن"}]}
 };
 
 const FLASHCARDS = [
   {q:"ما الرهن شرعاً؟",a:"جعل عين مالية وثيقة بدين، ليستوفى منها أو من ثمنها إذا تعذر الوفاء."},
-  {q:"هل يضمن المرتهن الرهن إذا تلف؟",a:"المرهون أمانة، لا يضمنه إلا إذا تعدى أو فرّط."},
-  {q:"ما السلم؟ وما أهم شروط ثمنه؟",a:"بيع سلعة آجلة موصوفة بالذمة بثمن مقدم. شرطه: قبض الثمن كاملاً في مجلس العقد."},
-  {q:"ما الحوالة شرعاً؟",a:"نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه."},
-  {q:"اذكر اثنين مما لا تصح فيه الوكالة.",a:"حقوق الله التي لا تدخلها النيابة كالصلاة والطهارة."},
-  {q:"متى تبطل الوكالة؟",a:"بموت أحد الطرفين، أو جنونه، أو عزله، أو الحجر عليه لسفهه."},
-  {q:"ما الفرق بين الكفالة والضمان؟",a:"الكفالة التزام إحضار البدن لمجلس الحكم، والضمان التزام أداء المال الواجب على الغير."},
-  {q:"هل يجوز أخذ أجرة على الضمان؟",a:"لا يجوز، لأنه عقد تبرع وإرفاق وقضاء حاجة."},
-  {q:"ما شروط رفع الحجر عن الصغير؟",a:"البلوغ (بالعلامات المعروفة)، والرشد (الصلاح في المال)."},
-  {q:"ما سبب الحجر على المفلس؟ وماذا يفعل الحاكم؟",a:"حماية لحقوق الدائنين إذا كان ماله أقل من دينه، ويقوم الحاكم ببيع ماله وقسمته بينهم."}
+  {q:"ما حكم انتفاع المرتهن بالرهن؟",a:"لا يجوز، إلا إن كان مركوباً أو محلوباً فيجوز بقدر נفقته عليه."},
+  {q:"ما أهم شرط لثمن عقد السلم؟",a:"أن يُقبض الثمن كاملاً معلوماً في مجلس العقد قبل التفرق."},
+  {q:"ما الحوالة؟ ومن الذي يشترط رضاه لصحتها؟",a:"نقل الدين من ذمة إلى أخرى. ويشترط (رضا المحيل)."},
+  {q:"اذكر أمرين لا تصح فيهما الوكالة.",a:"حقوق الله التي لا تدخلها النيابة كالصلاة والطهارة."},
+  {q:"ما هي مبطلات الوكالة؟",a:"موت أو جنون أحد الطرفين، فسخها، عزل الوكيل، أو الحجر عليه."},
+  {q:"ما الفرق بين الكفالة والضمان؟",a:"الكفالة: التزام إحضار البدن. الضمان: التزام أداء المال المتوجب."},
+  {q:"هل تصح الكفالة ببدن من عليه قصاص أو حد؟",a:"لا تصح الكفالة لمن عليه حد أو قصاص."},
+  {q:"بم يزول الحجر عن الصغير؟",a:"بأمرين معاً: البلوغ، والرشد (الصلاح في المال)."},
+  {q:"متى يحجر الحاكم على المدين لمصلحة الدائنين؟",a:"إذا كان ماله أقل مما عليه من الدين الحالّ (أفلس) وطالب الغرماء بحقهم."}
 ];
 
 const ESSAYS = [
-  {q:"عرف الرهن، واذكر دليلاً على مشروعيته من السنة.",a:"الرهن: جعل عين مالية وثيقة بدين. الدليل: أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد."},
-  {q:"هل يحق للراهن أو المرتهن التصرف في العين المرهونة بغير رضا الآخر؟",a:"لا، ليس للراهن التصرف فيه بغير رضى المرتهن، ولا يملك المرتهن ذلك بغير رضى الراهن."},
-  {q:"عرف السلم، واذكر الحكمة من مشروعيته.",a:"السلم: بيع سلعة آجلة موصوفة في الذمة بثمن مقدم. حكمته: إجازته الشريعة توسيعاً على الأفراد كالمزارع الذي لا يملك نقداً فينفق على زراعته."},
-  {q:"اذكر ثلاثة من شروط صحة السلم.",a:"١. قبض الثمن كاملاً في مجلس العقد. ٢. أن يكون المسلم فيه مما يمكن انضباط صفاته. ٣. أن يكون الأجل معلوماً ومحدداً."},
-  {q:"ما الحوالة؟ وما الشرط الأساسي المتعلق بالرضا؟",a:"الحوالة: نقل دين من ذمة المُحيل إلى المُحال عليه. ويشترط (رضا المحيل) لأنه لا يتعين عليه جهة السداد قهراً."},
-  {q:"عرف الوكالة، واذكر أموراً تصح فيها وأموراً لا تصح فيها.",a:"الوكالة: تفويض شخص غيره ليقوم مقامه. تصح في (البيع، الشراء، الحج). ولا تصح في (الصلاة، الطهارة)."},
-  {q:"ما هي الكفالة؟ وهل تصح في القصاص والحدود؟",a:"الكفالة التزام إحضار مَنْ عليه حق مالي إلى مجلس الحكم. ولا تصح الكفالة ببدن من عليه حد أو قصاص."},
-  {q:"ما الضمان؟ ومتى تبرأ ذمة الضامن؟",a:"الضمان: التزام ما وجب على غيره من المال. تبرأ ذمته إذا برئت ذمة المضمون عنه (المدين الأصلي) بإبراء أو قضاء."},
-  {q:"عرف الحجر، واذكر نوعيه الأساسيين مع الأمثلة.",a:"الحجر: منع إنسان من تصرفه في ماله. أنواعه: ١. لمصلحة نفسه (كالصبي والمجنون). ٢. لمصلحة غيره (كالمفلس لحماية الغرماء)."},
-  {q:"من يتولى مال المحجور عليه (الصغير)؟ وما حكم تعديه؟",a:"يتولى أمره الأب العدل الرشيد، ثم وصيه، ويتصرفون بالأحظ والأنفع. فإن تعدى الولي أو فرط ضَمِن وتحمل الغرامة."}
+  {q:"عرف الرهن، واذكر دليلاً على مشروعيته في الحضر.",a:"الرهن: جعل عين مالية وثيقة بدين. الدليل: أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد (وهذا في المدينة وليس في سفر)."},
+  {q:"عرف السلم، واذكر ثلاثة من شروطه الثمانية.",a:"السلم: بيع سلعة آجلة بثمن مقدم. من شروطه: ١. قبض الثمن كاملاً في المجلس. ٢. أن يكون المسلم فيه ينضبط بالوصف. ٣. أن يكون الأجل معلوماً."},
+  {q:"ما هي شروط الحوالة الثلاثة؟",a:"١. رضا المُحيل. ٢. التطابق بين المالين جنساً وقدراً. ٣. أن يكون المحال به ديناً مستقراً في ذمة المحال عليه."},
+  {q:"متى يحق للوكيل أن يوكل غيره؟",a:"الأصل أنه لا يصح، ويجوز في ٣ حالات: ١. إذا أجاز له الموكل. ٢. إذا عجز عن العمل. ٣. إذا كان العمل مما لا يحسنه."},
+  {q:"ما هي الكفالة؟ ومن هو الشخص الذي لا تصح كفالة بدنه؟",a:"الكفالة التزام إحضار من عليه حق لمجلس الحكم. ولا تصح فيمن عليه (حد أو قصاص)."},
+  {q:"ما الضمان؟ وهل يجوز أخذ أجرة عليه؟",a:"الضمان: التزام ما وجب على غيره من المال. ولا يجوز أخذ العوض عليه لأنه من الإرفاق."},
+  {q:"عرف الحجر، واذكر نوعيه.",a:"الحجر: منع إنسان من التصرف في ماله. أنواعه: ١. لمصلحة نفسه (كالصبي والمجنون). ٢. لمصلحة غيره (كالمفلس لحماية الغرماء)."},
+  {q:"من يتولى أمر المحجور عليه لحظ نفسه؟ وما واجبه؟",a:"يتولى أمره الأب العدل الرشيد، ثم وصيه. ويجب عليه أن يتصرف بما فيه الأحظ والأنفع، وإن تعدى ضمن."},
+  {q:"متى يحجر على المدين؟ وماذا يفعل الحاكم بماله؟",a:"يُحجر عليه إذا كان ماله أقل من دينه الحال. ويقوم الحاكم ببيع ماله وتقسيم ثمنه بقدر ديون غرمائه."},
+  {q:"ما هي علامة (الرشد) للصغير وكيف يختبر؟",a:"الرشد هو الصلاح في المال، ويعرف بالاختبار، فيمنح شيئاً ليتصرف فيه، فإن لم يغبن غبناً فاحشاً ولم ينفق في حرام دلّ على رشده."}
 ];
 
 const QUIZ = [
   {q:"جعل عين مالية وثيقة بدين يُسمى:",o:["الحوالة","الرهن","الوكالة","السلم"],a:1},
-  {q:"رهن ما لا يجوز بيعه كالكلب والوقف:",o:["يصح مطلقاً","لا يصح","يصح للحاجة","يصح للضرورة"],a:1},
-  {q:"إذا حل الأجل وامتنع المدين عن السداد، فإن الرهن:",o:["يُرد للمدين","يأخذه المرتهن مجاناً","يُباع ويُسدد منه الدين","يسقط الدين"],a:2},
+  {q:"رهن الوقف أو الكلب:",o:["يصح مطلقاً","لا يصح لأنه لا يمكن إيفاء الدين منه","يصح للحاجة","يصح للضرورة"],a:1},
+  {q:"هل يجوز للمرتهن الانتفاع بالرهن (كالركوب والحلب)؟",o:["لا يجوز إطلاقاً","يجوز إذا أنفق عليه","يجوز مطلقاً","يجب عليه ذلك"],a:1},
   {q:"بيع سلعة آجلة موصوفة بالذمة بثمن مُقدّم يُسمى:",o:["الرهن","السلم","الحوالة","القرض"],a:1},
-  {q:"من أهم شروط صحة عقد السلم المتعلقة بالثمن:",o:["تأجيل الثمن","قبض الثمن كاملاً بمجلس العقد","عدم تحديد الأجل","أن يكون المبيع مجهولاً"],a:1},
+  {q:"الشرط السابع والأهم لصحة عقد السلم:",o:["تأجيل الثمن","أن يُقبض الثمن كاملاً في مجلس العقد","عدم تحديد الأجل","أن يكون المبيع موجوداً وقت العقد"],a:1},
   {q:"نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه يُسمى:",o:["الضمان","الكفالة","الحوالة","الرهن"],a:2},
-  {q:"يُشترط لصحة الحوالة أن يكون المالان متفقين في:",o:["القدر والجنس والصفة","المكان فقط","الزمان فقط","لا يشترط اتفاقهما"],a:0},
-  {q:"تفويض شخص غيره ليقوم مقامه فيما تدخله النيابة:",o:["الوكالة","الضمان","الكفالة","السلم"],a:0},
-  {q:"الوكالة لا تصح في:",o:["البيع","الشراء","الصلاة والطهارة","إخراج الزكاة"],a:2},
-  {q:"إذا مات المُوكِّل أو جُنَّ، فإن الوكالة:",o:["تستمر","تنتقل للورثة","تبطل","تتوقف مؤقتاً"],a:2},
-  {q:"التزام إحضار (بدن) من عليه حق مالي يُسمى:",o:["الرهن","الكفالة","الضمان","الوكالة"],a:1},
+  {q:"من شروط صحة الحوالة أن يكون هناك رضا من:",o:["المُحال عليه","الوكيل","المُحيل","لا يشترط رضا أحد"],a:2},
+  {q:"تفويض شخص غيره ليقوم مقامه فيما تدخله النيابة يُسمى:",o:["الوكالة","الضمان","الكفالة","السلم"],a:0},
+  {q:"الوكالة لا تصح إطلاقاً في:",o:["البيع","الشراء","الصلاة والطهارة","إخراج الزكاة"],a:2},
+  {q:"إذا مات أحد الطرفين (الوكيل أو الموكل)، فإن الوكالة:",o:["تستمر","تنتقل للورثة","تبطل","تتوقف مؤقتاً"],a:2},
+  {q:"التزام إحضار (بدن) من عليه حق مالي إلى مجلس الحكم يُسمى:",o:["الرهن","الكفالة","الضمان","الوكالة"],a:1},
   {q:"الكفالة ببدن من عليه (حد أو قصاص):",o:["جائزة","مستحبة","لا تصح","واجبة"],a:2},
-  {q:"التزام ما وجب على غيره (التزام المال) يُسمى:",o:["الحوالة","الضمان","الرهن","الوكالة"],a:1},
+  {q:"التزام ما وجب على غيره (كفالة المال) يُسمى:",o:["الحوالة","الضمان","الرهن","الوكالة"],a:1},
   {q:"أخذ العوض (الأجرة) على عقد الضمان:",o:["جائز","لا يجوز شرعاً","مستحب","واجب"],a:1},
   {q:"منع إنسان من التصرف في ماله شرعاً يُسمى:",o:["الرهن","الوكالة","الحجر","الضمان"],a:2},
-  {q:"الحجر على الصبي والمجنون والسفيه يكون:",o:["لمصلحة غيرهم","لمصلحة أنفسهم","عقوبة لهم","لصالح الدولة"],a:1},
+  {q:"الحجر على الصبي والمجنون والسفيه يكون:",o:["لمصلحة الغرماء","لمصلحة المحجور عليه نفسه","عقوبة لهم","لصالح الدولة"],a:1},
   {q:"الحجر على المفلس يكون:",o:["لمصلحة نفسه","لمصلحة الغرماء (الدائنين)","عقوبة بدنية","لأنه صغير"],a:1},
-  {q:"يُرفع الحجر عن الصغير إذا تحقق فيه:",o:["البلوغ فقط","البلوغ والرشد (الصلاح في المال)","العمر ٢٠ سنة","الزواج"],a:1},
-  {q:"يتولى أمر المحجور عليه (الصغير أو المجنون):",o:["الحاكم مباشرة","الأب العدل الرشيد ثم وصيه","أي قريب","الجيران"],a:1},
-  {q:"تأجير السجل التجاري وأخذ العوض عليه (كما في النوازل):",o:["يُكيّف ككفالة ولا يجوز أخذ عوض عليه","بيع جائز","حوالة جائزة","وكالة بأجر"],a:0}
+  {q:"يُرفع الحجر عن الصغير بأمرين هما:",o:["البلوغ فقط","البلوغ والرشد (الصلاح المالي)","العمر ١٨ سنة","الزواج"],a:1},
+  {q:"إذا تعدى ولي المحجور عليه (كالأب أو الوصي) وفرط في ماله:",o:["لا شيء عليه","يُعفى عنه","يَضْمَن ويتحمل الغرامة","يُكافأ"],a:2},
+  {q:"إذا دفع شخص ماله لصغير فأتلفه الصغير، فهل يضمن الصغير؟",o:["نعم يضمن","لا يضمن (لأن دافع المال هو المفرط)","يضمن النصف","يضمن الولي"],a:1}
 ];
 
 let user={n:'',s:''},curSlide=0,score=0,answered=0,activeL=null,gamesDone={};
@@ -816,14 +779,15 @@ function doLogin(){
   $('#mainHeader').style.display='flex';
   $('#bottomBar').classList.add('on');
   startTimer();
-  goSlide(0); // يذهب لشاشة التمهيد وفيها الفيديو
+  goSlide(0); 
 }
 
 function goSlide(i){
   $$('.scr').forEach(s=>s.classList.remove('on'));
   $(`#s-${i}`).classList.add('on');
   curSlide=i;
-  // إيقاف تشغيل الفيديو إذا انتقل لشريحة أخرى
+  
+  // إيقاف الفيديو عند تغيير الشريحة
   const vid = $('video');
   if(vid && i !== 0) vid.pause();
 
@@ -840,7 +804,6 @@ function finishLesson(){
 }
 
 function switchTab(t){
-  // إيقاف الفيديو عند تغيير التبويب
   const vid = $('video');
   if(vid) vid.pause();
 
@@ -949,16 +912,15 @@ function renderQuiz(){
     </div>`).join('')+`<div id="qzResult"></div>`;
 }
 
-// === دالة الإرسال إلى قوقل فورم الخاص بفقه ٢ ===
 function sendToGoogleForm(name, sec, finalScore, timeStr) {
   const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe0zGzyfo7FfGHta0Ae-J5NYmFFCCLK4W2NdnG92dHH51IcBg/formResponse";
   const formData = new FormData();
   
-  formData.append("entry.1186146438", "الثالثة"); // رقم المحاضرة
-  formData.append("entry.598195891", name);       // اسم الطالب
-  formData.append("entry.583802758", sec);        // الشعبة
-  formData.append("entry.2010697018", finalScore);// الدرجة
-  formData.append("entry.1329211307", timeStr);   // الوقت
+  formData.append("entry.1186146438", "الثالثة"); 
+  formData.append("entry.598195891", name);       
+  formData.append("entry.583802758", sec);        
+  formData.append("entry.2010697018", finalScore);
+  formData.append("entry.1329211307", timeStr);   
   
   fetch(formUrl, {
     method: "POST",
