@@ -892,4 +892,102 @@ function pickR(g,el,r){
     if(done){
       gamesDone[g]=true;
       const btn=$(`#next-${g}`);
-      i
+      if(btn)btn.disabled=false;
+      toast('🎉 أكملت التمرين!');
+    }
+  }else{
+    toast('❌ حاول مرة أخرى');
+    const wrongEl = activeL.el;
+    activeL=null; 
+    setTimeout(()=>wrongEl.classList.remove('active'),300);
+  }
+}
+
+function renderReview(){
+  $('#fcBox').innerHTML=FLASHCARDS.map(c=>`
+    <div class="fc" onclick="this.classList.toggle('flip')">
+      <div class="fc-in">
+        <div class="fc-f"><div>${c.q}</div><small style="opacity:.6;margin-top:10px">اضغط للقلب</small></div>
+        <div class="fc-b"><div>${c.a}</div></div>
+      </div>
+    </div>`).join('');
+
+  $('#essBox').innerHTML=ESSAYS.map((e,i)=>`
+    <div class="essay" onclick="this.classList.toggle('open')">
+      <div class="essay-h ${i%2===0?'essay-navy':'essay-gold'}">
+        <span class="essay-icon">${i%2===0?'📘':'📙'}</span>
+        <span class="essay-text">${i+1}. ${e.q}</span>
+        <span class="essay-arr">▼</span>
+      </div>
+      <div class="essay-body">${e.a}</div>
+    </div>`).join('');
+}
+
+function renderQuiz(){
+  score=0;answered=0;
+  $('#qzBox').innerHTML=QUIZ.map((q,i)=>`
+    <div class="qz-card" id="qc-${i}">
+      <div class="qz-stem"><b>س${i+1}:</b> ${q.q}</div>
+      ${q.o.map((o,j)=>`<button class="qz-opt" onclick="pickAns(${i},${j})">${o}</button>`).join('')}
+    </div>`).join('')+`<div id="qzResult"></div>`;
+}
+
+function sendToGoogleForm(name, sec, finalScore, timeStr) {
+  const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe0zGzyfo7FfGHta0Ae-J5NYmFFCCLK4W2NdnG92dHH51IcBg/formResponse";
+  const formData = new FormData();
+  
+  formData.append("entry.1186146438", "الثالثة"); 
+  formData.append("entry.598195891", name);       
+  formData.append("entry.583802758", sec);        
+  formData.append("entry.2010697018", finalScore);
+  formData.append("entry.1329211307", timeStr);   
+  
+  fetch(formUrl, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  }).then(() => console.log("تم الإرسال لـ Google Form بنجاح"))
+    .catch(err => console.error("خطأ في الإرسال:", err));
+}
+
+function pickAns(qi,oi){
+  const card=$(`#qc-${qi}`);
+  if(card.dataset.done)return;
+  card.dataset.done='1';
+  const btns=card.querySelectorAll('.qz-opt');
+  btns.forEach(b=>b.disabled=true);
+  
+  if(oi===QUIZ[qi].a){
+    btns[oi].classList.add('right');
+    score++;
+  } else {
+    btns[oi].classList.add('wrong');
+    btns[QUIZ[qi].a].classList.add('right');
+  }
+  
+  answered++;
+  if(answered===QUIZ.length){
+    const elapsed=getElapsedTime();
+    sendToGoogleForm(user.n, user.s, score, elapsed);
+
+    $('#qzResult').innerHTML=`
+      <div class="qz-result">
+        <h2 style="color:var(--gold);margin-bottom:10px">🎉 انتهى التقييم</h2>
+        <p style="font-size:2rem;font-weight:900;color:var(--navy)">${score} / ٢٠</p>
+        <p style="margin-top:10px">${user.n} — الشعبة ${user.s}</p>
+        <p style="margin-top:10px;color:var(--green)">⏱️ الوقت المستغرق: <strong>${elapsed}</strong></p>
+        <button class="nav-btn btn-navy" style="margin-top:20px" onclick="renderQuiz()">إعادة التقييم</button>
+      </div>`;
+    $('#qzResult').scrollIntoView({behavior:'smooth'});
+  }
+}
+
+$$('.btab').forEach(b=>b.addEventListener('click',function(){
+  const t=this.dataset.t;
+  if(t==='lesson') goSlide(curSlide||0);
+  else switchTab(t);
+}));
+
+</script>
+</body>
+</html>
