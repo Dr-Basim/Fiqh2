@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>فقه ٢ — المحاضرة الثالثة</title>
+
+<!-- خطوط الصفحة -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy2:#152238;--gold:#c9973a;--gold2:#e8c678;--gold3:#f5e6c8;
+  --cream:#faf8f3;--green:#059669;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;
+  --teal:#0d9488;--orange:#ea580c;--muted:#6b7280;
+  --font-q:"Amiri",serif;--font-u:"Tajawal",sans-serif;
+  --font-naskh:"Noto Naskh Arabic",serif;
+  --rad:20px;--sh:0 15px 40px rgba(10,22,40,.12);
+  --login-navy:#16213e;
+  --login-gold:#e2b96f;
+  --login-cream:#faf8f3;
+}
+html,body{height:100%;font-family:var(--font-u);background:var(--cream);color:var(--navy);overflow:hidden}
+.app{height:100%;display:flex;flex-direction:column}
+
+/* === HEADER === */
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:8px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--gold);z-index:100;}
+.hdr-right{display:flex;flex-direction:column;align-items:center;gap:6px}
+.logo-box{width:170px;height:75px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:.85rem;font-weight:700;}
+.hdr-prof{color:var(--gold2);font-weight:800;font-size:.85rem}
+.hdr-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex:1}
+.hdr-course{font-family:var(--font-naskh);font-size:1.8rem;color:var(--gold);margin-bottom:4px}
+.hdr-lecture{font-size:.75rem;color:var(--gold2);font-weight:600}
+.hdr-left{display:flex;align-items:center;gap:10px}
+.hdr-stu{background:rgba(201,151,58,.15);border:1px solid rgba(201,151,58,.3);padding:6px 12px;border-radius:10px;color:#fff;font-size:.78rem}
+.hdr-stu b{color:var(--gold2);margin-left:6px}
+
+/* === MAIN === */
+.main{flex:1;overflow:hidden;position:relative}
+.scr{position:absolute;inset:0;overflow-y:auto;padding:20px 20px 140px;display:none;opacity:0;transform:translateY(20px);transition:.5s cubic-bezier(.4,0,.2,1);max-width:1100px;margin:0 auto;width:100%;}
+.scr.on{display:block;opacity:1;transform:translateY(0)}
+
+/* === BOTTOM BAR === التعديل تم هنا */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:3px solid var(--gold);display:none;padding:10px 20px max(10px,env(safe-area-inset-bottom));}
+.bottom-bar.on{display:block}
+.bottom-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.bottom-inner::-webkit-scrollbar{display:none;}
+.bottom-timer{background:rgba(5,150,105,.12);border:1px solid rgba(5,150,105,.3);padding:8px 16px;border-radius:12px;color:#059669;font-weight:900;font-size:.9rem;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.bottom-tabs{display:flex;gap:8px;flex-shrink:0;}
+.btab{border:none;background:rgba(10,22,40,.06);color:var(--navy);cursor:pointer;padding:10px 20px;border-radius:14px;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:6px;transition:.2s;flex-shrink:0;white-space:nowrap;}
+.btab.act{background:var(--navy);color:var(--gold2)}
+.btab.locked{opacity:.4;cursor:not-allowed}
+.btab span{font-size:1.1rem}
+
+/* === LOGIN === */
+#s-login.scr{max-width:none;padding:0;}
+@keyframes loginFadeIn{0%{opacity:0}100%{opacity:1}}
+@keyframes loginPulse{0%,100%{opacity:1}50%{opacity:.5}}
+.welcome-wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:1rem;background:url('https://www.transparenttextures.com/patterns/arabesque.png') repeat,var(--login-cream);animation:loginFadeIn .5s ease-out;}
+.welcome-glass{max-width:36rem;width:100%;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(226,185,111,0.3);box-shadow:0 8px 32px 0 rgba(31,38,135,0.07);border-radius:1.5rem;padding:2.5rem 1.875rem;text-align:center;position:relative;overflow:hidden;}
+.welcome-deco{position:absolute;top:0;right:0;width:8rem;height:8rem;background:var(--login-gold);opacity:.2;border-bottom-left-radius:9999px;pointer-events:none;}
+.welcome-logo-wrap{display:flex;justify-content:center;margin-bottom:1.5rem;position:relative;z-index:10;width:100%;}
+.welcome-logo-wrap img{width:16rem;height:auto;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.1));}
+.welcome-h1{font-family:'Amiri',serif;font-size:2.25rem;font-weight:700;color:var(--login-navy);margin-bottom:.5rem;position:relative;z-index:10;}
+.welcome-h2{font-size:1.5rem;font-weight:500;color:var(--login-gold);margin-bottom:.5rem;position:relative;z-index:10;}
+.welcome-prof-line{font-size:.875rem;font-weight:700;color:#6b7280;margin-bottom:2rem;border-bottom:1px solid #e5e7eb;padding-bottom:1rem;display:inline-block;position:relative;z-index:10;}
+.welcome-fields{display:flex;flex-direction:column;gap:1.5rem;position:relative;z-index:10;}
+.welcome-input{width:100%;padding:1rem;border-radius:.75rem;border:2px solid #e5e7eb;outline:none;transition:border-color .3s;text-align:center;font-family:'Tajawal',sans-serif;font-size:1rem;color:var(--login-navy);background:#fff;}
+.welcome-input:focus{border-color:var(--login-gold);}
+.welcome-input::placeholder{color:#9ca3af;}
+.welcome-error{color:#dc2626;font-weight:700;font-size:.95rem;animation:loginPulse 2s infinite;display:none;}
+.welcome-start-btn{width:100%;background:var(--login-navy);color:#fff;font-weight:700;font-size:1.25rem;padding:1rem;border-radius:.75rem;margin-top:1rem;border:none;cursor:pointer;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);transition:all .3s ease;font-family:'Tajawal',sans-serif;}
+.welcome-start-btn:hover{background:var(--login-gold);color:var(--login-navy);transform:scale(1.05);}
+
+/* === VIDEO WRAPPER === */
+.video-wrapper{margin:20px 0;border-radius:20px;overflow:hidden;box-shadow:var(--sh);border:3px solid var(--gold);background:#0a1628;display:flex;justify-content:center;align-items:center;position:relative;}
+.video-wrapper video{width:100%;max-height:500px;display:block;object-fit:cover;}
+
+/* === TYPOGRAPHY & BLOCKS === */
+.page-header{text-align:center;margin-bottom:30px;padding:20px;background:linear-gradient(135deg,rgba(201,151,58,.08),rgba(201,151,58,.02));border-radius:24px}
+.page-icon{font-size:3rem;margin-bottom:10px}
+.page-title{font-family:var(--font-q);font-size:2rem;color:var(--navy);margin-bottom:6px}
+.page-sub{color:var(--gold);font-weight:700;font-size:.95rem}
+.term{color:var(--blue);font-weight:800}
+.hukm{color:var(--green);font-weight:800}
+.warn{color:var(--red);font-weight:800}
+.gold-text{color:var(--gold);font-weight:800}
+.purple-text{color:var(--purple);font-weight:800}
+
+.verse-block{background:linear-gradient(135deg,#fffdf8,#fef9ee);border:2px solid var(--gold);border-radius:24px;padding:28px 24px;margin:24px 0;text-align:center;position:relative;box-shadow:inset 0 0 60px rgba(201,151,58,.05),0 12px 30px rgba(201,151,58,.1);}
+.verse-block::before{content:"﷽";display:block;color:var(--gold);font-size:1.8rem;margin-bottom:12px;font-family:var(--font-q)}
+.verse-text{font-family:var(--font-q);font-size:1.35rem;line-height:2.3;color:var(--navy)}
+.verse-ref{font-size:.8rem;color:var(--gold);margin-top:12px;font-weight:600}
+
+.content-section{background:#fff;border-radius:20px;padding:24px;margin:20px 0;box-shadow:var(--sh);border-right:5px solid var(--gold);}
+.section-title{font-family:var(--font-q);font-size:1.3rem;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-title::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%}
+.content-text{line-height:2;font-size:1rem}
+
+/* === SMART CELLS === */
+.cells-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}
+.smart-cell{background:linear-gradient(145deg,#fff,#fdfcfa);border:2px solid rgba(201,151,58,.2);border-radius:20px;padding:24px 20px;text-align:center;cursor:pointer;transition:.4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+.smart-cell:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(201,151,58,.15);border-color:var(--gold)}
+.cell-icon{font-size:2.5rem;display:block;margin-bottom:12px}
+.cell-title{font-weight:900;font-size:1rem;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.cell-hint{font-size:.75rem;color:var(--muted)}
+
+/* === EXPANDED CARD OVERLAY === */
+.card-overlay{position:fixed;inset:0;background:rgba(10,22,40,.85);backdrop-filter:blur(8px);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:.4s;}
+.card-overlay.on{display:flex;opacity:1}
+.expanded-card{background:#fff;width:100%;max-width:700px;max-height:85vh;overflow-y:auto;border-radius:28px;padding:0;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3);transform:scale(.9);transition:.4s cubic-bezier(.34,1.56,.64,1);}
+.card-overlay.on .expanded-card{transform:scale(1)}
+.exp-header{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:24px;border-radius:28px 28px 0 0;position:sticky;top:0;z-index:10;}
+.exp-icon{font-size:2.5rem;margin-bottom:8px}
+.exp-title{font-family:var(--font-q);font-size:1.5rem;color:#fff}
+.exp-close{position:absolute;top:20px;left:20px;background:rgba(255,255,255,.2);border:none;width:40px;height:40px;border-radius:50%;color:#fff;cursor:pointer;font-size:1.2rem;}
+.exp-body{padding:24px;line-height:2;font-size:1rem}
+.exp-body h4{color:var(--navy);margin:16px 0 10px;font-size:1.1rem;border-bottom:2px solid var(--gold3);padding-bottom:6px}
+.exp-body ol,.exp-body ul{padding-right:24px;margin:10px 0}
+.exp-body li{margin-bottom:8px}
+
+/* === LISTS === */
+.num-list{list-style:none;padding:0;margin:16px 0;counter-reset:item}
+.num-list li{counter-increment:item;padding:14px 50px 14px 14px;margin-bottom:10px;background:linear-gradient(90deg,#f8f6f1,#fff);border-radius:14px;border:1px solid rgba(0,0,0,.05);position:relative;line-height:1.8;}
+.num-list li::before{content:counter(item);position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.85rem;}
+
+/* === MATCHING GAME === */
+.game-box{background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:24px;padding:24px;margin:24px 0;border:2px solid rgba(10,22,40,.08);}
+.game-title{font-family:var(--font-q);color:var(--navy);margin-bottom:16px;font-size:1.1rem}
+.game-hint{font-size:.8rem;color:var(--muted);margin-bottom:16px}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.game-col{display:flex;flex-direction:column;gap:12px}
+.g-item,.g-choice{padding:14px 16px;border-radius:14px;font-size:.9rem;font-weight:700;cursor:pointer;text-align:center;min-height:56px;display:flex;align-items:center;justify-content:center;transition:.25s;line-height:1.5;}
+.g-item{background:var(--navy);color:#fff;box-shadow:0 4px 0 var(--navy2)}
+.g-choice{background:#fff;border:2px solid var(--gold);color:var(--navy);box-shadow:0 4px 0 #e6d5a8}
+.g-item.active{background:var(--gold);transform:translateY(2px);box-shadow:none}
+.g-choice.active{border-color:var(--navy);transform:translateY(2px);box-shadow:none}
+.g-item.done,.g-choice.done{opacity:.4;pointer-events:none;background:var(--green)!important;color:#fff!important;border:none!important;box-shadow:none}
+
+/* === REVIEW / NAWAZIL ESSAYS === */
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0}
+.fc{height:180px;perspective:1000px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;transition:.6s;transform-style:preserve-3d;border-radius:18px;box-shadow:var(--sh)}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
+.fc-f{background:linear-gradient(135deg,var(--navy),var(--navy2));color:var(--gold2);font-weight:700;font-size:.95rem;text-align:center;line-height:1.6}
+.fc-b{background:#fff;border:2px solid var(--gold);transform:rotateY(180deg);font-size:.88rem;line-height:1.8;text-align:center;color:var(--navy)}
+
+.essay-list{display:flex;flex-direction:column;gap:12px}
+.essay{border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.essay-h{width:100%;border:none;padding:16px 20px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:.95rem;cursor:pointer;transition:.2s;color:#fff;text-align:right;}
+.essay-navy{background:linear-gradient(90deg,#0a1628,#1e3a5f)}
+.essay-gold{background:linear-gradient(90deg,#c9973a,#e0b055);color:#2a1e05!important}
+.essay-icon{font-size:1.4rem;flex-shrink:0}
+.essay-text{flex:1;line-height:1.5}
+.essay-arr{font-size:1rem;transition:.3s}
+.essay.open .essay-arr{transform:rotate(180deg)}
+.essay-body{max-height:0;overflow:hidden;transition:.4s;background:#fff;padding:0 20px;line-height:1.9;font-size:.92rem}
+.essay.open .essay-body{max-height:400px;padding:16px 20px;overflow-y:auto;}
+
+/* === QUIZ === */
+.qz-card{background:#fff;border-radius:18px;padding:22px;margin-bottom:16px;box-shadow:var(--sh)}
+.qz-stem{font-family:var(--font-q);font-size:1.1rem;line-height:1.9;margin-bottom:14px}
+.qz-opt{display:block;width:100%;padding:14px 16px;margin:10px 0;border:2px solid #e5e7eb;border-radius:14px;background:#fff;cursor:pointer;text-align:right;font-size:.95rem;font-family:var(--font-u);transition:.2s;}
+.qz-opt:hover{border-color:var(--gold);background:#fffbf0}
+.qz-opt.right{background:var(--green);color:#fff;border-color:var(--green)}
+.qz-opt.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+.qz-result{text-align:center;padding:40px;background:#fff;border-radius:24px;box-shadow:var(--sh)}
+
+/* === NAV CONTROLS === */
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:20px;border-top:2px dashed rgba(201,151,58,.3)}
+.nav-btn{border:none;padding:14px 28px;border-radius:30px;font-weight:800;cursor:pointer;font-family:var(--font-u);transition:.2s;font-size:.95rem;}
+.nav-btn:active{transform:scale(.95)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.nav-btn:disabled{opacity:.4;cursor:not-allowed}
+
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 24px;border-radius:30px;font-weight:700;z-index:700;opacity:0;transition:.3s;pointer-events:none}
+.toast.on{opacity:1}
+
+.progress-bar{height:6px;background:rgba(201,151,58,.2);border-radius:99px;margin:16px 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:99px;transition:.5s}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- === COMPACT HEADER === -->
+<header class="hdr" id="mainHeader" style="display:none">
+  <div class="hdr-right">
+    <div class="logo-box" style="border:none; background:transparent;">
+      <img src="logo.png" alt="شعار الجامعة" style="max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.1));">
+    </div>
+    <div class="hdr-prof">مقرر فقه ٢</div>
+  </div>
+  <div class="hdr-center">
+    <div class="hdr-course">مقرر فقه ٢</div>
+    <div class="hdr-lecture">المحاضرة الثالثة: أبواب التوثيقات والبيوع</div>
+  </div>
+  <div class="hdr-left">
+    <div class="hdr-stu"><b id="dName">—</b> | الشعبة: <span id="dSec">—</span></div>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- === LOGIN SCREEN === -->
+  <div id="s-login" class="scr on">
+    <div class="welcome-wrap">
+      <div class="welcome-glass">
+        <div class="welcome-deco"></div>
+        <div class="welcome-logo-wrap">
+          <img src="logo.png" alt="شعار الجامعة">
+        </div>
+        <h1 class="welcome-h1">مقرر فقه ٢</h1>
+        <h2 class="welcome-h2">المحاضرة الثالثة: أبواب التوثيقات والبيوع</h2>
+        <div class="welcome-prof-line">الرهن • السلم • الحوالة • الوكالة • الكفالة • الحجر</div>
+        <div class="welcome-fields">
+          <div><input type="text" id="iName" class="welcome-input" placeholder="أدخل اسمك الكامل هنا..."></div>
+          <div><input type="text" id="iSec" class="welcome-input" placeholder="رقم الشعبة (مثال: YM3)"></div>
+          <p id="loginError" class="welcome-error"></p>
+          <button class="welcome-start-btn" onclick="doLogin()">ابدأ رحلة التعلم</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === INTRO & VIDEO === -->
+  <div id="s-0" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🎥</div>
+      <div class="page-title">تمهيد وملخص المحاضرة</div>
+      <div class="page-sub">شاهد هذا الملخص المرئي قبل البدء بالتفاصيل</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+
+    <!-- كود الفيديو المعدل لدعم التشغيل بشكل أفضل -->
+    <div class="video-wrapper">
+      <video controls playsinline preload="metadata" poster="https://www.transparenttextures.com/patterns/arabesque.png">
+        <source src="summary.mp4" type="video/mp4">
+        عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو. الرجاء استخدام متصفح حديث.
+      </video>
+    </div>
+
+    <div class="content-section">
+      <div class="section-title">نظرة عامة على أبواب المحاضرة</div>
+      <div class="content-text">
+        جاءت الشريعة الإسلامية بتنظيم دقيق للمعاملات المالية لضمان حفظ الحقوق وتيسير قضاء المصالح بين الناس. سنتناول في هذه المحاضرة:
+        <ul class="num-list" style="margin-top:16px">
+          <li><span class="gold-text">باب الرهن:</span> لتوثيق الديون بالأعيان المالية.</li>
+          <li><span class="gold-text">باب السلم:</span> لتيسير بيع السلع الآجلة.</li>
+          <li><span class="gold-text">باب الحوالة:</span> لنقل الديون وتسهيل سدادها.</li>
+          <li><span class="gold-text">باب الوكالة:</span> للإنابة والتفويض في التصرفات.</li>
+          <li><span class="gold-text">باب الكفالة والضمان:</span> لتوثيق إحضار البدن أو أداء المال.</li>
+          <li><span class="gold-text">باب الحجر:</span> لحماية أموال القصر وحقوق الدائنين.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <div></div>
+      <button class="nav-btn btn-navy" onclick="goSlide(1)">التالي: باب الرهن ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 1: RAHN === -->
+  <div id="s-1" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🔒</div>
+      <div class="page-title">الباب الرابع: في الرهن</div>
+      <div class="page-sub">وفيه مسألتان: معناه ومشروعيته، وأحكامه</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+
+    <div class="verse-block">
+      <div class="verse-text">﴿وَإِن كُنتُمْ عَلَىٰ سَفَرٍ وَلَمْ تَجِدُوا كَاتِبًا فَرِهَانٌ مَّقْبُوضَةٌ ۖ﴾</div>
+      <div class="verse-ref">سورة البقرة: ٢٨٣</div>
+    </div>
+
+    <div class="content-section">
+      <div class="section-title">المسألة الأولى: معناه وأدلة مشروعيته</div>
+      <div class="content-text">
+        <span class="term">الرهن:</span> <span class="hukm">جَعْلُ عينٍ مالية، وثيقة بدين؛ لِيُسْتوفى منها أو من ثمنها، إذا تعذَّر الوفاء.</span><br><br>
+        <span class="term">مشروعيته:</span> الأصل في مشروعيته القرآن الكريم، والتقييد بالسفر في الآية خرج مخرج الغالب فلا مفهوم له؛ لدلالة السنة على مشروعيته في الحضر، فعن عائشة رضي الله عنها: (أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد).
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: الأحكام المتعلقة به</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(1,0)"><span class="cell-icon">📌</span><div class="cell-title">شروط صحة الرهن</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,1)"><span class="cell-icon">🚫</span><div class="cell-title">أحكام التصرف والانتفاع</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,2)"><span class="cell-icon">🛡️</span><div class="cell-title">أمانة الرهن</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(1,3)"><span class="cell-icon">⚖️</span><div class="cell-title">امتناع المدين عن السداد</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الرهن</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-1"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(0)">◁ التمهيد</button>
+      <button class="nav-btn btn-navy" id="next-1" disabled onclick="goSlide(2)">التالي: باب السلم ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 2: SALAM === -->
+  <div id="s-2" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🌾</div>
+      <div class="page-title">الباب الخامس: في السلم</div>
+      <div class="page-sub">وفيه مسألتان: معناه ومشروعيته، وشروطه</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+
+    <div class="content-section">
+      <div class="section-title">المسألة الأولى: معناه ومشروعيته والحكمة منه</div>
+      <div class="content-text">
+        <span class="term">تعريفه:</span> السَّلَم والسَّلَف بمعنى واحد، وهو: <span class="hukm">بيعُ سلعةٍ آجلة موصوفة في الذمة بثمن مُقَدَّم.</span><br><br>
+        <span class="term">دليل مشروعيته:</span> عن ابن عباس رضي الله عنهما قال: قدم رسول الله ﷺ المدينة، وهم يسلفون في الثمار السنة والسنتين، فقال: (من أسلف، فليسلف في كيل معلوم ووزن معلوم إلى أجل معلوم).
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">الحكمة والشروط</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(2,0)"><span class="cell-icon">💡</span><div class="cell-title">الحكمة من السلم</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(2,1)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة السلم (كاملة)</div><div class="cell-hint">جميع الشروط الثمانية المطلوبة</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام السلم</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-2"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(1)">◁ باب الرهن</button>
+      <button class="nav-btn btn-navy" id="next-2" disabled onclick="goSlide(3)">التالي: باب الحوالة ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 3: HAWALAH === -->
+  <div id="s-3" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🔄</div>
+      <div class="page-title">الباب السادس: في الحوالة</div>
+      <div class="page-sub">وفيه مسألتان: معناها ومشروعيتها، وشروطها</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+
+    <div class="content-section">
+      <div class="section-title">المسألة الأولى: معناها وأدلة مشروعيتها</div>
+      <div class="content-text">
+        <span class="term">الحوالة:</span> <span class="hukm">نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه.</span><br><br>
+        وهي مشروعة لما فيها من الإرفاق، وتبادل المصالح بين أفراد الأمة، والتسامح وتسهيل المعاملات. عن أبي هريرة رضي الله عنه أن رسول الله ﷺ قال: <span class="purple-text">(إذا أُتْبِعَ أحدكم على مليءٍ فليتبع)</span>.<br>
+        ومعناه: إذا أحيل بالدين الذي له، على موسر فليحتل، وليقبل الحوالة. فإذا أحال المدين دائنه على مفلس رجع بحقه على مَنْ أحاله؛ لأنَّ الفَلَس عيب ولم يرض به، فله حق الرجوع.
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروط صحتها وما يترتب عليها</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(3,0)"><span class="cell-icon">📋</span><div class="cell-title">شروط صحة الحوالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(3,1)"><span class="cell-icon">➡️</span><div class="cell-title">الأثر المترتب</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(3,2)"><span class="cell-icon">📱</span><div class="cell-title">الصورة المعاصرة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الحوالة</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-3"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(2)">◁ باب السلم</button>
+      <button class="nav-btn btn-navy" id="next-3" disabled onclick="goSlide(4)">التالي: باب الوكالة ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 4: WAKALAH === -->
+  <div id="s-4" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🤝</div>
+      <div class="page-title">الباب السابع: في الوكالة</div>
+      <div class="page-sub">وفيه مسألتان: تعريفها وحكمها، وشروطها وأحكامها</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+
+    <div class="content-section">
+      <div class="section-title">المسألة الأولى: تعريفها وحكمها</div>
+      <div class="content-text">
+        <span class="term">الوكالة:</span> <span class="hukm">تفويض شخص غيره؛ ليقوم مقامه فيما تدخله النيابة.</span><br><br>
+        <span class="term">حكمها:</span> مشروعة بالكتاب والسنة والإجماع. قال تعالى: ﴿فَابْعَثُوا أَحَدَكُم بِوَرِقِكُمْ هَٰذِهِ إِلَى الْمَدِينَةِ﴾. ولأن الحاجة داعية إليها، فإنه لما كان لا يمكن لكل واحد فِعْلُ كل ما يحتاج إليه بنفسه، دعت الحاجة إلى مشروعيتها.
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">المسألة الثانية: شروطها والأحكام المتعلقة بها</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(4,0)"><span class="cell-icon">✔️</span><div class="cell-title">شروطها وما تصح فيه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,1)"><span class="cell-icon">👤</span><div class="cell-title">توكيل الوكيل لغيره</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,2)"><span class="cell-icon">🛡️</span><div class="cell-title">ضمان الوكيل</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(4,3)"><span class="cell-icon">❌</span><div class="cell-title">مبطلات الوكالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الوكالة</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-4"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(3)">◁ باب الحوالة</button>
+      <button class="nav-btn btn-navy" id="next-4" disabled onclick="goSlide(5)">التالي: الكفالة والضمان ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 5: KAFALAH & DHAMAN === -->
+  <div id="s-5" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🛡️</div>
+      <div class="page-title">الباب الثامن: في الكفالة والضمان</div>
+      <div class="page-sub">التزام إحضار البدن والتزام أداء المال</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+
+    <div class="content-section">
+      <div class="section-title">الكفالة: معناها وأدلة مشروعيتها</div>
+      <div class="content-text">
+        <span class="term">تعريف الكفالة:</span> <span class="purple-text">هي التزام إحضار مَنْ عليه حق مالي لربه، إلى مجلس الحكم.</span><br><br>
+        أدلة مشروعيتها: من الكتاب قوله تعالى: ﴿وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ﴾ أي كفيل ضامن. ومن السنة: (العارية مؤداة، والزعيم غارم). وقد أجمع العلماء على جواز الكفالة لحاجة الناس إليها ودفع الضرر عن المدين.
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">أركانها وأحكامها، وأحكام الضمان</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(5,0)"><span class="cell-icon">📌</span><div class="cell-title">أركان الكفالة وشروطها</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,1)"><span class="cell-icon">📜</span><div class="cell-title">بعض أحكام الكفالة</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,2)"><span class="cell-icon">💰</span><div class="cell-title">الضمان وأحكامه</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+      <div class="smart-cell" onclick="openCard(5,3)"><span class="cell-icon">⚖️</span><div class="cell-title">متى تبرأ ذمة الضامن؟</div><div class="cell-hint">اضغط للتفاصيل</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: الكفالة والضمان</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لفتح الزر</div>
+      <div class="game-grid" id="game-5"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(4)">◁ باب الوكالة</button>
+      <button class="nav-btn btn-navy" id="next-5" disabled onclick="goSlide(6)">التالي: باب الحجر ➜</button>
+    </div>
+  </div>
+
+  <!-- === SLIDE 6: HAJR === -->
+  <div id="s-6" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🚫</div>
+      <div class="page-title">الباب التاسع: في الحَجْر</div>
+      <div class="page-sub">منع التصرف المالي للمصلحة</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+
+    <div class="content-section">
+      <div class="section-title">المسألة الأولى: معناه وأنواعه</div>
+      <div class="content-text">
+        <span class="term">الحجر لغة:</span> المنع. <span class="term">وفي الشرع:</span> <span class="hukm">منع إنسان من تصرفه في ماله.</span><br><br>
+        <span class="term">أدلة مشروعيته:</span> ﴿وَلَا تُؤْتُوا السُّفَهَاءَ أَمْوَالَكُمُ﴾. فدلت الآيات على جواز الحجر على السفيه واليتيم ومن في معناهما كالمجنون والصغير، لئلا تتعرض للضياع والفساد.<br>
+      </div>
+    </div>
+
+    <h3 style="margin:20px 0 10px; color:var(--navy);">أحكام نوعي الحجر</h3>
+    <div class="cells-grid">
+      <div class="smart-cell" onclick="openCard(6,0)"><span class="cell-icon">🛡️</span><div class="cell-title">الحجر لمصلحة المحجور عليه</div><div class="cell-hint">الصغير، المجنون، السفيه</div></div>
+      <div class="smart-cell" onclick="openCard(6,1)"><span class="cell-icon">👨‍👧</span><div class="cell-title">أحكام ولي المحجور عليه</div><div class="cell-hint">مَن يتولى أمرهم وحكم تعديه</div></div>
+      <div class="smart-cell" onclick="openCard(6,2)"><span class="cell-icon">📉</span><div class="cell-title">الحجر لمصلحة الغير</div><div class="cell-hint">المفلس وأحكامه</div></div>
+    </div>
+
+    <div class="game-box">
+      <div class="game-title">🧩 تمرين الفهم: أحكام الحجر</div>
+      <div class="game-hint">صل المفهوم بما يناسبه لإنهاء الدرس</div>
+      <div class="game-grid" id="game-6"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn btn-outline" onclick="goSlide(5)">◁ الكفالة والضمان</button>
+      <button class="nav-btn btn-gold" id="next-6" disabled onclick="finishLesson()">✓ إنهاء الدرس</button>
+    </div>
+  </div>
+
+  <!-- === NAWAZIL === -->
+  <div id="s-nawazil" class="scr">
+    <div class="page-header">
+      <div class="page-icon">⚖️</div>
+      <div class="page-title">النوازل الفقهية المعاصرة</div>
+      <div class="page-sub">اضغط على النازلة لعرض الحكم الشرعي</div>
+    </div>
+
+    <div class="essay-list">
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-navy">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما حكم إجراء عقد السلم على أسهم الشركات المساهمة؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: لا يجوز السلم في الأسهم؛ لأن الأسهم تعتبر من القيميات التي تختلف آحادها وتتغير قيمتها بظروف السوق، وليست من المثليات المنضبطة تماماً بالوصف، كما أن السهم يمثل حصة مشاعة في أصول الشركة وموجوداتها، مما يجعله غير مستوفٍ لشروط المسلم فيه.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-gold">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما التكييف الفقهي لتأجير السجل التجاري وما حكم أخذ العوض المالي عنه؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: يُكيّف تأجير السجل التجاري على أنه كفالة؛ لأن صاحب السجل يضمن المستأجر أمام الجهات الرسمية، وبناءً عليه ذهب اتجاه فقهي إلى منع أخذ العوض المالي عنه؛ لأن الكفالة عقد تبرع وإرفاق في الشريعة، ولا يجوز تقاضي أجر مقابل الضمان.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-navy">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: هل يجوز للبنك تقاضي رسوم محددة مقابل إصدار بطاقة الائتمان للعميل؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: يجوز للبنك تقاضي رسوم مقطوعة عند إصدار البطاقة أو تجديدها، وتُكيّف شرعاً على أنها أجر وكالة مقابل الخدمات الإدارية والفنية التي يبذلها البنك المصدر لإعداد البطاقة وتقديم تسهيلات استخدامها، بشرط ألا تكون الرسوم مرتبطة بمبلغ الائتمان.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-gold">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما حكم العمولات التي يخصمها البنك من التاجر عند تحصيل المبالغ بالوكالة عن حاملي البطاقات الائتمانية؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: تعتبر هذه العمولات جائزة شرعاً؛ لكونها أجر وكالة مقابل الخدمات الفنية التي يقدمها البنك للتاجر، وباعتبار البنك وكيلاً في تحصيل حقوق التاجر وإيصالها إليه، وهي عمولة مقابل جهد وعمل معلوم.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-navy">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما حكم رهن العين في عقود استئجارها ثم إعادة تأجيرها للمالك الأول ضماناً للحقوق؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: اختلف المعاصرون في هذه المعاملة؛ فذهب اتجاه إلى عدم الجواز لكونها ذريعة لربا "العينة" المحرم، بينما ذهب اتجاه آخر إلى الجواز إذا كانت معاملة تجارية حقيقية خالية من الصورية، وكان الرهن لتوثيق حق المؤجر في استيفاء الأجرة.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-gold">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما حكم فرض غرامات مالية (كتحجير مالي) على المدين المماطل في سداد الأقساط؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: لا يجوز اشتراط أي زيادة مالية على الدين مقابل التأخر في السداد؛ لأن هذه الزيادة تعتبر من ربا الجاهلية المحرم إجماعاً، والواجب شرعاً هو إنظار المعسر، أما المدين المليء المماطل فيتم زجره بوسائل أخرى غير الزيادة المالية في الدين.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-navy">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما التكييف الفقهي للحوالات المصرفية المعاصرة التي تجريها البنوك مقابل عمولة؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: تُكيّف الحوالات المصرفية على أنها حوالة بالمعنى الشرعي (نقل دين من ذمة إلى ذمة) أو وكالة بأجر في نقل الأموال، وهي وسيلة مشروعة لتسهيل المعاملات، والعمولة التي يتقاضاها البنك هي مقابل الخدمة الإدارية والجهد المبذول.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-gold">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما هو التعليل الشرعي للمنع (الحجر) من تداول الأسهم قبل بدء النشاط الفعلي للشركة؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: يرجع المنع إلى أن موجودات الشركة في هذه المرحلة لا تزال نقوداً (رأس المال)، فبيع الأسهم حينئذ هو بيع نقد بنقد، مما يوجب فيه التساوي والتقابض، وبما أن البيع غالباً ما يكون بغير القيمة الاسمية، فإنه يُمنع سداً لذريعة الربا حتى تنقلب النقود إلى أصول وأعيان.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-navy">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: هل يجوز للوكيل تقاضي أجرة مقابل استخراج تراخيص الاستثمار أو التراخيص التجارية؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: يجوز أخذ أجرة على هذا العمل بصفتها وكالة بأجر، بشرط أن يكون النشاط الاستثماري مشروعاً في ذاته، وألا يتضمن استخراج الرخصة دفع رشاوي أو سلوك طرق غير قانونية، وتكون الأجرة مقابل الجهد الفعلي المبذول من الوكيل.</div>
+      </div>
+
+      <div class="essay" onclick="this.classList.toggle('open')">
+        <div class="essay-h essay-gold">
+          <span class="essay-icon">❓</span>
+          <span class="essay-text">س: ما حكم تقاضي البنك أجرة مقابل فحص السلعة (كالسيارة) قبل إتمام عملية الشراء للعميل؟</span>
+          <span class="essay-arr">▼</span>
+        </div>
+        <div class="essay-body">ج: يرى بعض الفقهاء المعاصرين أنه لا يجوز للبنك تحميل هذه الأجرة للعميل إذا كان الفحص قد تم لمصلحة البنك المحض (للتأكد من سلامة السلعة التي سيمتلكها)، أما إذا كان الفحص بناءً على طلب العميل ولمصلحته فيجوز أخذ الأجرة مقابل هذه الخدمة الفنية.</div>
+      </div>
+    </div>
+
+    <!-- مصدر النوازل الفقهية -->
+    <div style="margin-top: 30px; padding: 16px; background: rgba(201,151,58,.08); border-right: 4px solid var(--gold); border-radius: 12px; font-size: 0.9rem; color: var(--navy); line-height: 1.8;">
+      <strong>المصدر:</strong> الموسوعة الميسرة في فقه القضايا المعاصرة.
+    </div>
+  </div>
+
+  <!-- === REVIEW === -->
+  <div id="s-review" class="scr">
+    <div class="page-header">
+      <div class="page-icon">🧠</div>
+      <div class="page-title">المراجعة الذكية</div>
+      <div class="page-sub">بطاقات المفاهيم • الأسئلة المقالية</div>
+    </div>
+
+    <h3 style="color:var(--navy);border-right:4px solid var(--gold);padding-right:12px;margin:24px 0 16px">بطاقات المفاهيم (اضغط للقلب)</h3>
+    <div class="fc-grid" id="fcBox"></div>
+
+    <h3 style="color:var(--navy);border-right:4px solid var(--gold);padding-right:12px;margin:30px 0 16px">الأسئلة المقالية (١٠ أسئلة)</h3>
+    <div class="essay-list" id="essBox"></div>
+  </div>
+
+  <!-- === QUIZ === -->
+  <div id="s-quiz" class="scr">
+    <div class="page-header">
+      <div class="page-icon">✅</div>
+      <div class="page-title">التقييم النهائي</div>
+      <div class="page-sub">٢٠ سؤالاً شاملاً</div>
+    </div>
+    <div id="qzBox"></div>
+  </div>
+</div>
+
+<!-- === BOTTOM BAR === -->
+<div class="bottom-bar" id="bottomBar">
+  <div class="bottom-inner">
+    <div class="bottom-timer">
+      <span>⏱️</span>
+      <span id="timerDisplay">00:00:00</span>
+    </div>
+    <div class="bottom-tabs">
+      <button class="btab act" data-t="lesson"><span>📚</span> الدرس</button>
+      <button class="btab" data-t="nawazil"><span>⚖️</span> النوازل</button>
+      <button class="btab" data-t="review"><span>🧠</span> المراجعة</button>
+      <button class="btab locked" data-t="quiz" id="quizTab"><span>🔒</span> التقييم</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- EXPANDED CARD OVERLAY -->
+<div id="cardOverlay" class="card-overlay">
+  <div class="expanded-card">
+    <div class="exp-header">
+      <button class="exp-close" onclick="closeCard()">✕</button>
+      <div class="exp-icon" id="expIcon"></div>
+      <div class="exp-title" id="expTitle"></div>
+    </div>
+    <div class="exp-body" id="expBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const CARDS_DATA = {
+  1: [
+    {icon:"📋",title:"شروط صحة الرهن",body:`<h4>من الأحكام المتعلقة بالرهن:</h4><ol><li><span class="warn">لا يصح رهن ما لا يجوز بيعه</span> كالوقف والكلب؛ لأنه لا يمكن إيفاء الدين منه، ولا رهن مالا يملك.</li><li>يُشترط <span class="hukm">معرفة قدر الرهن</span> وجنسه وصفته.</li><li>أن يكون الراهن <span class="hukm">جائز التصرف</span>، مالكاً للمرهون أو مأذوناً له فيه.</li></ol>`},
+    {icon:"🚫",title:"أحكام التصرف والانتفاع",body:`<h4>قواعد التصرف في الرهن:</h4><ul><li><span class="warn">ليس للراهن التصرف في الرهن بغير رضى المرتهن</span>، ولا يملك المرتهن ذلك بغير رضى الراهن.</li><li><span class="warn">لا يجوز للمرتهن الانتفاع بالرهن</span>، إلا أن يكون مركوباً أو محلوباً فيجوز له أن يركب أو يحلب (إذا أنفق عليه).</li></ul>`},
+    {icon:"🛡️",title:"أمانة الرهن",body:`<h4>ضمان العين المرهونة:</h4><p>المرهون <span class="purple-text">أمانة في يد المرتهن</span>، لا يضمنه إلا بالتعدي.</p>`},
+    {icon:"⚖️",title:"امتناع المدين عن السداد",body:`<h4>إذا حلّ الدين:</h4><p>فإذا حلَّ الدين الذي به رهن، وجب على المدين سداده.</p><ol><li>فإن امتنع <span class="warn">أجبره الحاكم</span>.</li><li>فإن امتنع حبسه وعزّره، حتى يوفي ما عليه من الدين.</li><li>أو <span class="hukm">يبيع الرهن، ويسدد من قيمته.</span></li></ol>`}
+  ],
+  2: [
+    {icon:"💡",title:"الحكمة من السلم",body:`<h4>توسيع الشريعة:</h4><p>أجازته الشريعة الإسلامية <span class="purple-text">توسيعاً على أفرادها</span>، فالمزارع مثلاً قد لا يملك نقداً ينفقه في إصلاح أرضه وزراعته، ولا يجد من يقرضه، فأبيح له السَّلَم حتى لا تفوته مصلحة استثمار أرضه.</p>`},
+    {icon:"📋",title:"شروط صحة السلم (كاملة)",body:`<h4>السلم نوع من البيع ويشترط لصحته الآتي:</h4><ol><li>أن يكون المُسْلَم فيه <span class="hukm">مما يمكن انضباط صفاته</span> بكيل أو وزن أو ذرع، حتى لا يؤدي إلى التنازع.</li><li><span class="hukm">معرفة قدر المُسْلَم فيه</span> بمعياره الشرعي، فلا يصح في مكيل وزناً، ولا في موزون كيلاً.</li><li>أن يذكر <span class="purple-text">جنس المسلم فيه، ونوعه</span>، بصفاته المميزة له.</li><li>أن يكون <span class="hukm">ديناً في الذمة</span>.</li><li>أن يكون <span class="hukm">مؤجلاً</span>.</li><li>أن يكون الأجل <span class="purple-text">معلوماً ومحدداً</span> من الطرفين.</li><li><span class="warn">أن يقبض الثمن كاملاً معلوماً في مجلس العقد قبل تفرقهما.</span></li><li>كون المسلم فيه <span class="gold-text">مما يغلب وجوده عند حلول الأجل</span>، حتى يُسَلِّمه في وقته، فإن لم يكن موجوداً -كالرطب في الشتاء- لم يصح؛ لأنه غرر.</li></ol>`}
+  ],
+  3: [
+    {icon:"📋",title:"شروط صحة الحوالة",body:`<h4>يشترط لصحة الحوالة الآتي:</h4><ol><li><span class="hukm">رضا المُحيل؛</span> لأنه مُخَيَّر في جهات قضاء الدين، فلا تتعين عليه جهة قهراً. (ملاحظة: لا يشترط رضا المحال عليه، ولا المحتال إذا أُحيل على مليء).</li><li><span class="hukm">التطابق:</span> كون المالين (المحال به والمحال عليه) متفقين قدراً وجنساً وصفة.</li><li>أن يكون المحال به <span class="purple-text">ديناً مستقراً</span> في ذمة المحال عليه.</li></ol>`},
+    {icon:"➡️",title:"الأثر المترتب",body:`<h4>ما يترتب على الحوالة:</h4><p>يترتب على انعقاد الحوالة الصحيحة حسب ما ذُكر <span class="gold-text">انتقال الحق من ذمة المُحيل إلى ذمة المُحال عليه</span>. (ويبرأ المحيل).</p>`},
+    {icon:"📱",title:"الصورة المعاصرة",body:`<h4>الحوالة المصرفية:</h4><p>وهي وسيلة لسداد مبالغ نقدية مقابل تسديد مقابلها في جهة أخرى. <br>وصورتها: أن يقوم الشخص بدفع مبلغ نقدي إلى بنك من البنوك، طالباً منه سداد قيمة هذا المبلغ لشخص آخر في بلد آخر نظير عمولة يتقاضاها البنك.</p><p><span class="muted">تُعرف قديماً بالسُّفْتَجَة.</span></p>`}
+  ],
+  4: [
+    {icon:"✔️",title:"شروطها وما تصح فيه",body:`<h4>الشروط ومجال الوكالة:</h4><ol><li>يشترط في كل من الوكيل والموكل أن يكون <span class="hukm">جائز التصرف (بالغاً، عاقلاً، رشيداً).</span></li><li>تصح الوكالة في كل ما تدخله النيابة، كالبيع والشراء وسائر العقود والفسوخ كالطلاق والخلع، وكذلك تصح في كل ما تدخله النيابة من العبادات كإخراج الزكاة والكفارة والنذر والحج.</li><li><span class="warn">لا تصح الوكالة فيما لا تدخله النيابة من حقوق الله تعالى، كطهارة وصلاة.</span></li><li>يملك الوكيل من التصرف ما يقتضيه إذن الموكل، أو ما تعارف عليه الناس، بشرط ألا يترتب على هذا الإذن ضرر بالموكل.</li></ol>`},
+    {icon:"👤",title:"توكيل الوكيل لغيره",body:`<h4>متى يحق للوكيل أن يوكل غيره؟</h4><p><span class="warn">لا يصح للوكيل أن يوكل غيره</span>، إلا في الحالات التالية:</p><ul><li>إذا أجاز له الموكِّل ذلك.</li><li>أو عجز الوكيل عن العمل.</li><li>أو كان العمل مما لا يحسنه الوكيل.</li></ul><p>فيوكل أميناً يقوم مقامه فيما وكل فيه.</p>`},
+    {icon:"🛡️",title:"ضمان الوكيل",body:`<h4>حكم يد الوكيل:</h4><p>الوكيل <span class="purple-text">أمين فيما وُكّل فيه</span>، لا يضمن، إلا إذا فرّط أو تعدى.</p>`},
+    {icon:"❌",title:"مبطلات الوكالة",body:`<h4>الوكالة عقد جائز، وتبطل بـ:</h4><ol><li><span class="warn">موت أحد الطرفين.</span></li><li>جنون أحد الطرفين.</li><li>فسخه لها (من قبل الوكيل).</li><li>عزله مِنْ قِبَل الموكل.</li><li>أو الحجر عليه لسفهه.</li></ol>`}
+  ],
+  5: [
+    {icon:"📌",title:"أركان الكفالة وشروطها",body:`<h4>الأركان والشروط:</h4><ul><li><span class="term">أركان الكفالة خمسة:</span> الصيغة، والكفيل، والمكفول له، والمكفول عنه، والمكفول به.</li><li>وصيغتها تتم <span class="hukm">بإيجاب الكفيل وحده</span>، ولا تتوقف على قبول المكفول له.</li><li><span class="warn">شرط الكفيل:</span> فيشترط فيه أن يكون أهلاً للتبرع سواء كان رجلاً أو امرأة؛ لأن الكفالة من التبرعات. وعلى ذلك <span class="warn">لا تصح الكفالة من المجنون أو المعتوه أو الصبي، وكذلك المحجور عليه لسفه.</span></li><li>وأما المكفول عنه: <span class="purple-text">فلا يشترط رضاه لصحة الكفالة</span>، بخلاف الكفيل فإن رضاه شرط لصحتها.</li></ul>`},
+    {icon:"📜",title:"بعض أحكام الكفالة",body:`<h4>من أحكام الكفالة (إحضار البدن):</h4><ol><li>تصح الكفالة ببدن كل إنسان عليه حق مالي.</li><li><span class="warn">لا تصح الكفالة ببدن من عليه حد أو من عليه قصاص.</span></li><li>يبرأ الكفيل بموت المكفول المتعذر إحضاره.</li><li><span class="hukm">الكفيل الغارم ضامن إذا ماطل الأصيل</span>، ولم يسدد، أو أفلس. (أما الكفيل الحضوري فلا يضمن بل يحضر المكفول).</li><li>تصح الكفالة بالنفس، وهي التزام الكفيل بإحضار المكفول إلى المكفول له، أو إلى مجلس الحكم، أو نحو ذلك.</li></ol>`},
+    {icon:"💰",title:"الضمان وأحكامه",body:`<h4>أحكام الضمان (التزام المال):</h4><ol><li>الضمان هو التزام ما وجب على غيره، وهو جائز. (والزعيم غارم).</li><li><span class="warn">لا يجوز أخذ العوض عليه.</span></li><li>يجوز تعدد الضامنين، فيجوز أن يضمن الحق اثنان فأكثر.</li><li>لا يشترط في صحته معرفة الضامن للمضمون عنه.</li><li>يصح ضمان المعلوم والمجهول إذا كان يؤول إلى العلم، وكذلك عهدة المبيع.</li><li>يصح بكل لفظ يؤدي معناه (ضامن، ضمين، زعيم).</li></ol>`},
+    {icon:"⚖️",title:"متى تبرأ ذمة الضامن؟",body:`<h4>البراءة والشروط:</h4><ol><li><span class="hukm">لا تبرأ ذمة الضامن</span>، إلا إذا برئت ذمة المضمون عنه من الدين، بإبراء أو قضاء.</li><li><span class="purple-text">يشترط لصحته: رضا الضامن</span>، فإن أُكره على الضمان لم يصح. ولا يشترط رضا المضمون عنه، ولا رضا المضمون له.</li><li>كما يشترط لصحته أن يكون الضامن <span class="gold-text">جائز التصرف</span>، بأن يكون بالغاً عاقلاً رشيداً.</li></ol>`}
+  ],
+  6: [
+    {icon:"🛡️",title:"الحجر لمصلحة المحجور عليه",body:`<h4>النوع الأول (للصبي والمجنون والسفيه):</h4><ul><li><span class="term">يزول الحجر عن الصغير بأمرين:</span><br>١- البلوغ (إنزال المني، إنبات الشعر، أو بلوغ ١٥ سنة، أو الحيض).<br>٢- الرشد (الصلاح في المال، ويُعرف بامتحانه ومنحه مالاً ليتصرف فيه، فإن لم يغبن ولم ينفق في حرام كان دليلاً على رشده).</li><li><span class="term">يزول الحجر عن المجنون بأمرين:</span> زوال الجنون ورجوع عقله، والرشد.</li><li><span class="term">يزول الحجر عن السفيه:</span> بزوال السفه والطيش واتصافه بالصلاح المالي.</li></ul>`},
+    {icon:"👨‍👧",title:"أحكام ولي المحجور عليه",body:`<h4>الولاية على المحجور عليه لمصلحته:</h4><ol><li>يتولى أمر المحجور عليهم <span class="hukm">الأب إذا كان عدلاً رشيداً، ثم وصيه.</span></li><li>يجب على من يتولى أمرهم أن يتصرف بما فيه <span class="purple-text">الأحَظّ والأنفع لهم</span> لقوله تعالى: ﴿وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ إِلَّا بِالَّتِي هِيَ أَحْسَنُ﴾. ويقاس عليه غيره ممن هو في معناه.</li><li>على ولي اليتيم أن يحافظ على ماله ولا يأكله ظلماً.</li><li><span class="warn">إذا تعدّى المحجور عليه لِصِغَرِه ونحوه على نفس أو مال بجناية: فإنه يضمن ويتحمل ما يترتب على ذلك من غرامة؛ لأن المتعدي عليه لم يفرط.</span></li><li>أما إذا دفع شخص ماله إلى صغير أو سفيه أو مجنون، فأتلفه، <span class="warn">لم يضمنه</span>؛ لأنه سلّطه عليه برضاه فهو مفرط.</li></ol>`},
+    {icon:"📉",title:"الحجر لمصلحة الغير",body:`<h4>النوع الثاني (المفلس):</h4><ol><li>لا يُحجر على المدين بدين لم يحل أجله، لأنه لا يلزمه الأداء قبل حلوله، لكن يمنع من السفر الطويل إلا بكفيل مليء.</li><li><span class="warn">إذا كان مال المحجور عليه أكثر من الدين</span>: فهذا لا يحجر عليه في ماله ولكن يُؤمر بالوفاء عند المطالبة، فإن امتنع حُبس وعُزر. فإن أصر تَدخّل الحاكم في ماله بوفاء ديونه.</li><li><span class="warn">إذا كان ماله أقل مما عليه من الدين الحَالّ (مُفلس):</span> فهذا يُحجر عليه التصرف في ماله عند المطالبة؛ لئلا يضر بالغرماء. ولا يُمَكّن من التبرع به أو غيره.</li><li>من باع المحجور عليه أو أقرضه شيئاً بعد الحجر، فلا يحق له المطالبة إلا بعد فك الحجر.</li><li><span class="hukm">للحاكم أن يبيع ماله ويقسم ثمنه بقدر ديون غرمائه الحَالّة؛ لأن هذا هو المقصود من الحجر عليه.</span> ويترك له ما يحتاج إليه كالنفقة والسكن.</li></ol>`}
+  ]
+};
+
+const GAMES = {
+  1: {pairs:[{l:"جعل عين وثيقة بدين",r:"الرهن"},{l:"رهن ما لا يجوز بيعه",r:"لا يصح"},{l:"الانتفاع بالرهن للمرتهن",r:"لا يجوز (إلا للركوب والحلب بنفقته)"},{l:"المرهون في يد المرتهن",r:"أمانة لا يضمنه إلا بالتعدي"}]},
+  2: {pairs:[{l:"بيع سلعة آجلة بثمن مقدم",r:"السلم"},{l:"الحكمة من السلم",r:"التوسيع على الأفراد كالمزارع"},{l:"شرط الثمن في السلم",r:"أن يقبض كاملاً في مجلس العقد"},{l:"السلم في شيء لا ينضبط",r:"لا يصح لأنه يؤدي للتنازع"}]},
+  3: {pairs:[{l:"نقل الدين من ذمة لأخرى",r:"الحوالة"},{l:"شرط صحة الحوالة",r:"رضا المُحيل وتطابق المالين"},{l:"الأثر المترتب للحوالة",r:"انتقال الحق من ذمة المحيل للمحال عليه"},{l:"الصورة المعاصرة للحوالة",r:"الحوالة المصرفية لتسديد المبالغ"}]},
+  4: {pairs:[{l:"تفويض شخص ليقوم مقامه",r:"الوكالة"},{l:"تصح الوكالة في",r:"البيع والفسوخ وإخراج الزكاة"},{l:"لا تصح الوكالة في",r:"الصلاة والطهارة (حقوق الله)"},{l:"مبطلات الوكالة",r:"موت أحد الطرفين أو جنونه"}]},
+  5: {pairs:[{l:"التزام إحضار البدن",r:"الكفالة"},{l:"التزام أداء المال الواجب على الغير",r:"الضمان"},{l:"أخذ العوض على الضمان",r:"لا يجوز"},{l:"براءة ذمة الضامن",r:"لا تبرأ إلا ببراءة ذمة المضمون عنه"}]},
+  6: {pairs:[{l:"منع إنسان من التصرف في ماله",r:"الحجر"},{l:"حجر لمصلحة المحجور عليه",r:"على الصغير والمجنون والسفيه"},{l:"حجر لمصلحة الغير",r:"على المفلس (لحفظ حقوق الدائنين)"},{l:"علامة الرشد المالي للصغير",r:"الصلاح في التصرف وعدم الغبن"}]}
+};
+
+const FLASHCARDS = [
+  {q:"ما الرهن شرعاً؟",a:"جعل عين مالية وثيقة بدين، ليستوفى منها أو من ثمنها إذا تعذر الوفاء."},
+  {q:"ما حكم انتفاع المرتهن بالرهن؟",a:"لا يجوز، إلا إن كان مركوباً أو محلوباً فيجوز بقدر نفقته عليه."},
+  {q:"ما أهم شرط لثمن عقد السلم؟",a:"أن يُقبض الثمن كاملاً معلوماً في مجلس العقد قبل التفرق."},
+  {q:"ما الحوالة؟ ومن الذي يشترط رضاه لصحتها؟",a:"نقل الدين من ذمة إلى أخرى. ويشترط (رضا المحيل)."},
+  {q:"اذكر أمرين لا تصح فيهما الوكالة.",a:"حقوق الله التي لا تدخلها النيابة كالصلاة والطهارة."},
+  {q:"ما هي مبطلات الوكالة؟",a:"موت أو جنون أحد الطرفين، فسخها، عزل الوكيل، أو الحجر عليه."},
+  {q:"ما الفرق بين الكفالة والضمان؟",a:"الكفالة: التزام إحضار البدن. الضمان: التزام أداء المال المتوجب."},
+  {q:"هل تصح الكفالة ببدن من عليه قصاص أو حد؟",a:"لا تصح الكفالة لمن عليه حد أو قصاص."},
+  {q:"بم يزول الحجر عن الصغير؟",a:"بأمرين معاً: البلوغ، والرشد (الصلاح في المال)."},
+  {q:"متى يحجر الحاكم على المدين لمصلحة الدائنين؟",a:"إذا كان ماله أقل مما عليه من الدين الحالّ (أفلس) وطالب الغرماء بحقهم."}
+];
+
+const ESSAYS = [
+  {q:"عرف الرهن، واذكر دليلاً على مشروعيته في الحضر.",a:"الرهن: جعل عين مالية وثيقة بدين. الدليل: أن النبي ﷺ اشترى طعاماً من يهودي إلى أجل، ورهنه درعاً من حديد (وهذا في المدينة وليس في سفر)."},
+  {q:"هل يحق للراهن أو المرتهن التصرف في العين المرهونة بغير رضا الآخر؟",a:"لا، ليس للراهن التصرف فيه بغير رضى المرتهن، ولا يملك المرتهن ذلك بغير رضى الراهن."},
+  {q:"عرف السلم، واذكر الحكمة من مشروعيته.",a:"السلم: بيع سلعة آجلة موصوفة في الذمة بثمن مقدم. حكمته: إجازته الشريعة توسيعاً على الأفراد كالمزارع الذي لا يملك نقداً فينفق على زراعته."},
+  {q:"اذكر ثلاثة من شروط صحة السلم.",a:"١. قبض الثمن كاملاً في المجلس. ٢. أن يكون المسلم فيه مما يمكن انضباط صفاته. ٣. أن يكون الأجل معلوماً."},
+  {q:"ما الحوالة؟ وما الشرط الأساسي المتعلق بالرضا؟",a:"الحوالة: نقل دين من ذمة المُحيل إلى المُحال عليه. ويشترط (رضا المحيل) لأنه لا يتعين عليه جهة السداد قهراً."},
+  {q:"عرف الوكالة، واذكر أموراً تصح فيها وأموراً لا تصح فيها.",a:"الوكالة: تفويض شخص غيره ليقوم مقامه. تصح في (البيع، الشراء، الحج). ولا تصح في (الصلاة، الطهارة)."},
+  {q:"ما هي الكفالة؟ ومن هو الشخص الذي لا تصح كفالة بدنه؟",a:"الكفالة التزام إحضار من عليه حق لمجلس الحكم. ولا تصح فيمن عليه (حد أو قصاص)."},
+  {q:"ما الضمان؟ ومتى تبرأ ذمة الضامن؟",a:"الضمان: التزام ما وجب على غيره من المال. تبرأ ذمته إذا برئت ذمة المضمون عنه (المدين الأصلي) بإبراء أو قضاء."},
+  {q:"عرف الحجر، واذكر نوعيه الأساسيين مع الأمثلة.",a:"الحجر: منع إنسان من التصرف في ماله. أنواعه: ١. لمصلحة نفسه (كالصبي والمجنون). ٢. لمصلحة غيره (كالمفلس لحماية الغرماء)."},
+  {q:"من يتولى مال المحجور عليه (الصغير)؟ وما حكم تعديه؟",a:"يتولى أمره الأب العدل الرشيد، ثم وصيه، ويتصرفون بالأحظ والأنفع. فإن تعدى الولي أو فرط ضَمِن وتحمل الغرامة."}
+];
+
+const QUIZ = [
+  {q:"جعل عين مالية وثيقة بدين يُسمى:",o:["الحوالة","الرهن","الوكالة","السلم"],a:1},
+  {q:"رهن الوقف أو الكلب:",o:["يصح مطلقاً","لا يصح لأنه لا يمكن إيفاء الدين منه","يصح للحاجة","يصح للضرورة"],a:1},
+  {q:"هل يجوز للمرتهن الانتفاع بالرهن (كالركوب والحلب)؟",o:["لا يجوز إطلاقاً","يجوز إذا أنفق عليه","يجوز مطلقاً","يجب عليه ذلك"],a:1},
+  {q:"بيع سلعة آجلة موصوفة بالذمة بثمن مُقدّم يُسمى:",o:["الرهن","السلم","الحوالة","القرض"],a:1},
+  {q:"الشرط السابع والأهم لصحة عقد السلم:",o:["تأجيل الثمن","أن يُقبض الثمن كاملاً في مجلس العقد","عدم تحديد الأجل","أن يكون المبيع موجوداً وقت العقد"],a:1},
+  {q:"نقل الدين من ذمة المُحيل إلى ذمة المُحال عليه يُسمى:",o:["الضمان","الكفالة","الحوالة","الرهن"],a:2},
+  {q:"من شروط صحة الحوالة أن يكون هناك رضا من:",o:["المُحال عليه","الوكيل","المُحيل","لا يشترط رضا أحد"],a:2},
+  {q:"تفويض شخص غيره ليقوم مقامه فيما تدخله النيابة يُسمى:",o:["الوكالة","الضمان","الكفالة","السلم"],a:0},
+  {q:"الوكالة لا تصح إطلاقاً في:",o:["البيع","الشراء","الصلاة والطهارة","إخراج الزكاة"],a:2},
+  {q:"إذا مات أحد الطرفين (الوكيل أو الموكل)، فإن الوكالة:",o:["تستمر","تنتقل للورثة","تبطل","تتوقف مؤقتاً"],a:2},
+  {q:"التزام إحضار (بدن) من عليه حق مالي إلى مجلس الحكم يُسمى:",o:["الرهن","الكفالة","الضمان","الوكالة"],a:1},
+  {q:"الكفالة ببدن من عليه (حد أو قصاص):",o:["جائزة","مستحبة","لا تصح","واجبة"],a:2},
+  {q:"التزام ما وجب على غيره (كفالة المال) يُسمى:",o:["الحوالة","الضمان","الرهن","الوكالة"],a:1},
+  {q:"أخذ العوض (الأجرة) على عقد الضمان:",o:["جائز","لا يجوز شرعاً","مستحب","واجب"],a:1},
+  {q:"منع إنسان من التصرف في ماله شرعاً يُسمى:",o:["الرهن","الوكالة","الحجر","الضمان"],a:2},
+  {q:"الحجر على الصبي والمجنون والسفيه يكون:",o:["لمصلحة الغرماء","لمصلحة المحجور عليه نفسه","عقوبة لهم","لصالح الدولة"],a:1},
+  {q:"الحجر على المفلس يكون:",o:["لمصلحة نفسه","لمصلحة الغرماء (الدائنين)","عقوبة بدنية","لأنه صغير"],a:1},
+  {q:"يُرفع الحجر عن الصغير بأمرين هما:",o:["البلوغ فقط","البلوغ والرشد (الصلاح المالي)","العمر ١٨ سنة","الزواج"],a:1},
+  {q:"إذا تعدى ولي المحجور عليه (كالأب أو الوصي) وفرط في ماله:",o:["لا شيء عليه","يُعفى عنه","يَضْمَن ويتحمل الغرامة","يُكافأ"],a:2},
+  {q:"إذا دفع شخص ماله لصغير فأتلفه الصغير، فهل يضمن الصغير؟",o:["نعم يضمن","لا يضمن (لأن دافع المال هو المفرط)","يضمن النصف","يضمن الولي"],a:1}
+];
+
+let user={n:'',s:''},curSlide=0,score=0,answered=0,activeL=null,gamesDone={};
+let startTime=null,timerInterval=null;
+let lessonComplete=false,reviewVisited=false;
+
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2000)};
+
+function formatTime(ms){
+  const s=Math.floor(ms/1000);
+  const h=Math.floor(s/3600);
+  const m=Math.floor((s%3600)/60);
+  const sec=s%60;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function startTimer(){
+  startTime=Date.now();
+  timerInterval=setInterval(()=>{
+    const elapsed=Date.now()-startTime;
+    $('#timerDisplay').textContent=formatTime(elapsed);
+  },1000);
+}
+
+function getElapsedTime(){
+  if(!startTime)return '00:00:00';
+  return formatTime(Date.now()-startTime);
+}
+
+function checkQuizUnlock(){
+  if(lessonComplete && reviewVisited){
+    const qTab=$('#quizTab');
+    qTab.classList.remove('locked');
+    qTab.innerHTML='<span>✅</span> التقييم';
+  }
+}
+
+function doLogin(){
+  const n=$('#iName').value.trim(),s=$('#iSec').value.trim();
+  const errBox = $('#loginError');
+  if(!n||!s){
+    errBox.style.display = 'block';
+    errBox.textContent = 'الرجاء إدخال الاسم والشعبة للمتابعة';
+    return;
+  }
+  errBox.style.display = 'none';
+  user={n,s};
+  $('#dName').textContent=n;
+  $('#dSec').textContent=s;
+  $('#mainHeader').style.display='flex';
+  $('#bottomBar').classList.add('on');
+  startTimer();
+  goSlide(0); 
+}
+
+function goSlide(i){
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  $(`#s-${i}`).classList.add('on');
+  curSlide=i;
+  
+  const vid = $('video');
+  if(vid && i !== 0) vid.pause();
+
+  if(GAMES[i] && !$(`#game-${i}`).innerHTML.trim()) renderGame(i);
+  $$('.btab').forEach(b=>b.classList.remove('act'));
+  $$('.btab')[0].classList.add('act');
+}
+
+function finishLesson(){
+  lessonComplete=true;
+  toast('🎉 أتممت الدرس بنجاح!');
+  checkQuizUnlock();
+  switchTab('nawazil');
+}
+
+function switchTab(t){
+  const vid = $('video');
+  if(vid) vid.pause();
+
+  if(t==='quiz'){
+    if(!lessonComplete || !reviewVisited){
+      toast('أكمل الدرس والمراجعة أولاً لفتح التقييم');
+      return;
+    }
+  }
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  $(`#s-${t}`).classList.add('on');
+  $$('.btab').forEach(b=>b.classList.remove('act'));
+  
+  const idx={nawazil:1,review:2,quiz:3}[t];
+  if(idx!==undefined) $$('.btab')[idx].classList.add('act');
+  else $$('.btab')[0].classList.add('act');
+  
+  if(t==='review'){
+    reviewVisited=true;
+    if(!$('#fcBox').innerHTML.trim()) renderReview();
+    checkQuizUnlock();
+  }
+  if(t==='quiz' && !$('#qzBox').innerHTML.trim()) {
+    renderQuiz();
+  }
+}
+
+function openCard(slide,idx){
+  const card=CARDS_DATA[slide][idx];
+  $('#expIcon').textContent=card.icon;
+  $('#expTitle').textContent=card.title;
+  $('#expBody').innerHTML=card.body;
+  $('#cardOverlay').classList.add('on');
+}
+function closeCard(){$('#cardOverlay').classList.remove('on')}
+
+function renderGame(g){
+  const game=GAMES[g];
+  if(!game)return;
+  const shuffled=[...game.pairs].sort(()=>Math.random()-.5);
+  const box=$(`#game-${g}`);
+  box.innerHTML=`
+    <div class="game-col">${game.pairs.map((p,i)=>`<div class="g-item" data-i="${i}" onclick="pickL(${g},this,${i})">${p.l}</div>`).join('')}</div>
+    <div class="game-col">${shuffled.map((p,i)=>`<div class="g-choice" data-r="${p.r}" onclick="pickR(${g},this,'${p.r.replace(/'/g,"\\'")}')">${p.r}</div>`).join('')}</div>
+  `;
+}
+
+function pickL(g,el,i){
+  $$(`#game-${g} .g-item`).forEach(e=>e.classList.remove('active'));
+  el.classList.add('active');
+  activeL={g,i,el};
+}
+
+function pickR(g,el,r){
+  if(!activeL||activeL.g!==g)return;
+  const correct=GAMES[g].pairs[activeL.i].r;
+  
+  if(r===correct){
+    activeL.el.classList.add('done');
+    el.classList.add('done');
+    toast('✅ صحيح!');
+    activeL=null; 
+    
+    const all=$$(`#game-${g} .g-item`);
+    const done=[...all].every(e=>e.classList.contains('done'));
+    if(done){
+      gamesDone[g]=true;
+      const btn=$(`#next-${g}`);
+      i
