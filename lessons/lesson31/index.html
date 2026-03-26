@@ -16,7 +16,7 @@
   --navy2: #152238;
   --gold: #c9973a;
   --gold-light: #e8c678;
-  --cream: #f9f8f4; /* لون خلفية مريح جداً مطابق للصورة */
+  --cream: #f9f8f4; 
   --blue: #1d4ed8;
   --green: #059669;
   --red: #dc2626;
@@ -44,9 +44,9 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 
 /* ================= الهيدر ================= */
 .hdr { background: var(--navy); padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--gold); z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.15); color: #fff; }
-.hdr-right { display: flex; align-items: center; gap: 15px; }
-.hdr-dr { color: var(--gold); font-family: var(--font-title); font-weight: 700; font-size: 1rem; }
-.logo-box { height: 50px; background: #fff; padding: 4px 10px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.hdr-right { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.hdr-dr { color: var(--gold); font-family: var(--font-title); font-weight: 700; font-size: 0.95rem; }
+.logo-box { height: 45px; background: transparent; display: flex; align-items: center; justify-content: center; }
 .logo-box img { max-height: 100%; object-fit: contain; }
 .hdr-center { text-align: center; flex: 1; }
 .hdr-course { font-family: var(--font-quran); font-size: 1.8rem; color: var(--gold-light); font-weight: 700; margin-bottom: 2px; }
@@ -72,7 +72,15 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .w-btn { width: 100%; background: var(--navy); color: #fff; padding: 16px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; }
 .w-btn:hover { background: var(--gold); color: var(--navy); }
 
-/* ================= 1. البانر الرئيسي (مطابق للصورة ١) ================= */
+/* ================= 0. شاشة الفيديو التمهيدية ================= */
+.video-wrapper { margin: 20px 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 3px solid var(--gold); background: #0a1628; display: flex; justify-content: center; align-items: center; position: relative; }
+.video-wrapper video { width: 100%; max-height: 500px; display: block; object-fit: cover; }
+.num-list { list-style: none; padding: 0; margin: 16px 0; counter-reset: item; }
+.num-list li { counter-increment: item; padding: 14px 50px 14px 14px; margin-bottom: 10px; background: linear-gradient(90deg, #f8f6f1, #fff); border-radius: 14px; border: 1px solid rgba(0,0,0,.05); position: relative; line-height: 1.8; }
+.num-list li::before { content: counter(item); position: absolute; right: 12px; top: 12px; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: .85rem; }
+.gold-text { color: var(--gold); font-weight: 800; }
+
+/* ================= 1. البانر الرئيسي ================= */
 .hero-banner { background: #fcf9f2; border: 1px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
 .hero-icon { font-size: 2.5rem; margin-bottom: 10px; }
 .hero-title { font-family: var(--font-title); font-size: 2.2rem; color: var(--navy); font-weight: 900; margin-bottom: 10px; }
@@ -89,14 +97,14 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .info-card-title { font-family: var(--font-title); font-weight: 900; color: var(--navy); font-size: 1.1rem; margin-bottom: 8px; }
 .info-card-desc { color: var(--text-main); font-size: 0.95rem; line-height: 1.6; }
 
-/* ================= 3. المدخل والآية (مطابق للصورة ٢) ================= */
+/* ================= 3. المدخل والآية ================= */
 .intro-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 15px; border-right: 4px solid var(--gold); padding-right: 15px; background: #fff; padding: 15px; border-radius: 8px; }
 .verse-box { background: #fdfaf3; border: 2px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; box-shadow: inset 0 0 20px rgba(201,151,58,0.05); }
 .verse-basmala { font-family: var(--font-quran); color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; }
 .verse-text { font-family: var(--font-quran); font-size: 1.6rem; color: var(--navy); line-height: 2.2; margin-bottom: 15px; }
 .verse-ref { font-size: 1rem; color: var(--gold); font-weight: 700; font-family: var(--font-title); }
 
-/* ================= 4. النص الشامل (الأكورديون كما هو) ================= */
+/* ================= 4. النص الشامل (الأكورديون) ================= */
 .accordion { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); overflow: hidden; }
 .accordion-header { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-title); font-weight: 800; font-size: 1.15rem; color: var(--navy); background: linear-gradient(to left, #fff, #fdfbf7); transition: 0.3s; border-right: 4px solid var(--gold); }
 .accordion-header:hover { background: var(--cream); }
@@ -107,22 +115,19 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .accordion-body ul, .accordion-body ol { margin-right: 25px; margin-bottom: 15px; margin-top: 10px; }
 .accordion-body li { margin-bottom: 10px; padding-right: 5px; }
 
-/* ================= 5. الخرائط الذهنية المنطقية (Tree Map) ================= */
+/* ================= 5. الخرائط الذهنية المنطقية ================= */
 .tree-container { display: flex; flex-direction: column; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: var(--rad); padding: 30px; overflow-x: auto; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
 .tree-root { background: var(--navy); color: #fff; padding: 12px 30px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border-bottom: 3px solid var(--gold); margin-bottom: 30px; position: relative; z-index: 2; }
 .tree-branches { display: flex; gap: 20px; position: relative; justify-content: center; }
-/* الخط الأفقي */
 .tree-branches::before { content: ''; position: absolute; top: -16px; left: 15%; right: 15%; height: 2px; background: var(--gold); }
-/* الخط العمودي النازل من الجذر */
 .tree-branches::after { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
 .tree-node { position: relative; display: flex; flex-direction: column; align-items: center; width: 180px; }
-/* الخطوط العمودية النازلة للفروع */
 .tree-node::before { content: ''; position: absolute; top: -16px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
 .tree-leaf { background: #fdfbf7; border: 1px solid var(--gold); color: var(--navy); padding: 15px; border-radius: 8px; text-align: center; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 .tree-leaf h4 { font-family: var(--font-title); font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
 .tree-leaf p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; font-weight: 600; }
 
-/* ================= 6. التمارين وأسئلة الفهم (كما هي) ================= */
+/* ================= 6. التمارين وأسئلة الفهم ================= */
 .app-scenario { background: #f8fafc; border-right: 4px solid var(--blue); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; font-size: 1.05rem; line-height: 1.7; font-weight: 600; color: var(--navy); }
 .ex-box { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
 .ex-q { font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: var(--navy); }
@@ -154,7 +159,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .btn-outline { background: #fff; border: 2px solid var(--navy); color: var(--navy); }
 .nav-btn:disabled { background: #cbd5e1; color: #64748b; box-shadow: none; cursor: not-allowed; }
 
-/* ================= التبويبات السفلية والنوازل والتقييم (كما هي) ================= */
+/* ================= التبويبات السفلية والنوازل ================= */
 .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.98); border-top: 3px solid var(--gold); padding: 10px 20px max(10px, env(safe-area-inset-bottom)); box-shadow: 0 -5px 20px rgba(0,0,0,0.05); display: none; }
 .bottom-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 15px; }
 .btab { background: transparent; border: none; color: var(--text-muted); font-family: var(--font-title); font-weight: 800; font-size: 1.05rem; padding: 10px 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
@@ -170,14 +175,12 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .essay-a { max-height: 0; overflow: hidden; transition: 0.4s ease; background: #fff; font-size: 1.05rem; line-height: 1.9; color: var(--text-main); }
 .essay-item.open .essay-a { padding: 20px; max-height: 1000px; }
 
+/* التقييم النهائي والمراجعة */
 .qz-card { background: #fff; border-radius: 12px; padding: 30px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
 .qz-opt { display: block; width: 100%; padding: 16px; margin: 10px 0; border: 2px solid #e2e8f0; border-radius: 8px; background: #fff; cursor: pointer; text-align: right; font-family: var(--font-body); font-size: 1rem; font-weight: 600; transition: 0.2s; }
 .qz-opt:hover { border-color: var(--navy); background: #f8fafc; }
 .qz-opt.right { background: var(--green); color: #fff; border-color: var(--green); }
 .qz-opt.wrong { background: var(--red); color: #fff; border-color: var(--red); }
-
-.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-light); padding: 12px 25px; border-radius: 30px; font-weight: 700; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; border: 1px solid var(--gold); }
-.toast.on { opacity: 1; }
 
 .fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;}
 .fc { height: 180px; perspective: 1000px; cursor: pointer; }
@@ -186,6 +189,9 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 .fc-f, .fc-b { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.6; }
 .fc-f { background: var(--navy); color: #fff; font-weight: 700; font-size: 1.1rem; border: 2px solid var(--gold); }
 .fc-b { background: #fff; border: 2px solid var(--navy); color: var(--navy); transform: rotateY(180deg); font-weight: 600; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-light); padding: 12px 25px; border-radius: 30px; font-weight: 700; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; border: 1px solid var(--gold); }
+.toast.on { opacity: 1; }
 </style>
 </head>
 <body>
@@ -195,7 +201,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
   <header class="hdr" id="mainHeader" style="display:none">
     <div class="hdr-right">
       <div class="logo-box">
-        <img src="logo.png" alt="شعار الجامعة" onerror="this.style.display='none'; this.parentElement.textContent='جامعة طيبة'">
+        <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'; this.parentElement.textContent='جامعة طيبة'">
       </div>
       <div class="hdr-dr">د/ باسم القرافي</div>
     </div>
@@ -208,12 +214,12 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
 
   <div class="main">
     
-    <!-- ================= 0. LOGIN ================= -->
+    <!-- ================= شاشة الدخول ================= -->
     <div id="s-login" class="scr on" style="padding:0; max-width: none;">
       <div class="welcome-wrap">
         <div class="welcome-box">
           <div class="logo-box-login">
-            <img src="logo.png" alt="شعار الجامعة" onerror="this.style.display='none'">
+            <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'">
           </div>
           <h1 class="w-title">مقرر فقه ٢</h1>
           <div class="w-sub">المحاضرة الثالثة: أبواب التوثيقات والبيوع</div>
@@ -226,10 +232,43 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
       </div>
     </div>
 
+    <!-- ================= شاشة الفيديو التمهيدية ================= -->
+    <div id="s-0" class="scr">
+      <div class="hero-banner" style="background:#0a1628; border-color:var(--gold); padding:40px;">
+        <div class="hero-icon" style="color:var(--gold);">🎥</div>
+        <div class="hero-title" style="color:#fff; font-family:var(--font-quran);">تمهيد وملخص المحاضرة</div>
+        <div class="hero-sub" style="color:var(--gold-light);">شاهد هذا الملخص المرئي قبل البدء بالتفاصيل</div>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata" poster="https://www.transparenttextures.com/patterns/arabesque.png">
+          <source src="summary.mp4" type="video/mp4">
+          عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو.
+        </video>
+      </div>
+
+      <div class="block-header">نظرة عامة على أبواب المحاضرة</div>
+      <div style="background:#fff; padding:20px; border-radius:12px; border:1px solid var(--border);">
+        <p style="font-size:1.1rem; line-height:1.8; margin-bottom:15px;">جاءت الشريعة الإسلامية بتنظيم دقيق للمعاملات المالية لضمان حفظ الحقوق وتيسير قضاء المصالح بين الناس. سنتناول في هذه المحاضرة:</p>
+        <ul class="num-list">
+          <li><span class="gold-text">باب الرهن:</span> لتوثيق الديون بالأعيان المالية.</li>
+          <li><span class="gold-text">باب السلم:</span> لتيسير بيع السلع الآجلة.</li>
+          <li><span class="gold-text">باب الحوالة:</span> لنقل الديون وتسهيل سدادها.</li>
+          <li><span class="gold-text">باب الوكالة:</span> للإنابة والتفويض في التصرفات.</li>
+          <li><span class="gold-text">باب الكفالة والضمان:</span> لتوثيق إحضار البدن أو أداء المال.</li>
+          <li><span class="gold-text">باب الحجر:</span> لحماية أموال القصر وحقوق الدائنين.</li>
+        </ul>
+      </div>
+
+      <div class="nav-row">
+        <div></div><button class="nav-btn btn-navy" onclick="goSlide(1)">التالي: باب الرهن ➜</button>
+      </div>
+    </div>
+
     <!-- ================= 1. RAHN ================= -->
     <div id="s-1" class="scr" data-req="4">
       
-      <!-- ١. البانر الرئيسي (مطابق للصورة ١) -->
+      <!-- ١. البانر الرئيسي -->
       <div class="hero-banner">
         <div class="hero-icon">🔒</div>
         <div class="hero-title">الباب الرابع: في الرهن</div>
@@ -240,7 +279,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         </div>
       </div>
 
-      <!-- مخرجات التعلم (مطابق للصورة ١) -->
+      <!-- مخرجات التعلم -->
       <div class="block-header">مخرجات التعلم</div>
       <div class="info-grid">
         <div class="info-card">
@@ -265,7 +304,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         </div>
       </div>
 
-      <!-- ٢. المدخل وافهم بسرعة (مطابق للصورة ٢) -->
+      <!-- ٢. المدخل وافهم بسرعة -->
       <div class="block-header">مدخل الباب</div>
       <div class="intro-text">
         إذا أقرض شخصٌ آخرَ مالاً، وخاف ضياع حقه، فما الوسيلة الشرعية التي تجعل عيناً مالية وثيقة بهذا الدين؟ هذا هو المدخل الطبيعي لفهم الرهن.
@@ -390,7 +429,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
       <div class="ex-box" id="ex-1-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-1"></div></div>
       
       <div class="progress-tracker"><span>التقدم في هذا الموضوع:</span><div class="prog-dots" id="dots-1"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
-      <div class="nav-row"><div></div><button class="nav-btn btn-navy" id="next-1" disabled onclick="goSlide(2)">التالي: باب السلم ➜</button></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(0)">◁ التمهيد</button><button class="nav-btn btn-navy" id="next-1" disabled onclick="goSlide(2)">التالي: باب السلم ➜</button></div>
     </div>
 
     <!-- ================= 2. SALAM ================= -->
@@ -636,9 +675,11 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         <div class="accordion-header">تعريف الوكالة ومجالاتها <span class="accordion-icon">+</span></div>
         <div class="accordion-body">
           <span class="term-blue">الوكالة:</span> تفويض شخص غيره ليقوم مقامه فيما تدخله النيابة. وهي عقد مشروع وجائز بالإجماع، وهي من <span class="hl-green">عقود الأمانات</span>.<br><br>
-          <span class="section-head">مجاالت الوكالة:</span><br>
+
+          <span class="section-head">شروط أطراف العقد ومجالاته:</span><br>
           <ul>
-            <li><span class="hl-green">ما تصح فيه:</span> تصح في كل ما تدخله النيابة من العقود (البيع والشراء)، والفسوخ (الطلاق والخلع)، والعبادات (الزكاة، الكفارة، الحج).</li>
+            <li><strong>أطراف العقد:</strong> يشترط في الموكل والوكيل أن يكون "جائز التصرف" (بلوغ، عقل، رشد).</li>
+            <li><span class="hl-green">ما تصح فيه:</span> تصح الوكالة في كل ما تدخله النيابة من العقود (البيع والشراء)، والفسوخ (الطلاق والخلع)، والعبادات المالية أو البدنية التي تقبل الإنابة (إخراج الزكاة، الكفارة، النذر، الحج).</li>
             <li><span class="hl-red">ما لا تصح فيه:</span> لا تصح الوكالة في العبادات البدنية المحضة التي هي من حقوق الله تعالى ولا تدخلها النيابة، مثل الصلاة والطهارة.</li>
           </ul>
         </div>
@@ -746,7 +787,14 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         <div class="accordion-body">
           <span class="section-head">تعريف الكفالة وأركانها:</span><br>
           تختص الكفالة بالالتزام المتعلق بإحضار الأبدان في الحقوق المالية، وهي: <span class="term-blue">التزام إحضار من عليه حق مالي لربه إلى مجلس الحكم.</span><br>
-          <span class="hl-green">أركانها:</span> الصيغة، الكفيل، المكفول له، المكفول عنه (لا يشترط رضاه)، والمكفول به (البدن).<br><br>
+          <span class="hl-green">أركانها:</span>
+          <ol>
+            <li>الصيغة (تتم بإيجاب الكفيل وحده، ولا يشترط قبول المكفول له).</li>
+            <li>الكفيل (الزعيم، ويشترط أن يكون أهلاً للتبرع، فلا تصح من صبي أو مجنون أو سفيه).</li>
+            <li>المكفول له (الدائن).</li>
+            <li>المكفول عنه (<span class="term-blue">ولا يشترط رضاه لصحة الكفالة</span>).</li>
+            <li>المكفول به (البدن).</li>
+          </ol>
           <span class="section-head">أنواع الحقوق في الكفالة:</span><br>
           <ul>
             <li><span class="hl-green">ما تصح فيه:</span> تصح ببدن كل إنسان عليه حق مالي لربه.</li>
@@ -758,10 +806,12 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         <div class="accordion-header">أحكام الضمان (أداء المال) وشروطه <span class="accordion-icon">+</span></div>
         <div class="accordion-body">
           <span class="section-head">التعريف والشروط:</span><br>
-          الضمان عقد يوجب التزام الحقوق المالية في ذمة الضامن.
+          الضمان عقد يوجب التزام الحقوق المالية في ذمة الضامن. وهو <span class="term-blue">التزام ما وجب على غيره</span>، ويصح في الديون المستقرة أو المآلية.
           <ol>
             <li><span class="hl-red">عدم جواز أخذ العوض:</span> يمنع شرعاً أخذ مقابل مالي (عوض) لقاء الضمان.</li>
             <li><span class="hl-green">جواز تعدد الضامنين:</span> يصح أن يضمن الحق الواحد اثنان فأكثر.</li>
+            <li><span class="hl-green">عدم اشتراط معرفة المضمون عنه:</span> تصح وإن لم يعرفه عيناً.</li>
+            <li>أهلية الضامن (بالغاً، عاقلاً، رشيداً).</li>
             <li><span class="term-blue">شرط الرضا:</span> يشترط رضا الضامن وحده، بينما لا يشترط رضا المضمون عنه ولا المضمون له.</li>
           </ol>
         </div>
@@ -771,8 +821,10 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
         <div class="accordion-body">
           <ul>
             <li><strong>براءة الكفيل:</strong> تبرأ ذمة الكفيل <span class="hl-green">بموت المكفول</span> إذا تعذر إحضاره.</li>
-            <li><strong>براءة الضامن:</strong> تبرأ ذمة الضامن تبعاً <span class="term-blue">لبراءة ذمة المضمون عنه (الأصيل)</span>؛ فإذا برئت ذمة الأصيل بسداد الدين أو بالإبراء، برئت ذمة الضامن.</li>
+            <li><strong>براءة الضامن:</strong> تبرأ ذمة الضامن تبعاً <span class="term-blue">لبراءة ذمة المضمون عنه (الأصيل)</span>؛ فإذا برئت ذمة الأصيل بسداد الدين، أو بالإبراء، أو بالقضاء، برئت ذمة الضامن تلقائياً.</li>
           </ul>
+          <span class="section-head">الفروق الجوهرية:</span><br>
+          الفرق الجوهري يكمن في "محل الالتزام"؛ فمحل الكفالة هو (النفس أو البدن)، أما محل الضمان فهو (المال أو الدين).
         </div>
       </div>
 
@@ -961,7 +1013,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
       <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(5)">◁ السابق</button><button class="nav-btn btn-gold" id="next-6" disabled onclick="finishLesson()">✓ إتمام الدروس والانتقال</button></div>
     </div>
 
-    <!-- ================= TAB: NAWAZIL (المعاصرة - مطابقة للتصميم المطلوب) ================= -->
+    <!-- ================= TAB: NAWAZIL (المعاصرة) ================= -->
     <div id="s-nawazil" class="scr">
       <div class="hero-banner" style="background:#fdfbf7; border-color:var(--gold);">
         <div class="hero-icon">⚖️</div>
@@ -993,7 +1045,7 @@ html, body { height: 100%; font-family: var(--font-body); background: var(--crea
       </div>
     </div>
 
-    <!-- ================= TAB: REVIEW (المقالية والمفاهيم - مطابقة للتصميم المطلوب) ================= -->
+    <!-- ================= TAB: REVIEW (المقالية والمفاهيم) ================= -->
     <div id="s-review" class="scr">
       
       <div class="hero-banner" style="background:var(--navy); color:#fff; border:none;">
@@ -1097,7 +1149,7 @@ const QUIZ = [
 ];
 
 /* ================= STATE & LOGIC ================= */
-let user={n:'',s:''}, curSlide=1, startTime=null;
+let user={n:'',s:''}, curSlide=0, startTime=null;
 let progress = { 1:new Set(), 2:new Set(), 3:new Set(), 4:new Set(), 5:new Set(), 6:new Set() };
 let activeL = null;
 
@@ -1109,24 +1161,33 @@ function doLogin(){
   const n=$('#iName').value.trim(), s=$('#iSec').value.trim();
   if(!n||!s) return toast('⚠️ يرجى إدخال الاسم الكامل والشعبة');
   user={n,s}; $('#stuInfo').textContent=`${n} | الشعبة: ${s}`;
-  $('#mainHeader').style.display='flex'; $('#bottomBar').style.display='block';
+  $('#mainHeader').style.display='flex'; $('#bottomBar').style.display='flex';
   startTime = Date.now();
   renderGames(); renderReview(); renderQuiz();
-  goSlide(1);
+  goSlide(0); // الذهاب لفيديو التمهيد أولاً
 }
 
 function goSlide(i){
   $$('.scr').forEach(s=>s.classList.remove('on'));
   $(`#s-${i}`).classList.add('on');
   curSlide = i; window.scrollTo({top:0, behavior:'smooth'});
+  
+  // إيقاف الفيديو إذا انتقل المشتخدم لصفحة أخرى
+  const vid = $('video');
+  if(vid && i !== 0) vid.pause();
 }
 
 function switchTab(t){
   const btn = $(`#tab-${t}`);
   if(btn && btn.classList.contains('locked')) return toast('🔒 أكمل الدروس الستة أولاً لفتح هذه الأقسام');
+  
+  const vid = $('video');
+  if(vid) vid.pause();
+
   $$('.scr').forEach(s=>s.classList.remove('on'));
   if(t==='lesson') $(`#s-${curSlide}`).classList.add('on');
   else $(`#s-${t}`).classList.add('on');
+  
   $$('.btab').forEach(b=>b.classList.remove('act'));
   $(`.btab[data-t="${t}"]`).classList.add('act');
   window.scrollTo(0,0);
@@ -1150,12 +1211,12 @@ function markDone(slide, exNum){
   if(dots[exNum-1]) dots[exNum-1].classList.add('done');
   if(progress[slide].size === parseInt($(`#s-${slide}`).dataset.req)){
     const nextBtn = $(`#next-${slide}`);
-    if(nextBtn) { nextBtn.disabled = false; toast('✅ ممتاز! أتممت هذا الباب، تفضل بالتالي.'); }
+    if(nextBtn) { nextBtn.disabled = false; toast('✅ أتممت المطلوب، تفضل للدرس التالي.'); }
   }
 }
 
 function finishLesson(){
-  toast('🎉 عظيم! لقد أنهيت المقرر كاملًا. تم فتح النوازل والمراجعة والتقييم لك.');
+  toast('🎉 عظيم! لقد أنهيت المقرر. تم فتح النوازل والمراجعة والتقييم لك.');
   $$('.btab.locked').forEach(b => b.classList.remove('locked'));
   switchTab('nawazil');
 }
@@ -1177,7 +1238,7 @@ function pickR(s, el, txt){
   if(txt === GAMES[s].pairs[activeL.idx].r){
     activeL.el.classList.add('done'); el.classList.add('done'); activeL = null;
     if([...$$(`#game-${s} .g-item`)].every(e=>e.classList.contains('done'))) markDone(s, 4);
-  } else { toast('❌ غير مطابق، فكر مجدداً'); activeL.el.classList.remove('active'); activeL = null; }
+  } else { toast('❌ غير مطابق، حاول مجدداً'); activeL.el.classList.remove('active'); activeL = null; }
 }
 
 /* ================= REVIEW & QUIZ ================= */
@@ -1204,7 +1265,7 @@ function finishQuiz(){
   const timeStr = `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
   
   const fd = new FormData();
-  fd.append("entry.1186146438", "الثالثة - الهيكل النهائي الشامل"); 
+  fd.append("entry.1186146438", "الثالثة - الإصدار النهائي"); 
   fd.append("entry.598195891", user.n);       
   fd.append("entry.583802758", user.s);        
   fd.append("entry.2010697018", score);
