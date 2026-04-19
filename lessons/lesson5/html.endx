@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>مقرر فقه ٢ — المحاضرة الخامسة</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= المتغيرات والألوان ================= */
+:root {
+  --navy: #0a1628;
+  --navy2: #152238;
+  --gold: #c9973a;
+  --gold-light: #e8c678;
+  --cream: #f9f8f4; 
+  --blue: #1d4ed8;
+  --green: #059669;
+  --red: #dc2626;
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  
+  --font-title: 'Tajawal', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+  --font-quran: 'Amiri', serif;
+  
+  --rad: 12px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: var(--font-body); background: var(--cream); color: var(--text-main); overflow: hidden; }
+.app { height: 100%; display: flex; flex-direction: column; }
+
+/* ================= تلوين النصوص العلمي ================= */
+.term-blue { color: var(--blue); font-weight: 700; font-size: 1.05rem; }
+.hl-green { color: var(--green); font-weight: 700; }
+.hl-red { color: var(--red); font-weight: 700; }
+.section-head { color: var(--navy); font-weight: 800; font-size: 1.1rem; margin-top: 15px; margin-bottom: 5px; display: inline-block; border-bottom: 2px solid var(--gold); }
+
+/* ================= الهيدر ================= */
+.hdr { background: var(--navy); padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--gold); z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.15); color: #fff; }
+.hdr-right { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.hdr-dr { color: var(--gold); font-family: var(--font-title); font-weight: 700; font-size: 0.95rem; }
+.logo-box { height: 45px; background: transparent; display: flex; align-items: center; justify-content: center; }
+.logo-box img { max-height: 100%; object-fit: contain; }
+.hdr-center { text-align: center; flex: 1; }
+.hdr-course { font-family: var(--font-quran); font-size: 1.8rem; color: var(--gold-light); font-weight: 700; margin-bottom: 2px; }
+.hdr-lecture { font-size: 0.95rem; color: #cbd5e1; font-family: var(--font-title); }
+.hdr-stu { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+
+/* ================= التخطيط ================= */
+.main { flex: 1; overflow: hidden; position: relative; }
+.scr { position: absolute; inset: 0; overflow-y: auto; padding: 20px 20px 120px; display: none; opacity: 0; transition: 0.4s ease; max-width: 1000px; margin: 0 auto; width: 100%; scrollbar-width: thin; }
+.scr.on { display: block; opacity: 1; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ================= شاشة الدخول ================= */
+.welcome-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: url('https://www.transparenttextures.com/patterns/arabesque.png') repeat, var(--cream); }
+.welcome-box { background: #fff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 500px; width: 100%; text-align: center; border-top: 5px solid var(--navy); }
+.welcome-box .logo-box-login { background: transparent; height: 80px; margin-bottom: 15px; display: flex; justify-content: center; }
+.welcome-box .logo-box-login img { max-height: 100%; }
+.w-title { font-family: var(--font-title); color: var(--navy); font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; }
+.w-sub { color: var(--gold); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.w-dr { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+.welcome-input { width: 100%; padding: 16px; border-radius: 8px; border: 1px solid var(--border); outline: none; margin-bottom: 15px; font-family: var(--font-body); font-size: 1rem; text-align: center; background: #fdfbf7; transition: 0.3s; }
+.welcome-input:focus { border-color: var(--gold); background: #fff; }
+.w-btn { width: 100%; background: var(--navy); color: #fff; padding: 16px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+.w-btn:hover { background: var(--gold); color: var(--navy); }
+
+/* ================= 0. شاشة الفيديو التمهيدية ================= */
+.video-wrapper { margin: 20px 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 3px solid var(--gold); background: #0a1628; display: flex; justify-content: center; align-items: center; position: relative; }
+.video-wrapper video { width: 100%; max-height: 500px; display: block; object-fit: cover; }
+.num-list { list-style: none; padding: 0; margin: 16px 0; counter-reset: item; }
+.num-list li { counter-increment: item; padding: 14px 50px 14px 14px; margin-bottom: 10px; background: linear-gradient(90deg, #f8f6f1, #fff); border-radius: 14px; border: 1px solid rgba(0,0,0,.05); position: relative; line-height: 1.8; }
+.num-list li::before { content: counter(item); position: absolute; right: 12px; top: 12px; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: .85rem; }
+.gold-text { color: var(--gold); font-weight: 800; }
+
+/* ================= 1. البانر الرئيسي ================= */
+.hero-banner { background: #fcf9f2; border: 1px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+.hero-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.hero-title { font-family: var(--font-title); font-size: 2.2rem; color: var(--navy); font-weight: 900; margin-bottom: 10px; }
+.hero-sub { color: var(--gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 20px; }
+.hero-line { height: 3px; background: linear-gradient(to left, transparent, var(--gold), transparent); margin: 20px auto; width: 80%; }
+.hero-tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero-tag { background: #fff; border: 1px solid #eaddc4; padding: 6px 18px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: var(--navy); }
+
+/* ================= 2. شبكات المعلومات ================= */
+.block-header { font-family: var(--font-title); font-size: 1.6rem; color: var(--navy); font-weight: 900; margin: 30px 0 15px; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; }
+.info-card { background: #fff; border: 1px solid var(--border); border-radius: var(--rad); padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.info-card-icon { font-size: 2rem; margin-bottom: 10px; }
+.info-card-title { font-family: var(--font-title); font-weight: 900; color: var(--navy); font-size: 1.1rem; margin-bottom: 8px; }
+.info-card-desc { color: var(--text-main); font-size: 0.95rem; line-height: 1.6; }
+
+/* ================= 3. المدخل والآية ================= */
+.intro-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 15px; border-right: 4px solid var(--gold); padding-right: 15px; background: #fff; padding: 15px; border-radius: 8px; }
+.verse-box { background: #fdfaf3; border: 2px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; box-shadow: inset 0 0 20px rgba(201,151,58,0.05); }
+.verse-basmala { font-family: var(--font-quran); color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; }
+.verse-text { font-family: var(--font-quran); font-size: 1.6rem; color: var(--navy); line-height: 2.2; margin-bottom: 15px; }
+.verse-ref { font-size: 1rem; color: var(--gold); font-weight: 700; font-family: var(--font-title); }
+
+/* ================= 4. النص الشامل (الأكورديون) ================= */
+.accordion { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); overflow: hidden; }
+.accordion-header { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-title); font-weight: 800; font-size: 1.15rem; color: var(--navy); background: linear-gradient(to left, #fff, #fdfbf7); transition: 0.3s; border-right: 4px solid var(--gold); }
+.accordion-header:hover { background: var(--cream); }
+.accordion-icon { color: var(--gold); font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
+.accordion.active .accordion-icon { transform: rotate(45deg); }
+.accordion-body { max-height: 0; overflow: hidden; transition: 0.5s ease; padding: 0 20px; font-size: 1.05rem; line-height: 2.1; color: var(--text-main); }
+.accordion.active .accordion-body { padding: 25px 20px; max-height: 4000px; border-top: 1px solid var(--border); }
+.accordion-body ul, .accordion-body ol { margin-right: 25px; margin-bottom: 15px; margin-top: 10px; }
+.accordion-body li { margin-bottom: 10px; padding-right: 5px; }
+
+/* ================= 5. الخرائط الذهنية ================= */
+.tree-container { display: flex; flex-direction: column; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: var(--rad); padding: 30px; overflow-x: auto; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.tree-root { background: var(--navy); color: #fff; padding: 12px 30px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border-bottom: 3px solid var(--gold); margin-bottom: 30px; position: relative; z-index: 2; }
+.tree-branches { display: flex; gap: 20px; position: relative; justify-content: center; }
+.tree-branches::before { content: ''; position: absolute; top: -16px; left: 15%; right: 15%; height: 2px; background: var(--gold); }
+.tree-branches::after { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
+.tree-node { position: relative; display: flex; flex-direction: column; align-items: center; width: 180px; }
+.tree-node::before { content: ''; position: absolute; top: -16px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
+.tree-leaf { background: #fdfbf7; border: 1px solid var(--gold); color: var(--navy); padding: 15px; border-radius: 8px; text-align: center; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.tree-leaf h4 { font-family: var(--font-title); font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
+.tree-leaf p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; font-weight: 600; }
+
+/* ================= 6. التمارين ================= */
+.app-scenario { background: #f8fafc; border-right: 4px solid var(--blue); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; font-size: 1.05rem; line-height: 1.7; font-weight: 600; color: var(--navy); }
+.ex-box { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.ex-q { font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: var(--navy); }
+.ex-opts { display: flex; gap: 10px; flex-wrap: wrap; }
+.ex-btn { flex: 1; min-width: 140px; background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; cursor: pointer; transition: 0.2s; color: var(--navy); }
+.ex-btn:hover { border-color: var(--gold); background: #fff; }
+.ex-fb { display: none; margin-top: 15px; padding: 15px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; line-height: 1.6; }
+.ex-fb.right { display: block; background: #d1fae5; color: #065f46; border: 1px solid var(--green); }
+.ex-fb.wrong { display: block; background: #fee2e2; color: #991b1b; border: 1px solid var(--red); }
+
+.game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.g-item, .g-choice { padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 60px; transition: 0.2s; font-size: 0.95rem; line-height: 1.5; }
+.g-item { background: var(--navy); color: #fff; }
+.g-choice { background: #fff; border: 2px solid var(--gold); color: var(--navy); }
+.g-item.active { transform: scale(1.05); background: var(--gold); }
+.g-choice:hover { background: #fdfbf7; }
+.g-item.done, .g-choice.done { opacity: 0.5; background: var(--green) !important; border-color: var(--green) !important; color: #fff !important; pointer-events: none; }
+
+/* ================= شريط التقدم والأزرار ================= */
+.progress-tracker { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border); margin: 20px 0; font-weight: 700; color: var(--navy); }
+.prog-dots { display: flex; gap: 8px; }
+.prog-dot { width: 14px; height: 14px; border-radius: 50%; background: #e2e8f0; transition: 0.3s; }
+.prog-dot.done { background: var(--green); box-shadow: 0 0 8px rgba(5,150,105,0.4); }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.nav-btn { border: none; padding: 14px 28px; border-radius: 30px; font-family: var(--font-title); font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-outline { background: #fff; border: 2px solid var(--navy); color: var(--navy); }
+.nav-btn:disabled { background: #cbd5e1; color: #64748b; box-shadow: none; cursor: not-allowed; }
+
+/* ================= التبويبات السفلية والنوازل ================= */
+.bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.98); border-top: 3px solid var(--gold); padding: 10px 20px max(10px, env(safe-area-inset-bottom)) 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); display: none; }
+.bottom-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 15px; }
+.btab { background: transparent; border: none; color: var(--text-muted); font-family: var(--font-title); font-weight: 800; font-size: 1.05rem; padding: 10px 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+.btab.act { background: var(--navy); color: var(--gold-light); }
+.btab.locked { opacity: 0.4; cursor: not-allowed; }
+
+.essay-item { border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
+.essay-navy .essay-q { background: var(--navy); color: #fff; border-bottom: 3px solid var(--gold); }
+.essay-gold .essay-q { background: var(--gold); color: var(--navy); border-bottom: 3px solid var(--navy); }
+.essay-q { padding: 18px 20px; font-family: var(--font-title); font-weight: 800; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 15px; }
+.essay-q::before { content: "▼"; font-size: 0.9rem; transition: 0.3s; }
+.essay-item.open .essay-q::before { transform: rotate(180deg); }
+.essay-a { max-height: 0; overflow: hidden; transition: 0.4s ease; background: #fff; font-size: 1.05rem; line-height: 1.9; color: var(--text-main); }
+.essay-item.open .essay-a { padding: 20px; max-height: 1000px; }
+
+/* التقييم النهائي والمراجعة */
+.qz-card { background: #fff; border-radius: 12px; padding: 30px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.qz-opt { display: block; width: 100%; padding: 16px; margin: 10px 0; border: 2px solid #e2e8f0; border-radius: 8px; background: #fff; cursor: pointer; text-align: right; font-family: var(--font-body); font-size: 1rem; font-weight: 600; transition: 0.2s; }
+.qz-opt:hover { border-color: var(--navy); background: #f8fafc; }
+.qz-opt.right { background: var(--green); color: #fff; border-color: var(--green); }
+.qz-opt.wrong { background: var(--red); color: #fff; border-color: var(--red); }
+
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;}
+.fc { height: 180px; perspective: 1000px; cursor: pointer; }
+.fc-in { position: relative; width: 100%; height: 100%; transition: 0.6s; transform-style: preserve-3d; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.fc.flip .fc-in { transform: rotateY(180deg); }
+.fc-f, .fc-b { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.6; }
+.fc-f { background: var(--navy); color: #fff; font-weight: 700; font-size: 1.1rem; border: 2px solid var(--gold); }
+.fc-b { background: #fff; border: 2px solid var(--navy); color: var(--navy); transform: rotateY(180deg); font-weight: 600; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-light); padding: 12px 25px; border-radius: 30px; font-weight: 700; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; border: 1px solid var(--gold); }
+.toast.on { opacity: 1; }
+
+/* ================= RTL Support ================= */
+[dir="rtl"] .ex-opts,
+.ex-opts {
+    flex-direction: row-reverse;
+}
+
+/* ================= Improved Button Styling ================= */
+.ex-btn { 
+    flex: 1; 
+    min-width: 140px; 
+    max-width: 100%;
+    background: #f8fafc; 
+    border: 1px solid var(--border); 
+    padding: 12px; 
+    border-radius: 8px; 
+    font-family: var(--font-body); 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    color: var(--navy);
+    text-align: right;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+}
+
+.qz-opt {
+    text-align: right;
+    direction: rtl;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.qz-opt:hover { border-color: var(--navy); background: #f8fafc; }
+.qz-opt.right { background: var(--green); color: #fff; border-color: var(--green); }
+.qz-opt.wrong { background: var(--red); color: #fff; border-color: var(--red); }
+
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;}
+.fc { height: 180px; perspective: 1000px; cursor: pointer; }
+.fc-in { position: relative; width: 100%; height: 100%; transition: 0.6s; transform-style: preserve-3d; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.fc.flip .fc-in { transform: rotateY(180deg); }
+.fc-f, .fc-b { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.6; }
+.fc-f { background: var(--navy); color: #fff; font-weight: 700; font-size: 1.1rem; border: 2px solid var(--gold); }
+.fc-b { background: #fff; border: 2px solid var(--navy); color: var(--navy); transform: rotateY(180deg); font-weight: 600; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-light); padding: 12px 25px; border-radius: 30px; font-weight: 700; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; border: 1px solid var(--gold); }
+.toast.on { opacity: 1; }
+
+/* ================= RTL Support ================= */
+[dir="rtl"] .ex-opts,
+.ex-opts {
+    flex-direction: row-reverse;
+}
+[dir="rtl"] .num-list li,
+.num-list li {
+    padding: 14px 14px 14px 50px;
+    text-align: right;
+}
+[dir="rtl"] .num-list li::before {
+    right: auto;
+    left: 12px;
+}
+[dir="rtl"] .tree-branches::before {
+    left: 15%;
+    right: 15%;
+}
+[dir="rtl"] .tree-node::before {
+    left: 50%;
+    right: auto;
+}
+[dir="rtl"] .accordion-header {
+    border-right: none;
+    border-left: 4px solid var(--gold);
+}
+
+/* ================= RTL Support for Buttons ================= */
+[dir="rtl"] .ex-btn {
+    text-align: right;
+    direction: rtl;
+}
+[dir="rtl"] .qz-opt {
+    text-align: right;
+    direction: rtl;
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- ================= HEADER ================= -->
+  <header class="hdr" id="mainHeader" style="display:none">
+    <div class="hdr-right">
+      <div class="logo-box">
+        <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'; this.parentElement.textContent='جامعة طيبة'">
+      </div>
+      <div class="hdr-dr">د/ باسم القرافي</div>
+    </div>
+    <div class="hdr-center">
+      <div class="hdr-course">مقرر فقه ٢</div>
+      <div class="hdr-lecture">المحاضرة الخامسة: الوديعة والإتلافات، الغصب، الصلح، المسابقة، العارية، إحياء الموات</div>
+    </div>
+    <div class="hdr-stu" id="stuInfo"></div>
+  </header>
+
+  <div class="main">
+    
+    <!-- ================= شاشة الدخول ================= -->
+    <div id="s-login" class="scr on" style="padding:0; max-width: none;">
+      <div class="welcome-wrap">
+        <div class="welcome-box">
+          <div class="logo-box-login">
+            <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'">
+          </div>
+          <h1 class="w-title">مقرر فقه ٢</h1>
+          <div class="w-sub">المحاضرة الخامسة: الوديعة والإتلافات، الغصب، الصلح، المسابقة، العارية، إحياء الموات</div>
+          <div class="w-dr">إعداد: د/ باسم القرافي</div>
+          
+          <input type="text" id="iName" class="welcome-input" placeholder="أدخل اسمك الكامل هنا...">
+          <input type="text" id="iSec" class="welcome-input" placeholder="رقم الشعبة (مثال: YM3)">          <button class="w-btn" onclick="doLogin()">ابدأ رحلة التعلم</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 0. شاشة الفيديو التمهيدية ================= -->
+    <div id="s-0" class="scr">
+      <div class="hero-banner" style="background:#0a1628; border-color:var(--gold); padding:40px;">
+        <div class="hero-icon" style="color:var(--gold);">🎥</div>
+        <div class="hero-title" style="color:#fff; font-family:var(--font-quran);">تمهيد وملخص المحاضرة</div>
+        <div class="hero-sub" style="color:var(--gold-light);">شاهد هذا الملخص المرئي قبل البدء بالتفاصيل</div>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata" poster="https://www.transparenttextures.com/patterns/arabesque.png">
+          <source src="summary.mp4" type="video/mp4">
+          عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو.
+        </video>
+      </div>
+
+      <div class="block-header">نظرة عامة على أبواب المحاضرة</div>
+      <div style="background:#fff; padding:20px; border-radius:12px; border:1px solid var(--border);">
+        <p style="font-size:1.1rem; line-height:1.8; margin-bottom:15px;">تتناول هذه المحاضرة أبواباً مهمة في الفقه الإسلامي تتعلق بحماية الأموال وضبط المعاملات، منها:</p>
+        <ul class="num-list">
+          <li><span class="gold-text">الوديعة والإتلافات:</span> حفظ الأمانات، أحكام الضمان، ووجوب التعويض عند الإتلاف.</li>
+          <li><span class="gold-text">الغصب:</span> تحريم الاستيلاء على أموال الناس، ووضوابط رد المغصوب.</li>
+          <li><span class="gold-text">الصلح:</span> وسيلة لإنهاء الخصومات، وأنواعه وضوابطه الشرعية.</li>
+          <li><span class="gold-text">المسابقة:</span> تشجيع القوة والعلم، وضوابط العوض فيها.</li>
+          <li><span class="gold-text">العارية:</span> إتاحة الانتفاع بالمال، وشروط ضمان المستعير.</li>
+          <li><span class="gold-text">إحياء الموات:</span> استثمار الأرض الميتة، و شروط التملك.</li>
+        </ul>
+      </div>
+
+      <div class="nav-row">
+        <div></div><button class="nav-btn btn-navy" onclick="goSlide(1)">التالي: الوديعة والإتلافات ➜</button>
+      </div>
+    </div>
+
+    <!-- ================= 1. الوديعة والإتلافات ================= -->
+    <div id="s-1" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🛡️</div>
+        <div class="hero-title">الباب الرابع عشر: الوديعة والإتلافات</div>
+        <div class="hero-sub">الأمانة في حفظ المال، وتحريم الإتلاف، وضوابط الضمان</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags">
+          <div class="hero-tag">الوديعة</div><div class="hero-tag">الضمان</div><div class="hero-tag">التعدي</div><div class="hero-tag">الإتلاف</div>
+        </div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">📘</div>
+          <div class="info-card-title">تعريف الوديعة</div>
+          <div class="info-card-desc">أن يعرّف الطالب الوديعة لغة واصطلاحاً.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🕌</div>
+          <div class="info-card-title">مشروعية الوديعة</div>
+          <div class="info-card-desc">أن يستدل على مشروعية الوديعة من الكتاب والسنة.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">⚖️</div>
+          <div class="info-card-title">ضوابط الضمان</div>
+          <div class="info-card-desc">أن يميّز بين حالات ضمان المستودع وحالات عدم الضمان.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🎯</div>
+          <div class="info-card-title">التطبيق العملي</div>
+          <div class="info-card-desc">أن يطبق أحكام الإتلافات والضمان على وقائع عملية.</div>
+        </div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        تُعد الوديعة من أهم المعاملات التي تقوم على الثقة والأمانة بين الناس، حيث يلجأ الإنسان لإيداع ماله عند غيره حفظاً له، وفي المقابل تبرز مسألة الإتلافات لبيان حقوق الناس في أموالهم وكيفية جبر الضرر عند التعدي أو التفريط.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">﷽</div>
+        <div class="verse-text">﴿فَلْيُؤَدِّ الَّذِي اؤْتُمِنَ أَمَانَتَهُ﴾</div>
+        <div class="verse-ref">سورة المائدة: ١</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الوديعة</div><div class="info-card-desc">هي عين يضعها مالكها أو نائبه عند من يحفظها بلا عوض.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">حكم قبولها</div><div class="info-card-desc">يستحب قبولها لمن قدر على حفظها، ولا يجوز لمن علم من نفسه عدم القدرة على حفظها.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">حكم الضمان</div><div class="info-card-desc">المستودع أمين لا يضمن إلا إذا تعدّى على الوديعة أو فرّط في حفظها.</div></div>
+        <div class="info-card"><div class="info-card-icon">🚫</div><div class="info-card-title">حكم الإتلاف</div><div class="info-card-desc">يحرم الاعتداء على أموال الناس، ويجب الضمان على من أتلف مالاً محترماً.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: الوديعة (تعريفها ومشروعيتها) <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">التعريف:</span><br>
+          الوديعة هي عين يضعها مالكها أو نائبه عند من يحفظها بلا عوض.<br>
+          <span class="section-head">أدلة المشروعية:</span><br>
+          - من القرآن: قوله تعالى: ﴿فَلْيُؤَدِّ الَّذِي اؤْتُمِنَ أَمَانَتَهُ﴾، وقوله تعالى: ﴿إِنّّ اللّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا﴾.<br>
+          - من السنة: قوله ﷺ: (أد الأمانة لمن ائتمنك ولا تخن من خانك).<br>
+          - من المعقول: أن الضرورة والحاجة داعية للإيداع.<br>
+          <span class="section-head">حكم قبول الوديعة:</span><br>
+          يستحب قبولها لمن وجد في نفسه القدرة على حفظها لقوله ﷺ: (والله في عون العبد ما دام العبد في عون أخيه)، أما من علم عدم قدرته على حفظها فلا يجوز له قبولها.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: شرط صحة الوديعة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          يشترط أن تكون الوديعة من جائز التصرف لمثله.<br>
+          - فلو أودع جائز التصرف ماله عند (صغير أو مجنون أو سفيه) فأتلفه، فلا ضمان على المودَع لديه؛ لأن التفريط هنا من المودِع.<br>
+          - أما إذا أودع الصغير ونحوه ماله عند آخر، صار الوديع ضامناً؛ لأن أخذه للمال تعدٍّ.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثالثاً: الأحكام المتعلقة بالوديعة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">الأمانة:</span> الوديعة أمانة في يد المستودع، فلا ضمان عليه إن لم يفرط، لقوله ﷺ: (لا ضمان على مؤتمن).</li>
+            <li><span class="term-blue">حالة الضمان:</span> يضمن المستودع الوديعة إذا تلفت بسبب تعديه عليها أو تفريطه في حفظها؛ لأنه أصبح متلفاً لمال غيره.</li>
+            <li><span class="term-blue">واجب الحفظ:</span> يجب على المستودع حفظ الوديعة في "حرز مثلها عرفاً"، لأن المقصود من الإيداع هو الحفظ.</li>
+            <li><span class="term-blue">تسليمها للغير:</span> يجوز للمستودع دفعها لمن يحفظ ماله عادة (كزوجته، عبده، خازنه، خادمه)، فإن تلفت عندهم بلا تعدٍ أو تفريط فلا ضمان عليه. أما دفعها لغير هؤلاء دون عذر فيعد تعدياً وتفريطاً يوجب الضمان.</li>
+            <li><span class="term-blue">رد الوديعة:</span> إذا خاف المستودع على الوديعة أو أراد السفر، وجب ردها لصاحبها أو وكيله.</li>
+            <li><span class="term-blue">الوديعة الحيوانية:</span> إذا كانت الوديعة دابة، لزم المستودع إعلافها وتغذيتها، فإن أهملها وتلفت ضمنها وأثم.</li>
+            <li><span class="term-blue">الودائع المصرفية:</span>
+              <ul>
+                <li>الودائع بفائدة: تعتبر في معنى القرض، وهي من الربا المحرم.</li>
+                <li>الحساب الجاري (بدون فائدة): لا شيء فيه لأنه لا زيادة على أصل المال.</li>
+                <li>الضرورة: من ألزم بقبض الزيادة وكان مضطراً للإيداع، يقبضها وينفقها في مصالح المسلمين العامة.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">رابعاً: الإتلافات <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">حكم الاعتداء:</span> يحرم الاعتداء على أموال الناس وأخذها بغير حق.</li>
+            <li><span class="term-blue">وجوب الضمان:</span> يجب الضمان على من أتلف مالاً محترماً، كذلك من تسبب في إتلافه (كحل قيد أو فتح باب).</li>
+            <li><span class="term-blue">حفظ المواشي:</span> يجب حفظ المواشي ليلاً من إفساد زروع الناس أو أنفسهم، ومن أهمل ذلك ضمن ما أفسدته بالليل.</li>
+            <li><span class="term-blue">دفع الصائل:</span> الصائل (من يسطو على غيره عادياً يريد نفسه أو عرضه أو ماله) إذا لم يندفع إلا بالقتل فقتله، فلا ضمان على القاتل لأنه دفاع عن النفس.</li>
+            <li><span class="term-blue">إتلاف المحرمات:</span> من أتلف ما حرم الله (كآلات اللهو، الصليب، أواني الخمر) فلا ضمان عليه، بشرط أن يكون الإتلاف بأمر الحاكم وتحت رقابته.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 أودع رجل ماله عند شخص، فقام المستودع بوضع المال في مكان غير آمن (غير حرز المثل) فسرق المال. (الحكم: يضمن المستودع المال؛ لأنه فرّط في حفظ الوديعة).</div>
+      <div class="app-scenario">📌 شخص يملك غنماً وتركها ترعى ليلاً في مزارع الجيران فأفسدت الزروع. (الحكم: يجب على صاحب الغنم ضمان ما أفسدته؛ لأن عليه حفظ مواشيه بالليل).</div>
+      <div class="app-scenario">📌 شخص أتلف مجموعة من المجلات التي تدعو للخلاعة والفسق من تلقاء نفسه دون إذن الحاكم. (الحكم: يضمن قيمة هذه المجلات؛ لأن الإتلاف للمحرمات يجب أن يكون بأمر الحاكم).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الوديعة والإتلافات</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>الوديعة</h4><p>تعريفها: عين توضع عند الغير للحفظ بلا عوض.<br>مشروعية: الكتاب والسنة والحاجة.<br>حكم الضمان: لا ضمان إلا بالتعدي أو التفريط.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>أحكام المستودع</h4><p>واجبات: الحفظ في حرز المثل، إطعام الدواب، الرد عند الطلب.<br>التصرفات الجائزة: دفعها لمن يحفظ ماله عادة.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>الإتلافات</h4><p>القاعدة: تحريم الاعتداء ووجوب الضمان.<br>صور الضمان: الإتلاف، التسبب، إهمال المواشي.<br>الاستثناءات: قتل الصائل، إتلاف المحرمات (بإذن الحاكم).</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم (أكمل لفتح التالي)</div>
+      <div class="ex-box" id="ex-1-1">
+        <div class="ex-q">١. ما الفرق بين التعدي والتفريط في الوديعة من حيث الأثر المترتب عليهما؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 1, this, false, 'خاطئ.')">لا فرق؛ كلاهما يوجب الضمان</button><button class="ex-btn" onclick="act(1, 1, this, true, 'أحسنت! التعدي يثبته بعوض، والتفريط لا يضمن إلا إذا أدى للضياع.')">التعدي يثبته بعوض، والتفريط لا يضمن إلا إذا أدى للضياع.</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-2">
+        <div class="ex-q">٢. لماذا لا يضمن المستودع إذا أودع ماله عند صغير أو مجنون فأتلفه؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 2, this, true, 'أحسنت! لأن التفريط من المودِع، وليس من من استلم المال من الصغير أو المجنون.')">لأن التفريط من المودِع، وليس من من استلم المال</button><button class="ex-btn" onclick="act(1, 2, this, false, 'خاطئ.')">لأن الصغير أو المجنون لا يضمن أبداً</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-3">
+        <div class="ex-q">٣. متى يكون دفع الوديعة إلى شخص آخر جائزاً، ومتى يكون موجباً للضمان؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 3, this, false, 'خاطئ.')">يجب الضمان دائماً في هذه الحالة</button><button class="ex-btn" onclick="act(1, 3, this, true, 'أحسنت! يجوز دفعها لمن يحفظ ماله عادة (كزوجته)، أما غيرهم فيكون موجباً للضمان.')">يجوز لمن يحفظ ماله عادة، وغيرهم يضمن</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-1"></div></div>
+      
+      <div class="progress-tracker"><span>التقدم في هذا الموضوع:</span><div class="prog-dots" id="dots-1"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(0)">◁ التمهيد</button><button class="nav-btn btn-navy" id="next-1" disabled onclick="goSlide(2)">التالي: الغصب ➜</button></div>
+    </div>
+
+    <!-- ================= 2. الغصب ================= -->
+    <div id="s-2" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🔒</div>
+        <div class="hero-title">الباب الخامس عشر: الغصب</div>
+        <div class="hero-sub">تحريم الاستيلاء على أموال الناس، وضوابط رد المغصوب</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">الاستيلاء</div><div class="hero-tag">التحريم</div><div class="hero-tag">الرد</div><div class="hero-tag">الزيادات</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الغصب</div><div class="info-card-desc">أن يعرّف الطالب الغصب لغة وشرعاً.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">حكم الغصب</div><div class="info-card-desc">أن يبين حكم الغصب والأدلة على تحريمه.</div></div>
+        <div class="info-card"><div class="info-card-icon">📈</div><div class="info-card-title">أحكام الغاصب</div><div class="info-card-desc">أن يعدد الأحكام المترتبة على الغاصب تجاه العين والزيادة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📝</div><div class="info-card-title">تصرفات الغاصب</div><div class="info-card-desc">أن يوضح أثر الغصب على التصرفات التي يجريها الغاصب.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        تعتبر الأموال في الشريعة الإسلامية محترمة، لذا فإن الاستيلاء عليها ظلماً يعد من الكبائر التي توجب التوبة والرد، وقد وضع الفقهاء قواعد صارمة لضمان عودة الحقوق إلى أصحابها كاملة غير منقوصة.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">﷽</div>
+        <div class="verse-text">﴿وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ﴾</div>
+        <div class="verse-ref">سورة النساء: ٢٩</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">الغصب شرعاً هو الاستيلاء على حق الغير، ظلماً وعدواناً بغير حق.</div></div>
+        <div class="info-card"><div class="info-card-icon">🚫</div><div class="info-card-title">الحكم</div><div class="info-card-desc">محرم بإجماع المسلمين لقوله تعالى: {ولا تأكلوا أموالكم بينكم بالباطل}.</div></div>
+        <div class="info-card"><div class="info-card-icon">🔄</div><div class="info-card-title">رد المغصوب</div><div class="info-card-desc">يجب على الغاصب رد العين المغصوبة بحالها، فإن أتلفها رد بدلاً منها.</div></div>
+        <div class="info-card"><div class="info-card-icon">❌</div><div class="info-card-title">تصرفات الغاصب</div><div class="info-card-desc">جميع تصرفات الغاصب في العين المغصوبة باطلة إن لم يأذن بها المالك.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: تعريف الغصب وحكمه <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">التعريف:</span><br>
+          الغصب لغة هو أخذ الشيء ظلماً. وشرعاً هو الاستيلاء على حق الغير، ظلماً وعدواناً بغير حق.<br>
+          <span class="section-head">حكمه:</span><br>
+          محرم بإجماع المسلمين.<br>
+          <span class="section-head">الأدلة:</span><br>
+          - من القرآن: قوله تعالى: ﴿وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ﴾.<br>
+          - من السنة: قوله ﷺ: (لا يحل مال امرئ مسلم إلا بطيب نفسه)، وقوله ﷺ: (من اقتطع شبراً من الأرض ظلماً طُوِّقَهُ يوم القيامة من سبع أرضين).<br>
+          <span class="section-head">التوبة:</span><br>
+          يجب على من عنده مظلمة أن يتوب إلى الله، ويتحلل من أخيه في الدنيا.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: الأحكام المتعلقة بالغصب <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">رد العين:</span> يجب على الغاصب رد المغصوب بحاله، وفي حال إتلافه يجب رد بدلاً منه.</li>
+            <li><span class="term-blue">رد الزيادة:</span> يلزم الغاصب رد المغصوب بزيادته، سواء كانت هذه الزيادة متصلة (كالنماء في الزرع) أو منفصلة (كالثمار والولد).</li>
+            <li><span class="term-blue">البناء والغرس:</span> إذا قام الغاصب ببناء أو غرس في الأرض المغصوبة، يُؤمر بقلعه إذا طالبه المالك بذلك.</li>
+            <li><span class="term-blue">نقص القيمة:</span> إذا تغيرت العين المغصوبة أو قلت أو رخصت قيمتها، فإن الغاصب يضمن هذا النقص.</li>
+            <li><span class="term-blue">صور الغصب:</span> قد يكون مادياً بالاستيلاء، وقد يكون معنوياً من خلال الخصومة والأيمان الفاجرة أمام القضاء.</li>
+            <li><span class="term-blue">صحة التصرفات:</span> جميع تصرفات الغاصب في العين المغصوبة باطلة شرعاً، إلا إذا أذن المالك بذلك.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 غصب شخص أرضاً من جاره وقام بزراعتها بأشجار مثمرة. (الحكم: يجب عليه رد الأرض، وللمالك أن يطالبه بقلع الأشجار).</div>
+      <div class="app-scenario">📌 غصب شخص سيارة من آخر، وأثناء استخدامه لها تآكلت إطاراتها ونقصت قيمتها. (الحكم: يجب عليه رد السيارة، ويلزمه ضمان النقص في قيمتها).</div>
+      <div class="app-scenario">📌 غصب شخص قطعة أرض، ثم قام ببيعها لشخص ثالث دون علم المالك الأصلي. (الحكم: تصرف الغاصب بالبيع باطل؛ لأن جميع تصرفاته باطلة إن لم يأذن المالك).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الغصب</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>التعريف والحكم</h4><p>الاستيلاء على حق الغير ظلماً.<br>حكمه: محرم إجماعاً.<br>دليله: {ولا تأكلوا أموالكم بينكم بالباطل}.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>واجبات الغاصب</h4><p>رد العين بحالها.<br>رد البديل عند الإتلاف.<br>رد الزيادات (المتصلة والمنفصلة).<br>ضمان النقص في القيمة.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>آثار الغصب</h4><p>بطلان جميع تصرفات الغاصب.<br>وجوب قلع البناء والغرس بطلب المالك.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-2-1">
+      <div class="ex-q">١. ما الفرق بين الزيادة المتصلة والزيادة المنفصلة في العين المغصوبة؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 1, this, false, 'خاطئ.')">المنفصلة هي النماء، والمتصلة هي الثمار</button><button class="ex-btn" onclick="act(2, 1, this, true, 'المتصلة هي ما اتصل بالعين (كالنماء)، والمنفصلة هي ما انفصل (كالثمار والولد.')">المتصله كالنماء والمنفصلة كالثمار.</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-2">
+        <div class="ex-q">٢. لماذا تعتبر تصرفات الغاصب في العين المغصوبة باطلة؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 2, this, true, 'أحسنت! لأنه ليس مالكاً للعين، فلا يملك التصرف فيها.')">لأنه ليس مالكاً للعين، فلا يملك التصرف فيها</button><button class="ex-btn" onclick="act(2, 2, this, false, 'خاطئ.')">لأنها محرمة شرعاً</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-3">
+        <div class="ex-q">٣. كيف يكون الغصب عن طريق "الأيمان الفاجرة"؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 3, this, true, 'صحيح. بأن يحلف المدعي كذباً لينال حق غيره من القضاء.')">بالحلف الكاذب أمام القضاء لنيل حق الغير</button><button class="ex-btn" onclick="act(2, 3, this, false, 'خاطئ.')">بالاستيلاء المباشر على العين</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-2"></div></div>
+      
+    <div class="progress-tracker"><span>التقدم في هذا الموضوع:</span><div class="prog-dots" id="dots-2"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(1)">◁ الوديعه</button><button class="nav-btn btn-navy" id="next-2" disabled onclick="goSlide(3)">التالي: الصلح ➜</button></div>
+    </div>
+
+    <!-- ================= 3. الصلح ================= -->
+    <div id="s-3" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🤝</div>
+        <div class="hero-title">الباب السادس عشر: الصلح</div>
+        <div class="hero-sub">وسيلة شرعية لإنهاء النزاعات وقطْع الخصومات</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">العقد</div><div class="hero-tag">مشروعيتة</div><div class="hero-tag">أنواعه</div><div class="hero-tag">الإقرار والإنكار</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الصلح</div><div class="info-card-desc">أن يعرّف الطالب الصلح لغة وشرعاً.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">مشروعية الصلح</div><div class="info-card-desc">أن يستدل على مشروعية الصلح من المصادر التشريعية.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">أنواع الصلح</div><div class="info-card-desc">أن يميّز بين أنواع الصلح العامة والخاصة بالمال.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">الفرق بين الإقرار والإنكار</div><div class="info-card-desc">أن يفرق بين الصلح مع الإقرار والصلح مع الإنكار.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        يعتبر الصلح وسيلة شرعية فعالة لإنهاء النزاعات وقطْع الخصومات بين الناس، وهو يجسد روح التسامح والتراحم في المجتمع الإسلامي، حيث يهدف إلى تحقيق الرضا والوئام بدلاً من استمرار الصراع.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">﷽</div>
+        <div class="verse-text">﴿وَالصُّلْحُ خَيْرٌ﴾</div>
+        <div class="verse-ref">سورة النساء: ١٢٨</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">الصلح شرعاً هو العقد الذي ينقطع به خصومة المتخاصمين.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">المشروعية</div><div class="info-card-desc">مشروع بالكتاب والسنة والإجماع، لقوله تعالى: {والصلح خير}.</div></div>
+        <div class="info-card"><div class="info-card-icon">❌</div><div class="info-card-title">شرط الصحة</div><div class="info-card-desc">لا يصح الصلح إذا أحل حراماً أو حرم حلالاً.</div></div>
+        <div class="info-card"><div class="info-card-icon">📖</div><div class="info-card-title">صلح الإبراء</div><div class="info-card-desc">صلح يقع على جنس الحق المقر به، بحيث يسقط المقر له بعض الحق ويأخذ الباقي.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: معنى الصلح ومشروعيته <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">المعنى:</span><br>
+          الصلح لغة هو التوفيق (أي قطع المنازعة). وفي الشرع: هو العقد الذي ينقطع به خصومة المتخاصمين.<br>
+          <span class="section-head">أدلة المشروعية:</span><br>
+          - من الكتاب: قوله تعالى: ﴿وَالصُّلْحُ خَيْرٌ﴾، وقوله تعالى: ﴿وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا﴾.<br>
+          - من السنة: قوله ﷺ: (الصلح جائزٌ بين المسلمين إلا صلحاً أحل حراماً ، أو حرّم حللاً).<br>
+          - الإجماع: أجمعت الأمة على مشروعية الصلح بقصد رضا الله ثم رضا المتخاصمين.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: أنواع الصلح العامة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">الصلح بين الزوجين:</span> عند خوف الشقاق أو إعراض الزوج.</li>
+            <li><span class="term-blue">الصلح بين الطائفتين المتقاتلتين:</span> من المسلمين.</li>
+            <li><span class="term-blue">الصلح بين المسلمين والكفار:</span> المتحاربين.</li>
+            <li><span class="term-blue">الصلح في غير المال:</span> كالخصومات الشخصية.</li>
+            <li><span class="term-blue">الصلح في المال:</span>
+              <ul>
+                <li><span class="hl-green">مع الإقرار:</span> أن يقر أحد الطرفين بالحق، وينقسم إلى:
+                  <ul>
+                    <li><span class="term-blue">صلح الإبراء:</span> أن يكون الصلح على جنس الحق (دين أو عين)، فيسقط صاحب الحق جزءاً منه ويأخذ الباقي.</li>
+                    <li><span class="term-blue">صلح المعاوضة:</span> أن يصالح عن الحق المقر به بغير جنسه.</li>
+                  </ul>
+                </li>
+                <li><span class="hl-green">مع الإنكار:</span> أن يدعي شخص حقاً وينكره الآخر، ثم يتصالحا على مال.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثالثاً: الأحكام المتعلقة بالصلح <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">الصلح عن الحق المجهول:</span> يصح الصلح في الأموال أو الديون التي تعذر علم مقدارها بدقة.</li>
+            <li><span class="term-blue">الصلح عن العوض المباح:</span> يصح الصلح عن كل ما يجوز أخذ العوض عنه.</li>
+            <li><span class="term-blue">الصلح عن المحرمات:</span> لا يصح الصلح عن الحدود؛ لأن الحدود شرعت للزجر وهي حق لله تعالى.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 اعترف شخص لآخر بدين قدره 1000 ريال، ثم تصالحا على أن يدفع 700 ريال فقط ويسقط الباقي. (الحكم: هذا "صلح إبراء" وهو جائز بشرط أن يكون صاحب الحق جائز التبرع).</div>
+      <div class="app-scenario">📌 ادعى شخص أن له ديناً على آخر، فأنكر المدعى عليه الدين، ولكن لإنهاء الخصومة اتفقا على أن يدفع المنكر 500 ريال مقابل التنازل عن الدعوى. (الحكم: هذا "صلح مع الإنكار" وهو جائز شرعاً لقطع الخصومة).</div>
+      <div class="app-scenario">📌 اتفق شخصان على الصلح في قضية "سرقة" (حد من حدود الله) بحيث يتنازل المدعي مقابل مبلغ مالي. (الحكم: لا يصح هذا الصلح؛ لأن الحدود لا يجوز الصلح عنها).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الصلح</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>التعريف والمشروعية</h4><p>تعريف: عقد ينقطع به الخصومة.<br>مشروعية: كتاب، سنة، إجماع.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>أنواع الصلح</h4><p>اجتماعي/سياسي: (زوجين، طائفتين، مسلمين وكفار).<br>مالي: (مع إقرار، مع إنكار).</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>تفصيل الصلح المالي</h4><p>مع إقرار: (إبراء: نفس الجنس / معاوضة: جنس مختلف).<br>مع إنكار: (دفع المال لقطع الخصومة).</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>أحكام خاصة</h4><p>يصح في: المجهول، القصاص.<br>لا يصح في: الحدود.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-3-1">
+        <div class="ex-q">١. ما الفرق الجوهري بين صلح الإبراء وصلح المعاوضة من حيث "جنس الحق"؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 1, this, false, 'خاطئ.')">صلح المعاوضة يكون على نفس الجنس</button><button class="ex-btn" onclick="act(3, 1, this, true, 'أحسنت! صلح الإبراء يكون على نفس الجنس، بينما المعاوضة بجنس مختلف.')">صلح الإبراء بنفس الجنس، والمعاوضة بجنس مختلف</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-2">
+        <div class="ex-q">٢. متى يكون الصلح مع الإنكار صحيحاً ومقبولاً شرعاً؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 2, this, true, 'أحسنت! عندما يدعي شخص حقاً وينكره الآخر، فيدفع المنكر مالاً لقطع الخصومة وافتداءً ليمينه.')">عندما يدعي شخص حقاً وينكره الآخر، فيدفع مالاً لقطع الخصومة</button><button class="ex-btn" onclick="act(3, 2, this, false, 'خاطئ.')">عندما يعترف الطرفان بالحق</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-3">
+        <div class="ex-q">٣. علل: لماذا لا يجوز الصلح عن الحدود الشرعية؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 3, this, true, 'أحسنت! لأن الحدود شرعت للزجر وهي حق لله، ولا يجوز التنازل عنها.')">لأنها شرعت للزجر وهي حق لله تعالى</button><button class="ex-btn" onclick="act(3, 3, this, false, 'خاطئ.')">لأنها تضر بالمجتمع</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-3"></div></div>
+      
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-3"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(2)">◁ السابق</button><button class="nav-btn btn-navy" id="next-3" disabled onclick="goSlide(4)">التالي: المسابقة ➜</button></div>
+    </div>
+
+    <!-- ================= 4. المسابقة ================= -->
+    <div id="s-4" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🏃</div>
+        <div class="hero-title">الباب السابع عشر: المسابقة</div>
+        <div class="hero-sub">تشجيع القوة والتدريب البدني والعلمي وتحفيز النشاط</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">المجاراة</div><div class="hero-tag">العوض</div><div class="hero-tag">المناضلة</div><div class="hero-tag">الشروط</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف المسابقة والمناضلة</div><div class="info-card-desc">أن يعرّف الطالب المسابقة والمناضلة.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">حكم المسابقة</div><div class="info-card-desc">أن يبين حكم المسابقة وأدلتها من السنة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">مجالات العوض</div><div class="info-card-desc">أن يعدد المجالات التي تجوز فيها المسابقة بعوض.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">شروط العوض</div><div class="info-card-desc">أن يذكر شروط أخذ العوض (الجائزة) في المسابقة.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        شجعت الشريعة الإسلامية على القوة والتدريب البدني والعلمي، وجعلت المسابقات وسيلة لتحفيز الناس على الإعداد والجاهزية، خاصة في المجالات التي تخدم المصلحة العامة كالجihad وحماية الدولة.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">﷽</div>
+        <div class="verse-text">﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾</div>
+        <div class="verse-ref">سورة الأنفال: ٦٠</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">🏃</div><div class="info-card-title">التعريف</div><div class="info-card-desc">المسابقة هي المجاراة بين الحيوان وغيره، والمناضلة هي المسابقة بالرمي بالسهام.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">الحكم</div><div class="info-card-desc">جائزة بالكتاب والسنة والإجماع.</div></div>
+        <div class="info-card"><div class="info-card-icon"> horses</div><div class="info-card-title">مجالات العوض</div><div class="info-card-desc">يجوز أخذ العوض في (الخيل، الإبل، السهام) لقوله ﷺ: (لا سبق إلا في خف أو نصل أو حاف).</div></div>
+        <div class="info-card"><div class="info-card-icon">❌</div><div class="info-card-title">شرط العوض</div><div class="info-card-desc">يجب أن يكون العوض من غير المتسابقين ليخرج عن شبه القمار.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: معنى المسابقة وحكمها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">المعنى:</span><br>
+          السبق هو ما يتراهن عليه المتسابقون في الخيل والإبل والنضال. والمسابقة هي المجاراة بين الحيوان وغيره. والمناضلة هي المسابقة بالرمي بالسهام.<br>
+          <span class="section-head">الحكم والأدلة:</span><br>
+          المسابقة جائزة بالكتاب والسنة والإجماع.<br>
+          - من الكتاب: قوله تعالى: ﴿وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ﴾.<br>
+          - من السنة: حديث ابن عمر أن النبي ﷺ سابق بين الخيل، وقوله ﷺ: (لا سَبَقَ إلا في خُفٍّ أو نَصْلٍّ أو حَافٍّ).
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: الأحكام المتعلقة بالمسابقة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">المجالات الجائزة:</span> تجوز المسابقة على الخيل، الدواب، المراكب، الأقدام، الترامي بالسهام، واستخدام الأسلحة.</li>
+            <li><span class="term-blue">حكم العوض (الجائزة):</span>
+              <ul>
+                <li>يجوز العوض في الإبل والخيل والسهام.</li>
+                <li>يجوز العوض في كل ما يترتب عليه مصلحة شرعية (مثل التدريب على الجهاد أو مسائل العلم).</li>
+                <li>أما ما قصد به اللعب والمرح المباح فلا يجوز أخذ العوض عليه.</li>
+              </ul>
+            </li>
+            <li><span class="term-blue">فسخ المسابقة:</span> لكل متسابق حق فسخ المسابقة ما لم يظهر الفضل لأحدهما.</li>
+            <li><span class="term-blue">مبطلات المسابقة:</span> تبطل بموت أحد المتسابقين أو أحد المركوبين.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثالثاً: شروط أخذ العوض في المسابقة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">تعيين المتسابقين:</span> تعيين الرماة في المناضلة أو المركوبين في المسابقة عن طريق الرؤية.</li>
+            <li><span class="term-blue">اتحاد المراكب/الأدوات:</span> أن تكون المراكب من نوع واحد (فلا تصح بين عربي وهجين).</li>
+            <li><span class="term-blue">تحديد الغاية:</span> تحديد المسافة أو الغاية إما بالمشاهدة أو بالدرع.</li>
+            <li><span class="term-blue">معلومية العوض:</span> أن يكون العوض معلوماً ومباحاً.</li>
+            <li><span class="term-blue">مصدر العوض:</span> أن يكون العوض من غير المتسابقين؛ ليخرج عن شبه القمار.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 تنافس شخصان في حفظ جزء من القرآن الكريم، واتفقا على أن يمنحهما "متبرع خارجي" جائزة مالية لمن ينتهي أولاً. (الحكم: المسابقة صحيحة والعوض جائز؛ لأنها في مصلحة شرعية (العلم) والعوض من غير المتسابقين).</div>
+      <div class="app-scenario">📌 تسابق شخصان في الركض، واتفقا على أن يدفع الخاسر للفائز مبلغ 100 ريال. (الحكم: المسابقة جائزة، ولكن أخذ العوض غير صحيح؛ لأن العوض من المتسابقين).</div>
+      <div class="app-scenario">📌 تسابق شخصان بالخيل، أحدهما يركب خيلاً عربية أصيلة والآخر يركب خيلاً هجينا، واتفقا على جائزة. (الحكم: لا تصح المسابقة على عوض؛ لاختلال شرط "اتحاد المراكب في النوع").</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">المسابقة</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>التعريفات</h4><p>مسابقة: مجاراة بين الحيوان وغيره.<br>مناضلة: مسابقة بالرمي بالسهام.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>الحكم والمجالات</h4><p>الحكم: جائزة.<br>مجالات العوض: (خيل، إبل، سهام، مصلحة شرعية).<br>مجالات بدون عوض: (اللعب والمرح المباح).</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>شروط العوض</h4><p>تعيين المتسابقين.<br>اتحاد النوع (المراكب/القوس).<br>تحديد المسافة/الغاية.<br>معلومية العوض وإباحته.<br>أن يكون العوض من طرف ثالث.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-4-1">
+        <div class="ex-q">١. لماذا اشترط الفقهاء أن يكون العوض في المسابقة من غير المتسابقين؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 1, this, true, 'أحسنت! ليخرج عن شبه القمار، حيث إن القمار يكون بين المتسابقين أنفسهم.')">ليخرج عن شبه القمار</button><button class="ex-btn" onclick="act(4, 1, this, false, 'خاطئ.')">لأن المتسابقين لا يملكون أموالاً</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-2">
+        <div class="ex-q">٢. ما الفرق في حكم "العوض" بين المسابقة في الرماية والمسابقة في اللعب والمرح المباح؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 2, this, false, 'خاطئ.')">كلاهما جائز بالعوض</button><button class="ex-btn" onclick="act(4, 2, this, true, 'صحيح. الرماية تجوز بالعوض للفائدة، أما اللعب فتجوز دون عوض.')">الرماية تجوز بالعوض، واللعب دون عوض</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-3">
+        <div class="ex-q">٣. ما حكم المسابقة إذا كان أحد المتسابقين يركب فرساً عربياً والآخر يركب فرساً هجيناً؟ ولماذا؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 3, this, true, 'صحيح. لا تصح لأن شرط اتحاد النوع لم يتحقق.')">لا تصح لاختلال شرط اتحاد النوع</button><button class="ex-btn" onclick="act(4, 3, this, false, 'خاطئ.')">تصح لأن الفرق بسيط</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-4"></div></div>
+      
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-4"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(3)">◁ السابق</button><button class="nav-btn btn-navy" id="next-4" disabled onclick="goSlide(5)">التالي: العارية ➜</button></div>
+    </div>
+
+    <!-- ================= 5. العارية ================= -->
+    <div id="s-5" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">📦</div>
+        <div class="hero-title">الباب الثامن عشر: العارية</div>
+        <div class="hero-sub">إتاحة الانتفاع بالمال دون مقابل، وضبط قواعد الضمان</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">الإعارة</div><div class="hero-tag">الأمانة</div><div class="hero-tag">غير لازم</div><div class="hero-tag">الانتهاء</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الإعارة والعارية</div><div class="info-card-desc">أن يعرّف الطالب الإعارة والعارية.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">مشروعية الإعارة</div><div class="info-card-desc">أن يستدل على مشروعية الإعارة من الكتاب والسنة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📝</div><div class="info-card-title">التصرف في العين المعارة</div><div class="info-card-desc">أن يوضح الأحكام المتعلقة بالتصرف في العين المعارة.</div></div>
+        <div class="info-card"><div class="info-card-icon">❌</div><div class="info-card-title">حالات انتهاء الإعارة</div><div class="info-card-desc">أن يعدد الحالات التي تنتهي فيها الإعارة وتجب فيها إعادة العين.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        تجسد العارية قيمة التكافل الاجتماعي والتعاون بين أفراد المجتمع، حيث يتيح الشخص لغيره الانتفاع بملكه دون مقابل، مما يسهل على الناس قضاء حوائجهم ويقوي الروابط الاجتماعية.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">﷽</div>
+        <div class="verse-text">﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ﴾</div>
+        <div class="verse-ref">سورة المائدة: ٢</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">الإعارة هي إباحة الانتفاع بالشيء مع بقاء عينه، والعارية هي العين المأخوذة للانتفاع.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">الحكم</div><div class="info-card-desc">مشروععة ومستحبة لعموم قول تعالى: {وتعاونوا على البر والتقوى}.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">طبيعة العقد</div><div class="info-card-desc">عقد غير لازم، فللمعير الرجوع فيه متى شاء ما لم يضر بالمستعير.</div></div>
+        <div class="info-card"><div class="info-card-icon">🛡️</div><div class="info-card-title">الضمان</div><div class="info-card-desc">العارية أمانة، فلا يضمن المستعير إلا إذا تعدى أو فرّط.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: معنى الإعارة ومشروعيتها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">المعنى:</span><br>
+          الإعارة هي إباحة الانتفاع بالشيء مع بقاء عينه. أما العارية فهي العين المأخوذة للانتفاع.<br>
+          <span class="section-head">أدلة المشروعية:</span><br>
+          - من القرآن: عموم قوله تعالى: ﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ﴾، وقوله تعالى: ﴿وَيَمْنَعُونَ الْمَاعُونَ﴾ حيث ذم الله من يمنعون العارية.<br>
+          - من السنة: ثبت أن النبي ﷺ استعار أدرعاً من صفوان بن أمية، واستعار فرساً من أبي طلحة.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: الأحكام المتعلقة بالعارية <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">التصرف في العين:</span> لا يجوز للمستعير إعارة العين التي استعارها لشخص آخر، كما لا يجوز له تأجيرها، إلا إذا أذن المالك بذلك.</li>
+            <li><span class="term-blue">حكم الأمانة والضمان:</span> العارية تعتبر أمانة في يد المستعير، لذا يجب عليه المحافظة عليها وردها سليمة كما أخذها. ولا يضمنها إلا في حالة التعدي أو التفريط.</li>
+            <li><span class="term-blue">لزوم العقد:</span> الإعارة عقد غير لازم؛ بمعنى أن للمُعير الحق في استرداد عينيته متى شاء، بشرط ألا يؤدي هذا الرجوع إلى إلحاق ضرر بالمستعير.</li>
+            <li><span class="term-blue">الانتفاع بالعين:</span> المستعير في استيفاء النفع كالمستأجر، له أن ينتفع بنفسه وبمن يقوم مقامه.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثالثاً: انتهاء الإعارة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          تنتهي الإعارة وتجب إعادة العين في الحالات الآتية:
+          <ol>
+            <li><span class="term-blue">مطالبة المالك بردها، حتى لو لم يحقق المستعير غرضه منها.</span></li>
+            <li><span class="term-blue">انقضاء الغرض الذي استعيرت من أجله العين.</span></li>
+            <li><span class="term-blue">انقضاء المدة المحددة إذا كانت العارية مؤقتة بزمن.</span></li>
+            <li><span class="term-blue">موت المعير أو موت المستعير، حيث يبطل العقد بموت أحد طرفيه.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 استعار شخص كتاباً من صديقه، ثم قام بإعارته لشخص ثالث دون علم الصديق. (الحكم: هذا التصرف غير جائز؛ لأنه لا يجوز للمستعير إعارة العين التي استعارها إلا بإذن المالك).</div>
+      <div class="app-scenario">📌 استعار رجل سيارة من جاره لسفر محدد بـ 3 أيام، وفي اليوم الثاني طلب الجار سيارته لضرورة. (الحكم: يجب على المستعير رد السيارة؛ لأن الإعارة عقد غير لازم وللمعير الرجوع فيه ما لم يضر بالمستعير).</div>
+      <div class="app-scenario">📌 استعار شخص آلة تصوير، وبسبب إهماله في وضعها في مكان غير آمن سقطت وانكسرت. (الحكم: يضمن المستعير قيمة الآلة؛ لأنها أمانة في يده وقد فرّط في حفظها).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">العارية</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>التعريف والمشروعية</h4><p>إباحة الانتفاع بالعين مع بقاء أصلها.<br>حكمها: مستحبة (تعاون على البر).</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>أحكام المستعير</h4><p>واجبات: الحفظ، الرد سليمة.<br>محظورات: إعارتها للغير أو تأجيرها بلا إذن.<br>الضمان: يضمن عند التعدي أو التفريط.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>انتهاء العقد</h4><p>طلب المالك.<br>انهاء الغرض.<br>انهاء الوقت.<br>الموت.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-5-1">
+        <div class="ex-q">١. لماذا لا يحق للمستعير تأجير العين التي استعارها؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 1, this, false, 'خاطئ.')">لأنه يملك العين</button><button class="ex-btn" onclick="act(5, 1, this, true, 'أحسنت! لأنه ليس مالكاً للعين، بل هو مأذون له بالانتفاع بها فقط، فلا يملك حق التصرف فيها بالتأجير.')">لأنه ليس مالكاً للعين، لا يملك التأجير</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-2">
+        <div class="ex-q">٢. ما الفرق بين "الإعارة" من حيث لزوم العقد وبين "الإجارة" (التي تكون بمقابل)؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 2, this, false, 'خاطئ.')">كلاهما عقد لازم</button><button class="ex-btn" onclick="act(5, 2, this, true, 'صحيح. الإعارة غير لازم، والإجارة عقد لازم.')">الإعارة غير لازم، والإجارة عقد لازم</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-3">
+        <div class="ex-q">٣. هل يضمن المستعير العين إذا تلفت دون تعدٍ أو تفريط؟ ولماذا؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 3, this, true, 'أحسنت! لا؛ لأن العارية أمانة والضمان يكون فقط عند التعدي أو التفريط.')">لا، لأنها أمانة والضمان عند التعدي أو التفريط فقط</button><button class="ex-btn" onclick="act(5, 3, this, false, 'خاطئ.')">نعم، يضمنها لأنه استعملها</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-5"></div></div>
+      
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-5"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(4)">◁ السابق</button><button class="nav-btn btn-navy" id="next-5" disabled onclick="goSlide(6)">التالي: إحياء الموات ➜</button></div>
+    </div>
+
+    <!-- ================= 6. إحياء الموات ================= -->
+    <div id="s-6" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🌾</div>
+        <div class="hero-title">الباب التاسع عشر: إحياء الموات</div>
+        <div class="hero-sub">استثمار الأرض الميتة وتحقيق التملك الشرعي</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">الموات</div><div class="hero-tag">التملك</div><div class="hero-tag">الطرق</div><div class="hero-tag">الإقطاع</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الأرض الموات</div><div class="info-card-desc">أن يعرّف الطالب الأرض الموات لغة واصطلاحاً.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">حكم إحياء الموات</div><div class="info-card-desc">أن يستنبط حكم إحياء الموات من الأدلة الشرعية.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">طرق الإحياء</div><div class="info-card-desc">أن يعدد الطرق والوسائل التي يتم بها إحياء الأرض.</div></div>
+        <div class="info-card"><div class="info-card-icon">🏛️</div><div class="info-card-title">أحكام الحريم والإقطاع</div><div class="info-card-desc">أن يوضح أحكام "الحريم" و"الإقطاع" في الموات.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">
+        حث الإسلام على استعمار الأرض وعمارتها، فجعل إحياء الأرض الميتة وسيلة للتملك والانتفاع، وذلك لتحقيق المصلحة العامة من توفير الغذاء والمسكن وتعمير البلاد.
+      </div>
+      <div class="verse-box">
+        <div class="verse-basmala">الحديث الشريف</div>
+        <div class="verse-text">«من أحيا أرضاً ميتة فهي له، وليس لعرق ظالم حق»</div>
+        <div class="verse-ref">متفق عليه</div>
+      </div>
+
+      <div class="block-header">أفهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">الموات هي الأرض الخراب التي لم يجرِ عليها ملك لأحد، ولم يوجد فيها أثر عمارة.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">الحكم</div><div class="info-card-desc">إحياء الموات جائز وقد يكون مستحباً لحاجة الناس والدواب.</div></div>
+        <div class="info-card"><div class="info-card-icon">🌍</div><div class="info-card-title">القاعدة الأساسية</div><div class="info-card-desc">(من أحيا أرضاً ميتة فهي له)، بشرط ألا يكون لها مالك مسلم.</div></div>
+        <div class="info-card"><div class="info-card-icon">📜</div><div class="info-card-title">الإقطاع</div><div class="info-card-desc">هو أن يمنح إمام المسلمين الأرض الموات لمن يحييها.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أولاً: معنى الموات وحكمه <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">المعنى:</span><br>
+          الموات لغة هو ما لا روح فيه. وفي الاصطلاح: هو الأرض المنفكّة عن الاختصاصات وملك معصوم، فهي الأرض الخراب التي لم يجرِ عليها ملك لأحد، ولم يوجد فيها أثر عمارة.<br>
+          <span class="section-head">الحكم والأدلة:</span><br>
+          الأصل فيه قوله ﷺ: (من أحيا أرضاً ميتة فهي له، وليس لعرق ظالم حق). حكمه: جائز، وقد يكون مستحباً لحاجة الناس والدواب.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثانياً: شروط إحياء الموات <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          يشترط لصحة الإحياء شرطان:
+          <ol>
+            <li><span class="term-blue">ألا يكون للأرض ملك مسلم:</span> فإذا كانت مملوكة حرم التعرض لها إلا بإذن شرعي.</li>
+            <li><span class="term-blue">أن يكون المحيي مسلماً:</span> فلا يجوز للكافر إحياء الموات في دار الإسلام.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">ثالثاً: كيف يتم الإحياء (وسائله) <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          يتحقق إحياء الأرض بأحد الأمور الآتية:
+          <ul>
+            <li><span class="term-blue">الإحاطة:</span> أن يحيطها بحائط منيع جرت به العادة.</li>
+            <li><span class="term-blue">حفر الآبار والعيون:</span> أن يحفر بئراً ووصل إلى الماء، أو يحفر نهراً.</li>
+            <li><span class="term-blue">إيصال الماء:</span> أن يجري إليها الماء من عين أو نهر أو غير ذلك.</li>
+            <li><span class="term-blue">الغرس والتنقية:</span> أن ينقي الأرض ويغرس فيها شجراً إذا كانت قبل ذلك لا تصلح للغراس.</li>
+            <li><span class="term-blue">العرف:</span> يرى بعض العلماء أن الإحياء يرجع فيه إلى العرف.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">رابعاً: أحكام متعلقة بإحياء الموات <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">التملك:</span> من أحيا شيئاً من أرض الموات فقد ملكه.</li>
+            <li><span class="term-blue">حريم المعمور:</span> لا يملك بالإحياء ما يسمى "حريم المعمور" (وهو المساحة المحيطة بالبناء للمرافق)، لأن مالك المعمور يستحق مرافقه.</li>
+            <li><span class="term-blue">الإقطاع:</span> يجوز لإمام المسلمين أن يقطع الأرض الموات لمن يحييها (الإقطاع)، لحديث وائل بن حُجر أن النبي ﷺ أقطعه أرضاً بحضرموت.</li>
+            <li><span class="term-blue">الحمى:</span> يجوز للإمام وحده أن يحمي العشب في أرض الموات لإبل الصدقة وخيل المجاهدين للمصلحة العامة، بشرط عدم تضييق المسلمين.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 وجد شخص أرضاً خراباً لا يعلم لها مالكاً، فقام ببناء سور متين حولها. (الحكم: يعتبر قد أحيا الأرض وتملكها بناءً على قاعدة (من أحاط حائطاً على أرض فهي له).</div>
+      <div class="app-scenario">📌 قام شخص بحفر بئر في أرض موات، لكنه لم يصل إلى الماء. (الحكم: هو الأحق من غيره بهذه الأرض، لكن الإحياء الكامل يتحقق بالوصول للماء).</div>
+      <div class="app-scenario">📌 شخص أحيا أرضاً مواتاً، ثم أراد جاره أن يحيي قطعة أرض ملاصقة جداً لبيته (في الحريم) ليزيد من مساحة أرضه. (الحكم: لا يملك هذه القطعة بالإحياء لأنها "حريم المعمور").</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">إحياء الموات</div>
+        <div class="tree-branches">
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>التعريف والحكم</h4><p>الأرض الخراب غير المملوكة.<br>الحكم: جائز/مستحب.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>شروط الصحة</h4><p>خلوها من ملك مسلم.<br>أن يكون المحيي مسلماً (في دار الإسلام).</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>طرق الإحياء</h4><p>بناء حائط منيع.<br>حفر بئر أو نهر.<br>إيصال الماء.<br>الغرس والتنقية.<br>العرف.</p></div>
+          </div>
+          <div class="tree-node">
+            <div class="tree-leaf"><h4>أحكام التملك والمرافق</h4><p>تملك المحيي للأرض.<br>استثناء: حريم المعمور لا يملك بالإحياء.<br>الإقطاع (من الإمام).<br>الحمى (للمصلحة العامة).</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-6-1">
+        <div class="ex-q">١. ما المقصود بـ "العرق الظالم" في سياق إحياء الموات؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(6, 1, this, false, 'خاطئ.')">من يزرع في أرض غيره دون إذن</button><button class="ex-btn" onclick="act(6, 1, this, true, 'أحسنت! هو أن يزرع أو يغرس الرجل في أرض أحياها غيره ليستولي عليها، وقد نهى النبي ﷺ عنه.')">من يزرع في أرض أحياها غيره ليستولي عليها</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-6-2">
+        <div class="ex-q">٢. هل يمكن لغير المسلم إحياء أرض موات في دار الإسلام؟ ولماذا؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(6, 2, this, false, 'خاطئ.')">نعم، لعموم الفائدة</button><button class="ex-btn" onclick="act(6, 2, this, true, 'صحيح. لا يجوز، لأن الشرط هو أن يكون المحيي مسلماً في دار الإسلام.')">لا، لأن الشرط هو أن يكون المحيي مسلماً</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-6-3">
+        <div class="ex-q">٣. ما الفرق بين "الإقطاع" و"الإحياء الشخصي" من حيث مصدر الملكية؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(6, 3, this, false, 'خاطئ.')">الإقطاع يعطي الملكية، والإحياء الشخصي لا يعطيها</button><button class="ex-btn" onclick="act(6, 3, this, false, 'خاطئ.')">كلاهما يعطي الملكية بنفس الطريقة</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-6-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-6"></div></div>
+      
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-6"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(5)">◁ السابق</button><button class="nav-btn btn-gold" id="next-6" disabled onclick="finishLesson()">✓ إتمام الدروس والانتقال</button></div>
+    </div>
+
+    <!-- ================= TAB: NAWAZIL (النوازل المعاصرة) ================= -->
+    <div id="s-nawazil" class="scr">
+      <div class="hero-banner" style="background:#fdfbf7; border-color:var(--gold);">
+        <div class="hero-icon">⚖️</div>
+        <div class="hero-title" style="font-family:var(--font-quran);">النوازل الفقهية المعاصرة</div>
+        <div class="hero-sub">اضغط على النازلة لعرض الحكم الشرعي الخاص بها</div>
+      </div>
+      
+      <div class="essay-list">
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س١: ما حكم الودائع المصرفية بفائدة؟</div>
+          <div class="essay-a">تعتبر في معنى القرض، وهي من الربا المحرم. أما الحساب الجاري (بدون فائدة) فلا شيء فيه لأنه لا زيادة على أصل المال. ومن ألزم بقبض الزيادة وكان مضطراً، يقبضها وينفقها في مصالح المسلمين العامة.</div>
+        </div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٢: ما حكم إتلاف الأشياء المحرمة (كآلات اللهو) من تلقاء نفسك؟</div>
+          <div class="essay-a">لا يجوز؛ لأن الإتلاف يجب أن يكون بأمر الحاكم وتحت رقابته دفاعاً للفتن. ومن أتلفها دون إذنه يضمنها.</div>
+        </div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٣: هل يجوز أخذ جوائز مالية في مسابقات السيارات أو الدراجات النارية؟</div>
+          <div class="essay-a">تجوز إذا كانت تهدف إلى مصلحة شرعية كالقوة والتدرب، أو إذا كانت الجائزة من طرف ثالث (جهة راعية) وليس من المتسابقين أنفسهم.</div>
+        </div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٤: ما حكم إعارة "الحسابات الرقمية" (مثل Netflix) إذا كانت شروط الشركة تمنع ذلك؟</div>
+          <div class="essay-a">لا يجوز، لأن المستأجر ملتزم بالشروط التي وقع عليها، والوفاء بالشروط واجب. والعقد يُعتبر من العقود الموجبة للالتزام.</div>
+        </div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٥: ما التكييف الفقهي لحسابات التوفير غير الاستثمارية التي تضمن أصل المال؟</div>
+          <div class="essay-a">تعمل معاملة الحسابات الجارية، فهي في حقيقتها "قروض مضمونة" في ذمة البنك، وبالتالي لا يجوز للمودع أخذ أي زيادة عليها.</div>
+        </div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٦: هل يصح "الصلح" في المنازعات المالية عبر المراسلات الإلكترونية؟</div>
+          <div class="essay-a">يصح الصلح إلكترونياً إذا تحققت الضوابط الشرعية من رضا الطرفين وتوثيق الإرادة بشكل يمنع الجحود، وتعتبر هذه المراسلات بمثابة الكتابة.</div>
+        </div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٧: ما حكم إتلاف المحرمات من تلقاء نفسك دون إذن الحاكم؟</div>
+          <div class="essay-a">يجب ضمان قيمتها؛ لأن الإتلاف يجب أن يكون بأمر الحاكم وتحت رقابته دفاعاً للفتن والاضطرابات.</div>
+        </div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٨: هل يملك الشخص الأرض التي أحياها في العصر الحالي إذا كانت الدولة تملك جميع الأراضي الموات؟</div>
+          <div class="essay-a">لا يملكها بمجرد الإحياء، لأن إحياء الموات في العصر الحديث مقيد بتنظيم ولي الأمر (الدولة)، فلا يملكها إلا بإذن رسمي أو إقطاع من الدولة.</div>
+        </div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س٩: من أتلف مرفقاً عاماً (مثل إشارة مرور)، هل يجب عليه الضمان؟</div>
+          <div class="essay-a">نعم، يجب عليه الضمان وتعويض الدولة عن التلف، لأن المال العام محترم بل هو أشد حرمة من المال الخاص لأنه ملك لعموم المسلمين.</div>
+        </div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')">
+          <div class="essay-q">س١٠: ما حكم استخدام البرامج الحاسوبية "المقرصنة"؟</div>
+          <div class="essay-a">يعد هذا من قبيل "الغصب المعنوي" لحقوق الملكية الفكرية، وهو محرم، ويجب على المستخدم التوقف عنه وتعويض صاحب الحق إذا أمكن.</div>
+        </div>
+      </div>
+      
+      <div style="margin-top:30px; padding:15px; background:var(--navy); color:var(--gold-light); border-radius:12px; text-align:center; font-family:var(--font-title); font-size:1.1rem;">
+        المرجع: الموسوعة الميسرة في فقه القضايا المعاصرة (القضايا المعاصرة في فقه المعاملات المالية)
+      </div>
+
+    </div>
+
+    <!-- ================= TAB: REVIEW (المراجعة الشاملة - خالية من النوازل) ================= -->
+    <div id="s-review" class="scr">
+      
+      <div class="hero-banner" style="background:var(--navy); color:#fff; border:none;">
+        <div class="hero-icon" style="color:var(--gold);">🧠</div>
+        <div class="hero-title" style="color:#fff;">المراجعة الشاملة</div>
+        <div class="hero-sub" style="color:var(--gold-light);">بطاقات المفاهيم والأسئلة المقالية لترسيخ الفهم (للمنهج الأساسي)</div>
+      </div>
+      
+      <div class="block-header">أولاً: بطاقات المفاهيم (اضغط للقلب)</div>
+      <div class="fc-grid" id="fcBox"></div>
+
+      <div class="block-header" style="margin-top:40px;">ثانياً: الأسئلة المقالية (١٠ أسئلة)</div>
+      <div class="essay-list">
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">١. قارن بين الوديعة والعارية من حيث وجه الشبه والاختلاف في الضمان.</div><div class="essay-a">وجه الشبه: كلاهما أمانة في يد من استلمها، ولا ضمان على المستودع أو المستعير إلا بالتعدي أو التفريط. وجه الاختلاف: الوديعة غرضها الحفظ، بينما العارية غرضها الانتفاع.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٢. ما أثر "التعدي" على يد الأمين (في الوديعة والعارية) ويد الغاصب؟</div><div class="essay-a">يد الأمين تكون يد ضمان إذا تعدى أو فرط، أما يد الغاصب فهي يد ضمان مطلقاً بمجرد الغصب، فيضمن العين سواء تعدى أو لم يتعدَّ.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٣. اشرح بالتفصيل الفرق بين الصلح مع الإقرار والصلح مع الإنكار.</div><div class="essay-a">الصلح مع الإقرار يكون عندما يعترف المدعى عليه بالحق، فيتفقان على إسقاط جزء منه (إبراهيم) أو استبداله بجنس آخر (معاوضة). أما الصلح مع الإنكار فيكون عند إنكار الحق أو الجهل به، فيدفع المنكر مالاً لقطع الخصومة وافتداءً ليمينه، ويأخذه المدعي عوضاً عن حقه.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٤. ما حكم المسابقة في "العلم" وهل يجوز أخذ عوض عليها؟ مع التعليل.</div><div class="essay-a">جائزة، ويجوز أخذ العوض عليها بشرط أن يكون العوض من طرف ثالث؛ لأنها تحقق مصلحة شرعية، والشرع أجاز العوض في كل ما يترتب عليه مصلحة شرعية.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٥. ما حكم من استعار سيارة ثم قام بتأجيرها للغير دون إذن صاحبها؟ ولماذا؟</div><div class="essay-a">لا يجوز ذلك وتصرفه باطل؛ لأن المستعير ليس مالكاً للعين، بل هو مأذون له بالانتفاع بها فقط، فلا يملك حق التصرف فيها بالتأجير إلا بإذن المالك.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٦. كيف يتم إحياء الأرض الموات شرعاً؟ اذكر ثلاث طرق.</div><div class="essay-a">يتم الإحياء بـ: ١- الإحاطة بحائط منيع. ٢- حفر بئر والوصول للماء. ٣- إيصال الماء للأرض من نهر أو عين.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٧. ما هي الضوابط التي وضعها الشرع لإتلاف الأشياء المحرمة لكي لا يترتب على الفاعل ضمان؟</div><div class="essay-a">الضابط هو أن يكون الإتلاف بأمر الحاكم وتحت رقابته؛ وذلك ضماناً للمصلحة العامة ودفعاً للفتن والاضطرابات.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٨. ما حكم من غصب أرضاً وبنى فيها بيتاً، ثم طالب المالك برد الأرض؟</div><div class="essay-a">يجب على الغاصب رد الأرض، وللمالك أن يطالبه بقلع البناء وإزالة كافة المنشآت التي أحدثها الغاصب في أرضه.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٩. متى ينتهي عقد الإعارة وتجب إعادة العين فوراً؟</div><div class="essay-a">تنتهي في أربع حالات: ١- طلب المالك. ٢- انقضاء الغرض منها. ٣- انقضاء الوقت المحدد. ٤- موت أحد الطرفين.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">١٠. ما المقصود بـ "الحمى"، ومن هو الشخص الوحيد الذي يحق له إنشاؤه؟ ولماذا؟</div><div class="essay-a">الحمى هو تخصيص جزء من أرض الموات ليكون محظوراً لا يقرب، ويحق لإمام المسلمين وحده إنشاؤه إذا احتاج لذلك لإبل الصدقة وخيل المجاهدين، وذلك للمصلحة العامة.</div></div>
+      </div>
+    </div>
+
+    <!-- ================= TAB: QUIZ (التقييم النهائي - خالي من النوازل) ================= -->
+    <div id="s-quiz" class="scr">
+      <div class="hero-banner" style="background:#fdfaf3;">
+        <div class="hero-icon">🎓</div>
+        <div class="hero-title">التقييم الشامل والنهائي</div>
+        <div class="hero-sub">يحتوي على ٢٠ سؤالاً لتقييم فهمك للمحاضرة (النتيجة تُرسل للدكتور آلياً)</div>
+        <div class="hero-line"></div>
+      </div>
+      <div id="qzBox"></div>
+    </div>
+
+  </div>
+
+  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <div class="bottom-bar" id="bottomBar">
+    <div class="bottom-inner">
+      <button class="btab act" data-t="lesson" onclick="switchTab('lesson')">📚 الدرس</button>
+      <button class="btab locked" id="tab-nawazil" data-t="nawazil" onclick="switchTab('nawazil')">⚖️ النوازل</button>
+      <button class="btab locked" id="tab-review" data-t="review" onclick="switchTab('review')">🧠 المراجعة</button>
+      <button class="btab locked" id="tab-quiz" data-t="quiz" onclick="switchTab('quiz')">📝 التقييم</button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+const GAMES = {
+  1: {pairs:[{l:"المستودع أمين",r:"لا يضمن إلا بالتعدي أو التفريط"},{l:"إتلاف المحرمات",r:"لا ضمان بإذن الحاكم"},{l:"الوديعة حفظ بلا عوض",r:"تعريفها الشرعي"},{l:"الصائل",r:"من يسطو على مال غيره"}]},
+  2: {pairs:[{l:"الغصب",r:"الاستيلاء على حق الغير ظلماً"},{l:"رد المغصوب",r:"يجب رده بحاله أو بدله"},{l:"تصرفات الغاصب",r:"باطلة إن لم يأذن المالك"},{l:"الزيادات",r:"يجب ردها للمالك (متصلة ومنفصلة)"}]},
+  3: {pairs:[{l:"الصلح",r:"عقد ينقطع به الخصومة"},{l:"صلح الإبراء",r:"على جنس الحق المقر به"},{l:"صلح المعاوضة",r:"بجنس مختلف"},{l:"الصلح في الحدود",r:"غير جائز (باطل)"}]},
+  4: {pairs:[{l:"المسابقة",r:"مجاراة بين الحيوان وغيره"},{l:"المناضلة",r:"مسابقة بالرمي بالسهام"},{l:"العوض من طرف ثالث",r:"شرط للخروج عن شبه القمار"},{l:"اتحاد المراكب",r:"شرط لصحة المسابقة على عوض"}]},
+  5: {pairs:[{l:"العارية",r:"العين المأخوذة للانتفاع"},{l:"عقد غير لازم",r:"يجوز للمُعير الرجوع فيه"},{l:"الضمان",r:"عند التعدي أو التفريط"},{l:"موت أحد الطرفين",r:"سبب لانتهاء الإعارة"}]},
+  6: {pairs:[{l:"إحياء الموات",r:"تعمير الأرض الخراب غير المملوكة"},{l:"حريم المعمور",r:"لا يملك بالإحياء"},{l:"الإقطاع",r:"منح الإمام أرض الموات"},{l:"الحمى",r:"للمصلحة العامة من الإمام"}]}
+};
+
+const FLASHCARDS =[
+  {q:"ما تعريف الوديعة؟",a:"عين يضعها مالكها أو نائبه عند من يحفظها بلا عوض."},
+  {q:"متى يضمن المستودع الوديعة؟",a:"إذا تعدى عليها أو فرّط في حفظها."},
+  {q:"ما حكم إتلاف المحرمات؟",a:"لا ضمان على من أتلفها بشرط أن يكون بأمر الحاكم وتحت رقابته."},
+  {q:"ما تعريف الغصب شرعاً؟",a:"الاستيلاء على حق الغير، ظلماً وعدواناً بغير حق."},
+  {q:"ما حكم تصرفات الغاصب؟",a:"جميع تصرفاته باطلة إن لم يأذن بها المالك."},
+  {q:"ما هو الصلح في الشرع؟",a:"هو العقد الذي ينقطع به خصومة المتخاصمين."},
+  {q:"ما الفرق بين صلح الإبراء وصلح المعاوضة؟",a:"صلح الإبراء يكون على جنس الحق، أما المعاوضة فتكون بجنس مختلف."},
+  {q:"هل يصح الصلح عن الحدود الشرعية؟",a:"لا يصح؛ لأن الحدود شرعت للزجر وهي حق لله."},
+  {q:"ما هي المسابقة والمناضلة؟",a:"المسابقة هي المجاراة بين الحيوان وغيره، والمناضلة هي المسابقة بالرمي بالسهام."},
+  {q:"ما شرط أخذ العوض في المسابقات؟",a:"أن يكون العوض من غير المتسابقين."},
+  {q:"ما هي العارية؟",a:"هي العين المأخوذة للانتفاع مع بقاء أصلها."},
+  {q:"هل عقد الإعارة عقد لازم؟",a:"لا، هو عقد غير لازم يجوز للمُعير الرجوع فيه ما لم يضر بالمستعير."},
+  {q:"ما تعريف الأرض الموات؟",a:"هي الأرض الخراب التي لم يجرِ عليها ملك لأحد، ولم يوجد فيها أثر عمارة."},
+  {q:"ما هي القاعدة الأساسية في تملك الموات؟",a:"(من أحيا أرضاً ميتة فهي له)."},
+  {q:"ما هو 'حريم المعمور'؟",a:"هو ما حول الشيء من حقوق ومرافق، يحرم على غير مالكه الاستبداد بالانتفاع به."},
+  {q:"ما هو الإقطاع في أرض الموات؟",a:"هو أن يمنح إمام المسلمين الأرض الموات لمن يحييها."}
+];
+
+const QUIZ = [
+  {q:"الوديعة هي عين توضع عند الغير من أجل:",o:["الانتفاع بها","الحفظ بلا عوض","التجارة بها","التملك"],a:1},
+  {q:"يضمن المستودع الوديعة في حالة:",o:["التلف بسبب قوة قاهرة","التلف بلا تعدٍ ولا تفريط","التعدي أو التفريط","طلب صاحبها للوديعة"],a:2},
+  {q:"إذا أودع شخص ماله عند 'مجنون' فأتلفه، فإن الضمان يكون على:",o:["المجنون","المودِع (صاحب المال)","ولي المجنون","لا ضمان على أحد"],a:1},
+  {q:"حكم قتل 'الصائل' دفاعاً عن المال أو النفس إذا لم يندفع إلا بالقتل:",o:["يضمن القاتل الدية","لا ضمان عليه","يجب عليه القصاص","يعتبر قتلاً عمداً"],a:1},
+  {q:"الغصب في الاصطلاح الشرعي هو:",o:["أخذ الشيء بالتراضي","الاستيلاء على حق الغير ظلماً","استعارة الشيء دون علم صاحبه","شراء الشيء بثمن بخس"],a:1},
+  {q:"حكم الغصب بإجماع المسلمين هو:",o:["مكروه","محرم","جائز في حالات الضرورة","مباح إذا رد العين"],a:1},
+  {q:"إذا غصب شخص أرضاً وزرعها، فإن الزيادات (الثمار) التي نتجت:",o:["تكون ملكاً للغاصب","يجب ردها للمالك الأصلي","تقسم بين الغاصب والمالك","تصبح ملكاً للدولة"],a:1},
+  {q:"تصرفات الغاصب في العين المغصوبة تكون:",o:["صحيحة إذا كانت نافعة","باطلة إن لم يأذن المالك","صحيحة في حال تعذر رد العين","نافذة في حق المشتري"],a:1},
+  {q:"الصلح شرعاً هو العقد الذي:",o:["يثبت الحقوق","ينقطع به خصومة المتخاصمين","ينقل الملكية بعوض","يحدد قيمة الديون"],a:1},
+  {q:"صلح الإبراء هو الذي يكون على:",o:["جنس حق مختلف","جنس الحق المقر به","منفعة مؤقتة","حق منكر من الطرفين"],a:1},
+  {q:"لا يصح الصلح في المسائل الآتية:",o:["القصاص","الديون المجهولة","الحدود الشرعية","العقارات"],a:2},
+  {q:"'المناضلة' هي المسابقة في:",o:["ركوب الخيل","الركض بالأقدام","الرمي بالسهام","حفظ القرآن"],a:2},
+  {q:"لكي تخرج المسابقة عن شبه القمار، يشترط في العوض أن يكون:",o:["من المتسابقين أنفسهم","من أحد المتسابقين فقط","من غير المتسابقين (طرف ثالث)","عيناً غير نقدية"],a:2},
+  {q:"تجوز المسابقة على عوض في كل من:",o:["الخيل والإبل والسهام","الركض واللعب والمرح","الغناء والشعر","جميع ما سبق"],a:0},
+  {q:"الإعارة هي إباحة الانتفاع بالشيء مع:",o:["نقل ملكيته","بقاء عينه","دفع أجرة زهيدة","استهلاكه بالكامل"],a:1},
+  {q:"عقد الإعارة يعتبر عقداً:",o:["لازماً لا يجوز الرجوع فيه","غير لازم يجوز الرجوع فيه","موقوفاً على إذن الحاكم","باطلاً إذا لم يكن مكتوباً"],a:1},
+  {q:"تنتهي الإعارة وتجب إعادة العين عند:",o:["زيادة قيمة العين","موت أحد الطرفين","استخدام العين لغرض مختلف","اتفاق المستعير مع طرف ثالث"],a:1},
+  {q:"الأرض الموات هي الأرض التي:",o:["يملكها المسلمون جميعاً","لم تعمر ولا مالك لها","تملكها الدولة بقرار سيادي","زُرعت ثم هُجرت"],a:1},
+  {q:"يحصل إحياء الموات من خلال:",o:["مجرد المشي في الأرض","إحياطتها بحائط منيع","ادعاء ملكيتها باليمين","استئجارها من شخص آخر"],a:1},
+  {q:"الشخص الذي يحق له 'إقطاع' الأرض الموات لمن يحييها هو:",o:["أي شخص يملك مالاً","إمام المسلمين","القاضي الشرعي فقط","كبار التجار"],a:1}
+];
+
+/* ================= STATE & LOGIC ================= */
+let user={n:'',s:''}, curSlide=0, startTime=null;
+let progress = { 1:new Set(), 2:new Set(), 3:new Set(), 4:new Set(), 5:new Set(), 6:new Set() };
+let activeL = null;
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const toast = m => { const t=$('#toast'); t.textContent=m; t.classList.add('on'); setTimeout(()=>t.classList.remove('on'), 3000); };
+
+function doLogin() {
+  const n=$('#iName').value.trim(), s=$('#iSec').value.trim();
+  if(!n||!s) return toast('⚠️ يرجى إدخال الاسم الكامل والشعبة');
+  user={n,s}; $('#stuInfo').textContent=`${n} | الشعبة: ${s}`;
+  $('#mainHeader').style.display='flex'; $('#bottomBar').style.display='flex';
+  startTime = Date.now();
+  renderGames(); renderReview(); renderQuiz();
+  goSlide(0);
+}
+
+function goSlide(i){
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  $(`#s-${i}`).classList.add('on');
+  curSlide = i; window.scrollTo({top:0, behavior:'smooth'});
+  
+  const vid = $('video');
+  if(vid && i !== 0) vid.pause();
+}
+
+function switchTab(t){
+  const btn = $(`#tab-${t}`);
+  if(btn && btn.classList.contains('locked')) return toast('🔒 أكمل الدروس الستة أولاً لفتح هذه الأقسام');
+  
+  const vid = $('video');
+  if(vid) vid.pause();
+
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  if(t==='lesson') $(`#s-${curSlide}`).classList.add('on');
+  else $(`#s-${t}`).classList.add('on');
+  
+  $$('.btab').forEach(b=>b.classList.remove('act'));
+  $(`.btab[data-t="${t}"]`).classList.add('act');
+  window.scrollTo(0,0);
+}
+
+function toggleAcc(el){ el.classList.toggle('active'); }
+
+/* ================= PROGRESSION ================= */
+function act(slide, exNum, btn, isCorrect, msg){
+  const box = btn.closest('.ex-box');
+  const fb = box.querySelector('.ex-fb');
+  box.querySelectorAll('.ex-btn').forEach(b => b.style.display='none');
+  fb.textContent = msg;
+  fb.className = 'ex-fb ' + (isCorrect ? 'right' : 'wrong');
+  markDone(slide, exNum);
+}
+
+function markDone(slide, exNum){
+  progress[slide].add(exNum);
+  const dots = $$(`#dots-${slide} .prog-dot`);
+  if(dots[exNum-1]) dots[exNum-1].classList.add('done');
+  if(progress[slide].size === parseInt($(`#s-${slide}`).dataset.req)){
+    const nextBtn = $(`#next-${slide}`);
+    if(nextBtn) { nextBtn.disabled = false; toast('✅ أتممت المطلوب، تفضل للدرس التالي.'); }
+  }
+}
+
+function finishLesson(){
+  toast('🎉 عظيم! لقد أنهيت المقرر بالكامل. تم فتح أقسام النوازل والمراجعة والتقييم لك.');
+  $$('.btab.locked').forEach(b => b.classList.remove('locked'));
+  switchTab('nawazil');
+}
+
+/* ================= GAMES ================= */
+function renderGames(){
+  for(let i=1; i<=6; i++){
+    if(!GAMES[i]) continue;
+    const g = GAMES[i], sh =[...g.pairs].sort(()=>Math.random()-.5);
+    const el = $(`#game-${i}`);
+    if(!el) continue;
+    el.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:10px">${g.pairs.map((p,idx)=>`<div class="g-item" onclick="pickL(${i},this,${idx})">${p.l}</div>`).join('')}</div>
+      <div style="display:flex;flex-direction:column;gap:10px">${sh.map((p)=>`<div class="g-choice" onclick="pickR(${i},this,'${p.r}')">${p.r}</div>`).join('')}</div>`;
+  }
+}
+
+function pickL(s, el, idx){ $$(`#game-${s} .g-item`).forEach(e=>e.classList.remove('active')); el.classList.add('active'); activeL={s, el, idx}; }
+function pickR(s, el, txt){
+  if(!activeL || activeL.s !== s) return;
+  if(txt === GAMES[s].pairs[activeL.idx].r){
+    activeL.el.classList.add('done'); el.classList.add('done'); activeL = null;
+    if([...$$(`#game-${s} .g-item`)].every(e=>e.classList.contains('done'))) markDone(s, 4);
+  } else { toast('❌ غير مطابق، حاول مجدداً'); activeL.el.classList.remove('active'); activeL = null; }
+}
+
+/* ================= REVIEW & QUIZ ================= */
+function renderReview(){
+  $('#fcBox').innerHTML = FLASHCARDS.map(c=>`<div class="fc" onclick="this.classList.toggle('flip')"><div class="fc-in"><div class="fc-f">${c.q}</div><div class="fc-b">${c.a}</div></div></div>`).join('');
+}
+
+let score=0, answered=0;
+function renderQuiz(){
+  $('#qzBox').innerHTML = QUIZ.map((q,i)=>`<div class="qz-card" id="qc-${i}"><h3 style="margin-bottom:20px;color:var(--navy);font-family:var(--font-title);line-height:1.6;">س${i+1}: ${q.q}</h3>${q.o.map((o,j)=>`<button class="qz-opt" onclick="ansQ(${i},${j},this)">${o}</button>`).join('')}</div>`).join('') + `<div id="qzRes"></div>`;
+}
+
+function ansQ(qi, oi, btn){
+  const card = $(`#qc-${qi}`); if(card.dataset.done) return;
+  card.dataset.done = '1';
+  const btns = card.querySelectorAll('.qz-opt'); btns.forEach(b => b.disabled = true);
+  if(oi === QUIZ[qi].a){ btn.classList.add('right'); score++; } 
+  else { btn.classList.add('wrong'); btns[QUIZ[qi].a].classList.add('right'); }
+  answered++; if(answered === QUIZ.length) finishQuiz();
+}
+
+function finishQuiz(){
+  const s = Math.floor((Date.now() - startTime)/1000);
+  const timeStr = `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+  
+  const fd = new FormData();
+  fd.append("entry.1186146438", "الخامسة - الوديعة والإتلافات، الغصب، الصلح، المسابقة، العارية، إحياء الموات"); 
+  fd.append("entry.598195891", user.n);       
+  fd.append("entry.583802758", user.s);        
+  fd.append("entry.2010697018", score);
+  fd.append("entry.1329211307", timeStr);   
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSe0zGzyfo7FfGHta0Ae-J5NYmFFCCLK4W2NdnG92dHH51IcBg/formResponse", { method: "POST", mode: "no-cors", body: fd }).catch(e=>console.log(e));
+
+  $('#qzRes').innerHTML = `<div style="text-align:center; padding:40px; background:#f8fafc; border-radius:16px; border:2px solid var(--gold); margin-top:30px;"><h2 style="color:var(--navy);font-family:var(--font-title);">انتهى التقييم!</h2><div style="font-size:4rem;font-weight:900;color:var(--green);margin:15px 0;">${score} / ${QUIZ.length}</div><p style="font-size:1.1rem;color:var(--text-main);"><strong>${user.n}</strong> | الشعبة: <strong>${user.s}</strong></p><p style="margin-top:15px; color:var(--text-muted); font-weight:700;">✅ تم إرسال نتيجتك للدكتور. وقت التعلم: ${timeStr} دقيقة.</p></div>`;
+  $('#qzRes').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
