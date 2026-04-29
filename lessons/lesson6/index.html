@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>مقرر فقه ٢ — المحاضرة السادسة</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= المتغيرات والألوان ================= */
+:root {
+  --navy: #0a1628;
+  --navy2: #152238;
+  --gold: #c9973a;
+  --gold-light: #e8c678;
+  --cream: #f9f8f4;
+  --blue: #1d4ed8;
+  --green: #059669;
+  --red: #dc2626;
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  --font-title: 'Tajawal', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+  --font-quran: 'Amiri', serif;
+  --rad: 12px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: var(--font-body); background: var(--cream); color: var(--text-main); overflow: hidden; }
+.app { height: 100%; display: flex; flex-direction: column; }
+
+.term-blue { color: var(--blue); font-weight: 700; font-size: 1.05rem; }
+.hl-green { color: var(--green); font-weight: 700; }
+.hl-red { color: var(--red); font-weight: 700; }
+.section-head { color: var(--navy); font-weight: 800; font-size: 1.1rem; margin-top: 15px; margin-bottom: 5px; display: inline-block; border-bottom: 2px solid var(--gold); }
+
+.hdr { background: var(--navy); padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--gold); z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.15); color: #fff; }
+.hdr-right { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.hdr-dr { color: var(--gold); font-family: var(--font-title); font-weight: 700; font-size: 0.95rem; }
+.logo-box { height: 45px; background: transparent; display: flex; align-items: center; justify-content: center; }
+.logo-box img { max-height: 100%; object-fit: contain; }
+.hdr-center { text-align: center; flex: 1; }
+.hdr-course { font-family: var(--font-quran); font-size: 1.8rem; color: var(--gold-light); font-weight: 700; margin-bottom: 2px; }
+.hdr-lecture { font-size: 0.95rem; color: #cbd5e1; font-family: var(--font-title); }
+.hdr-stu { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 12px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+
+.main { flex: 1; overflow: hidden; position: relative; }
+.scr { position: absolute; inset: 0; overflow-y: auto; padding: 20px 20px 120px; display: none; opacity: 0; transition: 0.4s ease; max-width: 1000px; margin: 0 auto; width: 100%; scrollbar-width: thin; }
+.scr.on { display: block; opacity: 1; animation: fadeIn 0.4s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.welcome-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: url('https://www.transparenttextures.com/patterns/arabesque.png') repeat, var(--cream); }
+.welcome-box { background: #fff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 500px; width: 100%; text-align: center; border-top: 5px solid var(--navy); }
+.welcome-box .logo-box-login { background: transparent; height: 80px; margin-bottom: 15px; display: flex; justify-content: center; }
+.welcome-box .logo-box-login img { max-height: 100%; }
+.w-title { font-family: var(--font-title); color: var(--navy); font-size: 2.2rem; font-weight: 900; margin-bottom: 10px; }
+.w-sub { color: var(--gold); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.w-dr { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+.welcome-input { width: 100%; padding: 16px; border-radius: 8px; border: 1px solid var(--border); outline: none; margin-bottom: 15px; font-family: var(--font-body); font-size: 1rem; text-align: center; background: #fdfbf7; transition: 0.3s; }
+.welcome-input:focus { border-color: var(--gold); background: #fff; }
+.w-btn { width: 100%; background: var(--navy); color: #fff; padding: 16px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+.w-btn:hover { background: var(--gold); color: var(--navy); }
+
+.video-wrapper { margin: 20px 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 3px solid var(--gold); background: #0a1628; display: flex; justify-content: center; align-items: center; position: relative; }
+.video-wrapper video { width: 100%; max-height: 500px; display: block; object-fit: cover; }
+.num-list { list-style: none; padding: 0; margin: 16px 0; counter-reset: item; }
+.num-list li { counter-increment: item; padding: 14px 50px 14px 14px; margin-bottom: 10px; background: linear-gradient(90deg, #f8f6f1, #fff); border-radius: 14px; border: 1px solid rgba(0,0,0,.05); position: relative; line-height: 1.8; }
+.num-list li::before { content: counter(item); position: absolute; right: 12px; top: 12px; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: .85rem; }
+.gold-text { color: var(--gold); font-weight: 800; }
+
+.hero-banner { background: #fcf9f2; border: 1px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+.hero-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.hero-title { font-family: var(--font-title); font-size: 2.2rem; color: var(--navy); font-weight: 900; margin-bottom: 10px; }
+.hero-sub { color: var(--gold); font-weight: 700; font-size: 1.1rem; margin-bottom: 20px; }
+.hero-line { height: 3px; background: linear-gradient(to left, transparent, var(--gold), transparent); margin: 20px auto; width: 80%; }
+.hero-tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero-tag { background: #fff; border: 1px solid #eaddc4; padding: 6px 18px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; color: var(--navy); }
+
+.block-header { font-family: var(--font-title); font-size: 1.6rem; color: var(--navy); font-weight: 900; margin: 30px 0 15px; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 30px; }
+.info-card { background: #fff; border: 1px solid var(--border); border-radius: var(--rad); padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.info-card-icon { font-size: 2rem; margin-bottom: 10px; }
+.info-card-title { font-family: var(--font-title); font-weight: 900; color: var(--navy); font-size: 1.1rem; margin-bottom: 8px; }
+.info-card-desc { color: var(--text-main); font-size: 0.95rem; line-height: 1.6; }
+
+.intro-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 15px; border-right: 4px solid var(--gold); padding-right: 15px; background: #fff; padding: 15px; border-radius: 8px; }
+.verse-box { background: #fdfaf3; border: 2px solid #eaddc4; border-radius: var(--rad); padding: 30px; text-align: center; margin-bottom: 30px; box-shadow: inset 0 0 20px rgba(201,151,58,0.05); }
+.verse-basmala { font-family: var(--font-quran); color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; }
+.verse-text { font-family: var(--font-quran); font-size: 1.6rem; color: var(--navy); line-height: 2.2; margin-bottom: 15px; }
+.verse-ref { font-size: 1rem; color: var(--gold); font-weight: 700; font-family: var(--font-title); }
+
+.accordion { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); overflow: hidden; }
+.accordion-header { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-title); font-weight: 800; font-size: 1.15rem; color: var(--navy); background: linear-gradient(to left, #fff, #fdfbf7); transition: 0.3s; border-right: 4px solid var(--gold); }
+.accordion-header:hover { background: var(--cream); }
+.accordion-icon { color: var(--gold); font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
+.accordion.active .accordion-icon { transform: rotate(45deg); }
+.accordion-body { max-height: 0; overflow: hidden; transition: 0.5s ease; padding: 0 20px; font-size: 1.05rem; line-height: 2.1; color: var(--text-main); }
+.accordion.active .accordion-body { padding: 25px 20px; max-height: 4000px; border-top: 1px solid var(--border); }
+.accordion-body ul, .accordion-body ol { margin-right: 25px; margin-bottom: 15px; margin-top: 10px; }
+.accordion-body li { margin-bottom: 10px; padding-right: 5px; }
+
+.tree-container { display: flex; flex-direction: column; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: var(--rad); padding: 30px; overflow-x: auto; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+.tree-root { background: var(--navy); color: #fff; padding: 12px 30px; border-radius: 8px; font-family: var(--font-title); font-weight: 800; font-size: 1.2rem; border-bottom: 3px solid var(--gold); margin-bottom: 30px; position: relative; z-index: 2; }
+.tree-branches { display: flex; gap: 20px; position: relative; justify-content: center; flex-wrap: wrap; }
+.tree-branches::before { content: ''; position: absolute; top: -16px; left: 15%; right: 15%; height: 2px; background: var(--gold); }
+.tree-branches::after { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
+.tree-node { position: relative; display: flex; flex-direction: column; align-items: center; width: 180px; }
+.tree-node::before { content: ''; position: absolute; top: -16px; left: 50%; width: 2px; height: 16px; background: var(--gold); }
+.tree-leaf { background: #fdfbf7; border: 1px solid var(--gold); color: var(--navy); padding: 15px; border-radius: 8px; text-align: center; width: 100%; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.tree-leaf h4 { font-family: var(--font-title); font-size: 1.05rem; font-weight: 900; margin-bottom: 8px; }
+.tree-leaf p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; font-weight: 600; }
+
+.app-scenario { background: #f8fafc; border-right: 4px solid var(--blue); padding: 15px 20px; border-radius: 8px; margin-bottom: 15px; font-size: 1.05rem; line-height: 1.7; font-weight: 600; color: var(--navy); }
+.ex-box { border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.ex-q { font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: var(--navy); }
+.ex-opts { display: flex; gap: 10px; flex-wrap: wrap; }
+.ex-btn { flex: 1; min-width: 140px; background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 8px; font-family: var(--font-body); font-weight: 600; cursor: pointer; transition: 0.2s; color: var(--navy); }
+.ex-btn:hover { border-color: var(--gold); background: #fff; }
+.ex-fb { display: none; margin-top: 15px; padding: 15px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; line-height: 1.6; }
+.ex-fb.right { display: block; background: #d1fae5; color: #065f46; border: 1px solid var(--green); }
+.ex-fb.wrong { display: block; background: #fee2e2; color: #991b1b; border: 1px solid var(--red); }
+
+.game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.g-item, .g-choice { padding: 15px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; min-height: 60px; transition: 0.2s; font-size: 0.95rem; line-height: 1.5; }
+.g-item { background: var(--navy); color: #fff; }
+.g-choice { background: #fff; border: 2px solid var(--gold); color: var(--navy); }
+.g-item.active { transform: scale(1.05); background: var(--gold); }
+.g-choice:hover { background: #fdfbf7; }
+.g-item.done, .g-choice.done { opacity: 0.5; background: var(--green) !important; border-color: var(--green) !important; color: #fff !important; pointer-events: none; }
+
+.progress-tracker { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border); margin: 20px 0; font-weight: 700; color: var(--navy); }
+.prog-dots { display: flex; gap: 8px; }
+.prog-dot { width: 14px; height: 14px; border-radius: 50%; background: #e2e8f0; transition: 0.3s; }
+.prog-dot.done { background: var(--green); box-shadow: 0 0 8px rgba(5,150,105,0.4); }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; }
+.nav-btn { border: none; padding: 14px 28px; border-radius: 30px; font-family: var(--font-title); font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-gold { background: var(--gold); color: #fff; }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-outline { background: #fff; border: 2px solid var(--navy); color: var(--navy); }
+.nav-btn:disabled { background: #cbd5e1; color: #64748b; box-shadow: none; cursor: not-allowed; }
+
+.bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.98); border-top: 3px solid var(--gold); padding: 10px 20px max(10px, env(safe-area-inset-bottom)); box-shadow: 0 -5px 20px rgba(0,0,0,0.05); display: none; }
+.bottom-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 15px; }
+.btab { background: transparent; border: none; color: var(--text-muted); font-family: var(--font-title); font-weight: 800; font-size: 1.05rem; padding: 10px 20px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+.btab.act { background: var(--navy); color: var(--gold-light); }
+.btab.locked { opacity: 0.4; cursor: not-allowed; }
+
+.essay-item { border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
+.essay-navy .essay-q { background: var(--navy); color: #fff; border-bottom: 3px solid var(--gold); }
+.essay-gold .essay-q { background: var(--gold); color: var(--navy); border-bottom: 3px solid var(--navy); }
+.essay-q { padding: 18px 20px; font-family: var(--font-title); font-weight: 800; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 15px; }
+.essay-q::before { content: "▼"; font-size: 0.9rem; transition: 0.3s; }
+.essay-item.open .essay-q::before { transform: rotate(180deg); }
+.essay-a { max-height: 0; overflow: hidden; transition: 0.4s ease; background: #fff; font-size: 1.05rem; line-height: 1.9; color: var(--text-main); }
+.essay-item.open .essay-a { padding: 20px; max-height: 1000px; }
+
+.qz-card { background: #fff; border-radius: 12px; padding: 30px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.qz-opt { display: block; width: 100%; padding: 16px; margin: 10px 0; border: 2px solid #e2e8f0; border-radius: 8px; background: #fff; cursor: pointer; text-align: right; font-family: var(--font-body); font-size: 1rem; font-weight: 600; transition: 0.2s; }
+.qz-opt:hover { border-color: var(--navy); background: #f8fafc; }
+.qz-opt.right { background: var(--green); color: #fff; border-color: var(--green); }
+.qz-opt.wrong { background: var(--red); color: #fff; border-color: var(--red); }
+
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;}
+.fc { height: 180px; perspective: 1000px; cursor: pointer; }
+.fc-in { position: relative; width: 100%; height: 100%; transition: 0.6s; transform-style: preserve-3d; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.fc.flip .fc-in { transform: rotateY(180deg); }
+.fc-f, .fc-b { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center; line-height: 1.6; }
+.fc-f { background: var(--navy); color: #fff; font-weight: 700; font-size: 1.1rem; border: 2px solid var(--gold); }
+.fc-b { background: #fff; border: 2px solid var(--navy); color: var(--navy); transform: rotateY(180deg); font-weight: 600; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--navy); color: var(--gold-light); padding: 12px 25px; border-radius: 30px; font-weight: 700; z-index: 1000; opacity: 0; transition: 0.3s; pointer-events: none; border: 1px solid var(--gold); }
+.toast.on { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header class="hdr" id="mainHeader" style="display:none">
+    <div class="hdr-right">
+      <div class="logo-box">
+        <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'; this.parentElement.textContent='جامعة طيبة'">
+      </div>
+      <div class="hdr-dr">د/ باسم القرافي</div>
+    </div>
+    <div class="hdr-center">
+      <div class="hdr-course">مقرر فقه ٢</div>
+      <div class="hdr-lecture">المحاضرة السادسة: الجعالة، اللقطة واللقيط، الوقف، الهبة والعطية، الوصية</div>
+    </div>
+    <div class="hdr-stu" id="stuInfo"></div>
+  </header>
+
+  <div class="main">
+
+    <div id="s-login" class="scr on" style="padding:0; max-width: none;">
+      <div class="welcome-wrap">
+        <div class="welcome-box">
+          <div class="logo-box-login">
+            <img src="../../logo.png" alt="شعار الجامعة" onerror="this.style.display='none'">
+          </div>
+          <h1 class="w-title">مقرر فقه ٢</h1>
+          <div class="w-sub">المحاضرة السادسة: الجعالة، اللقطة واللقيط، الوقف، الهبة والعطية، الوصية</div>
+          <div class="w-dr">إعداد: د/ باسم القرافي</div>
+          <input type="text" id="iName" class="welcome-input" placeholder="أدخل اسمك الكامل هنا...">
+          <input type="text" id="iSec" class="welcome-input" placeholder="رقم الشعبة (مثال: YM3)">
+          <button class="w-btn" onclick="doLogin()">ابدأ رحلة التعلم</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 0. شاشة الفيديو التمهيدية ================= -->
+    <div id="s-0" class="scr">
+      <div class="hero-banner" style="background:#0a1628; border-color:var(--gold); padding:40px;">
+        <div class="hero-icon" style="color:var(--gold);">🎥</div>
+        <div class="hero-title" style="color:#fff; font-family:var(--font-quran);">تمهيد وملخص المحاضرة</div>
+        <div class="hero-sub" style="color:var(--gold-light);">شاهد هذا الملخص المرئي قبل البدء بالتفاصيل</div>
+      </div>
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata" poster="https://www.transparenttextures.com/patterns/arabesque.png">
+          <source src="summary.mp4" type="video/mp4">
+          عذراً، متصفحك لا يدعم تشغيل مقاطع الفيديو.
+        </video>
+      </div>
+      <div class="block-header">نظرة عامة على أبواب المحاضرة</div>
+      <div style="background:#fff; padding:20px; border-radius:12px; border:1px solid var(--border);">
+        <p style="font-size:1.1rem; line-height:1.8; margin-bottom:15px;">تتناول هذه المحاضرة أبواباً مهمة في الفقه الإسلامي تتعلق بالمعاملات المالية والتبرعات وحفظ الحقوق:</p>
+        <ul class="num-list">
+          <li><span class="gold-text">الجعالة:</span> عقد التزام عوض معلوم على عمل معين، ووسيلة لاسترجاع الضائع وإنجاز الأعمال.</li>
+          <li><span class="gold-text">اللقطة واللقيط:</span> أحكام المال المفقود والطفل المنبوذ، وكيفية حفظ الحقوق والأنفس.</li>
+          <li><span class="gold-text">الوقف:</span> الصدقة الجارية بحبس الأصل وتسبيل المنفعة، وأحكامه وشروطه.</li>
+          <li><span class="gold-text">الهبة والعطية:</span> عقود التبرعات في الحياة، والعدل بين الأولاد، وتصرفات المريض.</li>
+          <li><span class="gold-text">الوصية:</span> العهد بالتصرف بعد الموت، ومقدارها وشروطها وترتيب الحقوق.</li>
+        </ul>
+      </div>
+      <div class="nav-row">
+        <div></div><button class="nav-btn btn-navy" onclick="goSlide(1)">التالي: الجعالة ➜</button>
+      </div>
+    </div>
+
+    <!-- ================= 1. الجعالة ================= -->
+    <div id="s-1" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🎯</div>
+        <div class="hero-title">الباب العشرون: الجعالة</div>
+        <div class="hero-sub">التزام عوض معلوم على عمل معين بقطع النظر عن فاعله</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">التعريف</div><div class="hero-tag">المشروعية</div><div class="hero-tag">عقد جائز</div><div class="hero-tag">الفسخ</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الجعالة</div><div class="info-card-desc">أن يعرّف الطالب الجعالة لغة واصطلاحاً.</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">الأدلة</div><div class="info-card-desc">الاستدلال على مشروعية الجعالة من القرآن والسنة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">شروط الصحة</div><div class="info-card-desc">بيان شروط صحة الجعالة وتمييزها عن غيرها.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">أحكام الفسخ</div><div class="info-card-desc">توضيح أحكام فسخ عقد الجعالة وما يترتب على ذلك.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">تعد الجعالة من العقود التي وسّع فيها الشرع على الناس لتحقيق مصالحهم، فهي وسيلة لاسترجاع ضائع أو إنجاز عمل قد لا يعرف فاعله مسبقاً، وهي وإن شابهت الإجارة في كونها عقداً على عمل، إلا أن لها أحكاماً خاصة تراعي طبيعة هذا النوع من المعاملات.</div>
+      <div class="verse-box">
+        <div class="verse-basmala">القرآن الكريم</div>
+        <div class="verse-text">﴿وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ﴾</div>
+        <div class="verse-ref">سورة يوسف: ٧٢</div>
+      </div>
+
+      <div class="block-header">افهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">التزام عوض معلوم، على عمل معين، بقطع النظر عن فاعله.</div></div>
+        <div class="info-card"><div class="info-card-icon">✅</div><div class="info-card-title">الحكم</div><div class="info-card-desc">الجعالة من العقود المباحة شرعاً لحاجة الناس إليها.</div></div>
+        <div class="info-card"><div class="info-card-icon">🤝</div><div class="info-card-title">نوع العقد</div><div class="info-card-desc">هي عقد "جائز" من الطرفين، أي يحق لكل منهما فسخها.</div></div>
+        <div class="info-card"><div class="info-card-icon">🚫</div><div class="info-card-title">العمل المحرم</div><div class="info-card-desc">لا تصح الجعالة على الأعمال المحرمة كالغناء أو صناعة المحرمات.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">معنى الجعالة وحكمها وأدلتها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">معنى الجعالة:</span><br>
+          الجعالة هي <span class="term-blue">التزام عوض معلوم (الجُعل)، على عمل معين، سواء كان هذا العمل معلوماً بالدقة أو يشوبه بعض الجهالة، وبقطع النظر عن فاعله</span> (أي سواء كان العامل شخصاً معيناً أو أي شخص ينجز العمل). مثاله: أن يقول شخص: "مَن وجد سيارتي المفقودة فله ألف ريال".<br><br>
+          <span class="section-head">حكمها وأدلتها:</span><br>
+          الجعالة من العقود المباحة شرعاً، وقد دل عليها:
+          <ul>
+            <li><span class="hl-green">القرآن الكريم:</span> في قصة يوسف عليه السلام: {وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ}.</li>
+            <li><span class="hl-green">السنة النبوية:</span> حديث أبي سعيد الخدري في الرقية بالفاتحة حين لدغ سيد الحي، وقول النبي ﷺ للصحابة بعدما أخذوا جُعلاً من الغنم: (خذوا منهم، واضربوا لي معكم بسهم).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">شروط الملتزم والعامل والعمل <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ol>
+            <li><span class="term-blue">الملتزم (الجاعل):</span> يشترط فيه أن يكون صحيح التصرف (بالغاً، عاقلاً، حراً، رشيداً).</li>
+            <li><span class="term-blue">العامل:</span> يشترط أن يكون قادراً على العمل، ولا يشترط تعيينه.</li>
+            <li><span class="term-blue">العمل:</span> يشترط أن يكون مباحاً، فلا تصح على محرم كالغناء أو صناعة الخمر.</li>
+            <li><span class="hl-red">ترك التوقيت:</span> يشترط ألا يوقّت العمل بوقت محدد ينتهي بانتهاء الوقت لا بإنجاز العمل (مثل قوله: مَن رد جملي إلى نهاية الأسبوع فله دينار)، فهذا لا يصح جعالة.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">فسخ عقد الجعالة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          عقد الجعالة عقد جائز من الطرفين:
+          <ul>
+            <li><span class="hl-red">إذا فسخ الجاعل العقد:</span> يجب عليه أن يدفع للعامل <span class="term-blue">"أجرة المثل"</span> تعويضاً عن جهده الذي بذله.</li>
+            <li><span class="hl-red">إذا فسخ العامل العقد:</span> فلا شيء له من الجعل لأنه هو من ترك العمل قبل إتمامه.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 أعلن صاحب مصنع عن مكافأة قدرها 500 ريال لمن يجد مفتاح المخزن الضائع. (التطبيق: هذه جعالة صحيحة، وتعتبر التزاماً بعوض معلوم على عمل معين).</div>
+      <div class="app-scenario">📌 قال شخص: "من غنى لي في حفلي فله مائة ريال". (التطبيق: جعالة باطلة؛ لأن العمل المشترط عليه الجعل محرم شرعاً).</div>
+      <div class="app-scenario">📌 بدأ شخص في البحث عن سيارة مفقودة بإذن صاحبها، ثم فسخ صاحب السيارة العقد قبل العثور عليها. (التطبيق: يستحق العامل "أجرة مثل" ما عمله تعويضاً له).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الجعالة</div>
+        <div class="tree-branches">
+          <div class="tree-node"><div class="tree-leaf"><h4>حقيقتها</h4><p>التزام عوض معلوم<br>عمل معين (بغض النظر عن فاعله)</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>شروطها</h4><p>الملتزم صحيح التصرف<br>العمل مباح<br>عدم التوقيت بزمن محدد</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>أحكام الفسخ</h4><p>فسخ الجاعل: للعامل أجرة المثل<br>فسخ العامل: لا شيء له</p></div></div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم (أكمل لفتح التالي)</div>
+      <div class="ex-box" id="ex-1-1">
+        <div class="ex-q">١. ما الفرق الجوهري بين الجعالة والإجارة من حيث "تعيين العامل"؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 1, this, true, 'أحسنت! الجعالة لا يشترط فيها تعيين العامل، بينما الإجارة يشترط فيها ذلك.')">الجعالة لا تشترط تعيين العامل بخلاف الإجارة</button><button class="ex-btn" onclick="act(1, 1, this, false, 'خاطئ.')">كلاهما يشترط تعيين العامل</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-2">
+        <div class="ex-q">٢. حدد الدليل القرآني على جواز الجعالة:</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 2, this, false, 'خاطئ.')">﴿فَإِنْ أَرْضَعْنَ لَكُمْ فَآتُوهُنَّ أُجُورَهُنَّ﴾</button><button class="ex-btn" onclick="act(1, 2, this, true, 'صحيح! هذا دليل الجعالة من قصة يوسف عليه السلام.')">﴿وَلِمَن جَاءَ بِهِ حِمْلُ بَعِيرٍ وَأَنَا بِهِ زَعِيمٌ﴾</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-3">
+        <div class="ex-q">٣. إذا فسخ العامل عقد الجعالة قبل إتمام العمل:</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(1, 3, this, true, 'صحيح. العامل لا يستحق شيئاً لأنه ترك العمل باختياره.')">لا يستحق شيئاً من الجعل</button><button class="ex-btn" onclick="act(1, 3, this, false, 'خاطئ.')">يستحق أجرة المثل</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-1-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-1"></div></div>
+
+      <div class="progress-tracker"><span>التقدم في هذا الموضوع:</span><div class="prog-dots" id="dots-1"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(0)">◁ التمهيد</button><button class="nav-btn btn-navy" id="next-1" disabled onclick="goSlide(2)">التالي: اللقطة واللقيط ➜</button></div>
+    </div>
+
+    <!-- ================= 2. اللقطة واللقيط ================= -->
+    <div id="s-2" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🔍</div>
+        <div class="hero-title">الباب الحادي والعشرون: اللقطة واللقيط</div>
+        <div class="hero-sub">حفظ الأموال والأنفس في الشريعة الإسلامية</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">اللقطة</div><div class="hero-tag">أقسامها</div><div class="hero-tag">التعريف</div><div class="hero-tag">اللقيط</div><div class="hero-tag">الحضانة</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">أنواع اللقطة</div><div class="info-card-desc">أن يفرّق الطالب بين أنواع اللقطة وأحكام كل منها.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">التعامل مع المال المفقود</div><div class="info-card-desc">توضيح كيفية التعامل الشرعي مع المال المفقود (التعريف والمدة).</div></div>
+        <div class="info-card"><div class="info-card-icon">👶</div><div class="info-card-title">اللقيط</div><div class="info-card-desc">أن يعرّف اللقيط ويبيّن الأحكام المتعلقة بحضانته والإنفاق عليه.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">مسؤوليات الملتقط</div><div class="info-card-desc">إدراك شروط الملتقط ومسؤولياته القانونية والشرعية.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">عنيت الشريعة بحفظ الأموال والأنفس، فوضعت أحكاماً دقيقة لما يسقط من الناس من أموال أو متاع (اللقطة)، وكيفية رعاية الأطفال التائهين أو المنبوذين (اللقيط)، لضمان وصول الحقوق لأصحابها وحماية النفس البشرية من الهلاك.</div>
+
+      <div class="block-header">افهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📦</div><div class="info-card-title">اللقطة</div><div class="info-card-desc">اسم للشيء الذي تجده ملقى فتأخذه؛ لحفظه أو تملكه بعد تعريفه.</div></div>
+        <div class="info-card"><div class="info-card-icon">🐪</div><div class="info-card-title">ضالة الإبل</div><div class="info-card-desc">يحرم التقاطها لأن معها سقاءها وحذاءها وتستطيع حماية نفسها.</div></div>
+        <div class="info-card"><div class="info-card-icon">⏱️</div><div class="info-card-title">مدة التعريف</div><div class="info-card-desc">يجب تعريف اللقطة الثمينة في مجامع الناس لمدة سنة كاملة.</div></div>
+        <div class="info-card"><div class="info-card-icon">👶</div><div class="info-card-title">اللقيط</div><div class="info-card-desc">طفل يوجد منبوذاً أو ضائعاً، والتقاطه فرض كفاية لإحياء نفسه.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">تعريف اللقطة وحكمها وأقسامها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">تعريف اللقطة وحكمها:</span><br>
+          اللقطة هي <span class="term-blue">أخذ مال محترم من مَضيعة؛ ليحفظه أو ليتملكه بعد التعريف</span>. وقد سُئل النبي ﷺ عن لقطة الذهب والفضة فقال: (اعرف وكاءها وعفاصها ثم عَرَّفها سنة).<br><br>
+          <span class="section-head">أقسام اللقطة:</span>
+          <ol>
+            <li><span class="hl-green">ما لا تتبعه همة الناس:</span> (كالسوط، الرغيف، الثمرة)، يجوز تملكه بلا تعريف.</li>
+            <li><span class="hl-red">ما يمتنع بنفسه من صغار السباع:</span> (كالإبل، البقر، الخيل)، يحرم التقاطها لقوله ﷺ: (دعها فإن معها حذاءها وسقاءها).</li>
+            <li><span class="term-blue">ما يجوز التقاطه ويلزم تعريفه:</span> (النقود، المتاع، الغنم)، لمن وثق من نفسه بالتعريف.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أحكام تتعلق باللقطة <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">حيوان مأكول (غنم):</span> يخير الملتقط بين أكله ودفع قيمته، أو بيعه وحفظ ثمنه، أو الإنفاق عليه والرجوع بالنفقة على صاحبه.</li>
+            <li><span class="term-blue">ما يخشى فساده (فاكهة):</span> تؤكل وتضمن قيمتها، أو تباع ويحفظ ثمنها.</li>
+            <li><span class="term-blue">النقود والأواني:</span> تحفظ أمانة لمدة سنة، وتعرف في مجامع الناس.</li>
+            <li><span class="hl-red">لقطة الحرم:</span> لا تملك أبداً، ويجب التعريف بها طول الدهر.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">اللقيط وأحكامه <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">تعريف اللقيط:</span><br>
+          اللقيط هو <span class="term-blue">الطفل المنبوذ أو الذي ضل عن أهله</span>. والتقاطه <span class="hl-red">فرض كفاية</span>.<br><br>
+          <span class="section-head">أحكامه:</span>
+          <ul>
+            <li><span class="term-blue">حكمه:</span> حر مسلم ما لم يوجد في بلد كفر.</li>
+            <li><span class="term-blue">الإنفاق عليه:</span> مما وجد معه من مال، فإن لم يكن معه فمن بيت المال.</li>
+            <li><span class="term-blue">نسبه:</span> يثبت بإقرار من يدعيه، أو بالقافة عند التنازع.</li>
+            <li><span class="term-blue">الحضانة:</span> واجده أحق به بشرط أن يكون حراً أميناً عدلاً رشيداً مسلماً.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 وجد رجل قلم رصاص بسيطاً ملقى في ساحة عامة. (التطبيق: يجوز له أخذه وتملكه مباشرة لأنه مما لا تتبعه همة الناس).</div>
+      <div class="app-scenario">📌 رأى شخص ناقة تائهة في البرية تحمي نفسها. (التطبيق: يحرم عليه التقاطها، وعليه تركها حتى يجدها ربها).</div>
+      <div class="app-scenario">📌 عثر شخص على محفظة نقود بها مبلغ كبير. (التطبيق: يجب عليه معرفة أوصافها وتعريفها في المجامع لمدة سنة كاملة قبل تملكها).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">اللقطة واللقيط</div>
+        <div class="tree-branches">
+          <div class="tree-node"><div class="tree-leaf"><h4>أقسام اللقطة</h4><p>تافهة: تملك بلا تعريف<br>ممتنعة (إبل): يحرم التقاطها<br>ثمينة: تعرف سنة ثم تملك</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>اللقيط</h4><p>التقاطه: فرض كفاية<br>حاله: حر مسلم<br>نفقته: من ماله أو بيت المال</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>لقطة الحرم</h4><p>استثناء: لا تملك أبداً<br>وتعرف للأبد</p></div></div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-2-1">
+        <div class="ex-q">١. لماذا يتم التفريق في الحكم بين التقاط الشاة والتقاط الإبل؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 1, this, true, 'أحسنت! الإبل تمتنع بنفسها ولها قدرة على حماية نفسها والبقاء.')">لأن الإبل تمتنع بنفسها وتستطيع حماية نفسها بخلاف الشاة</button><button class="ex-btn" onclick="act(2, 1, this, false, 'خاطئ.')">لا فرق بينهما في الحكم</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-2">
+        <div class="ex-q">٢. ما هي الشروط الواجب توافرها في الشخص الذي يريد حضانة اللقيط؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 2, this, false, 'خاطئ.')">أن يكون غنياً فقط</button><button class="ex-btn" onclick="act(2, 2, this, true, 'صحيح! حر، أمين، عدل، رشيد، مسلم.')">حر، أمين، عدل، رشيد، مسلم</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-3">
+        <div class="ex-q">٣. كيف يكون التصرف الشرعي في اللقطة التي يخشى عليها الفساد السريع كاللحم أو الفاكهة؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(2, 3, this, true, 'صحيح. تؤكل وتضمن قيمتها أو تباع ويحفظ ثمنها.')">تؤكل وتضمن قيمتها، أو تباع ويحفظ ثمنها</button><button class="ex-btn" onclick="act(2, 3, this, false, 'خاطئ.')">تترك حتى تفسد ولا يجوز التصرف فيها</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-2-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-2"></div></div>
+
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-2"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(1)">◁ السابق</button><button class="nav-btn btn-navy" id="next-2" disabled onclick="goSlide(3)">التالي: الوقف ➜</button></div>
+    </div>
+
+    <!-- ================= 3. الوقف ================= -->
+    <div id="s-3" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🏛️</div>
+        <div class="hero-title">الباب الثاني والعشرون: الوقف</div>
+        <div class="hero-sub">حبس الأصل وتسبيل المنفعة - الصدقة الجارية</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">التعريف</div><div class="hero-tag">الشروط</div><div class="hero-tag">اللزوم</div><div class="hero-tag">تعطل المنافع</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الوقف</div><div class="info-card-desc">أن يعرّف الطالب الوقف ويبيّن حقيقته (حبس الأصل وتسبيل المنفعة).</div></div>
+        <div class="info-card"><div class="info-card-icon">🕌</div><div class="info-card-title">الدليل</div><div class="info-card-desc">الاستدلال على مشروعية الوقف من السنة وفعل الصحابة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">شروط الصحة</div><div class="info-card-desc">أن يعدد شروط صحة الوقف المتعلقة بالواقف والموقوف والمصرف.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">أحكام البيع</div><div class="info-card-desc">توضيح لزوم عقد الوقف وحالات بيعه عند تعطل منافعه.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">الوقف هو الصدقة الجارية التي يبقى نفعها وأجرها للمسلم حتى بعد وفاته. وهو من أرقى صور التكافل الاجتماعي في الإسلام، حيث تُحبس الأصول لتدرّ خيراً مستمراً على الفقراء ومصالح المسلمين العامة.</div>
+      <div class="verse-box">
+        <div class="verse-basmala">الحديث الشريف</div>
+        <div class="verse-text">«حبّست أصلها، وتصدّقت بها»</div>
+        <div class="verse-ref">حديث عمر بن الخطاب رضي الله عنه في أرض خيبر</div>
+      </div>
+
+      <div class="block-header">افهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">حبس العين التي يمكن الانتفاع بها مع بقائها، تسبيل ثمرتها تقرباً لله.</div></div>
+        <div class="info-card"><div class="info-card-icon">📜</div><div class="info-card-title">الدليل</div><div class="info-card-desc">حديث عمر بن الخطاب في أرض خيبر: (حبّست أصلها، وتصدّقت بها).</div></div>
+        <div class="info-card"><div class="info-card-icon">🔒</div><div class="info-card-title">اللزوم</div><div class="info-card-desc">الوقف عقد لازم بمجرد القول، لا يجوز فسخه ولا بيعه ولا هبته.</div></div>
+        <div class="info-card"><div class="info-card-icon">📝</div><div class="info-card-title">شرط الواقف</div><div class="info-card-desc">يجب العمل بشرط الواقف ما دام لا يخالف الشرع.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">معنى الوقف وحكمه <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">التعريف:</span><br>
+          الوقف لغة: الحبس. وشرعاً: <span class="term-blue">حبس عين يمكن الانتفاع بها مع بقائها؛ تقرباً إلى الله تعالى</span>. فهو حبس الأصل وتسبيل الثمرة. وهو مستحب، ويعد من "الصدقة الجارية" التي ذكرها النبي ﷺ في قوله: (إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقة جارية...).
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">شروط صحة الوقف <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ol>
+            <li><span class="term-blue">في الواقف:</span> أن يكون جائز التصرف (عاقلاً بالغاً حراً رشيداً).</li>
+            <li><span class="term-blue">في الموقوف:</span> أن يكون عيناً ينتفع بها دائماً مع بقائها (كالدور والأراضي والكتب)، وأن تكون معينة.</li>
+            <li><span class="term-blue">في الجهة الموقوف عليها:</span> أن تكون على برٍ ومعروف (مساجد، فقراء، طلاب علم)، فلا يصح الوقف على محرم.</li>
+            <li><span class="term-blue">التنجيز:</span> أن يكون الوقف منجزاً في الحال، ولا يصح مؤقتاً ولا معلقاً (إلا إذا علقه بموته فيكون في حكم الوصية).</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أحكام متعلقة بالوقف <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">لزوم العقد:</span> الوقف عقد لازم لا يملك الواقف الرجوع فيه.</li>
+            <li><span class="term-blue">الاستواء في الذرية:</span> إذا وقف على أولاده، فالأصل استواء الذكور والإناث في الاستحقاق ما لم يشترط خلاف ذلك.</li>
+            <li><span class="hl-red">تعطل المنافع:</span> إذا خرب الوقف ولم يمكن الانتفاع به (كمسجد هجر أهله أو دار تهدمت)، فإنه يباع ويصرف ثمنه في مثل جنسه (في مسجد آخر أو دار أخرى).</li>
+            <li><span class="hl-green">شرط الواقف:</span> يعتبر نصاً تشريعياً يجب اتباعه ما لم يحرم حلالاً أو يحل حراماً.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 أوقف شخص مكتبة خاصة لطلاب العلم وجعلها في عمارة مملوكة له. (التطبيق: وقف صحيح، تظل الكتب أصولاً محبوسة وينتفع الطلاب بالقراءة).</div>
+      <div class="app-scenario">📌 أوقف رجل نصيبه في شركة غير محددة (مجهولة). (التطبيق: لا يصح الوقف؛ لأن من شروط الموقوف أن يكون معيناً).</div>
+      <div class="app-scenario">📌 تهدم مسجد قديم في قرية رحل عنها أهلها وتعطلت صلاتهم فيه. (التطبيق: يجوز بيع أنقاضه أو أرضه وصرف الثمن في مسجد آخر يحتاجه الناس).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الوقف</div>
+        <div class="tree-branches">
+          <div class="tree-node"><div class="tree-leaf"><h4>الحقيقة والحكم</h4><p>حبس الأصل وتسبيل المنفعة<br>حكمه: مستحب (صدقة جارية)</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>الأركان والشروط</h4><p>واقف جائز التصرف<br>عين تبقى بعد الانتفاع<br>جهة بر ومعروف</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>أحكام خاصة</h4><p>عقد لازم لا رجوع فيه<br>شرط الواقف ملزم<br>يباع إذا تعطلت منافعه</p></div></div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-3-1">
+        <div class="ex-q">١. ما المقصود بعبارة "حبس الأصل وتسبيل المنفعة"؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 1, this, true, 'أحسنت! تبقى العين محبوسة لا تباع ولا توهب، وتُصرف منفعتها في الخير.')">تبقى العين محبوسة لا تباع ولا توهب، وتُصرف منفعتها في وجوه الخير</button><button class="ex-btn" onclick="act(3, 1, this, false, 'خاطئ.')">تباع العين وتصرف منفعتها للمحتاجين</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-2">
+        <div class="ex-q">٢. لماذا اشترط الفقهاء أن يكون الوقف على "جهة بر ومعروف"؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 2, this, false, 'خاطئ.')">لأن الوقف عقد معاوضة</button><button class="ex-btn" onclick="act(3, 2, this, true, 'صحيح! لأن الوقف قربة لله فلا يكون إلا في طاعة.')">لأن الوقف قربة لله تعالى فلا يصح فيما حرم</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-3">
+        <div class="ex-q">٣. متى يجوز شرعاً تغيير عين الوقف أو بيعها؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(3, 3, this, false, 'خاطئ.')">يجوز في أي وقت</button><button class="ex-btn" onclick="act(3, 3, this, true, 'أحسنت! عند تعطل منافعها تماماً كالمسجد المهجور أو الدار المتهدمة.')">إذا تعطلت منافعها تماماً ولم يمكن إصلاحها</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-3-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-3"></div></div>
+
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-3"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(2)">◁ السابق</button><button class="nav-btn btn-navy" id="next-3" disabled onclick="goSlide(4)">التالي: الهبة والعطية ➜</button></div>
+    </div>
+
+    <!-- ================= 4. الهبة والعطية ================= -->
+    <div id="s-4" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">🎁</div>
+        <div class="hero-title">الباب الثالث والعشرون: الهبة والعطية</div>
+        <div class="hero-sub">التبرع بالمال في الحياة بلا عوض - العدل بين الأولاد</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">التعريف</div><div class="hero-tag">الرجوع</div><div class="hero-tag">العدل بين الأولاد</div><div class="hero-tag">تصرفات المريض</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الهبة</div><div class="info-card-desc">أن يعرّف الطالب الهبة ويذكر شروط صحتها.</div></div>
+        <div class="info-card"><div class="info-card-icon">🔄</div><div class="info-card-title">الرجوع في الهبة</div><div class="info-card-desc">بيان حكم الرجوع في الهبة والحالات المستثناة.</div></div>
+        <div class="info-card"><div class="info-card-icon">⚖️</div><div class="info-card-title">العدل بين الأولاد</div><div class="info-card-desc">توضيح وجوب العدل بين الأولاد في العطية وأدلة ذلك.</div></div>
+        <div class="info-card"><div class="info-card-icon">🏥</div><div class="info-card-title">تصرفات المريض</div><div class="info-card-desc">تمييز بين تصرفات المريض في الصحة وفي مرض الموت.</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">الهبة من عقود التبرعات التي تنشر المحبة وتقوي الروابط الاجتماعية. وقد نظم الشرع أحكامها لضمان خروجها عن طيب نفس، وحمايةً لحقوق الورثة، وتحقيقاً للعدل بين الأبناء في العطايا.</div>
+      <div class="verse-box">
+        <div class="verse-basmala">الحديث الشريف</div>
+        <div class="verse-text">«تهادوا تحابوا»</div>
+        <div class="verse-ref">رواه البخاري في الأدب المفرد</div>
+      </div>
+
+      <div class="block-header">افهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">التبرع بالمال في حال الحياة لغيره بلا عوض.</div></div>
+        <div class="info-card"><div class="info-card-icon">🚫</div><div class="info-card-title">الرجوع</div><div class="info-card-desc">يحرم الرجوع في الهبة بعد القبض إلا للوالد فيما يعطي ولده.</div></div>
+        <div class="info-card"><div class="info-card-icon">👨‍👩‍👧‍👦</div><div class="info-card-title">العدل بين الأولاد</div><div class="info-card-desc">يجب على الأب المساواة بين أولاده في الهبة ولا يجوز تفضيل أحدهم إلا برضاهم.</div></div>
+        <div class="info-card"><div class="info-card-icon">🏥</div><div class="info-card-title">هبة المريض</div><div class="info-card-desc">تبرعات المريض مرض الموت تنفذ من الثلث فقط لحق الورثة.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">حقيقة الهبة وحكمها وشروط صحتها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">حقيقة الهبة وحكمها:</span><br>
+          الهبة هي <span class="term-blue">تبرع جائز التصرف بمال معلوم أو غيره في حال حياته لغيره بلا عوض</span>. وهي مستحبة إذا قصد بها وجه الله أو صلة الرحم لقوله ﷺ: (تهادوا تحابوا). وتكره إذا كانت للرياء والمباهاة.<br><br>
+          <span class="section-head">شروط صحة الهبة:</span>
+          <ol>
+            <li>أن تصدر من جائز التصرف (حر، مكلف، رشيد).</li>
+            <li>الرضا (الاختيار)، فلا تصح من المكره.</li>
+            <li>أن يكون الموهوب مما يصح بيعه (فلا تصح هبة الخمر).</li>
+            <li>القبول من الموهوب له.</li>
+            <li>أن تكون منجزة (لا تصح مؤقتة).</li>
+            <li>أن تكون بلا عوض (لأنها تبرع محض).</li>
+          </ol>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">لزوم الهبة والرجوع فيها والعدل بين الأولاد <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">لزوم الهبة والرجوع فيها:</span><br>
+          لا تلزم الهبة إلا بالقبض بإذن الواهب. وإذا قبضت، حرم الرجوع فيها لقوله ﷺ: (العائد في هبته كالكلب يقيء ثم يعود في قيئه)، ويستثنى من ذلك <span class="hl-green">"الوالد"</span> فله الرجوع فيما أعطى ولده.<br><br>
+          <span class="section-head">العدل بين الأولاد:</span><br>
+          يجب العدل بين الأبناء في العطايا. وإذا خص الأب أحدهم، لم يصح ذلك لقوله ﷺ: (اتقوا الله واعدلوا بين أولادكم)، إلا إذا رضي البقية وكانوا راشدين.
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">تصرفات المريض <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="term-blue">مرض غير مخوف</span> (صداع، وجع ضرس): تصرفه صحيح من كامل ماله.</li>
+            <li><span class="hl-red">مرض مخوف</span> (أمراض مستعصية): تبرعه ينفذ من <span class="term-blue">"الثلث"</span> فقط، وما زاد يتوقف على إجازة الورثة.</li>
+            <li><span class="term-blue">مرض مزمن غير ملزم للفراش:</span> كالصحيح يتصرف في ماله كله.</li>
+            <li><span class="term-blue">مرض مزمن ملزم للفراش:</span> تصرفه في حدود الثلث لغير الوارث.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 وهب رجل صديقه سيارة وسلمها له، وبعد شهر طلب استردادها. (التطبيق: لا يحق له الرجوع في الهبة بعد القبض؛ لأن العائد في هبته كالكلب يقيء ثم يعود).</div>
+      <div class="app-scenario">📌 أعطى أب ابنه الأكبر مبلغاً من المال لشراء أرض وحرم بقية إخوته. (التطبيق: هذا جور محرم، ويجب عليه العدل بينهم أو استرداد العطية).</div>
+      <div class="app-scenario">📌 تصدق شخص بمصنع قيمته مليون ريال وهو في مرض الموت المخوف. (التطبيق: ينفذ من الثلث فقط، وما زاد عن الثلث يحتاج موافقة الورثة بعد موته).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الهبة والعطية</div>
+        <div class="tree-branches">
+          <div class="tree-node"><div class="tree-leaf"><h4>أحكام عامة</h4><p>تبرع في الحياة بلا عوض<br>تلزم بالقبض<br>يحرم الرجوع (إلا الوالد)</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>العدل بين الأولاد</h4><p>واجب شرعاً<br>التفضيل "جور" لا يجوز<br>إلا برضاهم</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>تصرفات المريض</h4><p>مرض مخوف: من الثلث<br>مرض غير مخوف: من كامل المال</p></div></div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-4-1">
+        <div class="ex-q">١. لماذا استثنى الشرع الوالد من منع الرجوع في الهبة؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 1, this, true, 'أحسنت! لما للوالد من حق عظيم على ولده.')">لما للوالد من حق عظيم على ولده</button><button class="ex-btn" onclick="act(4, 1, this, false, 'خاطئ.')">لأن مال الولد ملك لوالده</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-2">
+        <div class="ex-q">٢. ما الفرق بين حكم هبة المريض مرضاً مخوفاً والمريض مرضاً غير مخوف؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 2, this, false, 'خاطئ.')">كلاهما من الثلث</button><button class="ex-btn" onclick="act(4, 2, this, true, 'صحيح! المخوف من الثلث فقط، وغير المخوف من كامل المال.')">المخوف ينفذ من الثلث فقط، وغير المخوف من كامل المال</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-3">
+        <div class="ex-q">٣. متى يجوز للأب تفضيل أحد أبنائه في العطية؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(4, 3, this, false, 'خاطئ.')">يجوز مطلقاً</button><button class="ex-btn" onclick="act(4, 3, this, true, 'أحسنت! إذا رضي بقية الأبناء وكانوا راشدين.')">إذا رضي بقية الأبناء وكانوا راشدين</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-4-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-4"></div></div>
+
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-4"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(3)">◁ السابق</button><button class="nav-btn btn-navy" id="next-4" disabled onclick="goSlide(5)">التالي: الوصية ➜</button></div>
+    </div>
+
+    <!-- ================= 5. الوصية ================= -->
+    <div id="s-5" class="scr" data-req="4">
+      <div class="hero-banner">
+        <div class="hero-icon">📜</div>
+        <div class="hero-title">الباب الثاني: الوصية</div>
+        <div class="hero-sub">العهد بالتصرف بعد الموت - الثلث فأقل</div>
+        <div class="hero-line"></div>
+        <div class="hero-tags"><div class="hero-tag">التعريف</div><div class="hero-tag">الثلث</div><div class="hero-tag">الوارث</div><div class="hero-tag">الدين</div><div class="hero-tag">الرجوع</div></div>
+      </div>
+
+      <div class="block-header">مخرجات التعلم</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">تعريف الوصية</div><div class="info-card-desc">أن يعرّف الطالب الوصية ويذكر أدلة مشروعيتها من الكتاب والسنة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📐</div><div class="info-card-title">المقدار الجائز</div><div class="info-card-desc">تحديد المقدار الجائز للوصية (الثلث فأقل) وشروطه.</div></div>
+        <div class="info-card"><div class="info-card-icon">🎯</div><div class="info-card-title">الجهات</div><div class="info-card-desc">تمييز بين الجهات التي تجوز الوصية لها والجهات المحرمة.</div></div>
+        <div class="info-card"><div class="info-card-icon">📋</div><div class="info-card-title">ترتيب الحقوق</div><div class="info-card-desc">ترتيب الحقوق المتعلقة بالتركة (الدين، الوصية، الإرث).</div></div>
+      </div>
+
+      <div class="block-header">مدخل الباب</div>
+      <div class="intro-text">الوصية هي الفرصة الأخيرة للمؤمن لزيادة رصيده من الحسنات بعد موته، وهي عهد من الإنسان بالتصرف في ماله أو شؤونه بعد رحيله، وقد أحاطها الإسلام بقيود تحفظ توازن الحقوق بين الموصي والورثة.</div>
+      <div class="verse-box">
+        <div class="verse-basmala">القرآن الكريم</div>
+        <div class="verse-text">﴿مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ﴾</div>
+        <div class="verse-ref">سورة النساء: ١١</div>
+      </div>
+
+      <div class="block-header">افهم بسرعة</div>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-card-icon">📘</div><div class="info-card-title">التعريف</div><div class="info-card-desc">هبة الإنسان غيره عيناً أو منفعة على أن يملكها الموصى له بعد الموت.</div></div>
+        <div class="info-card"><div class="info-card-icon">📐</div><div class="info-card-title">المقدار</div><div class="info-card-desc">الحد الأقصى للوصية هو "الثلث"، والأفضل أن تكون أقل منه.</div></div>
+        <div class="info-card"><div class="info-card-icon">🚫</div><div class="info-card-title">الوصية لوارث</div><div class="info-card-desc">لا تجوز الوصية لأي شخص يرث؛ لقوله ﷺ: (لا وصية لوارث).</div></div>
+        <div class="info-card"><div class="info-card-icon">🔢</div><div class="info-card-title">الأولوية</div><div class="info-card-desc">قضاء الديون والواجبات الشرعية مقدمة في التنفيذ على الوصية.</div></div>
+      </div>
+
+      <div class="block-header">النص العلمي الكامل</div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">معنى الوصية ومشروعيتها <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">معنى الوصية:</span><br>
+          الوصية هي <span class="term-blue">العهد إلى الغير أو الأمر بالتصرف بعد الموت</span>. وهي مشروعة لقوله تعالى: {مِن بَعْدِ وَصِيَّةٍ يُوصِي بِهَا أَوْ دَيْنٍ}، ولقوله ﷺ: (ما حق امرئ مسلم، يبيت ليلتين، وله شيء يريد أن يوصي فيه، إلا ووصيته مكتوبة عند رأسه).
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">أحكام المقدار والجهة وشروط الموصي <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <span class="section-head">أحكام المقدار والجهة:</span>
+          <ol>
+            <li><span class="term-blue">المقدار:</span> تجوز بالثلث فأقل لمن له وارث، ويستحب نقصها عن الثلث (كالربع). وإذا لم يكن له وارث جازت بالمال كله.</li>
+            <li><span class="hl-red">الوصية لوارث:</span> لا تصح مطلقاً إلا إذا أجازها بقية الورثة بعد الموت.</li>
+            <li><span class="hl-red">جهة المعصية:</span> تحرم الوصية لأي أمر فيه معصية (كشراء آلات لهو أو معابد كفر) وتعتبر باطلة.</li>
+          </ol>
+          <span class="section-head">شروط الموصي والموصى له:</span>
+          <ul>
+            <li><span class="term-blue">الموصي:</span> يجب أن يكون جائز التصرف (عاقلاً، بالغاً، حراً، مختاراً).</li>
+            <li><span class="term-blue">الموصى له:</span> تصح لكل شخص يصح تمليكه مسلماً كان أو كافراً. ولا تثبت الوصية للمعين إلا بقبوله بعد موت الموصي.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="toggleAcc(this)">
+        <div class="accordion-header">مسائل متنوعة في الوصية <span class="accordion-icon">+</span></div>
+        <div class="accordion-body">
+          <ul>
+            <li><span class="hl-red">الترتيب:</span> الدين يقدم على الوصية (قضى النبي ﷺ بالدين قبل الوصية).</li>
+            <li><span class="term-blue">التدوين:</span> يجب على المسلم تدوين ماله وما عليه من حقوق وصيةً له.</li>
+            <li><span class="term-blue">الرجوع:</span> يجوز للموصي نقض وصيته أو تغييرها في أي وقت قبل وفاته.</li>
+            <li><span class="hl-red">قصد المضارة:</span> تحرم الوصية إذا قصد بها الإضرار بالورثة لقوله تعالى {غَيْرَ مُضَارٍّ}.</li>
+            <li><span class="term-blue">الاستحباب والكراهة:</span> تستحب لصاحب المال الكثير ووارثه غني، وتكره لصاحب المال القليل ووارثه محتاج.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block-header">تطبيقات عملية</div>
+      <div class="app-scenario">📌 أوصى رجل بنصف ماله لجمعية خيرية وله أبناء. (التطبيق: الوصية نافذة في "الثلث" فقط، وما زاد يتوقف على موافقة الورثة).</div>
+      <div class="app-scenario">📌 كتب شخص في وصيته: "أعطوا ابني محمداً مبلغ 10 آلاف ريال زيادة على نصيبه". (التطبيق: وصية غير صحيحة لأنها لوارث، إلا إذا وافق بقية الورثة بعد موته).</div>
+      <div class="app-scenario">📌 توفي شخص وعليه دين قدره 50 ألف، وترك وصية بـ 20 ألف، وكان ماله كله 60 ألف. (التطبيق: يسدد الدين أولاً (50 ألف)، ويتبقى 10 آلاف فقط تصرف في الوصية).</div>
+
+      <div class="block-header">ملخص الدرس (خريطة ذهنية)</div>
+      <div class="tree-container">
+        <div class="tree-root">الوصية</div>
+        <div class="tree-branches">
+          <div class="tree-node"><div class="tree-leaf"><h4>المشروعية والحكم</h4><p>مشروعة بالكتاب والسنة<br>مستحبة أو واجبة بحسب الحقوق</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>القيود</h4><p>لا تزيد عن الثلث<br>لا وصية لوارث</p></div></div>
+          <div class="tree-node"><div class="tree-leaf"><h4>التنفيذ والحالات</h4><p>الدين قبل الوصية<br>تستحب للغني<br>تكره للفقير ذي العيال</p></div></div>
+        </div>
+      </div>
+
+      <div class="block-header">أسئلة الفهم</div>
+      <div class="ex-box" id="ex-5-1">
+        <div class="ex-q">١. ما الحكمة من منع الوصية للوارث؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 1, this, true, 'أحسنت! لئلا يؤدي ذلك إلى تفضيل بعض الورثة على بعض وإثارة الضغائن.')">لئلا يؤدي إلى تفضيل بعض الورثة على بعض وإثارة الضغائن</button><button class="ex-btn" onclick="act(5, 1, this, false, 'خاطئ.')">لا حكمة من ذلك</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-2">
+        <div class="ex-q">٢. هل يجوز لشخص أن يوصي بجميع ماله في أعمال الخير؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 2, this, false, 'خاطئ.')">يجوز مطلقاً</button><button class="ex-btn" onclick="act(5, 2, this, true, 'صحيح! يجوز فقط إذا لم يكن له وارث، وإلا فبالثلث فأقل.')">يجوز فقط إذا لم يكن له وارث، وإلا فبالثلث فأقل</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-3">
+        <div class="ex-q">٣. متى تبطل الوصية وما هي الجهات التي لا يجوز الوصية لها؟</div>
+        <div class="ex-opts"><button class="ex-btn" onclick="act(5, 3, this, false, 'خاطئ.')">تبطل إذا كانت لمسلم</button><button class="ex-btn" onclick="act(5, 3, this, true, 'أحسنت! تبطل إذا كانت لجهة معصية أو لوارث دون إجازة الورثة.')">تبطل إذا كانت لجهة معصية أو لوارث دون إجازة الورثة</button></div><div class="ex-fb"></div>
+      </div>
+      <div class="ex-box" id="ex-5-4"><div class="ex-q">٤. صل المفاهيم:</div><div class="game-grid" id="game-5"></div></div>
+
+      <div class="progress-tracker"><span>التقدم:</span><div class="prog-dots" id="dots-5"><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div></div>
+      <div class="nav-row"><button class="nav-btn btn-outline" onclick="goSlide(4)">◁ السابق</button><button class="nav-btn btn-gold" id="next-5" disabled onclick="finishLesson()">✓ إتمام الدروس والانتقال</button></div>
+    </div>
+
+    <!-- ================= TAB: NAWAZIL ================= -->
+    <div id="s-nawazil" class="scr">
+      <div class="hero-banner" style="background:#fdfbf7; border-color:var(--gold);">
+        <div class="hero-icon">⚖️</div>
+        <div class="hero-title" style="font-family:var(--font-quran);">النوازل الفقهية المعاصرة</div>
+        <div class="hero-sub">اضغط على النازلة لعرض الحكم الشرعي الخاص بها</div>
+      </div>
+      <div class="essay-list">
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">س١: ما حكم رصد مكافأة مالية (جعل) لمن يدلي بمعلومات إلكترونية تؤدي لاستعادة حساب مخترق؟</div><div class="essay-a">يجوز ذلك، وهي من صور الجعالة المعاصرة؛ لأن العمل (استرداد الحساب) معلوم ومباح، والعوض معلوم، وتصح الجعالة على الأعمال المعنوية والتقنية.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">س٢: هل يصح جعل "نقاط المكافآت" أو "الأميال الجوية" عوضاً في عقد الجعالة؟</div><div class="essay-a">نعم، يصح ذلك طالما أن هذه النقاط لها قيمة مالية معتبرة عرفاً ومقدورة التسليم، فتعتبر عوضاً معلوماً يصح الالتزام به.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">س٣: ما حكم استخدام منصات التواصل الاجتماعي للإعلان عن لقطة ثمينة؟</div><div class="essay-a">يجوز بل قد يكون أولى في العصر الحاضر؛ لأن المقصود من التعريف هو وصول الخبر لمستحقه، ومنصات التواصل تعد اليوم من أكبر مجامع الناس الافتراضية.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">س٤: إذا وجد شخص "بطاقة صراف آلي"، فهل تأخذ حكم اللقطة التي تُعرف سنة؟</div><div class="essay-a">لا تُعرف سنة، بل يجب تسليمها فوراً للبنك المصدر لها أو إتلافها بعد التواصل مع البنك؛ لأنها وسيلة للوصول للمال وليست مالاً تافهاً، وبقاءها مع الملتقط يضر بصاحبها.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">س٥: هل يجوز إثبات نسب "اللقيط" عن طريق "البصمة الوراثية" (DNA)؟</div><div class="essay-a">نعم، يجوز اللجوء للبصمة الوراثية عند التنازع لكونها وسيلة قطعية أو شبه قطعية في إثبات النسب، وهي مقدمة على القافة في العصر الحديث لدقتها.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">س٦: ما حكم وقف "الأسهم" في الشركات المساهمة لصالح جهات خيرية؟</div><div class="essay-a">يجوز وقف الأسهم؛ لأنها تمثل حصصاً شائعة في أعيان ونشاطات الشركة، ويمكن الانتفاع بعائدها (الأرباح) مع بقاء أصل السهم، وهو ما يحقق معنى الوقف.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">س٧: ما حكم هبة "الرصيد الهاتفي" من الأب لبعض أبنائه دون الآخرين؟</div><div class="essay-a">يجب على الأب العدل والمساواة بين أبنائه في هذه الهبات كما في الأموال النقدية، ولا يجوز تفضيل أحدهم إلا بمبرر شرعي أو رضا البقية.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">س٨: شخص مصاب بفيروس معدٍ وخطير قام بتوزيع أمواله على أصدقائه، فما نفاذ هذه العطية؟</div><div class="essay-a">تأخذ هذه العطية حكم "تصرفات المريض مرض الموت"، فتنفذ من ثلث ماله فقط، وما زاد عن الثلث يتوقف على إجازة الورثة.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">س٩: هل يجوز للموصي أن يوصي بجزء من ماله لإنشاء "تطبيق إلكتروني" لتعليم القرآن؟</div><div class="essay-a">نعم، هذه وصية صحيحة ومستحبة، وتعتبر من "صدقة جارية" أو "علم ينتفع به" الذي يبقى ثوابه بعد الموت.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">س١٠: ما حكم الوصية لمركز أبحاث علمية غير إسلامي لاكتشاف علاج لمرض السرطان؟</div><div class="essay-a">تصح الوصية في هذه الحالة لأنها من "المعروف" المقصد منه نفع البشرية، وليست وصية لمعصية أو لجهة دينية محرمة.</div></div>
+      </div>
+      <div style="margin-top:30px; padding:15px; background:var(--navy); color:var(--gold-light); border-radius:12px; text-align:center; font-family:var(--font-title); font-size:1.1rem;">
+        المرجع: الموسوعة الميسرة في فقه القضايا المعاصرة (القضايا المعاصرة في فقه المعاملات المالية)
+      </div>
+    </div>
+
+    <!-- ================= TAB: REVIEW ================= -->
+    <div id="s-review" class="scr">
+      <div class="hero-banner" style="background:var(--navy); color:#fff; border:none;">
+        <div class="hero-icon" style="color:var(--gold);">🧠</div>
+        <div class="hero-title" style="color:#fff;">المراجعة الشاملة</div>
+        <div class="hero-sub" style="color:var(--gold-light);">بطاقات المفاهيم والأسئلة المقالية لترسيخ الفهم</div>
+      </div>
+      <div class="block-header">أولاً: بطاقات المفاهيم (اضغط للقلب)</div>
+      <div class="fc-grid" id="fcBox"></div>
+      <div class="block-header" style="margin-top:40px;">ثانياً: الأسئلة المقالية (١٠ أسئلة)</div>
+      <div class="essay-list">
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">١. قارن بين الجعالة والإجارة من حيث "لزوم العقد".</div><div class="essay-a">الجعالة عقد جائز من الطرفين، أما الإجارة فهي عقد لازم لا يفسخ إلا برضا الطرفين.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٢. ما أثر فسخ الجاعل لعقد الجعالة بعد شروع العامل في العمل؟</div><div class="essay-a">يلزمه دفع "أجرة المثل" للعامل تعويضاً عن جهده، أما لو فسخ العامل فلا شيء له.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٣. ما الفرق بين لقطة الحرم واللقطة في غير الحرم؟</div><div class="essay-a">لقطة الحرم لا تملك أبداً ويجب تعريفها طول الدهر، أما غيرها فتملك بعد تعريفها سنة.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٤. ما حكم الإنفاق على اللقيط إذا لم يوجد معه مال؟</div><div class="essay-a">ينفق عليه من بيت مال المسلمين، والتقاطه فرض كفاية.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٥. متى يجب العمل بشرط الواقف ومتى يحرم؟</div><div class="essay-a">يجب العمل به إذا كان لا يخالف الشرع، ويحرم إذا تضمن معصية أو أمراً محرماً.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٦. علل: وجوب المساواة بين الأولاد في الهبة.</div><div class="essay-a">لقوله ﷺ: "اتقوا الله واعدلوا بين أولادكم"، ولأن التفضيل يورث الضغينة والقطيعة.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٧. ما حكم هبة الدين لمن هو في ذمته؟ وماذا تسمى؟</div><div class="essay-a">تصح، وتعتبر "إبراءً" للمدين من دينه.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">٨. كيف يتم التصرف في الوقف إذا هُجر المكان وانقطعت منفعته؟</div><div class="essay-a">يباع ويصرف ثمنه في مسجد آخر أو وقف مماثل في مكان يحتاجه الناس.</div></div>
+        <div class="essay-item essay-navy" onclick="this.classList.toggle('open')"><div class="essay-q">٩. ما الفرق بين تصرفات المريض مرضاً مزمناً ملزماً للفراش وغير الملزم؟</div><div class="essay-a">غير الملزم كالصحيح في ماله كله، أما الملزم فتصرفاته في حدود الثلث فقط كالمريض مرض الموت.</div></div>
+        <div class="essay-item essay-gold" onclick="this.classList.toggle('open')"><div class="essay-q">١٠. ما شروط قبول الوصية ومتى يبدأ وقت ملكيتها؟</div><div class="essay-a">يشترط قبول الموصى له (إذا كان معيناً)، ويبدأ وقت الملكية بعد موت الموصي مباشرة.</div></div>
+      </div>
+    </div>
+
+    <!-- ================= TAB: QUIZ ================= -->
+    <div id="s-quiz" class="scr">
+      <div class="hero-banner" style="background:#fdfaf3;">
+        <div class="hero-icon">🎓</div>
+        <div class="hero-title">التقييم الشامل والنهائي</div>
+        <div class="hero-sub">يحتوي على ٢٠ سؤالاً لتقييم فهمك للمحاضرة (النتيجة تُرسل للدكتور آلياً)</div>
+        <div class="hero-line"></div>
+      </div>
+      <div id="qzBox"></div>
+    </div>
+
+  </div>
+
+  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
+  <div class="bottom-bar" id="bottomBar">
+    <div class="bottom-inner">
+      <button class="btab act" data-t="lesson" onclick="switchTab('lesson')">📚 الدرس</button>
+      <button class="btab locked" id="tab-nawazil" data-t="nawazil" onclick="switchTab('nawazil')">⚖️ النوازل</button>
+      <button class="btab locked" id="tab-review" data-t="review" onclick="switchTab('review')">🧠 المراجعة</button>
+      <button class="btab locked" id="tab-quiz" data-t="quiz" onclick="switchTab('quiz')">📝 التقييم</button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+const GAMES = {
+  1: {pairs:[{l:"الملتزم بالجعل",r:"يشترط فيه صحة التصرف"},{l:"العمل المحرم",r:"لا تصح عليه الجعالة أبداً"},{l:"فسخ العامل للعقد",r:"يسقط حقه في المطالبة بأي شيء"},{l:"حمل بعير",r:"العوض المعلوم في قصة يوسف عليه السلام"}]},
+  2: {pairs:[{l:"عفاصها",r:"الوعاء الذي تكون فيه النفقة"},{l:"لقطة الحرم",r:"لا تملك بحال ويجب تعريفها دائماً"},{l:"القافة",r:"من يعرف شبه الرجل بأبيه وأخيه"},{l:"ضالة الغنم",r:"هي للملتقط أو لأخيه أو للذئب"}]},
+  3: {pairs:[{l:"الصدقة الجارية",r:"الوقف في الاصطلاح الفقهي"},{l:"تعطل منافع الوقف",r:"يجوز فيه البيع وصرف الثمن في مثله"},{l:"الوقف على الأولاد",r:"يستوي فيه الذكور والإناث"},{l:"عقد الوقف",r:"عقد لازم لا فسخ فيه ولا هبة"}]},
+  4: {pairs:[{l:"القبض",r:"الشرط الذي تلزم به الهبة"},{l:"مرض الموت",r:"يقيد التبرعات بحدود الثلث"},{l:"صلة الرحم",r:"من مقاصد الهبة المستحبة"},{l:"هبة الدين",r:"تعتبر إبراءً لمن هو في ذمته"}]},
+  5: {pairs:[{l:"الثلث والثلث كثير",r:"الحد الأقصى المسموح به للوصية"},{l:"الوصية لوارث",r:"باطلة إلا بإجازة بقية الورثة"},{l:"غض الثلث إلى الربع",r:"المقدار المستحب في الوصية"},{l:"الرجوع في الوصية",r:"جائز للموصي في حياته متى شاء"}]}
+};
+
+const FLASHCARDS =[
+  {q:"ما تعريف الجعالة؟",a:"التزام عوض معلوم على عمل معين بقطع النظر عن فاعله."},
+  {q:"ما حكم الجعالة؟",a:"مباحة شرعاً بالكتاب والسنة."},
+  {q:"هل الجعالة عقد لازم؟",a:"لا، بل عقد جائز لكل من الطرفين فسخه."},
+  {q:"ما تعريف اللقطة؟",a:"أخذ مال محترم من مَضيعة ليحفظه أو يتملكه بعد تعريفه."},
+  {q:"ما هي مدة تعريف اللقطة الثمينة؟",a:"سنة كاملة في مجامع الناس."},
+  {q:"حكم التقاط ضالة الإبل؟",a:"يحرم التقاطها لأنها تمتنع بنفسها من صغار السباع."},
+  {q:"مَن هو اللقيط؟",a:"طفل يوجد منبوذاً أو يضل عن أهله ولا يعرف نسبه."},
+  {q:"ما تعريف الوقف؟",a:"حبس عين يمكن الانتفاع بها مع بقائها تسبيلًا لثمرتها."},
+  {q:"هل يجوز بيع العين الموقوفة؟",a:"لا يجوز إلا إذا تعطلت منافعها تماماً ولم يمكن إصلاحها."},
+  {q:"ما تعريف الهبة؟",a:"تبرع جائز التصرف في حياته لغيره بمال معلوم بلا عوض."},
+  {q:"متى تلزم الهبة؟",a:"تلزم بالقبض بإذن الواهب."},
+  {q:"هل يجوز الرجوع في الهبة؟",a:"يحرم إلا في هبة الوالد لولده."},
+  {q:"ما هو مقدار الوصية الجائز؟",a:"الثلث فأقل لمن له وارث."},
+  {q:"هل تجوز الوصية للوارث؟",a:"لا تجوز إلا إذا أجازها بقية الورثة بعد الموت."},
+  {q:"ما هو الحق المقدم على الوصية؟",a:"الدين والواجبات الشرعية (كالزكاة)."},
+  {q:"ما حكم تصرف المريض مرضاً مخوفاً؟",a:"ينفذ من الثلث فقط وما زاد يتوقف على الورثة."}
+];
+
+const QUIZ = [
+  {q:"التزام عوض معلوم على عمل معين بقطع النظر عن فاعله هو:",o:["الإجارة","الوقف","الهبة","الجعالة"],a:3},
+  {q:"إذا فسخ الجاعل العقد قبل تمام العمل، فالعامل يستحق:",o:["كامل الجعل","نصف الجعل","أجرة المثل","لا شيء له"],a:2},
+  {q:"أي من الآتي يحرم التقاطه؟",o:["الشاة الضائعة","الإبل في البرية","محفظة نقود","قلم رخيص"],a:1},
+  {q:"مدة تعريف اللقطة الثمينة هي:",o:["شهر","ستة أشهر","سنة كاملة","أسبوعان"],a:2},
+  {q:"لقطة الحرم:",o:["تملك بعد سنة","تملك بعد عشر سنين","لا تملك أبداً","تملك بعد تعريفها شهراً"],a:2},
+  {q:"اللقيط في بلد المسلمين يعتبر:",o:["عبداً","حراً مسلماً","حرًا كافراً","مجهول الحال"],a:1},
+  {q:"حبس الأصل وتسبيل المنفعة تقرباً لله هو:",o:["الهبة","الوصية","الوقف","العطية"],a:2},
+  {q:"الوقف عقد:",o:["جائز","باطل","لازم","مؤقت"],a:2},
+  {q:"إذا تعطلت منافع المسجد الموقوف:",o:["يعود ملكاً للورثة","يباع ويصرف في مسجد آخر","يترك كما هو","يهدم فقط"],a:1},
+  {q:"التبرع بالمال في حال الحياة بلا عوض هو:",o:["الوصية","الهبة","الجعالة","الإجارة"],a:1},
+  {q:"يحق للواهب الرجوع في هبته إذا كان:",o:["صديق الموهوب له","أخاً للموهوب له","والداً للموهوب له","خضراً له"],a:2},
+  {q:"تجب المساواة بين الأولاد في:",o:["الوصية","الهبة","الميراث فقط","الصدقة على الغرباء"],a:1},
+  {q:"تبرعات المريض مرض الموت المخوف تُنفذ من:",o:["رأس المال","الربع","الثلث","النصف"],a:2},
+  {q:"الوصية هي هبة الإنسان غيره مالاً يملكه:",o:["في حال حياته","بعد موته","بعد عشر سنين","عند مرضه"],a:1},
+  {q:"الحد الأقصى للوصية لمن له وارث هو:",o:["الربع","النصف","الثلث","كل المال"],a:2},
+  {q:"الترتيب الصحيح لتنفيذ الحقوق هو:",o:["الإرث ثم الدين","الوصية ثم الدين","الدين ثم الوصية","الإرث ثم الوصية"],a:2},
+  {q:"الوصية لوارث تعتبر:",o:["صحيحة مطلقاً","باطلة مطلقاً","تتوقف على إجازة الورثة","مستحبة"],a:2},
+  {q:"إذا أوصى شخص لجهة معصية، فالوصية:",o:["مكروهة","باطلة","صحيحة","جائزة"],a:1},
+  {q:"يجوز للموصي الرجوع في وصيته:",o:["في حياته","بعد موته","لا يجوز له ذلك","بموافقة الحاكم"],a:0},
+  {q:"تملّك اللقطة الثمينة يكون بعد:",o:["القبض مباشرة","مرور أسبوع","مرور سنة وتعريفها","شهر واحد"],a:2}
+];
+
+/* ================= STATE & LOGIC ================= */
+let user={n:'',s:''}, curSlide=0, startTime=null;
+let progress = { 1:new Set(), 2:new Set(), 3:new Set(), 4:new Set(), 5:new Set() };
+let activeL = null;
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const toast = m => { const t=$('#toast'); t.textContent=m; t.classList.add('on'); setTimeout(()=>t.classList.remove('on'), 3000); };
+
+function doLogin(){
+  const n=$('#iName').value.trim(), s=$('#iSec').value.trim();
+  if(!n||!s) return toast('⚠️ يرجى إدخال الاسم الكامل والشعبة');
+  user={n,s}; $('#stuInfo').textContent=`${n} | الشعبة: ${s}`;
+  $('#mainHeader').style.display='flex'; $('#bottomBar').style.display='flex';
+  startTime = Date.now();
+  renderGames(); renderReview(); renderQuiz();
+  goSlide(0);
+}
+
+function goSlide(i){
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  $(`#s-${i}`).classList.add('on');
+  curSlide = i; window.scrollTo({top:0, behavior:'smooth'});
+  const vid = $('video');
+  if(vid && i !== 0) vid.pause();
+}
+
+function switchTab(t){
+  const btn = $(`#tab-${t}`);
+  if(btn && btn.classList.contains('locked')) return toast('🔒 أكمل الدروس الخمسة أولاً لفتح هذه الأقسام');
+  const vid = $('video');
+  if(vid) vid.pause();
+  $$('.scr').forEach(s=>s.classList.remove('on'));
+  if(t==='lesson') $(`#s-${curSlide}`).classList.add('on');
+  else $(`#s-${t}`).classList.add('on');
+  $$('.btab').forEach(b=>b.classList.remove('act'));
+  $(`.btab[data-t="${t}"]`).classList.add('act');
+  window.scrollTo(0,0);
+}
+
+function toggleAcc(el){ el.classList.toggle('active'); }
+
+function act(slide, exNum, btn, isCorrect, msg){
+  const box = btn.closest('.ex-box');
+  const fb = box.querySelector('.ex-fb');
+  box.querySelectorAll('.ex-btn').forEach(b => b.style.display='none');
+  fb.textContent = msg;
+  fb.className = 'ex-fb ' + (isCorrect ? 'right' : 'wrong');
+  markDone(slide, exNum);
+}
+
+function markDone(slide, exNum){
+  progress[slide].add(exNum);
+  const dots = $$(`#dots-${slide} .prog-dot`);
+  if(dots[exNum-1]) dots[exNum-1].classList.add('done');
+  if(progress[slide].size === parseInt($(`#s-${slide}`).dataset.req)){
+    const nextBtn = $(`#next-${slide}`);
+    if(nextBtn) { nextBtn.disabled = false; toast('✅ أتممت المطلوب، تفضل للدرس التالي.'); }
+  }
+}
+
+function finishLesson(){
+  toast('🎉 عظيم! لقد أنهيت المقرر بالكامل. تم فتح أقسام النوازل والمراجعة والتقييم لك.');
+  $$('.btab.locked').forEach(b => b.classList.remove('locked'));
+  switchTab('nawazil');
+}
+
+/* ================= GAMES ================= */
+function renderGames(){
+  for(let i=1; i<=5; i++){
+    if(!GAMES[i]) continue;
+    const g = GAMES[i], sh =[...g.pairs].sort(()=>Math.random()-.5);
+    $(`#game-${i}`).innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:10px">${g.pairs.map((p,idx)=>`<div class="g-item" onclick="pickL(${i},this,${idx})">${p.l}</div>`).join('')}</div>
+      <div style="display:flex;flex-direction:column;gap:10px">${sh.map((p)=>`<div class="g-choice" onclick="pickR(${i},this,'${p.r}')">${p.r}</div>`).join('')}</div>`;
+  }
+}
+
+function pickL(s, el, idx){ $$(`#game-${s} .g-item`).forEach(e=>e.classList.remove('active')); el.classList.add('active'); activeL={s, el, idx}; }
+function pickR(s, el, txt){
+  if(!activeL || activeL.s !== s) return;
+  if(txt === GAMES[s].pairs[activeL.idx].r){
+    activeL.el.classList.add('done'); el.classList.add('done'); activeL = null;
+    if([...$$(`#game-${s} .g-item`)].every(e=>e.classList.contains('done'))) markDone(s, 4);
+  } else { toast('❌ غير مطابق، حاول مجدداً'); activeL.el.classList.remove('active'); activeL = null; }
+}
+
+/* ================= REVIEW & QUIZ ================= */
+function renderReview(){
+  $('#fcBox').innerHTML = FLASHCARDS.map(c=>`<div class="fc" onclick="this.classList.toggle('flip')"><div class="fc-in"><div class="fc-f">${c.q}</div><div class="fc-b">${c.a}</div></div></div>`).join('');
+}
+
+let score=0, answered=0;
+function renderQuiz(){
+  $('#qzBox').innerHTML = QUIZ.map((q,i)=>`<div class="qz-card" id="qc-${i}"><h3 style="margin-bottom:20px;color:var(--navy);font-family:var(--font-title);line-height:1.6;">س${i+1}: ${q.q}</h3>${q.o.map((o,j)=>`<button class="qz-opt" onclick="ansQ(${i},${j},this)">${o}</button>`).join('')}</div>`).join('') + `<div id="qzRes"></div>`;
+}
+
+function ansQ(qi, oi, btn){
+  const card = $(`#qc-${qi}`); if(card.dataset.done) return;
+  card.dataset.done = '1';
+  const btns = card.querySelectorAll('.qz-opt'); btns.forEach(b => b.disabled = true);
+  if(oi === QUIZ[qi].a){ btn.classList.add('right'); score++; }
+  else { btn.classList.add('wrong'); btns[QUIZ[qi].a].classList.add('right'); }
+  answered++; if(answered === QUIZ.length) finishQuiz();
+}
+
+function finishQuiz(){
+  const s = Math.floor((Date.now() - startTime)/1000);
+  const timeStr = `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+  const fd = new FormData();
+  fd.append("entry.1186146438", "السادسة - الإصدار النهائي");
+  fd.append("entry.598195891", user.n);
+  fd.append("entry.583802758", user.s);
+  fd.append("entry.2010697018", score);
+  fd.append("entry.1329211307", timeStr);
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSe0zGzyfo7FfGHta0Ae-J5NYmFFCCLK4W2NdnG92dHH51IcBg/formResponse", { method: "POST", mode: "no-cors", body: fd }).catch(e=>console.log(e));
+  $('#qzRes').innerHTML = `<div style="text-align:center; padding:40px; background:#f8fafc; border-radius:16px; border:2px solid var(--gold); margin-top:30px;"><h2 style="color:var(--navy);font-family:var(--font-title);">انتهى التقييم!</h2><div style="font-size:4rem;font-weight:900;color:var(--green);margin:15px 0;">${score} / ${QUIZ.length}</div><p style="font-size:1.1rem;color:var(--text-main);"><strong>${user.n}</strong> | الشعبة: <strong>${user.s}</strong></p><p style="margin-top:15px; color:var(--text-muted); font-weight:700;">✅ تم إرسال نتيجتك للدكتور. وقت التعلم: ${timeStr} دقيقة.</p></div>`;
+  $('#qzRes').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
